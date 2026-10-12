@@ -74,58 +74,79 @@ function initFooterPlaybooksToggle() {
 }
 
 /* --------------------------------------------------------------------------
-   1. Articles Manager (Batch Pagination, Filtering & Search)
+   1. Articles Manager (Data-Driven Architecture)
    -------------------------------------------------------------------------- */
 let currentVisibleLimit = 9;
 const BATCH_SIZE = 9;
 
+function renderArticleCard(art) {
+  return `
+    <article class="article-card" data-category="${art.category}">
+      <div class="card-media">
+        <span class="card-category-badge" style="background: ${art.badgeColor}; color: #ffffff;">${art.badgeText}</span>
+        <img 
+          src="${art.image}" 
+          alt="${art.title.replace(/"/g, '&quot;')}" 
+          loading="lazy"
+          style="width: 100%; height: 100%; object-fit: cover;"
+        >
+        <a href="${art.slug}" class="card-action-overlay" aria-label="Read article">
+          <span class="circle-arrow-btn">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </span>
+        </a>
+      </div>
+      <div class="card-body">
+        <h3 class="card-title">
+          <a href="${art.slug}">${art.title}</a>
+        </h3>
+        <p class="card-excerpt">
+          ${art.excerpt}
+        </p>
+        <div class="card-footer">
+          <span class="card-meta-info">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            ${art.readTime}
+          </span>
+          <a href="${art.slug}" class="card-read-link">Read &gt;</a>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
 function updateArticlesView() {
-  const cards = document.querySelectorAll('.articles-grid .article-card');
-  if (!cards.length) return;
+  const grid = document.querySelector('.articles-grid');
+  const allArticles = window.ARTICLES_DATA || [];
+  if (!grid || !allArticles.length) return;
 
   const activeTab = document.querySelector('.filter-tab.active');
   const activeFilter = activeTab ? activeTab.getAttribute('data-filter')?.toLowerCase() : 'all';
   const searchInput = document.querySelector('.hero-search-input');
   const searchTerm = (searchInput?.value || '').toLowerCase().trim();
 
-  let matchingCards = [];
-
-  cards.forEach(card => {
-    const title = card.querySelector('.card-title')?.innerText.toLowerCase() || '';
-    const excerpt = card.querySelector('.card-excerpt')?.innerText.toLowerCase() || '';
-    const category = card.getAttribute('data-category')?.toLowerCase() || '';
-
-    const matchesFilter = (activeFilter === 'all' || category.includes(activeFilter));
-    const matchesSearch = (!searchTerm || title.includes(searchTerm) || excerpt.includes(searchTerm) || category.includes(searchTerm));
-
-    if (matchesFilter && matchesSearch) {
-      matchingCards.push(card);
-    } else {
-      card.style.display = 'none';
-      card.style.opacity = '0';
-    }
+  // Filter articles
+  const matchingArticles = allArticles.filter(art => {
+    const matchesFilter = (activeFilter === 'all' || art.category.toLowerCase().includes(activeFilter));
+    const matchesSearch = (!searchTerm ||
+      art.title.toLowerCase().includes(searchTerm) ||
+      art.excerpt.toLowerCase().includes(searchTerm) ||
+      art.badgeText.toLowerCase().includes(searchTerm)
+    );
+    return matchesFilter && matchesSearch;
   });
 
   const isFiltering = (activeFilter !== 'all' || searchTerm.length > 0);
-  const displayLimit = isFiltering ? matchingCards.length : currentVisibleLimit;
+  const displayLimit = isFiltering ? matchingArticles.length : currentVisibleLimit;
+  const articlesToRender = matchingArticles.slice(0, displayLimit);
 
-  matchingCards.forEach((card, idx) => {
-    if (idx < displayLimit) {
-      card.style.display = 'flex';
-      setTimeout(() => {
-        card.style.transition = 'opacity 0.25s ease';
-        card.style.opacity = '1';
-      }, 10);
-    } else {
-      card.style.display = 'none';
-      card.style.opacity = '0';
-    }
-  });
+  // Render cards into grid
+  grid.innerHTML = articlesToRender.map(renderArticleCard).join('');
 
   // Dynamic Badge Count
   const badgeCount = document.querySelector('.badge-count');
   if (badgeCount) {
-    badgeCount.textContent = `${matchingCards.length} Articles`;
+    badgeCount.textContent = `${matchingArticles.length} Articles`;
   }
 
   // Load More Subtext & Button State
@@ -133,12 +154,12 @@ function updateArticlesView() {
   const loadMoreSubtext = document.querySelector('.load-more-subtext');
 
   if (loadMoreSubtext) {
-    const shownCount = Math.min(displayLimit, matchingCards.length);
-    loadMoreSubtext.textContent = `Showing ${shownCount} of ${matchingCards.length} technical editorial analyses`;
+    const shownCount = Math.min(displayLimit, matchingArticles.length);
+    loadMoreSubtext.textContent = `Showing ${shownCount} of ${matchingArticles.length} technical editorial analyses`;
   }
 
   if (loadMoreBtn) {
-    if (isFiltering || currentVisibleLimit >= matchingCards.length) {
+    if (isFiltering || currentVisibleLimit >= matchingArticles.length) {
       loadMoreBtn.style.display = 'none';
     } else {
       loadMoreBtn.style.display = 'inline-flex';
