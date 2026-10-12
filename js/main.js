@@ -1,9 +1,17 @@
 /**
  * TRADE INSIGHT BLOG - MAIN JAVASCRIPT
- * Modular Interactive Features
+ * Modular Interactive Features & Global Config
  */
 
+/* --------------------------------------------------------------------------
+   GLOBAL CONFIGURATION (Central Base Settings)
+   -------------------------------------------------------------------------- */
+window.SITE_CONFIG = {
+  referralLink: "https://fxnod.com/auth/register?ref=J306O7OW"
+};
+
 document.addEventListener('DOMContentLoaded', () => {
+  initReferralLinks();
   initCategoryFilters();
   initSearch();
   initReadingProgressBar();
@@ -13,6 +21,31 @@ document.addEventListener('DOMContentLoaded', () => {
   initLoadMore();
   initChecklist();
 });
+
+/* --------------------------------------------------------------------------
+   0. Central Referral Link Manager
+   -------------------------------------------------------------------------- */
+function initReferralLinks() {
+  const refUrl = window.SITE_CONFIG.referralLink;
+  if (!refUrl) return;
+
+  // Automatically update all referral links across the entire site
+  const referralSelectors = [
+    'a[data-ref-link]',
+    'a.ref-link',
+    'a.fxnod-ref-link',
+    'a.sidebar-cta-btn',
+    'a.fxnod-cta-btn',
+    'a[href*="fxnod.com/auth/register"]'
+  ];
+
+  const refLinks = document.querySelectorAll(referralSelectors.join(', '));
+  refLinks.forEach(link => {
+    link.href = refUrl;
+    if (!link.getAttribute('target')) link.setAttribute('target', '_blank');
+    if (!link.getAttribute('rel')) link.setAttribute('rel', 'noopener noreferrer');
+  });
+}
 
 /* --------------------------------------------------------------------------
    1. Category Pill Filtering
