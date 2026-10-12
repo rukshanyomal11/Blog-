@@ -700,11 +700,34 @@
   .nav-links, .header-search {
     display: none;
   }
-  .mobile-menu-toggle {
-    display: block;
+  .header-container {
+    padding: 0.6rem 1rem;
+  }
+  .brand-logo {
+    font-size: 1.05rem;
+    gap: 0.5rem;
+  }
+  .brand-icon {
+    width: 28px;
+    height: 28px;
+  }
+  .header-right .btn-primary {
+    padding: 0.38rem 0.8rem;
+    font-size: 0.76rem;
+    gap: 0.3rem;
+  }
+  .header-right .btn-primary svg {
+    width: 12px;
+    height: 12px;
+  }
+  .profile-avatar {
+    display: none;
   }
   .newsletter-card {
-    padding: 2rem 1.5rem;
+    padding: 2rem 1.25rem;
+  }
+  .newsletter-title {
+    font-size: 1.5rem;
   }
   .newsletter-form {
     flex-direction: column;
@@ -720,6 +743,16 @@
   }
   .newsletter-form .btn {
     width: 100%;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .stat-number {
+    font-size: 1.85rem;
+  }
+  .stat-label {
+    font-size: 0.75rem;
   }
   .footer-top-grid {
     grid-template-columns: 1fr;
