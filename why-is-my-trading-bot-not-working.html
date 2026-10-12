@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Is My Trading Bot Not Working? 9 Common Causes | Trade Insight</title>
+  <meta name="description" content="Learn why your trading bot may not be working, how to troubleshoot common errors, and what to check before restarting automated trading.">
+  <meta name="keywords" content="why is my trading bot not working, trading bot not working, trading bot errors, trading bot troubleshooting, automated trading problems, Deriv Bot not working, FXnod">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="Why Is My Trading Bot Not Working? 9 Common Causes">
+  <meta property="og:description" content="Learn why your trading bot may not be working, how to troubleshoot common errors, and what to check before restarting automated trading.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tradeinsight.com/why-is-my-trading-bot-not-working/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .article-featured-image-wrap {
+      margin: 2rem 0 2.5rem 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      background: #f1f5f9;
+      box-shadow: var(--shadow-md);
+    }
+    .article-featured-image {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      display: block;
+    }
+    .image-caption {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      background: #ffffff;
+      border-top: 1px solid var(--color-border);
+      text-align: center;
+      font-style: italic;
+    }
+    .fxnod-partner-box {
+      background: linear-gradient(135deg, #0b1120 0%, #172554 100%);
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      margin: 2.5rem 0;
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.25);
+    }
+    .fxnod-partner-box::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(240, 58, 39, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .fxnod-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(240, 58, 39, 0.2);
+      border: 1px solid rgba(240, 58, 39, 0.5);
+      color: #fca5a5;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .fxnod-partner-box h3 {
+      color: #ffffff;
+      font-size: 1.45rem;
+      margin-bottom: 0.65rem;
+    }
+    .fxnod-partner-box p {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      margin-bottom: 1.4rem;
+    }
+    .fxnod-cta-btn {
+      background: var(--color-primary);
+      color: #ffffff;
+      font-weight: 700;
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 16px rgba(240, 58, 39, 0.35);
+      transition: all var(--transition-normal);
+      text-decoration: none;
+    }
+    .fxnod-cta-btn:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(240, 58, 39, 0.45);
+      color: #ffffff;
+    }
+    .troubleshoot-num-badge {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-sm);
+      background: #ef4444;
+      color: #ffffff;
+      font-size: 0.85rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Reading Progress Indicator -->
+  <div class="reading-progress-bar" id="reading-progress"></div>
+
+  <!-- ======================================================================
+       HEADER & NAVIGATION
+       ====================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <div style="display: flex; align-items: center;">
+        <a href="index.html" class="brand-logo" aria-label="Trade Insight Home">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <span>Trade Insight</span>
+        </a>
+
+        <nav class="nav-links" aria-label="Main Navigation">
+          <a href="index.html" class="nav-link">All Guides</a>
+          <a href="automated-trading-on-deriv.html" class="nav-link">Deriv Guides</a>
+          <a href="how-to-choose-a-trading-bot.html" class="nav-link">Trading Bots</a>
+          <a href="index.html#category-fxnod" class="nav-link">FXnod Guides</a>
+        </nav>
+      </div>
+
+      <div class="header-right">
+        <!-- Direct FXnod Referral Header Button -->
+        <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.45rem 1.1rem; font-size: 0.82rem;" title="Explore FXnod Platform">
+          <span>Explore FXnod</span>
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+
+        <div class="header-search">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+          <input type="text" placeholder="Search bot errors, guides..." aria-label="Search articles">
+        </div>
+
+        <button class="profile-avatar" title="User Profile" aria-label="User Profile">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Breadcrumbs">
+      <a href="index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="how-to-choose-a-trading-bot.html">Trading Bots</a>
+      <span class="separator">/</span>
+      <span class="current">Why Is My Trading Bot Not Working?</span>
+    </nav>
+
+    <!-- Article Header -->
+    <header class="article-header">
+      <div class="article-tags-row">
+        <span class="badge-article-category" style="background: #dc2626;">Troubleshooting</span>
+        <span class="badge-updated">Updated October 2026</span>
+        <span class="badge-read-time">10 min diagnostic read</span>
+      </div>
+
+      <h1 class="article-main-title">
+        Why Is My Trading Bot Not Working? 9 Common Causes and How to Fix Them
+      </h1>
+
+      <p class="article-lead">
+        A trading bot can stop working for several reasons. It might fail to connect, ignore trading signals, display an error message, or run without opening any trades. Before restarting your bot or changing your strategy, it is important to identify the actual problem.
+      </p>
+
+      <div class="article-author-bar">
+        <div class="author-profile-chip">
+          <div class="author-chip-avatar">TI</div>
+          <span class="author-chip-name">Trade Insight Editorial</span>
+        </div>
+        <div class="author-meta-item">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+          <span>Published Oct 2026</span>
+        </div>
+        <div class="author-meta-item author-meta-verified">
+          <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+          <span>Technical Diagnostics Verified</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Featured Hero Image (Unsplash direct CDN as requested) -->
+    <div class="article-featured-image-wrap">
+      <img 
+        src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80" 
+        alt="Trader troubleshooting a trading bot on a laptop" 
+        class="article-featured-image"
+        loading="eager"
+      >
+      <div class="image-caption">
+        Troubleshooting a trading bot: check connection, configuration, permissions, and session status.
+      </div>
+    </div>
+
+    <!-- ======================================================================
+         TWO-COLUMN ARTICLE LAYOUT
+         ====================================================================== -->
+    <div class="article-layout">
+
+      <!-- LEFT STICKY SIDEBAR -->
+      <aside class="article-sidebar">
+        <!-- Table of Contents -->
+        <div class="sidebar-widget">
+          <div class="widget-title">
+            <span>Table of Contents</span>
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path></svg>
+          </div>
+          <ul class="toc-list">
+            <li class="toc-item active"><a href="#nine-causes">The 9 Common Causes</a></li>
+            <li class="toc-item"><a href="#checklist">Troubleshooting Checklist</a></li>
+            <li class="toc-item"><a href="#fxnod-section">Can FXnod Help?</a></li>
+            <li class="toc-item"><a href="#faq">Frequently Asked Questions</a></li>
+            <li class="toc-item"><a href="#final-thoughts">Final Thoughts</a></li>
+          </ul>
+
+          <div style="margin-top: 1.25rem;">
+            <div class="target-audience-box">
+              <div class="target-audience-title">Related Foundation Guides</div>
+              <ul style="display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.4rem;">
+                <li><a href="what-is-automated-trading.html" style="color: #2563eb; font-weight: 600;">1. What Is Automated Trading? &gt;</a></li>
+                <li><a href="automated-trading-on-deriv.html" style="color: #2563eb; font-weight: 600;">2. How to Start on Deriv &gt;</a></li>
+                <li><a href="how-to-choose-a-trading-bot.html" style="color: #2563eb; font-weight: 600;">3. How to Choose a Trading Bot &gt;</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sticky FXnod Promo Card (Official Referral Link) -->
+        <div class="sidebar-cta-card" style="background: radial-gradient(circle at 10% 10%, #1e3a8a 0%, #0f172a 90%); border-color: rgba(59, 130, 246, 0.4);">
+          <div class="sidebar-cta-tag" style="color: #60a5fa;">Reliable Webhook Relay Tool</div>
+          <h4 style="font-size: 1.05rem;">Explore FXnod Automation</h4>
+          <p style="font-size: 0.8rem; color: #cbd5e1;">
+            Encountering execution drops or webhook timeouts? Explore FXnod's supported integrations, relay architecture, and official setup documentation.
+          </p>
+          <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="sidebar-cta-btn" style="text-decoration: none;">
+            <span>Explore FXnod Platform</span>
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </a>
+        </div>
+
+        <!-- Share Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title">Share Troubleshooting Guide</div>
+          <div class="share-buttons-row">
+            <button class="share-btn btn-copy-link" title="Copy Link">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+              <span>Copy</span>
+            </button>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="share-btn" title="Share on Twitter/X">
+              <svg fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              <span>X/Post</span>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="share-btn" title="Share on LinkedIn">
+              <svg fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              <span>Share</span>
+            </a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- RIGHT MAIN CONTENT -->
+      <article class="article-content">
+
+        <!-- CRITICAL DIAGNOSTIC NOTE -->
+        <div class="callout-warning" style="margin-top: 0; margin-bottom: 2rem;">
+          <div class="callout-warning-icon">
+            <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+          </div>
+          <div class="callout-warning-content">
+            <h4>CRITICAL DISTINCTION</h4>
+            <p>
+              A technical problem and a losing trading strategy are not the same thing. Fixing a technical issue does not guarantee profitable trading.
+            </p>
+          </div>
+        </div>
+
+        <!-- SECTION 1: 9 COMMON CAUSES -->
+        <section id="nine-causes" class="article-section">
+          <h2>9 Common Reasons Why Your Trading Bot Is Not Working</h2>
+
+          <div class="workflow-steps-list">
+            <!-- 1. Internet Connection -->
+            <div class="workflow-step-card">
+              <div class="troubleshoot-num-badge">1</div>
+              <div class="workflow-body">
+                <h4>Your Internet Connection Is Unstable</h4>
+                <p>
+                  Many trading tools require a stable internet connection to communicate with a trading platform or external service. If your connection drops, the bot may lose communication, fail to update information, or stop responding.
+                </p>
+                <div style="background: #f8fafc; border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 0.85rem; margin-top: 0.75rem;">
+                  <strong style="font-size: 0.82rem; color: #0f172a; text-transform: uppercase;">How to check:</strong>
+                  <ul style="margin-left: 1.25rem; font-size: 0.85rem; color: #475569; display: flex; flex-direction: column; gap: 0.25rem; margin-top: 0.35rem; list-style-type: disc;">
+                    <li>Open another website to see whether your internet is working.</li>
+                    <li>Switch between Wi-Fi and another reliable connection if available.</li>
+                    <li>Check whether your browser or platform displays a connection warning.</li>
+                    <li>Review the bot's status or error messages.</li>
+                  </ul>
+                </div>
+                <p style="margin-top: 0.5rem; font-size: 0.82rem; color: #64748b;">
+                  Avoid repeatedly restarting the bot without understanding whether it is still running. First, confirm its actual status through the relevant platform.
+                </p>
+              </div>
+            </div>
+
+            <!-- 2. Session Problem -->
+            <div class="workflow-step-card">
+              <div class="troubleshoot-num-badge">2</div>
+              <div class="workflow-body">
+                <h4>The Trading Platform or Session Has a Problem</h4>
+                <p>
+                  Your bot may depend on an active trading platform session. If you have been logged out, your session has expired, or the platform is experiencing a technical issue, the bot may be unable to continue.
+                </p>
+                <div style="background: #f8fafc; border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 0.85rem; margin-top: 0.75rem;">
+                  <strong style="font-size: 0.82rem; color: #0f172a; text-transform: uppercase;">How to check:</strong>
+                  <ul style="margin-left: 1.25rem; font-size: 0.85rem; color: #475569; display: flex; flex-direction: column; gap: 0.25rem; margin-top: 0.35rem; list-style-type: disc;">
+                    <li>Open the official trading platform directly.</li>
+                    <li>Confirm that you can access your account.</li>
+                    <li>Check for platform warnings or scheduled maintenance announcements.</li>
+                    <li>If necessary, sign in again through the official website.</li>
+                    <li>Reconnect the bot only after confirming that the previous session has ended safely.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. Configuration Incorrect -->
+            <div class="workflow-step-card">
+              <div class="troubleshoot-num-badge">3</div>
+              <div class="workflow-body">
+                <h4>Your Bot Configuration Is Incorrect</h4>
+                <p>
+                  A bot may start successfully but fail to execute trades because its configuration is incomplete or incorrect. For example, a strategy might require a particular market, trade duration, stake amount, or set of conditions.
+                </p>
+                <div style="background: #f8fafc; border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 0.85rem; margin-top: 0.75rem;">
+                  <strong style="font-size: 0.82rem; color: #0f172a; text-transform: uppercase;">How to check:</strong>
+                  <ul style="margin-left: 1.25rem; font-size: 0.85rem; color: #475569; display: flex; flex-direction: column; gap: 0.25rem; margin-top: 0.35rem; list-style-type: disc;">
+                    <li>Review the selected market or trading instrument.</li>
+                    <li>Confirm that required inputs have valid values.</li>
+                    <li>Check the configured stake and trade conditions.</li>
+                    <li>Look for missing blocks, invalid values, or configuration warnings.</li>
+                    <li>Compare your current settings with the strategy you intended to run.</li>
+                  </ul>
+                </div>
+                <p style="margin-top: 0.5rem; font-size: 0.82rem; color: #64748b;">
+                  Make one change at a time and test it in a demo environment where possible.
+                </p>
+              </div>
+            </div>
+
+            <!-- 4. Conditions Not Met -->
+            <div class="workflow-step-card">
+              <div class="troubleshoot-num-badge">4</div>
+              <div class="workflow-body">
+                <h4>Your Strategy's Conditions Have Not Been Met</h4>
+                <p>
+                  Sometimes a bot is working correctly but does not open a trade. This can happen when the conditions in its strategy have not been satisfied (e.g. waiting for a price level, indicator condition, or specific market movement).
+                </p>
+                <div style="background: #f8fafc; border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 0.85rem; margin-top: 0.75rem;">
+                  <strong style="font-size: 0.82rem; color: #0f172a; text-transform: uppercase;">What you should do:</strong>
+                  <ul style="margin-left: 1.25rem; font-size: 0.85rem; color: #475569; display: flex; flex-direction: column; gap: 0.25rem; margin-top: 0.35rem; list-style-type: disc;">
+                    <li>Review the strategy's entry conditions.</li>
+                    <li>Check whether the required market conditions have occurred.</li>
+                    <li>Inspect available logs or status messages.</li>
+                    <li>Test the strategy using historical data or a demo account if supported.</li>
+                  </ul>
+                </div>
+                <p style="margin-top: 0.5rem; font-size: 0.82rem; color: #b91c1c; font-weight: 600;">
+                  A bot that does not open a trade is not necessarily broken. Avoid weakening entry rules just to force trades.
+                </p>
+              </div>
+            </div>
+
+            <!-- 5. Unsupported Market -->
+            <div class="workflow-step-card">
+              <div class="troubleshoot-num-badge">5</div>
+              <div class="workflow-body">
+                <h4>The Selected Market or Trading Product Is Unsupported</h4>
+                <p>
+                  Not every trading bot supports every market, trading product, or platform. A bot designed for one environment may not work with another.
+                </p>
+                <div style="background: #f8fafc; border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 0.85rem; margin-top: 0.75rem;">
+                  <strong style="font-size: 0.82rem; color: #0f172a; text-transform: uppercase;">How to check:</strong>
+                  <ul style="margin-left: 1.25rem; font-size: 0.85rem; color: #475569; display: flex; flex-direction: column; gap: 0.25rem; margin-top: 0.35rem; list-style-type: disc;">
+                    <li>Read the bot provider's compatibility documentation.</li>
+                    <li>Confirm that your intended platform is supported.</li>
+                    <li>Verify that the selected market and contract type are available.</li>
+                    <li>Check whether the bot requires a particular platform version.</li>
+                  </ul>
+                </div>
+                <p style="margin-top: 0.5rem; font-size: 0.82rem; color: #64748b;">
+                  If using Deriv, start with official <a href="https://deriv.com/trading-platforms/" target="_blank" rel="noopener noreferrer" style="color: #2563eb; font-weight: 600;">Deriv trading platforms &gt;</a> documentation.
+                </p>
+              </div>
+            </div>
+
+            <!-- 6. Account Permission or Limit -->
+            <div class="workflow-step-card">
+              <div class="troubleshoot-num-badge">6</div>
+              <div class="workflow-body">
+                <h4>Your Account Has a Permission or Limit Issue</h4>
+                <p>
+                  Some bots need specific permissions or an authorised connection. Issues include insufficient balance for the configured stake, trade requests exceeding limits, or expired token authorisation.
+                </p>
+                <div style="background: #f8fafc; border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 0.85rem; margin-top: 0.75rem;">
+                  <strong style="font-size: 0.82rem; color: #0f172a; text-transform: uppercase;">How to check:</strong>
+                  <ul style="margin-left: 1.25rem; font-size: 0.85rem; color: #475569; display: flex; flex-direction: column; gap: 0.25rem; margin-top: 0.35rem; list-style-type: disc;">
+                    <li>Read the complete error message.</li>
+                    <li>Confirm that the trading feature is available on your account.</li>
+                    <li>Check available balance and the configured stake.</li>
+                    <li>Review applicable trading limits or account restrictions.</li>
+                    <li>Reauthorise the connection only through the official platform.</li>
+                  </ul>
+                </div>
+                <p style="margin-top: 0.5rem; font-size: 0.82rem; color: #b91c1c; font-weight: 600;">
+                  Never share passwords or one-time verification codes with anyone claiming they can repair your bot.
+                </p>
+              </div>
+            </div>
+
+            <!-- 7. API Integration Failed -->
+            <div class="workflow-step-card">
+              <div class="troubleshoot-num-badge">7</div>
+              <div class="workflow-body">
+                <h4>An API or External Integration Has Failed</h4>
+                <p>
+                  Some automated trading tools connect via an API or webhook integration. If the connection token expires or a request fails, the bot stops receiving market feeds or sending order instructions.
+                </p>
+                <div style="background: #f8fafc; border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 0.85rem; margin-top: 0.75rem;">
+                  <strong style="font-size: 0.82rem; color: #0f172a; text-transform: uppercase;">Possible troubleshooting steps:</strong>
+                  <ul style="margin-left: 1.25rem; font-size: 0.85rem; color: #475569; display: flex; flex-direction: column; gap: 0.25rem; margin-top: 0.35rem; list-style-type: disc;">
+                    <li>Check the provider's official status page or support notice.</li>
+                    <li>Review connection and authentication error messages.</li>
+                    <li>Confirm that the integration is supported and configured correctly.</li>
+                    <li>Renew authorization through the official process if necessary.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- 8. Browser or Software Bug -->
+            <div class="workflow-step-card">
+              <div class="troubleshoot-num-badge">8</div>
+              <div class="workflow-body">
+                <h4>Your Browser, Software, or Bot Version Has a Problem</h4>
+                <p>
+                  An outdated browser, a software bug, incompatible extension settings, or a recent update can interfere with trading tools.
+                </p>
+                <div style="background: #f8fafc; border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 0.85rem; margin-top: 0.75rem;">
+                  <strong style="font-size: 0.82rem; color: #0f172a; text-transform: uppercase;">Try these steps:</strong>
+                  <ul style="margin-left: 1.25rem; font-size: 0.85rem; color: #475569; display: flex; flex-direction: column; gap: 0.25rem; margin-top: 0.35rem; list-style-type: disc;">
+                    <li>Reload the page after confirming no active operation is interrupted.</li>
+                    <li>Check whether your browser or bot software needs an update.</li>
+                    <li>Test in a supported browser if recommended by the provider.</li>
+                    <li>Record the exact error message before contacting technical support.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- 9. Stopped on Error or Reached Limit -->
+            <div class="workflow-step-card">
+              <div class="troubleshoot-num-badge">9</div>
+              <div class="workflow-body">
+                <h4>The Bot Has Stopped After an Error or Reached a Configured Limit</h4>
+                <p>
+                  Some tools stop after encountering an unhandled exception or reaching a configured condition (e.g. daily trade limit, max loss limit, consecutive loss threshold).
+                </p>
+                <div style="background: #f8fafc; border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 0.85rem; margin-top: 0.75rem;">
+                  <strong style="font-size: 0.82rem; color: #0f172a; text-transform: uppercase;">What to do:</strong>
+                  <ul style="margin-left: 1.25rem; font-size: 0.85rem; color: #475569; display: flex; flex-direction: column; gap: 0.25rem; margin-top: 0.35rem; list-style-type: disc;">
+                    <li>Check whether the bot is still running.</li>
+                    <li>Read its latest status and error messages.</li>
+                    <li>Review configured stopping conditions and limits.</li>
+                    <li>Confirm whether any trade remains open.</li>
+                    <li>Check the platform's trade history before attempting another run.</li>
+                  </ul>
+                </div>
+                <p style="margin-top: 0.5rem; font-size: 0.82rem; color: #64748b;">
+                  Do not remove risk limits simply to keep a bot running. Those settings are important safeguards.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 2: CHECKLIST -->
+        <section id="checklist" class="article-section">
+          <h2>A Step-by-Step Trading Bot Troubleshooting Checklist</h2>
+          <p>Use this checklist before making major changes to your bot:</p>
+
+          <div class="checklist-wrapper">
+            <div class="checklist-list">
+              <div class="checklist-item" style="cursor: default;"><input type="checkbox" checked disabled><div class="checklist-text">Confirm that your internet connection is stable.</div></div>
+              <div class="checklist-item" style="cursor: default;"><input type="checkbox" checked disabled><div class="checklist-text">Open the official trading platform and check your session.</div></div>
+              <div class="checklist-item" style="cursor: default;"><input type="checkbox" checked disabled><div class="checklist-text">Read the full error message instead of guessing.</div></div>
+              <div class="checklist-item" style="cursor: default;"><input type="checkbox" checked disabled><div class="checklist-text">Review your bot configuration and trading conditions.</div></div>
+              <div class="checklist-item" style="cursor: default;"><input type="checkbox" checked disabled><div class="checklist-text">Verify market and platform compatibility.</div></div>
+              <div class="checklist-item" style="cursor: default;"><input type="checkbox" checked disabled><div class="checklist-text">Check account permissions, available balance, and applicable limits.</div></div>
+              <div class="checklist-item" style="cursor: default;"><input type="checkbox" checked disabled><div class="checklist-text">Review the integration status and software version.</div></div>
+              <div class="checklist-item" style="cursor: default;"><input type="checkbox" checked disabled><div class="checklist-text">Confirm whether any trades are open or pending.</div></div>
+              <div class="checklist-item" style="cursor: default;"><input type="checkbox" checked disabled><div class="checklist-text">Test changes in a demo environment where available.</div></div>
+              <div class="checklist-item" style="cursor: default;"><input type="checkbox" checked disabled><div class="checklist-text">Contact the official provider if the issue remains unresolved.</div></div>
+            </div>
+          </div>
+          <div class="callout-summary" style="margin-top: 1rem; border-left-color: #f59e0b; background: #fffbeb;">
+            <strong style="color: #b45309; font-size: 0.85rem;">SAFETY TIP:</strong>
+            <p style="color: #92400e; font-size: 0.85rem; margin-bottom: 0;">
+              If you cannot confirm whether the bot is still active, avoid launching another instance. Two running instances may create duplicate trades or unexpected exposure.
+            </p>
+          </div>
+        </section>
+
+        <!-- SECTION 3: CAN FXNOD HELP? -->
+        <section id="fxnod-section" class="article-section">
+          <h2>Can FXnod Help With Automated Trading?</h2>
+          <p>
+            If you are exploring automated trading tools, <strong>FXnod may be worth investigating as part of your research</strong>. Before using it, check its current documentation to understand what it supports, how it connects to your intended platform, and which settings or permissions it requires.
+          </p>
+          <p>
+            Do not assume that FXnod will resolve every trading bot error. The right solution depends on the cause of the problem and whether the tool supports your particular setup. Before connecting any tool to a live account, verify compatibility, understand the risks, and test with a demo account where possible.
+          </p>
+
+          <!-- SPECIAL FXNOD PARTNER CALLOUT (Embedded Official Referral Link) -->
+          <div class="fxnod-partner-box">
+            <span class="fxnod-badge">Official Automation Resource</span>
+            <h3>Explore FXnod Automation & Webhook Relays</h3>
+            <p>
+              Looking to upgrade your automated trading infrastructure with stable relays and detailed documentation? Visit FXnod to inspect supported integrations and workflow options.
+            </p>
+            <div>
+              <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="fxnod-cta-btn">
+                <span>Explore FXnod Official Platform</span>
+                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </a>
+            </div>
+            <p style="font-size: 0.78rem; color: #94a3b8; margin-top: 1rem; margin-bottom: 0;">
+              *Affiliate disclosure: This article may contain an affiliate link. If you sign up through it, the publisher may receive a commission at no additional cost to you. Always evaluate a tool independently before using it.
+            </p>
+          </div>
+        </section>
+
+        <!-- SECTION 4: FAQs -->
+        <section id="faq" class="article-section">
+          <h2>Frequently Asked Questions</h2>
+
+          <div class="faq-list">
+            <div class="faq-card">
+              <h4>Why is my trading bot not opening trades?</h4>
+              <p>Your bot may be waiting for its strategy conditions to be met. It could also have incorrect settings, an unsupported market, an account restriction, or a connection problem. Check its status and logs before changing the strategy.</p>
+            </div>
+
+            <div class="faq-card">
+              <h4>Why does my trading bot keep disconnecting?</h4>
+              <p>Possible causes include an unstable internet connection, an expired session, a provider-side issue, or a failed integration. Check official platform and provider information to narrow down the cause.</p>
+            </div>
+
+            <div class="faq-card">
+              <h4>Why is my Deriv Bot not working?</h4>
+              <p>Check that you can access the official platform, review the bot's configuration, confirm that its conditions are valid, and read any displayed errors. For platform-specific guidance, visit the <a href="https://deriv.com/help-centre" target="_blank" rel="noopener noreferrer" style="color: #2563eb; font-weight: 600;">Deriv Help Centre &gt;</a>.</p>
+            </div>
+
+            <div class="faq-card">
+              <h4>Should I restart my trading bot after an error?</h4>
+              <p>Not immediately. First, check whether it has active trades, identify the error, and confirm that restarting will not create duplicate trades or unwanted exposure.</p>
+            </div>
+
+            <div class="faq-card">
+              <h4>Can a trading bot stop working because it is losing money?</h4>
+              <p>A losing strategy and a technical failure are different problems. A bot can execute its instructions correctly and still lose money. Review its technical status separately from its trading performance.</p>
+            </div>
+
+            <div class="faq-card">
+              <h4>What should I do if I cannot fix my trading bot?</h4>
+              <p>Save the error message, note when the problem started, and contact the official platform or bot provider through its verified support channel. Never send passwords or verification codes as part of a support request.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 5: FINAL THOUGHTS -->
+        <section id="final-thoughts" class="article-section">
+          <h2>Final Thoughts</h2>
+          <p>
+            When a trading bot stops working, identify the cause before changing settings or restarting it. Check the connection, platform session, configuration, compatibility, account permissions, and error messages in a structured way.
+          </p>
+          <p>
+            Most importantly, remember that a functioning bot is not necessarily a profitable bot. Technical reliability, strategy evaluation, and risk management must be considered separately. Use trusted documentation, test changes carefully, and never risk money you cannot afford to lose.
+          </p>
+
+          <!-- Second CTA Banner (Official FXnod Referral Link) -->
+          <div class="article-footer-cta" style="margin: 2.5rem 0 1.5rem 0;">
+            <div>
+              <h3>Explore Reliable Trading Automation with FXnod</h3>
+              <p>
+                Visit FXnod to inspect supported integrations, automated relays, and step-by-step documentation.
+              </p>
+            </div>
+            <div class="article-footer-cta-actions">
+              <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="text-decoration: none;">
+                <span>Visit FXnod Official Site</span>
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Legal Disclaimer -->
+          <div style="background: #f8fafc; border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 1.25rem; font-size: 0.8rem; color: #64748b; line-height: 1.6; margin-top: 2rem;">
+            <em><strong>Disclaimer:</strong> This article is for educational purposes only and is not financial advice. Trading involves risk, and losses are possible. This article may contain affiliate links, which may earn the publisher a commission from qualifying referrals at no additional cost to the reader.</em>
+          </div>
+        </section>
+
+      </article>
+    </div>
+  </main>
+
+  <!-- ======================================================================
+       FOOTER COMPONENT
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <div class="brand-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+            <span>Trade Insight</span>
+          </a>
+          <p>
+            High-performance technical editorial and tactical research publication. We empower quantitative traders, risk teams, and modern web agencies with actionable market playbooks.
+          </p>
+          <span class="footer-digest-label">Weekly Tech & Trading Digest</span>
+          <form class="footer-mini-form" onsubmit="event.preventDefault(); showToast('Subscribed to Weekly Digest!');">
+            <input type="email" placeholder="Enter your business email" required aria-label="Business Email">
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+
+        <div class="footer-col">
+          <h4>Publication Areas</h4>
+          <ul>
+            <li><a href="index.html#all">All Editorial Guides</a></li>
+            <li><a href="automated-trading-on-deriv.html">Deriv & Synthetic Indices</a></li>
+            <li><a href="how-to-choose-a-trading-bot.html">Automated Trading Bots</a></li>
+            <li><a href="why-is-my-trading-bot-not-working.html">Bot Troubleshooting</a></li>
+            <li><a href="what-is-automated-trading.html">Risk Management</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Popular Playbooks</h4>
+          <ul>
+            <li><a href="what-is-automated-trading.html">What Is Automated Trading?</a></li>
+            <li><a href="automated-trading-on-deriv.html">How to Start on Deriv</a></li>
+            <li><a href="how-to-choose-a-trading-bot.html">How to Choose a Trading Bot</a></li>
+            <li><a href="why-is-my-trading-bot-not-working.html">Trading Bot Not Working Fixes</a></li>
+            <li><a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer">Explore FXnod Platform</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Compliance & Legal</h4>
+          <ul>
+            <li><a href="index.html#editorial">Editorial Independence</a></li>
+            <li><a href="index.html#risk-notice">Risk Disclosure Notice</a></li>
+            <li><a href="index.html#terms">Terms of Service</a></li>
+            <li><a href="index.html#privacy">Privacy Policy</a></li>
+            <li><a href="index.html#cookies">Cookie Preferences</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 Trade Insight Editorial. All content is for educational and technical informational purposes only. Trading financial derivatives carries substantial risk.
+        </div>
+        <div>
+          Designed for Agency Quantitative Operations
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>

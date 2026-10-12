@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Start Automated Trading on Deriv: Beginner's Guide | Trade Insight</title>
+  <meta name="description" content="Learn how to start automated trading on Deriv, explore bot setup steps, test strategies with a demo account, and understand the risks before trading.">
+  <meta name="keywords" content="how to start automated trading on Deriv, Deriv trading bot, automated trading for beginners, how to use Deriv Bot, Deriv demo account, trading bot setup, FXnod">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="How to Start Automated Trading on Deriv: Beginner's Guide">
+  <meta property="og:description" content="Learn how to start automated trading on Deriv, explore bot setup steps, test strategies with a demo account, and understand the risks before trading.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tradeinsight.com/automated-trading-on-deriv/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1642543492481-44e81e3914a7?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .article-featured-image-wrap {
+      margin: 2rem 0 2.5rem 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      background: #f1f5f9;
+      box-shadow: var(--shadow-md);
+    }
+    .article-featured-image {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      display: block;
+    }
+    .image-caption {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      background: #ffffff;
+      border-top: 1px solid var(--color-border);
+      text-align: center;
+      font-style: italic;
+    }
+    .fxnod-partner-box {
+      background: linear-gradient(135deg, #0b1120 0%, #172554 100%);
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      margin: 2.5rem 0;
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.25);
+    }
+    .fxnod-partner-box::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(240, 58, 39, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .fxnod-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(240, 58, 39, 0.2);
+      border: 1px solid rgba(240, 58, 39, 0.5);
+      color: #fca5a5;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .fxnod-partner-box h3 {
+      color: #ffffff;
+      font-size: 1.45rem;
+      margin-bottom: 0.65rem;
+    }
+    .fxnod-partner-box p {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      margin-bottom: 1.4rem;
+    }
+    .fxnod-cta-btn {
+      background: var(--color-primary);
+      color: #ffffff;
+      font-weight: 700;
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 16px rgba(240, 58, 39, 0.35);
+      transition: all var(--transition-normal);
+      text-decoration: none;
+    }
+    .fxnod-cta-btn:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(240, 58, 39, 0.45);
+      color: #ffffff;
+    }
+    .workflow-steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+    .workflow-step-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      transition: all var(--transition-fast);
+    }
+    .workflow-step-card:hover {
+      border-color: #cbd5e1;
+      box-shadow: var(--shadow-sm);
+    }
+    .workflow-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #0f172a;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+    .workflow-body h4 {
+      font-size: 1.05rem;
+      margin-bottom: 0.35rem;
+      color: var(--color-text-main);
+    }
+    .workflow-body p {
+      margin-bottom: 0.35rem;
+      font-size: 0.9rem;
+      color: #475569;
+    }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .faq-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+    }
+    .faq-card h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-text-main);
+      margin-bottom: 0.5rem;
+    }
+    .faq-card p {
+      font-size: 0.9rem;
+      color: #475569;
+      margin-bottom: 0;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Reading Progress Indicator -->
+  <div class="reading-progress-bar" id="reading-progress"></div>
+
+  <!-- ======================================================================
+       HEADER & NAVIGATION
+       ====================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <div style="display: flex; align-items: center;">
+        <a href="index.html" class="brand-logo" aria-label="Trade Insight Home">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <span>Trade Insight</span>
+        </a>
+
+        <nav class="nav-links" aria-label="Main Navigation">
+          <a href="index.html" class="nav-link">All Guides</a>
+          <a href="index.html#category-deriv" class="nav-link active">Deriv Guides</a>
+          <a href="index.html#category-fxnod" class="nav-link">FXnod Guides</a>
+        </nav>
+      </div>
+
+      <div class="header-right">
+        <!-- Direct FXnod Referral Header Button -->
+        <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.45rem 1.1rem; font-size: 0.82rem;" title="Explore FXnod Platform">
+          <span>Explore FXnod</span>
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+
+        <div class="header-search">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+          <input type="text" placeholder="Search guides, MT5, FXnod..." aria-label="Search articles">
+        </div>
+
+        <button class="profile-avatar" title="User Profile" aria-label="User Profile">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Breadcrumbs">
+      <a href="index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="index.html">Deriv Guides</a>
+      <span class="separator">/</span>
+      <span class="current">How to Start Automated Trading on Deriv</span>
+    </nav>
+
+    <!-- Article Header -->
+    <header class="article-header">
+      <div class="article-tags-row">
+        <span class="badge-article-category" style="background: #e11d48;">Deriv Guides</span>
+        <span class="badge-updated">Updated October 2026</span>
+        <span class="badge-read-time">7 min beginner read</span>
+      </div>
+
+      <h1 class="article-main-title">
+        How to Start Automated Trading on Deriv: A Beginner’s Guide
+      </h1>
+
+      <p class="article-lead">
+        Want to learn how automated trading works on Deriv? Automated trading allows software to follow predefined trading rules and, when supported, execute trades without requiring you to place every order manually.
+      </p>
+
+      <div class="article-author-bar">
+        <div class="author-profile-chip">
+          <div class="author-chip-avatar">TI</div>
+          <span class="author-chip-name">Trade Insight Editorial</span>
+        </div>
+        <div class="author-meta-item">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+          <span>Published Oct 2026</span>
+        </div>
+        <div class="author-meta-item author-meta-verified">
+          <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+          <span>Deriv Infrastructure Verified</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Featured Hero Image (Unsplash CDN direct link as requested) -->
+    <div class="article-featured-image-wrap">
+      <img 
+        src="https://images.unsplash.com/photo-1642543492481-44e81e3914a7?auto=format&fit=crop&w=1200&q=80" 
+        alt="Trading charts displayed on multiple screens and tablet" 
+        class="article-featured-image"
+        loading="eager"
+      >
+      <div class="image-caption">
+        Trading charts displayed on multiple screens and tablet — testing automated strategies across market conditions.
+      </div>
+    </div>
+
+    <!-- ======================================================================
+         TWO-COLUMN ARTICLE LAYOUT
+         ====================================================================== -->
+    <div class="article-layout">
+
+      <!-- LEFT STICKY SIDEBAR -->
+      <aside class="article-sidebar">
+        <!-- Table of Contents -->
+        <div class="sidebar-widget">
+          <div class="widget-title">
+            <span>Table of Contents</span>
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path></svg>
+          </div>
+          <ul class="toc-list">
+            <li class="toc-item active"><a href="#intro">What Is It on Deriv?</a></li>
+            <li class="toc-item"><a href="#steps">Step-by-Step Setup</a></li>
+            <li class="toc-item"><a href="#external-tools">External Automation Tools</a></li>
+            <li class="toc-item"><a href="#fxnod-section">Where FXnod Fits In</a></li>
+            <li class="toc-item"><a href="#mistakes">Common Mistakes to Avoid</a></li>
+            <li class="toc-item"><a href="#faq">Frequently Asked Questions</a></li>
+            <li class="toc-item"><a href="#final-thoughts">Final Thoughts</a></li>
+          </ul>
+
+          <div style="margin-top: 1.25rem;">
+            <div class="target-audience-box">
+              <div class="target-audience-title">Related Foundation Guide</div>
+              New to bots? Start with our introductory guide: <a href="what-is-automated-trading.html" style="color: #2563eb; font-weight: 600;">What Is Automated Trading? &gt;</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sticky FXnod Promo Card (Official Referral Link) -->
+        <div class="sidebar-cta-card" style="background: radial-gradient(circle at 10% 10%, #1e3a8a 0%, #0f172a 90%); border-color: rgba(59, 130, 246, 0.4);">
+          <div class="sidebar-cta-tag" style="color: #60a5fa;">Official Deriv Partner Tool</div>
+          <h4 style="font-size: 1.05rem;">Automate Workflows with FXnod</h4>
+          <p style="font-size: 0.8rem; color: #cbd5e1;">
+            Explore automated webhook relays, bot execution tools, and official documentation designed for the Deriv ecosystem.
+          </p>
+          <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="sidebar-cta-btn" style="text-decoration: none;">
+            <span>Explore FXnod Official Site</span>
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </a>
+        </div>
+
+        <!-- Share Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title">Share Guide</div>
+          <div class="share-buttons-row">
+            <button class="share-btn btn-copy-link" title="Copy Link">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+              <span>Copy</span>
+            </button>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="share-btn" title="Share on Twitter/X">
+              <svg fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              <span>X/Post</span>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="share-btn" title="Share on LinkedIn">
+              <svg fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              <span>Share</span>
+            </a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- RIGHT MAIN CONTENT -->
+      <article class="article-content">
+
+        <!-- INTRO SUMMARY -->
+        <div class="callout-summary" style="background: #f8fafc; border-left-color: #e11d48; border-color: #e2e8f0;">
+          <div class="callout-title" style="color: #e11d48;">Core Principle for Beginners</div>
+          <p style="color: #334155; margin-bottom: 0;">
+            For beginners, the most important step is not finding a bot that promises profits. It is understanding how the platform works, learning how to configure a strategy, and testing it before risking real money. In this guide, you will learn how to get started on Deriv, what to check before running a bot, and how automation tools such as <strong>FXnod</strong> fit into your trading workflow.
+          </p>
+        </div>
+
+        <!-- SECTION 1: What Is Automated Trading on Deriv? -->
+        <section id="intro" class="article-section">
+          <h2>What Is Automated Trading on Deriv?</h2>
+          <p>
+            Automated trading uses software to follow instructions defined by a trader. Depending on the tool, it can monitor specified conditions, generate trading signals, or execute trades automatically.
+          </p>
+          <p>
+            Deriv provides Deriv Bot, a visual trading automation tool that lets users build strategies using configurable blocks rather than writing code. Its supported markets and trade types depend on the platform and available products.
+          </p>
+          <p>
+            You can explore the official platform here: <a href="https://deriv.com/trading-platforms/deriv-bot" target="_blank" rel="noopener noreferrer" style="color: #2563eb; font-weight: 600; text-decoration: underline;">Deriv Bot — Official Website</a>.
+          </p>
+          <div class="callout-warning" style="margin-top: 1rem;">
+            <div class="callout-warning-icon">
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+            </div>
+            <div class="callout-warning-content">
+              <h4>REALISTIC EXPECTATIONS</h4>
+              <p>
+                Remember that automated trading does not guarantee profits. A bot can follow its instructions correctly and still make losing trades.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 2: How to Start Automated Trading on Deriv -->
+        <section id="steps" class="article-section">
+          <h2>How to Start Automated Trading on Deriv</h2>
+          <p>Follow these structured steps to understand the process:</p>
+
+          <div class="workflow-steps-list">
+            <!-- Step 1 -->
+            <div class="workflow-step-card">
+              <div class="workflow-num">1</div>
+              <div class="workflow-body">
+                <h4>Understand the Deriv Platform</h4>
+                <p>
+                  Before using automation, familiarise yourself with the Deriv platform, the products available to you, and the relevant trading rules. Make sure you understand the difference between the available markets and trade types. Not every tool supports every product, so check compatibility before choosing an automation solution.
+                </p>
+                <small style="color: #64748b;">Official resource: <a href="https://deriv.com/help-centre" target="_blank" rel="noopener noreferrer" style="color: #2563eb; font-weight: 600;">Deriv Help Centre &gt;</a></small>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="workflow-step-card">
+              <div class="workflow-num">2</div>
+              <div class="workflow-body">
+                <h4>Start With a Demo Account</h4>
+                <p>
+                  A demo account lets you practise with virtual funds rather than immediately risking your own money. Use it to learn the platform interface, explore the available settings, and understand how trade outcomes are displayed. Demo results do not guarantee that the same strategy will perform similarly with real funds due to execution conditions and psychology.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="workflow-step-card">
+              <div class="workflow-num">3</div>
+              <div class="workflow-body">
+                <h4>Explore Deriv Bot</h4>
+                <p>
+                  Visit the official <a href="https://deriv.com/trading-platforms/deriv-bot" target="_blank" rel="noopener noreferrer" style="color: #2563eb; font-weight: 600;">Deriv Bot page</a> and follow the platform's current instructions to access the tool. Deriv Bot uses a visual interface with configurable blocks where you select a market, configure trade parameters, and define conditions. Start by understanding each setting instead of immediately running a complicated strategy.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="workflow-step-card">
+              <div class="workflow-num">4</div>
+              <div class="workflow-body">
+                <h4>Configure Your Trading Rules</h4>
+                <p>A trading strategy needs clear instructions. Before running a bot, identify:</p>
+                <ul style="margin-left: 1.25rem; font-size: 0.88rem; color: #475569; display: flex; flex-direction: column; gap: 0.35rem; list-style-type: disc;">
+                  <li><strong>Entry conditions:</strong> What must happen before a trade is opened?</li>
+                  <li><strong>Trade parameters:</strong> Which market, trade type, duration, or stake settings are being used?</li>
+                  <li><strong>Exit conditions:</strong> When should a trade or trading cycle end?</li>
+                  <li><strong>Risk controls:</strong> What limits should stop further trading?</li>
+                  <li><strong>Restart rules:</strong> Under what conditions, if any, should the bot continue?</li>
+                </ul>
+                <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #64748b;">Available settings vary by platform and trade type. Do not assume that every bot provides every risk control.</p>
+              </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="workflow-step-card">
+              <div class="workflow-num">5</div>
+              <div class="workflow-body">
+                <h4>Test the Strategy</h4>
+                <p>
+                  Run your strategy in a demo environment where supported. Observe how it behaves under different market conditions and review its trade history. Do not judge a strategy based on just a few winning trades. Consider losing trades, transaction costs, drawdowns, and market transitions.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 6 -->
+            <div class="workflow-step-card">
+              <div class="workflow-num">6</div>
+              <div class="workflow-body">
+                <h4>Monitor the Bot</h4>
+                <p>
+                  Automation does not mean you can ignore the system completely. Check whether the bot is still running, whether the platform connection is working, and whether its trading activity matches your intended rules. Also check whether the tool runs in your browser (closing the browser can pause its operation) or in another supported environment. Refer to the <a href="https://deriv.com/trading-platforms/deriv-bot" target="_blank" rel="noopener noreferrer" style="color: #2563eb; font-weight: 600;">official Deriv Bot page</a>.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 3: External Trading Automation Tools -->
+        <section id="external-tools" class="article-section">
+          <h2>Can You Use an External Trading Automation Tool With Deriv?</h2>
+          <p>
+            Some traders explore third-party tools to manage parts of their trading workflow. However, compatibility is essential. Before connecting an external tool to Deriv, verify:
+          </p>
+
+          <div class="checklist-wrapper">
+            <div class="checklist-list">
+              <div class="checklist-item" style="cursor: default;">
+                <input type="checkbox" checked disabled>
+                <div class="checklist-text">
+                  <strong>Platform Support:</strong> Whether the tool currently supports Deriv.
+                </div>
+              </div>
+              <div class="checklist-item" style="cursor: default;">
+                <input type="checkbox" checked disabled>
+                <div class="checklist-text">
+                  <strong>Market Compatibility:</strong> Which markets and trade types it supports.
+                </div>
+              </div>
+              <div class="checklist-item" style="cursor: default;">
+                <input type="checkbox" checked disabled>
+                <div class="checklist-text">
+                  <strong>Authorisation Method:</strong> Whether it requires an account connection, API authorisation, or another integration.
+                </div>
+              </div>
+              <div class="checklist-item" style="cursor: default;">
+                <input type="checkbox" checked disabled>
+                <div class="checklist-text">
+                  <strong>Permission Scopes:</strong> What permissions it requests and whether those permissions are strictly necessary.
+                </div>
+              </div>
+              <div class="checklist-item" style="cursor: default;">
+                <input type="checkbox" checked disabled>
+                <div class="checklist-text">
+                  <strong>Demo Testing:</strong> Whether demo testing is available before risking capital.
+                </div>
+              </div>
+              <div class="checklist-item" style="cursor: default;">
+                <input type="checkbox" checked disabled>
+                <div class="checklist-text">
+                  <strong>Security & Pricing:</strong> What fees, limitations, and security requirements apply.
+                </div>
+              </div>
+            </div>
+          </div>
+          <p style="margin-top: 1rem; color: #b91c1c; font-size: 0.88rem; font-weight: 600;">
+            ⚠️ Never share your account password or sensitive credentials with an unverified service. If a tool requests API access, understand the permissions before approving the connection.
+          </p>
+        </section>
+
+        <!-- SECTION 4: Where Does FXnod Fit Into Automated Trading? -->
+        <section id="fxnod-section" class="article-section">
+          <h2>Where Does FXnod Fit Into Automated Trading?</h2>
+          <p>
+            If you are exploring alternatives to manually managing every part of your trading workflow, <strong>FXnod may be worth investigating</strong>.
+          </p>
+          <p>
+            Before choosing it, review its current documentation and confirm its supported features, platform compatibility, setup process, and any account permissions it requires. Do not assume that every automation tool works with every Deriv product or account. Confirm that the particular setup you want to use is supported.
+          </p>
+
+          <!-- SPECIAL FXNOD PARTNER CALLOUT (Embedded Official Referral Link) -->
+          <div class="fxnod-partner-box">
+            <span class="fxnod-badge">Official Automation Resource</span>
+            <h3>Explore FXnod for Deriv Trading Automation</h3>
+            <p>
+              Interested in learning more about FXnod and trading automation? Visit FXnod to review its available features, webhook relays, and documentation to determine whether it suits your requirements.
+            </p>
+            <div>
+              <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="fxnod-cta-btn">
+                <span>Explore FXnod Official Platform</span>
+                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </a>
+            </div>
+            <p style="font-size: 0.78rem; color: #94a3b8; margin-top: 1rem; margin-bottom: 0;">
+              *If you use an affiliate link, the publisher may receive a commission from qualifying referrals. This does not mean the tool is suitable for every trader, and it does not guarantee trading profits.
+            </p>
+          </div>
+        </section>
+
+        <!-- SECTION 5: Common Mistakes to Avoid -->
+        <section id="mistakes" class="article-section">
+          <h2>Common Mistakes to Avoid</h2>
+
+          <div class="fixes-grid">
+            <div class="fix-card">
+              <div class="fix-number-badge" style="background: #ef4444;">!</div>
+              <div class="fix-info">
+                <h4>Starting With Real Money Too Quickly</h4>
+                <p>Learn the platform and thoroughly test your strategy on a demo account before considering real-money trading.</p>
+              </div>
+            </div>
+
+            <div class="fix-card">
+              <div class="fix-number-badge" style="background: #ef4444;">!</div>
+              <div class="fix-info">
+                <h4>Using a Strategy You Do Not Understand</h4>
+                <p>If you cannot explain why the bot enters or exits a trade, you may not be ready to run it.</p>
+              </div>
+            </div>
+
+            <div class="fix-card">
+              <div class="fix-number-badge" style="background: #ef4444;">!</div>
+              <div class="fix-info">
+                <h4>Assuming Automation Means Guaranteed Profit</h4>
+                <p>Bots follow instructions; they cannot eliminate market uncertainty or guarantee profitable outcomes.</p>
+              </div>
+            </div>
+
+            <div class="fix-card">
+              <div class="fix-number-badge" style="background: #ef4444;">!</div>
+              <div class="fix-info">
+                <h4>Ignoring Risk Limits</h4>
+                <p>Decide in advance how much you can afford to lose and understand how the chosen tool handles drawdowns.</p>
+              </div>
+            </div>
+
+            <div class="fix-card" style="grid-column: span 2;">
+              <div class="fix-number-badge" style="background: #ef4444;">!</div>
+              <div class="fix-info">
+                <h4>Trusting Unverified Performance Claims</h4>
+                <p>Be cautious of claims about guaranteed income, extremely high win rates, or risk-free trading bots.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 6: FAQs -->
+        <section id="faq" class="article-section">
+          <h2>Frequently Asked Questions</h2>
+
+          <div class="faq-list">
+            <div class="faq-card">
+              <h4>Is automated trading available on Deriv?</h4>
+              <p>Deriv offers Deriv Bot, a visual tool for building automated trading strategies. Availability and supported functionality can depend on the platform, product, and account.</p>
+            </div>
+
+            <div class="faq-card">
+              <h4>Can beginners use Deriv Bot?</h4>
+              <p>Beginners can learn how it works using official tutorials and a demo account. Understanding the strategy and its risks is important before moving to real-money trading.</p>
+            </div>
+
+            <div class="faq-card">
+              <h4>Do I need programming skills to use Deriv Bot?</h4>
+              <p>Deriv Bot provides a visual, block-based interface, so basic strategy building does not necessarily require coding. More advanced external integrations may have different requirements.</p>
+            </div>
+
+            <div class="faq-card">
+              <h4>Can automated trading lose money?</h4>
+              <p>Yes. A bot can produce losing trades, and real-money trading can result in financial losses. Automation does not remove market risk.</p>
+            </div>
+
+            <div class="faq-card">
+              <h4>Should I use an external bot or Deriv Bot?</h4>
+              <p>There is no single best choice for everyone. Compare platform compatibility, supported features, transparency, security, costs, and available testing options before deciding.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 7: Final Thoughts -->
+        <section id="final-thoughts" class="article-section">
+          <h2>Final Thoughts</h2>
+          <p>
+            Getting started with automated trading on Deriv begins with understanding the platform, learning how a strategy works, and testing it before risking real money.
+          </p>
+          <p>
+            Deriv Bot is one option for exploring visual trading automation. External tools such as FXnod should be evaluated separately to confirm their current features and compatibility. Take time to understand the system you choose, monitor its behaviour, and never risk money you cannot afford to lose.
+          </p>
+
+          <!-- Second CTA Banner (Official FXnod Referral Link) -->
+          <div class="article-footer-cta" style="margin: 2.5rem 0 1.5rem 0;">
+            <div>
+              <h3>Explore Modern Trading Automation with FXnod</h3>
+              <p>
+                Visit FXnod to inspect supported integrations, automated relays, and step-by-step documentation.
+              </p>
+            </div>
+            <div class="article-footer-cta-actions">
+              <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="text-decoration: none;">
+                <span>Visit FXnod Official Site</span>
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Legal Disclaimer -->
+          <div style="background: #f8fafc; border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 1.25rem; font-size: 0.8rem; color: #64748b; line-height: 1.6; margin-top: 2rem;">
+            <em><strong>Disclaimer:</strong> This article is for educational purposes only and is not financial advice. Trading involves risk, and losses are possible. This article may contain affiliate links. The publisher may receive a commission from qualifying referrals at no additional cost to the reader.</em>
+          </div>
+        </section>
+
+      </article>
+    </div>
+  </main>
+
+  <!-- ======================================================================
+       FOOTER COMPONENT
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <div class="brand-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+            <span>Trade Insight</span>
+          </a>
+          <p>
+            High-performance technical editorial and tactical research publication. We empower quantitative traders, risk teams, and modern web agencies with actionable market playbooks.
+          </p>
+          <span class="footer-digest-label">Weekly Tech & Trading Digest</span>
+          <form class="footer-mini-form" onsubmit="event.preventDefault(); showToast('Subscribed to Weekly Digest!');">
+            <input type="email" placeholder="Enter your business email" required aria-label="Business Email">
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+
+        <div class="footer-col">
+          <h4>Publication Areas</h4>
+          <ul>
+            <li><a href="index.html#all">All Editorial Guides</a></li>
+            <li><a href="index.html#deriv">Deriv & Synthetic Indices</a></li>
+            <li><a href="index.html#bots">Automated Trading Bots</a></li>
+            <li><a href="index.html#risk">Risk & Margin Management</a></li>
+            <li><a href="index.html#seo">SEO & Growth Strategy</a></li>
+            <li><a href="index.html#infra">Web Tech & Infrastructure</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Popular Playbooks</h4>
+          <ul>
+            <li><a href="what-is-automated-trading.html">What Is Automated Trading?</a></li>
+            <li><a href="automated-trading-on-deriv.html">Automated Trading on Deriv</a></li>
+            <li><a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer">Explore FXnod Platform</a></li>
+            <li><a href="post.html">Broker Landing Page 500 Fixes</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Compliance & Legal</h4>
+          <ul>
+            <li><a href="index.html#editorial">Editorial Independence</a></li>
+            <li><a href="index.html#risk-notice">Risk Disclosure Notice</a></li>
+            <li><a href="index.html#terms">Terms of Service</a></li>
+            <li><a href="index.html#privacy">Privacy Policy</a></li>
+            <li><a href="index.html#cookies">Cookie Preferences</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 Trade Insight Editorial. All content is for educational and technical informational purposes only. Trading financial derivatives carries substantial risk.
+        </div>
+        <div>
+          Designed for Agency Quantitative Operations
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
