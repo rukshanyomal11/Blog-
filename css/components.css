@@ -646,6 +646,32 @@
   color: var(--color-primary);
 }
 
+.footer-playbooks-archive {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--color-border);
+}
+
+.footer-toggle-btn {
+  background: none;
+  border: none;
+  padding: 0.35rem 0;
+  margin-top: 0.85rem;
+  color: var(--color-primary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.footer-toggle-btn:hover {
+  color: var(--color-primary-hover);
+  transform: translateX(2px);
+}
+
 .footer-bottom {
   display: flex;
   align-items: center;

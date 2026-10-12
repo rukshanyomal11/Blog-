@@ -12,6 +12,7 @@ window.SITE_CONFIG = {
 
 document.addEventListener('DOMContentLoaded', () => {
   initReferralLinks();
+  initFooterPlaybooksToggle();
   initCategoryFilters();
   initSearch();
   initReadingProgressBar();
@@ -44,6 +45,30 @@ function initReferralLinks() {
     link.href = refUrl;
     if (!link.getAttribute('target')) link.setAttribute('target', '_blank');
     if (!link.getAttribute('rel')) link.setAttribute('rel', 'noopener noreferrer');
+  });
+}
+
+/* --------------------------------------------------------------------------
+   0.1 Footer Playbooks Expand/Collapse Toggle
+   -------------------------------------------------------------------------- */
+function initFooterPlaybooksToggle() {
+  const toggleBtn = document.getElementById('footer-toggle-playbooks');
+  const archiveList = document.getElementById('footer-playbooks-archive');
+  if (!toggleBtn || !archiveList) return;
+
+  toggleBtn.addEventListener('click', () => {
+    const isHidden = archiveList.style.display === 'none';
+    if (isHidden) {
+      archiveList.style.display = 'flex';
+      archiveList.style.flexDirection = 'column';
+      archiveList.style.gap = '0.75rem';
+      toggleBtn.innerHTML = '<span>− Show Less Playbooks</span>';
+      toggleBtn.setAttribute('aria-expanded', 'true');
+    } else {
+      archiveList.style.display = 'none';
+      toggleBtn.innerHTML = '<span>+ View All 30 Playbooks</span>';
+      toggleBtn.setAttribute('aria-expanded', 'false');
+    }
   });
 }
 
