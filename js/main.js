@@ -218,35 +218,84 @@ function initReadingProgressBar() {
 }
 
 /* --------------------------------------------------------------------------
-   4. Table of Contents Scroll-Spy (Article Page)
+   4. Table of Contents Scroll-Spy & Click Interaction (Article Page)
    -------------------------------------------------------------------------- */
 function initTableOfContentsSpy() {
-  const tocItems = document.querySelectorAll('.toc-item');
-  const sections = document.querySelectorAll('.article-section');
+  const tocLinks = document.querySelectorAll('.toc-list a, .toc-item a');
+  if (!tocLinks.length) return;
 
-  if (!tocItems.length || !sections.length) return;
+  // 1. Instant Active Highlight on Click + Smooth Scroll offset for sticky header
+  tocLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (!href || !href.startsWith('#')) return;
 
-  window.addEventListener('scroll', () => {
-    let currentId = '';
-    const scrollPosition = window.scrollY + 140;
+      const targetId = href.replace('#', '');
+      const targetEl = document.getElementById(targetId);
 
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
-      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-        currentId = section.getAttribute('id');
-      }
-    });
+      tocLinks.forEach(l => {
+        l.classList.remove('active');
+        l.closest('li')?.classList.remove('active');
+      });
 
-    tocItems.forEach(item => {
-      const link = item.querySelector('a');
-      if (link && link.getAttribute('href') === `#${currentId}`) {
-        item.classList.add('active');
-      } else {
-        item.classList.remove('active');
+      link.classList.add('active');
+      link.closest('li')?.classList.add('active');
+
+      if (targetEl) {
+        e.preventDefault();
+        const headerOffset = 95;
+        const elementPosition = targetEl.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+
+        // Update URL hash smoothly
+        try {
+          history.pushState(null, null, `#${targetId}`);
+        } catch (_) {}
       }
     });
   });
+
+  // 2. Dynamic Scroll-Spy
+  const targets = [];
+  tocLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href && href.startsWith('#')) {
+      const el = document.getElementById(href.slice(1));
+      if (el) targets.push({ el, link });
+    }
+  });
+
+  if (!targets.length) return;
+
+  let isScrolling;
+  window.addEventListener('scroll', () => {
+    window.clearTimeout(isScrolling);
+    isScrolling = setTimeout(() => {
+      const scrollPos = window.scrollY + 130;
+      let activeTarget = null;
+
+      for (let i = 0; i < targets.length; i++) {
+        const top = targets[i].el.offsetTop;
+        if (scrollPos >= top) {
+          activeTarget = targets[i];
+        }
+      }
+
+      if (activeTarget) {
+        tocLinks.forEach(l => {
+          l.classList.remove('active');
+          l.closest('li')?.classList.remove('active');
+        });
+        activeTarget.link.classList.add('active');
+        activeTarget.link.closest('li')?.classList.add('active');
+      }
+    }, 25);
+  }, { passive: true });
 }
 
 /* --------------------------------------------------------------------------
