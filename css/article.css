@@ -278,12 +278,60 @@
 /* --------------------------------------------------------------------------
    5. TWO-COLUMN ARTICLE LAYOUT (STICKY SIDEBAR + CONTENT)
    -------------------------------------------------------------------------- */
-.article-layout {
+div.article-layout {
   display: grid;
   grid-template-columns: 280px 1fr;
   gap: 3.5rem;
   position: relative;
   align-items: start;
+}
+
+main.article-layout {
+  display: block;
+  width: 100%;
+  padding: 1.5rem 0 3.5rem 0;
+}
+
+.article-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 3.5rem;
+  align-items: start;
+  position: relative;
+}
+
+.breadcrumb {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.breadcrumb a {
+  color: var(--color-text-muted);
+}
+
+.breadcrumb a:hover {
+  color: var(--color-primary);
+}
+
+.article-meta-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.article-meta-tags .tag {
+  display: inline-block;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-sm);
+  background: #f1f5f9;
+  color: var(--color-text-main);
+  font-size: 0.78rem;
+  font-weight: 600;
 }
 
 /* Sidebar */
@@ -318,15 +366,18 @@
   background: #94a3b8;
 }
 
+.sidebar-card,
 .sidebar-widget {
   background: #ffffff;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: 1.4rem;
+  margin-bottom: 1.25rem;
 }
 
+.sidebar-title,
 .widget-title {
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -335,6 +386,45 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.sidebar-cta-card {
+  background: #0f172a;
+  color: #fff;
+  border: 1px solid #1e293b;
+}
+
+.sidebar-cta-card h4 {
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.sidebar-cta-card p {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.cta-badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  background: rgba(37, 99, 235, 0.25);
+  color: #60a5fa;
+  font-size: 0.72rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
+.cta-microcopy {
+  display: block;
+  font-size: 0.72rem;
+  color: #64748b;
+  text-align: center;
+  margin-top: 0.5rem;
 }
 
 .toc-list {
@@ -962,7 +1052,8 @@
 
 /* Responsive adjustments */
 @media (max-width: 1024px) {
-  .article-layout {
+  .article-layout,
+  .article-grid {
     display: flex;
     flex-direction: column;
   }
