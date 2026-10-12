@@ -1808,9 +1808,10 @@ footer.footer {
 /* --------------------------------------------------------------------------
    5. TWO-COLUMN ARTICLE LAYOUT (STICKY SIDEBAR + CONTENT)
    -------------------------------------------------------------------------- */
-div.article-layout {
+div.article-layout,
+div.article-main-grid {
   display: grid;
-  grid-template-columns: 280px 1fr;
+  grid-template-columns: 280px minmax(0, 1fr);
   gap: 3.5rem;
   position: relative;
   align-items: start;
@@ -1908,7 +1909,8 @@ main.article-layout {
 }
 
 .sidebar-card,
-.sidebar-widget {
+.sidebar-widget,
+.sidebar-toc-card {
   background: #ffffff;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
@@ -2725,6 +2727,7 @@ main.article-layout {
 /* Responsive adjustments */
 @media (max-width: 1024px) {
   .article-layout,
+  .article-main-grid,
   .article-grid {
     display: flex;
     flex-direction: column;
