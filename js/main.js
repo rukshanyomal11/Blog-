@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initShareButtons();
   initLoadMore();
   initChecklist();
+  updateArticlesView();
 });
 
 /* --------------------------------------------------------------------------
@@ -73,63 +74,108 @@ function initFooterPlaybooksToggle() {
 }
 
 /* --------------------------------------------------------------------------
-   1. Category Pill Filtering
+   1. Articles Manager (Batch Pagination, Filtering & Search)
    -------------------------------------------------------------------------- */
+let currentVisibleLimit = 9;
+const BATCH_SIZE = 9;
+
+function updateArticlesView() {
+  const cards = document.querySelectorAll('.articles-grid .article-card');
+  if (!cards.length) return;
+
+  const activeTab = document.querySelector('.filter-tab.active');
+  const activeFilter = activeTab ? activeTab.getAttribute('data-filter')?.toLowerCase() : 'all';
+  const searchInput = document.querySelector('.hero-search-input');
+  const searchTerm = (searchInput?.value || '').toLowerCase().trim();
+
+  let matchingCards = [];
+
+  cards.forEach(card => {
+    const title = card.querySelector('.card-title')?.innerText.toLowerCase() || '';
+    const excerpt = card.querySelector('.card-excerpt')?.innerText.toLowerCase() || '';
+    const category = card.getAttribute('data-category')?.toLowerCase() || '';
+
+    const matchesFilter = (activeFilter === 'all' || category.includes(activeFilter));
+    const matchesSearch = (!searchTerm || title.includes(searchTerm) || excerpt.includes(searchTerm) || category.includes(searchTerm));
+
+    if (matchesFilter && matchesSearch) {
+      matchingCards.push(card);
+    } else {
+      card.style.display = 'none';
+      card.style.opacity = '0';
+    }
+  });
+
+  const isFiltering = (activeFilter !== 'all' || searchTerm.length > 0);
+  const displayLimit = isFiltering ? matchingCards.length : currentVisibleLimit;
+
+  matchingCards.forEach((card, idx) => {
+    if (idx < displayLimit) {
+      card.style.display = 'flex';
+      setTimeout(() => {
+        card.style.transition = 'opacity 0.25s ease';
+        card.style.opacity = '1';
+      }, 10);
+    } else {
+      card.style.display = 'none';
+      card.style.opacity = '0';
+    }
+  });
+
+  // Dynamic Badge Count
+  const badgeCount = document.querySelector('.badge-count');
+  if (badgeCount) {
+    badgeCount.textContent = `${matchingCards.length} Articles`;
+  }
+
+  // Load More Subtext & Button State
+  const loadMoreBtn = document.querySelector('.load-more-btn');
+  const loadMoreSubtext = document.querySelector('.load-more-subtext');
+
+  if (loadMoreSubtext) {
+    const shownCount = Math.min(displayLimit, matchingCards.length);
+    loadMoreSubtext.textContent = `Showing ${shownCount} of ${matchingCards.length} technical editorial analyses`;
+  }
+
+  if (loadMoreBtn) {
+    if (isFiltering || currentVisibleLimit >= matchingCards.length) {
+      loadMoreBtn.style.display = 'none';
+    } else {
+      loadMoreBtn.style.display = 'inline-flex';
+      loadMoreBtn.disabled = false;
+      loadMoreBtn.style.opacity = '1';
+      loadMoreBtn.innerHTML = `
+        <span>Load More Articles</span>
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      `;
+    }
+  }
+}
+
 function initCategoryFilters() {
   const filterTabs = document.querySelectorAll('.filter-tab');
-  const cards = document.querySelectorAll('.articles-grid .article-card');
-
-  if (!filterTabs.length || !cards.length) return;
+  if (!filterTabs.length) return;
 
   filterTabs.forEach(tab => {
     tab.addEventListener('click', () => {
-      // Update active state
       filterTabs.forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
-
-      const filterValue = tab.getAttribute('data-filter')?.toLowerCase() || 'all';
-
-      cards.forEach(card => {
-        const category = card.getAttribute('data-category')?.toLowerCase() || '';
-        if (filterValue === 'all' || category.includes(filterValue)) {
-          card.style.display = 'flex';
-          card.style.opacity = '0';
-          setTimeout(() => {
-            card.style.transition = 'opacity 0.3s ease';
-            card.style.opacity = '1';
-          }, 10);
-        } else {
-          card.style.display = 'none';
-        }
-      });
+      currentVisibleLimit = BATCH_SIZE;
+      updateArticlesView();
     });
   });
 }
 
-/* --------------------------------------------------------------------------
-   2. Search Functionality
-   -------------------------------------------------------------------------- */
 function initSearch() {
   const searchInputs = document.querySelectorAll('.hero-search-input, .header-search input');
-  const cards = document.querySelectorAll('.articles-grid .article-card');
-
-  if (!searchInputs.length || !cards.length) return;
+  if (!searchInputs.length) return;
 
   searchInputs.forEach(input => {
-    input.addEventListener('input', (e) => {
-      const term = e.target.value.toLowerCase().trim();
-
-      cards.forEach(card => {
-        const title = card.querySelector('.card-title')?.innerText.toLowerCase() || '';
-        const excerpt = card.querySelector('.card-excerpt')?.innerText.toLowerCase() || '';
-        const category = card.querySelector('.card-category-badge')?.innerText.toLowerCase() || '';
-
-        if (title.includes(term) || excerpt.includes(term) || category.includes(term)) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
+    input.addEventListener('input', () => {
+      currentVisibleLimit = BATCH_SIZE;
+      updateArticlesView();
     });
   });
 }
@@ -274,14 +320,13 @@ function initLoadMore() {
   loadMoreBtn.addEventListener('click', () => {
     loadMoreBtn.innerHTML = `
       <svg style="animation: spin 1s linear infinite;" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
-      Loading More Analyses...
+      Loading More Articles...
     `;
     setTimeout(() => {
-      loadMoreBtn.innerHTML = `Showing All Available Analyses`;
-      loadMoreBtn.style.opacity = '0.7';
-      loadMoreBtn.disabled = true;
-      showToast('All 48 latest research articles loaded.');
-    }, 1000);
+      currentVisibleLimit += BATCH_SIZE;
+      updateArticlesView();
+      showToast('Loaded more research articles.');
+    }, 250);
   });
 }
 
