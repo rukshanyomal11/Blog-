@@ -26,10 +26,24 @@ body {
   overflow-x: hidden;
 }
 
-img, svg {
+img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Universal SVG Icon Safety Guard (prevents inline icons without width/height from exploding) */
+svg:not([width]):not([height]):not(.media-svg-canvas):not(.chart-svg) {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 a {

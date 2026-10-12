@@ -53,7 +53,7 @@ function initReferralLinks() {
    0.1 Footer Playbooks Expand/Collapse Toggle
    -------------------------------------------------------------------------- */
 function initFooterPlaybooksToggle() {
-  const toggleBtn = document.getElementById('footer-toggle-playbooks');
+  const toggleBtn = document.getElementById('footer-toggle-playbooks') || document.getElementById('footer-playbooks-toggle');
   const archiveList = document.getElementById('footer-playbooks-archive');
   if (!toggleBtn || !archiveList) return;
 

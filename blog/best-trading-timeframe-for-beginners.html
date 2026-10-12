@@ -211,43 +211,56 @@
 </head>
 <body>
 
-  <!-- Top Announcement Bar -->
-  <div class="announcement-bar">
-    <div class="container announcement-content">
-      <span>⏱️ <strong>Trading Strategy Foundations:</strong> Learn how to choose the right chart timeframe to eliminate market noise and build consistency.</span>
-      <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="announcement-link">Explore Systematic Automation with FXnod &rarr;</a>
-    </div>
-  </div>
+    <!-- Top Reading Progress Indicator -->
+  <div class="reading-progress-bar" id="reading-progress"></div>
 
   <!-- Header -->
-  <header class="header">
+  <header class="site-header" id="site-header">
     <div class="container header-container">
-      <a href="../index.html" class="logo">
-        <span class="logo-badge">TI</span>
-        <span>Trade Insight</span>
-      </a>
+      <div style="display: flex; align-items: center;">
+        <a href="../index.html" class="brand-logo" aria-label="Trade Insight Home">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <span>Trade Insight</span>
+        </a>
 
-      <nav class="nav">
-        <a href="../index.html">Guides</a>
-        <a href="../index.html#deriv">Deriv Ecosystem</a>
-        <a href="../index.html#risk">Risk Management</a>
-        <a href="../index.html#about">About Us</a>
-      </nav>
+        <nav class="nav-links" aria-label="Main Navigation">
+          <a href="../index.html" class="nav-link">All Guides</a>
+          <a href="automated-trading-on-deriv.html" class="nav-link">Deriv Guides</a>
+          <a href="how-to-choose-a-trading-bot.html" class="nav-link">Trading Bots</a>
+          <a href="../index.html#category-fxnod" class="nav-link">FXnod Guides</a>
+        </nav>
+      </div>
 
-      <div class="header-actions">
-        <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Connect FXnod Bot</a>
+      <div class="header-right">
+        <!-- Direct FXnod Referral Header Button -->
+        <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.45rem 1.1rem; font-size: 0.82rem;" title="Explore FXnod Platform">
+          <span>Explore FXnod</span>
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+
+        <div class="header-search">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+          <input type="text" placeholder="Search guides, strategies..." aria-label="Search articles">
+        </div>
+
+        <button class="profile-avatar" title="User Profile" aria-label="User Profile">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+        </button>
       </div>
     </div>
   </header>
 
   <!-- Main Article Layout -->
-  <main class="article-layout">
-    <div class="container article-grid">
-      
-      <!-- Article Content Column -->
-      <article class="article-content">
-        
-        <!-- Breadcrumbs -->
+    <main class="container">
+    <!-- Breadcrumbs -->
         <nav class="breadcrumb" aria-label="Breadcrumb">
           <a href="../index.html">Home</a> &rsaquo;
           <a href="../index.html#risk">Technical Analysis</a> &rsaquo;
@@ -282,6 +295,76 @@
         </div>
 
         <!-- Article Intro -->
+
+    <div class="article-layout">
+      <aside class="article-sidebar">
+        <div class="sticky-sidebar">
+          
+          <!-- Table of Contents -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-title">Article Contents</h3>
+            <ul class="toc-list">
+              <li><a href="#what-is-timeframe">What Is a Trading Timeframe?</a></li>
+              <li><a href="#why-it-matters">Why Does Timeframe Matter?</a></li>
+              <li><a href="#comparison-table">Timeframe Comparison Table</a></li>
+              <li><a href="#beginner-options">Recommended Beginner Charts</a></li>
+              <li><a href="#one-minute-chart">Is the 1-Minute Chart Good?</a></li>
+              <li><a href="#multiple-timeframes">Multiple-Timeframe Analysis</a></li>
+              <li><a href="#market-differences">Differences Across Markets</a></li>
+              <li><a href="#step-by-step">7-Step Selection Framework</a></li>
+              <li><a href="#mistakes">Common Mistakes to Avoid</a></li>
+              <li><a href="#fxnod-automation">Automation with FXnod</a></li>
+              <li><a href="#faqs">Frequently Asked Questions</a></li>
+              <li><a href="#final-thoughts">Final Thoughts</a></li>
+            </ul>
+          </div>
+
+          <!-- Sidebar FXnod CTA -->
+          <div class="sidebar-card sidebar-cta-card">
+            <div class="cta-badge">Verified Automation</div>
+            <h4>Automate with FXnod</h4>
+            <p>Deploy algorithmic bots with custom timing intervals, take-profit triggers, and risk safeguards.</p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block">
+              Open FXnod Account &rarr;
+            </a>
+            <span class="cta-microcopy">Free demo testing &bull; No deposit required</span>
+          </div>
+
+          <!-- Related Reading -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-title">Related Analysis</h3>
+            <ul class="related-posts-list">
+              <li>
+                <a href="how-to-read-candlestick-charts.html">
+                  <span class="related-post-title">How to Read Candlestick Charts</span>
+                  <span class="related-post-meta">10 min read</span>
+                </a>
+              </li>
+              <li>
+                <a href="how-to-identify-support-and-resistance.html">
+                  <span class="related-post-title">How to Identify Support & Resistance</span>
+                  <span class="related-post-meta">9 min read</span>
+                </a>
+              </li>
+              <li>
+                <a href="how-to-evaluate-a-trading-strategy.html">
+                  <span class="related-post-title">How to Evaluate a Trading Strategy</span>
+                  <span class="related-post-meta">9 min read</span>
+                </a>
+              </li>
+              <li>
+                <a href="how-to-choose-a-trading-bot.html">
+                  <span class="related-post-title">How to Choose a Trading Bot</span>
+                  <span class="related-post-meta">8 min read</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </aside>
+
+      <article class="article-content">
         <div class="article-lead">
           Choosing the right trading timeframe is an important foundational step for anyone beginning their financial market journey.
         </div>
@@ -599,93 +682,29 @@
             Get Started with FXnod &rarr;
           </a>
         </div>
-
       </article>
-
-      <!-- Sidebar -->
-      <aside class="article-sidebar">
-        <div class="sticky-sidebar">
-          
-          <!-- Table of Contents -->
-          <div class="sidebar-card">
-            <h3 class="sidebar-title">Article Contents</h3>
-            <ul class="toc-list">
-              <li><a href="#what-is-timeframe">What Is a Trading Timeframe?</a></li>
-              <li><a href="#why-it-matters">Why Does Timeframe Matter?</a></li>
-              <li><a href="#comparison-table">Timeframe Comparison Table</a></li>
-              <li><a href="#beginner-options">Recommended Beginner Charts</a></li>
-              <li><a href="#one-minute-chart">Is the 1-Minute Chart Good?</a></li>
-              <li><a href="#multiple-timeframes">Multiple-Timeframe Analysis</a></li>
-              <li><a href="#market-differences">Differences Across Markets</a></li>
-              <li><a href="#step-by-step">7-Step Selection Framework</a></li>
-              <li><a href="#mistakes">Common Mistakes to Avoid</a></li>
-              <li><a href="#fxnod-automation">Automation with FXnod</a></li>
-              <li><a href="#faqs">Frequently Asked Questions</a></li>
-              <li><a href="#final-thoughts">Final Thoughts</a></li>
-            </ul>
-          </div>
-
-          <!-- Sidebar FXnod CTA -->
-          <div class="sidebar-card sidebar-cta-card">
-            <div class="cta-badge">Verified Automation</div>
-            <h4>Automate with FXnod</h4>
-            <p>Deploy algorithmic bots with custom timing intervals, take-profit triggers, and risk safeguards.</p>
-            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block">
-              Open FXnod Account &rarr;
-            </a>
-            <span class="cta-microcopy">Free demo testing &bull; No deposit required</span>
-          </div>
-
-          <!-- Related Reading -->
-          <div class="sidebar-card">
-            <h3 class="sidebar-title">Related Analysis</h3>
-            <ul class="related-posts-list">
-              <li>
-                <a href="how-to-read-candlestick-charts.html">
-                  <span class="related-post-title">How to Read Candlestick Charts</span>
-                  <span class="related-post-meta">10 min read</span>
-                </a>
-              </li>
-              <li>
-                <a href="how-to-identify-support-and-resistance.html">
-                  <span class="related-post-title">How to Identify Support & Resistance</span>
-                  <span class="related-post-meta">9 min read</span>
-                </a>
-              </li>
-              <li>
-                <a href="how-to-evaluate-a-trading-strategy.html">
-                  <span class="related-post-title">How to Evaluate a Trading Strategy</span>
-                  <span class="related-post-meta">9 min read</span>
-                </a>
-              </li>
-              <li>
-                <a href="how-to-choose-a-trading-bot.html">
-                  <span class="related-post-title">How to Choose a Trading Bot</span>
-                  <span class="related-post-meta">8 min read</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-
-        </div>
-      </aside>
-
     </div>
   </main>
 
   <!-- Footer -->
-  <footer class="footer">
+    <!-- Footer -->
+  <footer class="site-footer">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col brand-col">
-          <a href="../index.html" class="logo footer-logo">
-            <span class="logo-badge">TI</span>
+      <div class="footer-top-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="brand-logo">
+            <div class="brand-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
             <span>Trade Insight</span>
           </a>
-          <p class="footer-desc">
-            Independent educational resource focused on algorithmic trading systems, quantitative risk management, and market mechanics.
+          <p>
+            High-performance technical editorial and tactical research publication. We empower quantitative traders, risk teams, and modern web agencies with actionable market playbooks.
           </p>
-          <form class="footer-newsletter">
+          <span class="footer-digest-label">Weekly Tech & Trading Digest</span>
+          <form class="footer-mini-form" onsubmit="event.preventDefault(); showToast('Subscribed to Weekly Digest!');">
             <input type="email" placeholder="Enter your business email" required aria-label="Business Email">
             <button type="submit">Subscribe</button>
           </form>
@@ -695,26 +714,57 @@
           <h4>Publication Areas</h4>
           <ul>
             <li><a href="../index.html#all">All Editorial Guides</a></li>
-            <li><a href="best-trading-timeframe-for-beginners.html">Trading Timeframes</a></li>
-            <li><a href="how-economic-news-affects-trading.html">Economic News</a></li>
-            <li><a href="why-market-prices-go-up-and-down.html">Market Mechanics</a></li>
-            <li><a href="forex-vs-synthetic-indices.html">Forex vs Synthetics</a></li>
-            <li><a href="manage-risk-when-using-a-trading-bot.html">Risk Management</a></li>
+            <li><a href="automated-trading-on-deriv.html">Deriv & Synthetic Indices</a></li>
+            <li><a href="how-to-choose-a-trading-bot.html">Automated Trading Bots</a></li>
+            <li><a href="what-is-automated-trading.html">Risk & Margin Management</a></li>
+            <li><a href="../index.html#seo">SEO & Growth Strategy</a></li>
+            <li><a href="../index.html#infra">Web Tech & Infrastructure</a></li>
           </ul>
         </div>
 
-        <div class="footer-col">
+        <div class="footer-col footer-col-playbooks">
           <h4>Popular Playbooks</h4>
-          <ul>
+          <ul class="footer-playbooks-list">
             <li><a href="what-is-automated-trading.html">What Is Automated Trading?</a></li>
-            <li><a href="best-trading-timeframe-for-beginners.html">Best Trading Timeframes</a></li>
-            <li><a href="how-economic-news-affects-trading.html">Economic News & Trading</a></li>
-            <li><a href="why-market-prices-go-up-and-down.html">Why Market Prices Move</a></li>
-            <li><a href="how-to-evaluate-a-trading-strategy.html">How to Evaluate a Strategy</a></li>
-            <li><a href="what-is-risk-to-reward-ratio.html">Risk-to-Reward Ratio Guide</a></li>
-            <li><a href="forex-vs-synthetic-indices.html">Forex vs Synthetic Indices</a></li>
-            <li><a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer">Explore FXnod Platform</a></li>
+            <li><a href="automated-trading-on-deriv.html">How to Start on Deriv</a></li>
+            <li><a href="how-to-choose-a-trading-bot.html">How to Choose a Trading Bot</a></li>
+            <li><a href="manage-risk-when-using-a-trading-bot.html">Managing Bot Risk</a></li>
+            <li><a href="why-is-my-trading-bot-not-working.html">Bot Troubleshooting Guide</a></li>
           </ul>
+
+          <!-- Expandable archive list of remaining playbooks -->
+          <ul class="footer-playbooks-archive" id="footer-playbooks-archive" style="display: none;">
+            <li><a href="can-trading-bots-lose-money.html">Can Bots Lose Money? (Risks)</a></li>
+            <li><a href="what-is-risk-to-reward-ratio.html">Risk-to-Reward Ratio Guide</a></li>
+            <li><a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" data-ref-link>Explore FXnod Platform</a></li>
+            <li><a href="how-to-test-a-trading-bot.html">How to Test a Trading Bot</a></li>
+            <li><a href="how-trading-bots-connect-to-platforms.html">How Bots Connect to Platforms</a></li>
+            <li><a href="why-trading-bots-make-losing-trades.html">Why Bots Make Losing Trades</a></li>
+            <li><a href="manual-vs-automated-trading.html">Manual vs Automated Trading</a></li>
+            <li><a href="what-to-check-before-connecting-a-trading-bot.html">Pre-Connection Checks (Security)</a></li>
+            <li><a href="trading-bot-faqs.html">Trading Bot FAQs (15 Answers)</a></li>
+            <li><a href="how-to-start-learning-trading.html">How to Start Learning Trading</a></li>
+            <li><a href="how-to-read-candlestick-charts.html">How to Read Candlesticks</a></li>
+            <li><a href="how-to-identify-support-and-resistance.html">Support & Resistance Levels</a></li>
+            <li><a href="how-to-keep-a-trading-journal.html">How to Keep a Trading Journal</a></li>
+            <li><a href="how-to-control-emotions-while-trading.html">Controlling Trading Emotions</a></li>
+            <li><a href="forex-vs-synthetic-indices.html">Forex vs Synthetic Indices</a></li>
+            <li><a href="how-to-evaluate-a-trading-strategy.html">How to Evaluate a Strategy</a></li>
+            <li><a href="why-market-prices-go-up-and-down.html">Why Market Prices Move</a></li>
+            <li><a href="how-economic-news-affects-trading.html">Economic News & Trading</a></li>
+            <li><a href="best-trading-timeframe-for-beginners.html">Best Trading Timeframes</a></li>
+            <li><a href="what-is-a-breakout-in-trading.html">What Is a Breakout in Trading?</a></li>
+            <li><a href="how-moving-averages-work-in-trading.html">How Moving Averages Work</a></li>
+            <li><a href="what-is-rsi-indicator-in-trading.html">What Is the RSI Indicator?</a></li>
+            <li><a href="what-is-spread-in-trading.html">What Is Spread in Trading?</a></li>
+            <li><a href="how-to-calculate-position-size.html">Position Sizing Guide</a></li>
+            <li><a href="what-is-drawdown-in-trading.html">What Is Drawdown in Trading?</a></li>
+            <li><a href="is-high-win-rate-enough-to-be-profitable.html">Is a High Win Rate Enough?</a></li>
+          </ul>
+
+          <button type="button" class="footer-toggle-btn" id="footer-playbooks-toggle" aria-expanded="false">
+            <span>+ View All 30 Playbooks</span>
+          </button>
         </div>
 
         <div class="footer-col">

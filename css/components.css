@@ -181,6 +181,8 @@ header.header {
   position: sticky;
   top: 0;
   z-index: 100;
+  display: flex;
+  align-items: center;
 }
 
 .logo {
@@ -645,19 +647,60 @@ header.header {
 /* --------------------------------------------------------------------------
    7. FOOTER COMPONENT
    -------------------------------------------------------------------------- */
-.site-footer {
+.site-footer,
+footer.footer {
   background: #ffffff;
   border-top: 1px solid var(--color-border);
   padding-top: 4rem;
   padding-bottom: 2rem;
   margin-top: auto;
+  width: 100%;
 }
 
-.footer-top-grid {
+.footer-top-grid,
+.footer-grid {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr 1fr;
   gap: 3rem;
   margin-bottom: 3.5rem;
+}
+
+.footer-desc {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  max-width: 340px;
+}
+
+.footer-newsletter {
+  display: flex;
+  max-width: 320px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: #f8fafc;
+}
+
+.footer-newsletter input {
+  flex: 1;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.82rem;
+  color: var(--color-text-main);
+}
+
+.footer-newsletter button {
+  background: #0f172a;
+  color: #fff;
+  padding: 0 1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: background var(--transition-fast);
+}
+
+.footer-newsletter button:hover {
+  background: #1e293b;
 }
 
 .footer-brand p {
