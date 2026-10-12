@@ -658,6 +658,66 @@ main.article-layout {
   font-size: 0.72rem;
 }
 
+/* --------------------------------------------------------------------------
+   WORKFLOW STEPS & NUMBERED CARDS
+   -------------------------------------------------------------------------- */
+.workflow-steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin: 1.75rem 0;
+}
+
+.workflow-step-card {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.workflow-step-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.workflow-num {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-full);
+  background: #0f172a;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.workflow-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.workflow-body h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-main);
+}
+
+.workflow-body p:last-child {
+  margin-bottom: 0;
+}
+
 /* Further Reading Bottom Box */
 .further-reading-box {
   margin-top: 2.5rem;
