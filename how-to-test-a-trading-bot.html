@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Test a Trading Bot Before Using Real Money | Trade Insight</title>
+  <meta name="description" content="Learn how to test a trading bot with backtesting, demo trading, performance tracking, and risk checks before considering real-money trading.">
+  <meta name="keywords" content="how to test a trading bot, trading bot demo testing, trading bot backtesting, test automated trading strategy, paper trading for beginners, trading bot performance, FXnod">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="How to Test a Trading Bot Before Using Real Money">
+  <meta property="og:description" content="Learn how to test a trading bot with backtesting, demo trading, performance tracking, and risk checks before considering real-money trading.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tradeinsight.com/how-to-test-a-trading-bot/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .article-featured-image-wrap {
+      margin: 2rem 0 2.5rem 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      background: #f1f5f9;
+      box-shadow: var(--shadow-md);
+    }
+    .article-featured-image {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      display: block;
+    }
+    .image-caption {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      background: #ffffff;
+      border-top: 1px solid var(--color-border);
+      text-align: center;
+      font-style: italic;
+    }
+    .fxnod-partner-box {
+      background: linear-gradient(135deg, #0b1120 0%, #172554 100%);
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      margin: 2.5rem 0;
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.25);
+    }
+    .fxnod-partner-box::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(240, 58, 39, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .fxnod-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(240, 58, 39, 0.2);
+      border: 1px solid rgba(240, 58, 39, 0.5);
+      color: #fca5a5;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .fxnod-partner-box h3 {
+      color: #ffffff;
+      font-size: 1.45rem;
+      margin-bottom: 0.65rem;
+    }
+    .fxnod-partner-box p {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      margin-bottom: 1.4rem;
+    }
+    .fxnod-cta-btn {
+      background: var(--color-primary);
+      color: #ffffff;
+      font-weight: 700;
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 16px rgba(240, 58, 39, 0.35);
+      transition: all var(--transition-normal);
+      text-decoration: none;
+    }
+    .fxnod-cta-btn:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(240, 58, 39, 0.45);
+      color: #ffffff;
+    }
+    .test-method-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+      border-left: 4px solid #2563eb;
+    }
+    .test-method-card h4 {
+      font-size: 1.1rem;
+      color: var(--color-text-main);
+      margin-bottom: 0.5rem;
+    }
+    .test-method-card p {
+      font-size: 0.9rem;
+      color: #475569;
+      margin-bottom: 0.5rem;
+    }
+    .test-method-limitation {
+      font-size: 0.82rem;
+      color: #b91c1c;
+      background: #fef2f2;
+      padding: 0.4rem 0.75rem;
+      border-radius: var(--radius-sm);
+      display: inline-block;
+      margin-top: 0.25rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Reading Progress Indicator -->
+  <div class="reading-progress-bar" id="reading-progress"></div>
+
+  <!-- ======================================================================
+       HEADER & NAVIGATION
+       ====================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <div style="display: flex; align-items: center;">
+        <a href="index.html" class="brand-logo" aria-label="Trade Insight Home">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <span>Trade Insight</span>
+        </a>
+
+        <nav class="nav-links" aria-label="Main Navigation">
+          <a href="index.html" class="nav-link">All Guides</a>
+          <a href="automated-trading-on-deriv.html" class="nav-link">Deriv Guides</a>
+          <a href="how-to-choose-a-trading-bot.html" class="nav-link">Trading Bots</a>
+          <a href="index.html#category-fxnod" class="nav-link">FXnod Guides</a>
+        </nav>
+      </div>
+
+      <div class="header-right">
+        <!-- Direct FXnod Referral Header Button -->
+        <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.45rem 1.1rem; font-size: 0.82rem;" title="Explore FXnod Platform">
+          <span>Explore FXnod</span>
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+
+        <div class="header-search">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+          <input type="text" placeholder="Search testing, backtesting..." aria-label="Search articles">
+        </div>
+
+        <button class="profile-avatar" title="User Profile" aria-label="User Profile">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Breadcrumbs">
+      <a href="index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="how-to-choose-a-trading-bot.html">Trading Bots</a>
+      <span class="separator">/</span>
+      <span class="current">How to Test a Trading Bot</span>
+    </nav>
+
+    <!-- Article Header -->
+    <header class="article-header">
+      <div class="article-tags-row">
+        <span class="badge-article-category" style="background: #2563eb;">Testing & Validation</span>
+        <span class="badge-updated">Updated October 2026</span>
+        <span class="badge-read-time">9 min testing guide</span>
+      </div>
+
+      <h1 class="article-main-title">
+        How to Test a Trading Bot Before Using Real Money
+      </h1>
+
+      <p class="article-lead">
+        Using a trading bot with real money before understanding how it works can expose you to unnecessary risk. Even if a bot looks promising, you need to evaluate its strategy, settings, compatibility, and performance before deciding whether to use it.
+      </p>
+
+      <div class="article-author-bar">
+        <div class="author-profile-chip">
+          <div class="author-chip-avatar">TI</div>
+          <span class="author-chip-name">Trade Insight Editorial</span>
+        </div>
+        <div class="author-meta-item">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+          <span>Published Oct 2026</span>
+        </div>
+        <div class="author-meta-item author-meta-verified">
+          <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+          <span>Testing Methodology Verified</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Featured Hero Image (Unsplash direct CDN as requested) -->
+    <div class="article-featured-image-wrap">
+      <img 
+        src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" 
+        alt="Testing a trading bot with financial charts and performance results on a laptop" 
+        class="article-featured-image"
+        loading="eager"
+      >
+      <div class="image-caption">
+        Testing a trading bot with historical data, paper trading, and performance analysis before risking real funds.
+      </div>
+    </div>
+
+    <!-- ======================================================================
+         TWO-COLUMN ARTICLE LAYOUT
+         ====================================================================== -->
+    <div class="article-layout">
+
+      <!-- LEFT STICKY SIDEBAR -->
+      <aside class="article-sidebar">
+        <!-- Table of Contents -->
+        <div class="sidebar-widget">
+          <div class="widget-title">
+            <span>Table of Contents</span>
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path></svg>
+          </div>
+          <ul class="toc-list">
+            <li class="toc-item active"><a href="#why-test">Why Test First?</a></li>
+            <li class="toc-item"><a href="#test-methods">3 Testing Methods</a></li>
+            <li class="toc-item"><a href="#steps">Step-by-Step Testing Guide</a></li>
+            <li class="toc-item"><a href="#winrate-math">Win Rate vs Expectancy</a></li>
+            <li class="toc-item"><a href="#mistakes">Common Testing Mistakes</a></li>
+            <li class="toc-item"><a href="#checklist">Simple Testing Checklist</a></li>
+            <li class="toc-item"><a href="#fxnod-section">Researching With FXnod</a></li>
+            <li class="toc-item"><a href="#faq">Frequently Asked Questions</a></li>
+            <li class="toc-item"><a href="#final-thoughts">Final Thoughts</a></li>
+          </ul>
+
+          <div style="margin-top: 1.25rem;">
+            <div class="target-audience-box">
+              <div class="target-audience-title">Related Foundation Guides</div>
+              <ul style="display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.4rem;">
+                <li><a href="what-is-automated-trading.html" style="color: #2563eb; font-weight: 600;">1. What Is Automated Trading? &gt;</a></li>
+                <li><a href="automated-trading-on-deriv.html" style="color: #2563eb; font-weight: 600;">2. How to Start on Deriv &gt;</a></li>
+                <li><a href="how-to-choose-a-trading-bot.html" style="color: #2563eb; font-weight: 600;">3. How to Choose a Bot &gt;</a></li>
+                <li><a href="why-is-my-trading-bot-not-working.html" style="color: #2563eb; font-weight: 600;">4. Bot Troubleshooting &gt;</a></li>
+                <li><a href="can-trading-bots-lose-money.html" style="color: #2563eb; font-weight: 600;">5. Can Bots Lose Money? &gt;</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sticky FXnod Promo Card (Official Referral Link) -->
+        <div class="sidebar-cta-card" style="background: radial-gradient(circle at 10% 10%, #1e3a8a 0%, #0f172a 90%); border-color: rgba(59, 130, 246, 0.4);">
+          <div class="sidebar-cta-tag" style="color: #60a5fa;">Automation & Relays</div>
+          <h4 style="font-size: 1.05rem;">Explore FXnod Relays</h4>
+          <p style="font-size: 0.8rem; color: #cbd5e1;">
+            Researching automated webhook infrastructure for the Deriv ecosystem? Review documentation, parameters, and relay setups on FXnod.
+          </p>
+          <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="sidebar-cta-btn" style="text-decoration: none;">
+            <span>Explore FXnod Official Site</span>
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </a>
+        </div>
+
+        <!-- Share Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title">Share Guide</div>
+          <div class="share-buttons-row">
+            <button class="share-btn btn-copy-link" title="Copy Link">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+              <span>Copy</span>
+            </button>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="share-btn" title="Share on Twitter/X">
+              <svg fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              <span>X/Post</span>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="share-btn" title="Share on LinkedIn">
+              <svg fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              <span>Share</span>
+            </a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- RIGHT MAIN CONTENT -->
+      <article class="article-content">
+
+        <!-- INTRO CALLOUT -->
+        <div class="callout-summary" style="background: #f8fafc; border-left-color: #2563eb; border-color: #e2e8f0;">
+          <div class="callout-title" style="color: #2563eb;">Core Testing Reality</div>
+          <p style="color: #334155; margin-bottom: 0;">
+            The purpose of testing is not to prove that a bot cannot lose money. It is to understand its behaviour, settings, limits, and risks before making a decision with real capital.
+          </p>
+        </div>
+
+        <!-- SECTION 1: WHY TEST FIRST -->
+        <section id="why-test" class="article-section">
+          <h2>Why Should You Test a Trading Bot First?</h2>
+          <p>
+            A trading bot follows the rules and settings configured by its user or developer. Testing helps you determine whether those rules behave as expected. Without proper testing, you may not discover problems such as incorrect settings, unsuitable market conditions, unexpected losses, or platform compatibility issues until real money is involved.
+          </p>
+          <ul style="margin-left: 1.5rem; display: flex; flex-direction: column; gap: 0.35rem; list-style-type: disc;">
+            <li>Understand how the bot operates under live market dynamics.</li>
+            <li>Identify configuration and connection errors safely.</li>
+            <li>Evaluate a strategy across different volatility regimes.</li>
+            <li>Measure potential drawdowns and consecutive losing sequences.</li>
+            <li>Avoid relying entirely on promotional advertising or unsupported profit screenshots.</li>
+          </ul>
+        </section>
+
+        <!-- SECTION 2: 3 TESTING METHODS -->
+        <section id="test-methods" class="article-section">
+          <h2>1. Understand the Different Ways to Test a Trading Bot</h2>
+          <p>There are three primary testing methods. Combining them provides the most realistic picture:</p>
+
+          <!-- Method 1: Demo -->
+          <div class="test-method-card">
+            <h4>Demo Trading (Paper Trading)</h4>
+            <p>
+              Demo trading allows you to test a strategy using virtual funds in a supported environment. You observe how the bot responds to live ticks and whether its execution matches expectations without risking money.
+            </p>
+            <span class="test-method-limitation">Limitation: Demo conditions can differ from live trading in latency, slippage, and psychological pressure.</span>
+          </div>
+
+          <!-- Method 2: Backtesting -->
+          <div class="test-method-card" style="border-left-color: #7c3aed;">
+            <h4>Backtesting</h4>
+            <p>
+              Backtesting evaluates a strategy using historical market candles. If tools are available, you examine how the rules would have performed in previous years across various regimes.
+            </p>
+            <span class="test-method-limitation">Limitation: Historical results do not predict future performance, and strategies can be overfitted to past data.</span>
+          </div>
+
+          <!-- Method 3: Forward Testing -->
+          <div class="test-method-card" style="border-left-color: #059669;">
+            <h4>Forward Testing (Walk-Forward)</h4>
+            <p>
+              Forward testing means observing a strategy on completely new market data that was never used during strategy development.
+            </p>
+            <span class="test-method-limitation">Limitation: Short testing periods may not capture rare black-swan tail-risk events.</span>
+          </div>
+        </section>
+
+        <!-- SECTION 3: STEP-BY-STEP TESTING GUIDE -->
+        <section id="steps" class="article-section">
+          <h2>2. Step-by-Step Guide to Testing a Trading Bot</h2>
+          <p>Follow these systematic steps before committing live capital:</p>
+
+          <div class="workflow-steps-list">
+            <div class="workflow-step-card">
+              <div class="workflow-num">1</div>
+              <div class="workflow-body">
+                <h4>Understand the Bot's Purpose</h4>
+                <p>Check platform compatibility, market products, entry/exit rules, and required permission scopes before connecting any account.</p>
+              </div>
+            </div>
+
+            <div class="workflow-step-card">
+              <div class="workflow-num">2</div>
+              <div class="workflow-body">
+                <h4>Check Platform Compatibility</h4>
+                <p>Confirm the broker supports your bot. If using Deriv, start with official <a href="https://deriv.com/trading-platforms/" target="_blank" rel="noopener noreferrer" style="color: #2563eb; font-weight: 600;">Deriv trading platforms</a> and <a href="https://deriv.com/trading-platforms/deriv-bot" target="_blank" rel="noopener noreferrer" style="color: #2563eb; font-weight: 600;">Deriv Bot</a> resources.</p>
+              </div>
+            </div>
+
+            <div class="workflow-step-card">
+              <div class="workflow-num">3</div>
+              <div class="workflow-body">
+                <h4>Start With a Demo Account</h4>
+                <p>Learn how to configure, start, and stop the bot safely using virtual funds before ever considering live accounts.</p>
+              </div>
+            </div>
+
+            <div class="workflow-step-card">
+              <div class="workflow-num">4</div>
+              <div class="workflow-body">
+                <h4>Record Your Starting Settings</h4>
+                <p>Document the exact market, stake, indicator periods, trade durations, and stop-loss limits. Avoid tweaking multiple variables at once.</p>
+              </div>
+            </div>
+
+            <div class="workflow-step-card">
+              <div class="workflow-num">5</div>
+              <div class="workflow-body">
+                <h4>Test Across Different Conditions</h4>
+                <p>Observe the bot during trending, consolidating, and volatile market phases. Do not remove stop safeguards after isolated losses.</p>
+              </div>
+            </div>
+
+            <!-- Step 6: Measurement Math -->
+            <div class="workflow-step-card" id="winrate-math">
+              <div class="workflow-num">6</div>
+              <div class="workflow-body">
+                <h4>Measure Performance Properly: Win Rate vs Total Expectancy</h4>
+                <p>A high win rate alone does not mean a strategy is profitable. Review this mathematical comparison:</p>
+
+                <div class="table-responsive" style="margin: 0.75rem 0;">
+                  <table class="eval-table">
+                    <thead>
+                      <tr>
+                        <th>Measurement</th>
+                        <th>Strategy A</th>
+                        <th>Strategy B</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>Winning Trades</strong></td>
+                        <td>8</td>
+                        <td>5</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Losing Trades</strong></td>
+                        <td>2</td>
+                        <td>5</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Win Rate</strong></td>
+                        <td><span class="table-tag green">80% (High)</span></td>
+                        <td><span class="table-tag purple">50% (Lower)</span></td>
+                      </tr>
+                      <tr>
+                        <td><strong>Profit per Win</strong></td>
+                        <td>+$1</td>
+                        <td>+$5</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Loss per Losing Trade</strong></td>
+                        <td>-$5</td>
+                        <td>-$2</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Total Net Result</strong></td>
+                        <td><span class="table-tag" style="background:#fee2e2; color:#b91c1c; font-weight:700;">-$2 (Net Loss)</span></td>
+                        <td><span class="table-tag" style="background:#ecfdf5; color:#047857; font-weight:700;">+$15 (Net Profit)</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p style="font-size: 0.82rem; color: #64748b;">
+                  *Notice how Strategy B achieves a superior financial outcome despite a significantly lower win rate because losses were kept small.
+                </p>
+              </div>
+            </div>
+
+            <div class="workflow-step-card">
+              <div class="workflow-num">7</div>
+              <div class="workflow-body">
+                <h4>Review Errors and Unexpected Behaviour</h4>
+                <p>Log technical disconnects or missing trades. For step-by-step error diagnosis, check our technical guide: <a href="why-is-my-trading-bot-not-working.html" style="color: #2563eb; font-weight: 600;">Why Is My Trading Bot Not Working? &gt;</a></p>
+              </div>
+            </div>
+
+            <div class="workflow-step-card">
+              <div class="workflow-num">8</div>
+              <div class="workflow-body">
+                <h4>Decide Whether More Testing Is Needed</h4>
+                <p>Never rush from a single positive session into live trading. Ensure you understand every single risk before committing real capital.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 4: COMMON MISTAKES -->
+        <section id="mistakes" class="article-section">
+          <h2>3. Common Mistakes to Avoid When Testing a Trading Bot</h2>
+
+          <div class="fixes-grid">
+            <div class="fix-card">
+              <div class="fix-number-badge" style="background: #ef4444;">!</div>
+              <div class="fix-info">
+                <h4>Trusting Screenshots of Profits</h4>
+                <p>Screenshots cherry-pick lucky winning sequences while hiding drawdowns, commissions, and underlying losses.</p>
+              </div>
+            </div>
+
+            <div class="fix-card">
+              <div class="fix-number-badge" style="background: #ef4444;">!</div>
+              <div class="fix-info">
+                <h4>Testing Only in Favourable Markets</h4>
+                <p>A strategy might look brilliant in an uptrend but collapse when volatility spikes or markets turn range-bound.</p>
+              </div>
+            </div>
+
+            <div class="fix-card">
+              <div class="fix-number-badge" style="background: #ef4444;">!</div>
+              <div class="fix-info">
+                <h4>Changing Settings After Every Loss</h4>
+                <p>Constantly altering parameters ruins statistical significance. Test configurations systematically over a defined sample size.</p>
+              </div>
+            </div>
+
+            <div class="fix-card">
+              <div class="fix-number-badge" style="background: #ef4444;">!</div>
+              <div class="fix-info">
+                <h4>Ignoring Drawdown Depth & Duration</h4>
+                <p>A strategy may finish positive over a year but suffer a 40% equity drop that would wipe out real-money accounts along the way.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 5: CHECKLIST -->
+        <section id="checklist" class="article-section">
+          <h2>4. A Simple Trading Bot Testing Checklist</h2>
+
+          <div class="checklist-wrapper">
+            <div class="checklist-list">
+              <div class="checklist-item" style="cursor: default;"><input type="checkbox" checked disabled><div class="checklist-text">I understand how the bot's strategy rules work.</div></div>
+              <div class="checklist-item" style="cursor: default;"><input type="checkbox" checked disabled><div class="checklist-text">I have verified platform and market compatibility.</div></div>
+              <div class="checklist-item" style="cursor: default;"><input type="checkbox" checked disabled><div class="checklist-text">I have checked the bot's permissions and security requirements.</div></div>
+              <div class="checklist-item" style="cursor: default;"><input type="checkbox" checked disabled><div class="checklist-text">I have tested it in a demo environment with virtual funds.</div></div>
+              <div class="checklist-item" style="cursor: default;"><input type="checkbox" checked disabled><div class="checklist-text">I have recorded settings and test results in an organised log.</div></div>
+              <div class="checklist-item" style="cursor: default;"><input type="checkbox" checked disabled><div class="checklist-text">I have evaluated performance across different volatility regimes.</div></div>
+              <div class="checklist-item" style="cursor: default;"><input type="checkbox" checked disabled><div class="checklist-text">I have evaluated drawdowns and loss sizes, not just win rate.</div></div>
+              <div class="checklist-item" style="cursor: default;"><input type="checkbox" checked disabled><div class="checklist-text">I have verified commissions, spreads, and fee structures.</div></div>
+              <div class="checklist-item" style="cursor: default;"><input type="checkbox" checked disabled><div class="checklist-text">I have investigated any technical errors or disconnects.</div></div>
+              <div class="checklist-item" style="cursor: default;"><input type="checkbox" checked disabled><div class="checklist-text">I understand that past results never guarantee future outcomes.</div></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 6: CAN FXNOD BE PART OF YOUR RESEARCH? -->
+        <section id="fxnod-section" class="article-section">
+          <h2>Can FXnod Be Part of Your Automated Trading Research?</h2>
+          <p>
+            If you are comparing automated trading tools, <strong>FXnod may be worth researching alongside other options</strong>. Before using it, verify its current features, supported platforms, setup requirements, and any available testing options through its official documentation.
+          </p>
+          <p>
+            Do not assume that every testing method described in this article is available in FXnod. Confirm the specific features before relying on them.
+          </p>
+
+          <!-- SPECIAL FXNOD PARTNER CALLOUT (Embedded Official Referral Link) -->
+          <div class="fxnod-partner-box">
+            <span class="fxnod-badge">Official Automation Resource</span>
+            <h3>Explore FXnod Platform & Documentation</h3>
+            <p>
+              Researching reliable automated relays and bot setup parameters? Visit FXnod to inspect official documentation and supported platform integrations.
+            </p>
+            <div>
+              <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="fxnod-cta-btn">
+                <span>Explore FXnod Official Platform</span>
+                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </a>
+            </div>
+            <p style="font-size: 0.78rem; color: #94a3b8; margin-top: 1rem; margin-bottom: 0;">
+              *Affiliate disclosure: This article may contain an affiliate link. The publisher may receive a commission if you sign up through it, at no additional cost to you. Evaluate the tool independently and understand the risks before using it.
+            </p>
+          </div>
+        </section>
+
+        <!-- SECTION 7: FAQS -->
+        <section id="faq" class="article-section">
+          <h2>Frequently Asked Questions</h2>
+
+          <div class="faq-list">
+            <div class="faq-card">
+              <h4>How long should I test a trading bot?</h4>
+              <p>There is no single testing timeframe for every bot. It depends on trade frequency and the range of market conditions encountered. A few winning sessions are never enough to establish statistical reliability.</p>
+            </div>
+
+            <div class="faq-card">
+              <h4>Is demo trading enough to prove that a bot works?</h4>
+              <p>No. Demo trading helps you verify settings and avoid technical errors, but live slippage and execution differences can alter results. Backtesting and forward testing provide complementary data.</p>
+            </div>
+
+            <div class="faq-card">
+              <h4>What should I check when backtesting a trading bot?</h4>
+              <p>Check the total number of trades, average win vs loss, max drawdown, testing duration, and transaction costs. Beware of overfitting to past curves.</p>
+            </div>
+
+            <div class="faq-card">
+              <h4>Can a profitable backtest still lose money in live trading?</h4>
+              <p>Yes. Changing market volatility or execution delays can cause live results to diverge sharply from historical backtest curves.</p>
+            </div>
+
+            <div class="faq-card">
+              <h4>Should beginners test trading bots?</h4>
+              <p>Beginners should use demo environments thoroughly to learn the platform and understand risks before risking real capital.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 8: FINAL THOUGHTS -->
+        <section id="final-thoughts" class="article-section">
+          <h2>Final Thoughts</h2>
+          <p>
+            Testing a trading bot is an important step in understanding its behaviour before exposing real funds to risk. Demo trading, backtesting, forward testing, and performance analysis each provide useful information, but none can guarantee future profits.
+          </p>
+          <p>
+            Take your time, document your results, question unrealistic claims, and understand potential drawdowns. The goal is to make an informed decision—not to find a bot that promises risk-free trading.
+          </p>
+
+          <!-- Second CTA Banner (Official FXnod Referral Link) -->
+          <div class="article-footer-cta" style="margin: 2.5rem 0 1.5rem 0;">
+            <div>
+              <h3>Explore Modern Automation Features with FXnod</h3>
+              <p>
+                Visit FXnod to inspect supported integrations, automated relays, and step-by-step documentation.
+              </p>
+            </div>
+            <div class="article-footer-cta-actions">
+              <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="text-decoration: none;">
+                <span>Visit FXnod Official Site</span>
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Legal Disclaimer -->
+          <div style="background: #f8fafc; border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 1.25rem; font-size: 0.8rem; color: #64748b; line-height: 1.6; margin-top: 2rem;">
+            <em><strong>Disclaimer:</strong> This article is for educational purposes only and is not financial advice. Trading involves risk, and losses are possible. This article may contain affiliate links, which may earn the publisher a commission from qualifying referrals at no additional cost to the reader.</em>
+          </div>
+        </section>
+
+      </article>
+    </div>
+  </main>
+
+  <!-- ======================================================================
+       FOOTER COMPONENT
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <div class="brand-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+            <span>Trade Insight</span>
+          </a>
+          <p>
+            High-performance technical editorial and tactical research publication. We empower quantitative traders, risk teams, and modern web agencies with actionable market playbooks.
+          </p>
+          <span class="footer-digest-label">Weekly Tech & Trading Digest</span>
+          <form class="footer-mini-form" onsubmit="event.preventDefault(); showToast('Subscribed to Weekly Digest!');">
+            <input type="email" placeholder="Enter your business email" required aria-label="Business Email">
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+
+        <div class="footer-col">
+          <h4>Publication Areas</h4>
+          <ul>
+            <li><a href="index.html#all">All Editorial Guides</a></li>
+            <li><a href="automated-trading-on-deriv.html">Deriv & Synthetic Indices</a></li>
+            <li><a href="how-to-choose-a-trading-bot.html">Automated Trading Bots</a></li>
+            <li><a href="why-is-my-trading-bot-not-working.html">Bot Troubleshooting</a></li>
+            <li><a href="how-to-test-a-trading-bot.html">Testing & Optimization</a></li>
+            <li><a href="can-trading-bots-lose-money.html">Risk Management</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Popular Playbooks</h4>
+          <ul>
+            <li><a href="what-is-automated-trading.html">What Is Automated Trading?</a></li>
+            <li><a href="automated-trading-on-deriv.html">How to Start on Deriv</a></li>
+            <li><a href="how-to-choose-a-trading-bot.html">How to Choose a Trading Bot</a></li>
+            <li><a href="why-is-my-trading-bot-not-working.html">Bot Troubleshooting Guide</a></li>
+            <li><a href="how-to-test-a-trading-bot.html">How to Test a Bot</a></li>
+            <li><a href="can-trading-bots-lose-money.html">Can Bots Lose Money? (Risks)</a></li>
+            <li><a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer">Explore FXnod Platform</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Compliance & Legal</h4>
+          <ul>
+            <li><a href="index.html#editorial">Editorial Independence</a></li>
+            <li><a href="index.html#risk-notice">Risk Disclosure Notice</a></li>
+            <li><a href="index.html#terms">Terms of Service</a></li>
+            <li><a href="index.html#privacy">Privacy Policy</a></li>
+            <li><a href="index.html#cookies">Cookie Preferences</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 Trade Insight Editorial. All content is for educational and technical informational purposes only. Trading financial derivatives carries substantial risk.
+        </div>
+        <div>
+          Designed for Agency Quantitative Operations
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>

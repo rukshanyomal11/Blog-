@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Identify Support and Resistance Levels | Trade Insight</title>
+  <meta name="description" content="Learn how to identify support and resistance levels on trading charts, mark useful price zones, understand breakouts, and avoid common beginner mistakes.">
+  <meta name="keywords" content="how to identify support and resistance, support and resistance levels, support and resistance for beginners, how to draw support and resistance, trading chart price levels, support resistance breakout, FXnod">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="How to Identify Support and Resistance Levels">
+  <meta property="og:description" content="Learn how to identify support and resistance levels on trading charts, mark useful price zones, understand breakouts, and avoid common beginner mistakes.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tradeinsight.com/how-to-identify-support-and-resistance/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .article-featured-image-wrap {
+      margin: 2rem 0 2.5rem 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      background: #f1f5f9;
+      box-shadow: var(--shadow-md);
+    }
+    .article-featured-image {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      display: block;
+    }
+    .image-caption {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      background: #ffffff;
+      border-top: 1px solid var(--color-border);
+      text-align: center;
+      font-style: italic;
+    }
+    .zone-diagram-box {
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      margin: 1.75rem 0;
+      color: #f8fafc;
+    }
+    .zone-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.85rem 1.25rem;
+      margin-bottom: 0.75rem;
+      border-radius: var(--radius-sm);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+    }
+    .zone-row.resistance {
+      background: rgba(220, 38, 38, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      color: #fca5a5;
+    }
+    .zone-row.mid {
+      background: rgba(100, 116, 139, 0.15);
+      border: 1px dashed rgba(148, 163, 184, 0.3);
+      color: #cbd5e1;
+    }
+    .zone-row.support {
+      background: rgba(22, 163, 74, 0.15);
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      color: #86efac;
+      margin-bottom: 0;
+    }
+    .terms-table-wrapper {
+      margin: 1.75rem 0;
+      overflow-x: auto;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+    }
+    .terms-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9rem;
+      background: #ffffff;
+    }
+    .terms-table th {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 0.9rem 1.25rem;
+      font-weight: 700;
+      border-bottom: 2px solid #334155;
+    }
+    .terms-table td {
+      padding: 0.85rem 1.25rem;
+      border-bottom: 1px solid var(--color-border);
+      color: #334155;
+    }
+    .terms-table tr:nth-child(even) {
+      background: #f8fafc;
+    }
+    .terms-table td:first-child {
+      font-weight: 600;
+      color: #1e293b;
+      white-space: nowrap;
+    }
+    .fxnod-partner-box {
+      background: linear-gradient(135deg, #0b1120 0%, #172554 100%);
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      margin: 2.5rem 0;
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.25);
+    }
+    .fxnod-partner-box::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(240, 58, 39, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .fxnod-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(240, 58, 39, 0.2);
+      border: 1px solid rgba(240, 58, 39, 0.5);
+      color: #fca5a5;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .fxnod-partner-box h3 {
+      color: #ffffff;
+      font-size: 1.45rem;
+      margin-bottom: 0.65rem;
+    }
+    .fxnod-partner-box p {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      margin-bottom: 1.4rem;
+    }
+    .fxnod-cta-btn {
+      background: var(--color-primary);
+      color: #ffffff;
+      font-weight: 700;
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius-md);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      transition: all var(--transition-fast);
+      box-shadow: 0 4px 14px rgba(240, 58, 39, 0.35);
+    }
+    .fxnod-cta-btn:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(240, 58, 39, 0.45);
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Reading Progress Indicator -->
+  <div class="reading-progress-bar" id="reading-progress"></div>
+
+  <!-- ======================================================================
+       HEADER & NAVIGATION
+       ====================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <div style="display: flex; align-items: center;">
+        <a href="index.html" class="brand-logo" aria-label="Trade Insight Home">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <span>Trade Insight</span>
+        </a>
+
+        <nav class="nav-links" aria-label="Main Navigation">
+          <a href="index.html" class="nav-link">All Guides</a>
+          <a href="automated-trading-on-deriv.html" class="nav-link">Deriv Guides</a>
+          <a href="how-to-choose-a-trading-bot.html" class="nav-link">Trading Bots</a>
+          <a href="index.html#category-fxnod" class="nav-link">FXnod Guides</a>
+        </nav>
+      </div>
+
+      <div class="header-right">
+        <!-- Direct FXnod Referral Header Button -->
+        <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.45rem 1.1rem; font-size: 0.82rem;" title="Explore FXnod Platform">
+          <span>Explore FXnod</span>
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+
+        <div class="header-search">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+          <input type="text" placeholder="Search price levels..." aria-label="Search articles">
+        </div>
+
+        <button class="profile-avatar" title="User Profile" aria-label="User Profile">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Breadcrumbs">
+      <a href="index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="index.html#category-bots">Technical Analysis</a>
+      <span class="separator">/</span>
+      <span class="current">How to Identify Support and Resistance</span>
+    </nav>
+
+    <!-- Article Header -->
+    <header class="article-header">
+      <div class="article-tags-row">
+        <span class="badge-article-category" style="background: #2563eb;">Price Action Essentials</span>
+        <span class="badge-updated">Updated October 2026</span>
+        <span class="badge-read-time">10 min practical guide</span>
+      </div>
+
+      <h1 class="article-headline">How to Identify Support and Resistance Levels</h1>
+
+      <p class="article-deck">
+        Learn how to identify key support and resistance levels on trading charts, mark realistic price zones instead of rigid lines, evaluate breakouts, and avoid frequent beginner charting errors.
+      </p>
+
+      <div class="article-meta-bar">
+        <div class="meta-author-group">
+          <div class="meta-author-avatar">TI</div>
+          <div class="meta-author-details">
+            <span class="meta-author-name">Trade Insight Quantitative Editorial</span>
+            <span class="meta-author-role">Technical Analysis & Market Structure</span>
+          </div>
+        </div>
+
+        <div class="meta-stat-group">
+          <div class="meta-stat-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <span>Published: Oct 2026</span>
+          </div>
+          <div class="meta-stat-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <span>Illustrated Analysis Standard</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Featured Image -->
+    <div class="article-featured-image-wrap">
+      <img 
+        src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80" 
+        alt="Support and resistance zones on a candlestick trading chart" 
+        class="article-featured-image"
+        loading="eager"
+      >
+      <div class="image-caption">
+        Figure 1: Support and resistance levels highlight historical price zones where buying and selling momentum previously balanced or reversed.
+      </div>
+    </div>
+
+    <!-- 2-Column Article Layout -->
+    <div class="article-main-grid">
+
+      <!-- LEFT SIDEBAR: Table of Contents & Sticky Promo -->
+      <aside class="article-sidebar">
+        <div class="sidebar-toc-card">
+          <div class="toc-header">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path></svg>
+            <span>Guide Index</span>
+          </div>
+          <ul class="toc-list" id="toc-list">
+            <li class="toc-item"><a href="#intro" class="active">Introduction</a></li>
+            <li class="toc-item"><a href="#what-is-support">1. What Is Support?</a></li>
+            <li class="toc-item"><a href="#what-is-resistance">2. What Is Resistance?</a></li>
+            <li class="toc-item"><a href="#differences">3. Support vs Resistance Differences</a></li>
+            <li class="toc-item"><a href="#step-by-step">4. 7-Step Identification Guide</a></li>
+            <li class="toc-item"><a href="#zones-vs-lines">5. Why Levels Are Zones</a></li>
+            <li class="toc-item"><a href="#breakouts">6. Breakouts & False Breaks</a></li>
+            <li class="toc-item"><a href="#role-reversal">7. Can Support Become Resistance?</a></li>
+            <li class="toc-item"><a href="#timeframes">8. Timeframe Selection</a></li>
+            <li class="toc-item"><a href="#common-mistakes">9. Common Beginner Mistakes</a></li>
+            <li class="toc-item"><a href="#practice-exercise">10. Practice Exercise</a></li>
+            <li class="toc-item"><a href="#bots-sr">11. Bots & Support/Resistance</a></li>
+            <li class="toc-item"><a href="#faq">Frequently Asked Questions</a></li>
+            <li class="toc-item"><a href="#final-thoughts">Final Thoughts</a></li>
+          </ul>
+
+          <div style="margin-top: 1.25rem;">
+            <div class="target-audience-box">
+              <div class="target-audience-title">Related Foundation Guides</div>
+              <ul style="display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.4rem;">
+                <li><a href="how-to-start-learning-trading.html" style="color: #2563eb; font-weight: 600;">13. Learning Trading for Beginners &gt;</a></li>
+                <li><a href="how-to-read-candlestick-charts.html" style="color: #2563eb; font-weight: 600;">14. How to Read Candlesticks &gt;</a></li>
+                <li><a href="manage-risk-when-using-a-trading-bot.html" style="color: #2563eb; font-weight: 600;">7. Managing Bot Risk &gt;</a></li>
+                <li><a href="what-is-automated-trading.html" style="color: #2563eb; font-weight: 600;">1. What Is Automated Trading? &gt;</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sticky FXnod Promo Card (Official Referral Link) -->
+        <div class="sidebar-cta-card" style="background: radial-gradient(circle at 10% 10%, #1e3a8a 0%, #0f172a 90%); border-color: rgba(59, 130, 246, 0.4);">
+          <div class="sidebar-cta-tag" style="color: #60a5fa;">Technical Execution Relay</div>
+          <h4 style="font-size: 1.05rem;">Explore FXnod Platform</h4>
+          <p style="font-size: 0.8rem; color: #cbd5e1;">
+            Automate price-level breakouts and indicator alerts with verified webhook relays on FXnod.
+          </p>
+          <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="sidebar-cta-btn" style="text-decoration: none;">
+            <span>Explore FXnod Official Site</span>
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </a>
+        </div>
+
+        <!-- Share Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title">Share Guide</div>
+          <div class="share-buttons-row">
+            <button class="share-btn btn-copy-link" title="Copy Link">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+              <span>Copy</span>
+            </button>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="share-btn" title="Share on Twitter/X">
+              <svg fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              <span>X/Post</span>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="share-btn" title="Share on LinkedIn">
+              <svg fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              <span>Share</span>
+            </a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- RIGHT COLUMN: Article Content -->
+      <article class="article-content">
+
+        <!-- INTRO -->
+        <section id="intro" class="article-section">
+          <p class="lead-text">
+            Support and resistance are fundamental technical analysis concepts used by discretionary traders and quantitative analysts alike. They represent price zones where past market orders clustered, causing price movements to slow down, pause, or reverse direction.
+          </p>
+          <p>
+            Learning how to mark these zones enables you to structure risk, set objective stop-loss levels, and identify high-probability breakout trades. However, support and resistance are never infallible barriers. Any price level can break when institutional volume shifts.
+          </p>
+          <p>
+            This comprehensive beginner's guide explains what support and resistance mean, how to identify and draw them on a candlestick chart, and how to avoid costly charting mistakes.
+          </p>
+        </section>
+
+        <!-- 1. WHAT IS SUPPORT -->
+        <section id="what-is-support" class="article-section">
+          <h2>1. What Is Support in Trading?</h2>
+          <p>
+            <strong>Support</strong> is a price area below the current market price where falling price action has previously decelerated or reversed upwards.
+          </p>
+          <p>
+            Imagine a market falling toward 100.00 multiple times. Each time it enters that zone, aggressive buying volume absorbs the selling pressure, propelling prices upward again. Technical traders identify this 100.00 region as a potential support floor.
+          </p>
+          <div class="callout-info">
+            <div class="callout-info-icon">
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+            </div>
+            <div class="callout-info-content">
+              <h4>Key Concept: The Price Floor</h4>
+              <p>
+                Support is an area where downward movement has previously encountered sufficient buying interest to halt or reverse price. It is not an unbreakable guarantee.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. WHAT IS RESISTANCE -->
+        <section id="what-is-resistance" class="article-section">
+          <h2>2. What Is Resistance in Trading?</h2>
+          <p>
+            <strong>Resistance</strong> is a price area above the current market price where rising price action has repeatedly stalled, struggled to advance, or turned downwards.
+          </p>
+          <p>
+            For example, if an index rallies toward 125.00 on three separate occasions but encounters intense selling interest that pushes prices back down, 125.00 becomes an established resistance ceiling.
+          </p>
+          <div class="callout-warning">
+            <div class="callout-warning-icon">
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+            </div>
+            <div class="callout-warning-content">
+              <h4>Key Concept: The Price Ceiling</h4>
+              <p>
+                Resistance is an area where upward rallies encounter concentrated selling pressure. Once strong market momentum breaches resistance, the ceiling is invalidated.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. SUPPORT VS RESISTANCE TABLE -->
+        <section id="differences" class="article-section">
+          <h2>3. Support vs Resistance: What Is the Difference?</h2>
+          <p>Compare the operational dynamics in the table below:</p>
+
+          <div class="terms-table-wrapper">
+            <table class="terms-table">
+              <thead>
+                <tr>
+                  <th>Feature</th>
+                  <th>Support Level</th>
+                  <th>Resistance Level</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Typical Location</td>
+                  <td>Below current market price</td>
+                  <td>Above current market price</td>
+                </tr>
+                <tr>
+                  <td>Historical Price Action</td>
+                  <td>Price has slowed, paused, or bounced up</td>
+                  <td>Price has slowed, paused, or fallen down</td>
+                </tr>
+                <tr>
+                  <td>Underlying Market Order Flow</td>
+                  <td>Concentrated buyer interest (Demand Zone)</td>
+                  <td>Concentrated seller interest (Supply Zone)</td>
+                </tr>
+                <tr>
+                  <td>Can It Break?</td>
+                  <td>Yes, leading to a downward breakout</td>
+                  <td>Yes, leading to an upward breakout</td>
+                </tr>
+                <tr>
+                  <td>Guaranteed Reversal?</td>
+                  <td>No</td>
+                  <td>No</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 4. STEP BY STEP IDENTIFICATION -->
+        <section id="step-by-step" class="article-section">
+          <h2>4. How to Identify Support and Resistance Step by Step</h2>
+          <p>Follow this systematic 7-step process when marking your charts:</p>
+          <ol style="margin-left: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
+            <li><strong>Open a clean candlestick chart:</strong> Select your target asset (Forex, Synthetic Indices, or Crypto). Read our foundational guide on <a href="how-to-read-candlestick-charts.html" style="color: #2563eb; font-weight: 600;">How to Read Candlestick Charts &gt;</a></li>
+            <li><strong>Locate obvious historical turning points:</strong> Look for noticeable swing highs (peaks) and swing lows (troughs) where price sharply reversed.</li>
+            <li><strong>Draw horizontal zones, not thin lines:</strong> Connect consecutive wick extremes and body closes to create a price band (e.g., 99.80 – 100.20).</li>
+            <li><strong>Audit the number of touches:</strong> Areas with 2 to 4 distinct historical touches represent valid zones of interest.</li>
+            <li><strong>Zoom out to higher timeframes:</strong> Confirm whether a 15-minute level aligns with a major 4-hour or daily structural swing point.</li>
+            <li><strong>Keep charts uncluttered:</strong> Avoid marking every minor fluctuation. Retain only the most prominent 2–3 levels.</li>
+            <li><strong>Observe price arrival behaviour:</strong> Watch how candles form as price returns to the zone. Look for wick rejections or momentum candles.</li>
+          </ol>
+        </section>
+
+        <!-- 5. ZONES VS LINES -->
+        <section id="zones-vs-lines" class="article-section">
+          <h2>5. Why Are Support and Resistance Often Zones?</h2>
+          <p>
+            A common beginner mistake is drawing razor-thin horizontal lines and expecting market prices to turn with pinpoint precision. In live markets, orders are distributed across an order book, creating a <strong>price zone</strong> rather than an exact penny line:
+          </p>
+
+          <div class="zone-diagram-box">
+            <div class="zone-row resistance">
+              <span>▲ Resistance Zone (Supply)</span>
+              <span>120.50 – 121.20</span>
+            </div>
+            <div class="zone-row mid">
+              <span>↕ Dynamic Equilibrium / Mid-Range</span>
+              <span>110.00</span>
+            </div>
+            <div class="zone-row support">
+              <span>▼ Support Zone (Demand)</span>
+              <span>99.80 – 100.30</span>
+            </div>
+          </div>
+          <p>
+            By treating levels as shaded zones, you avoid getting faked out by minor wick fluctuations that extend slightly beyond an arbitrary line.
+          </p>
+        </section>
+
+        <!-- 6. BREAKOUTS -->
+        <section id="breakouts" class="article-section">
+          <h2>6. What Is a Support or Resistance Breakout?</h2>
+          <p>
+            A <strong>breakout</strong> occurs when market momentum pushes price cleanly beyond an established support or resistance boundary:
+          </p>
+          <ul style="margin-left: 1.5rem; display: flex; flex-direction: column; gap: 0.35rem; list-style-type: disc;">
+            <li><strong>Resistance Breakout:</strong> Price closes firmly above the upper ceiling zone, signaling potential continuation to higher highs.</li>
+            <li><strong>Support Breakout:</strong> Price breaks decisively beneath the lower support floor, indicating potential downward continuation.</li>
+          </ul>
+          <div class="callout-warning">
+            <div class="callout-warning-icon">
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+            </div>
+            <div class="callout-warning-content">
+              <h4>Watch Out for False Breakouts (Fakeouts)</h4>
+              <p>
+                Price may briefly pierce a resistance level with a long wick to trigger stop orders before closing back down inside the range. Many experienced traders wait for a candle body close outside the zone before confirming a breakout.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 7. CAN SUPPORT BECOME RESISTANCE -->
+        <section id="role-reversal" class="article-section">
+          <h2>7. Can Support Become Resistance? (Role Reversal)</h2>
+          <p>
+            Yes. This is known in technical analysis as the <strong>principle of polarity</strong> or <strong>role reversal</strong>:
+          </p>
+          <ul style="margin-left: 1.5rem; display: flex; flex-direction: column; gap: 0.35rem; list-style-type: disc;">
+            <li>When a major <em>support zone</em> is broken downward, it frequently acts as new <em>resistance</em> when price subsequently pulls back to test it from below.</li>
+            <li>When an established <em>resistance zone</em> is shattered upward, it often acts as new <em>support</em> during subsequent price retests.</li>
+          </ul>
+          <p>
+            This occurs because traders who bought at support and suffered losses during the breakdown look to exit at breakeven when price returns, creating fresh selling pressure.
+          </p>
+        </section>
+
+        <!-- 8. TIMEFRAMES -->
+        <section id="timeframes" class="article-section">
+          <h2>8. Which Timeframe Should Beginners Use?</h2>
+          <p>
+            Shorter timeframes (1-minute, 5-minute) contain significant noise and produce numerous minor swing points that fail quickly.
+          </p>
+          <p>
+            Beginners should start by marking support and resistance on <strong>1-hour (H1) or 4-hour (H4) charts</strong>. These higher-timeframe zones represent institutional interest and provide far greater structural stability than micro intraday ticks.
+          </p>
+        </section>
+
+        <!-- 9. COMMON MISTAKES -->
+        <section id="common-mistakes" class="article-section">
+          <h2>9. Common Support and Resistance Mistakes</h2>
+          <p>Protect your capital by steering clear of these frequent errors:</p>
+          <ul style="margin-left: 1.5rem; display: flex; flex-direction: column; gap: 0.35rem; list-style-type: disc;">
+            <li><strong>Drawing Too Many Lines:</strong> Filling your chart with 25 lines creates analysis paralysis. Stick to 2–3 major zones.</li>
+            <li><strong>Assuming Levels Are Impenetrable:</strong> Support and resistance are areas of probability, never absolute barriers.</li>
+            <li><strong>Ignoring the Macro Trend:</strong> Buying at support in a ferocious macro downtrend carries very low win rates.</li>
+            <li><strong>Trading Without Invalidation Stops:</strong> Always determine exactly where your trade idea is invalidated if the level fails. Review our guide: <a href="manage-risk-when-using-a-trading-bot.html" style="color: #2563eb; font-weight: 600;">How to Manage Risk When Using a Trading Bot &gt;</a></li>
+          </ul>
+        </section>
+
+        <!-- 10. PRACTICE EXERCISE -->
+        <section id="practice-exercise" class="article-section">
+          <h2>10. A Simple Practice Exercise</h2>
+          <div class="checklist-wrapper">
+            <div class="checklist-title">Support & Resistance Chart Practice Workout:</div>
+            <div class="checklist-list">
+              <div class="checklist-item"><input type="checkbox" id="sr1"><label for="sr1" class="checklist-text">Open a 4-hour demo chart on your chosen trading asset.</label></div>
+              <div class="checklist-item"><input type="checkbox" id="sr2"><label for="sr2" class="checklist-text">Identify the most obvious 2 swing highs and 2 swing lows over the past 30 days.</label></div>
+              <div class="checklist-item"><input type="checkbox" id="sr3"><label for="sr3" class="checklist-text">Draw shaded horizontal rectangles enclosing wicks and candle bodies.</label></div>
+              <div class="checklist-item"><input type="checkbox" id="sr4"><label for="sr4" class="checklist-text">Observe how price responded on retests: Did it reverse, consolidate, or blow through?</label></div>
+              <div class="checklist-item"><input type="checkbox" id="sr5"><label for="sr5" class="checklist-text">Record the outcome in your trading journal without taking live financial risk.</label></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 11. BOTS & SUPPORT/RESISTANCE -->
+        <section id="bots-sr" class="article-section">
+          <h2>11. Can Trading Bots Use Support and Resistance?</h2>
+          <p>
+            Yes. Many quantitative algorithmic bots programmatically detect pivot highs and lows, Donchian channels, or Bollinger Band envelopes to execute automated range bounces and breakout trades.
+          </p>
+          <p>
+            If you are exploring automated execution, <strong>FXnod</strong> offers webhook relays and documentation to connect custom indicator alerts to trading platforms. Review official FXnod documentation to verify supported features and platform integrations.
+          </p>
+
+          <!-- SPECIAL FXNOD PARTNER CALLOUT (Embedded Official Referral Link) -->
+          <div class="fxnod-partner-box">
+            <span class="fxnod-badge">Verified Automation Resource</span>
+            <h3>Explore FXnod Platform & Documentation</h3>
+            <p>
+              Looking to automate breakout alerts and support/resistance execution workflows? Visit FXnod to evaluate platform compatibility and execution features.
+            </p>
+            <div>
+              <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="fxnod-cta-btn">
+                <span>Explore FXnod Official Platform</span>
+                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </a>
+            </div>
+            <p style="font-size: 0.78rem; color: #94a3b8; margin-top: 1rem; margin-bottom: 0;">
+              *Affiliate disclosure: This article may contain an affiliate link to FXnod. The publisher may receive a commission if you sign up through it, at no additional cost to you. Research any tool independently before using it.
+            </p>
+          </div>
+        </section>
+
+        <!-- FAQS -->
+        <section id="faq" class="article-section">
+          <h2>Frequently Asked Questions</h2>
+
+          <div class="faq-list">
+            <div class="faq-card">
+              <h4>How do beginners identify support and resistance?</h4>
+              <p>Look for historical swing peaks (resistance) and troughs (support) where price reversed with clear rejection wicks. Mark the surrounding area as a horizontal zone.</p>
+            </div>
+
+            <div class="faq-card">
+              <h4>Is support always below the current price?</h4>
+              <p>Yes. By definition, support sits below current market price as a potential floor. If price breaks through it, that level may subsequently flip into new resistance.</p>
+            </div>
+
+            <div class="faq-card">
+              <h4>Is resistance always above the current price?</h4>
+              <p>Yes. Resistance is an established price ceiling above current market levels. When broken upward, it often acts as new support during later retests.</p>
+            </div>
+
+            <div class="faq-card">
+              <h4>How many times should price touch a level before it is valid?</h4>
+              <p>A minimum of two distinct touches establishes a zone. However, each subsequent test can weaken the level as pending orders get absorbed, eventually leading to a breakout.</p>
+            </div>
+
+            <div class="faq-card">
+              <h4>Can support and resistance predict future prices?</h4>
+              <p>No. They identify probabilistic reaction zones where market volume historically concentrated. They never guarantee future price outcomes.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- FINAL THOUGHTS -->
+        <section id="final-thoughts" class="article-section">
+          <h2>Final Thoughts</h2>
+          <p>
+            Support and resistance provide foundational structure to financial charts. By identifying historical turning points, drawing zones rather than rigid lines, and respecting the broader market trend, you can develop clear, disciplined trade ideas.
+          </p>
+          <p>
+            Remember that every support and resistance zone can fail. Always pair technical levels with sensible stake sizes and invalidation stop-loss limits. Continue your education with our guides: <a href="how-to-start-learning-trading.html" style="color: #2563eb; font-weight: 600;">How to Start Learning Trading as a Beginner &gt;</a> and <a href="how-to-read-candlestick-charts.html" style="color: #2563eb; font-weight: 600;">How to Read Candlestick Charts &gt;</a>
+          </p>
+
+          <!-- Second CTA Banner (Official FXnod Referral Link) -->
+          <div class="article-footer-cta" style="margin: 2.5rem 0 1.5rem 0;">
+            <div>
+              <h3>Explore Modern Automation Features with FXnod</h3>
+              <p>
+                Visit FXnod to inspect platform features, automated relays, and step-by-step setup guides.
+              </p>
+            </div>
+            <div class="article-footer-cta-actions">
+              <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="text-decoration: none;">
+                <span>Visit FXnod Official Site</span>
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Legal Disclaimer -->
+          <div style="background: #f8fafc; border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 1.25rem; font-size: 0.8rem; color: #64748b; line-height: 1.6; margin-top: 2rem;">
+            <em><strong>Disclaimer:</strong> This article is for educational purposes only and is not financial advice. Trading involves substantial risk, and losses can exceed initial deposits. This article may contain affiliate links, which may earn the publisher a commission from qualifying referrals at no additional cost to you.</em>
+          </div>
+        </section>
+
+      </article>
+    </div>
+  </main>
+
+  <!-- ======================================================================
+       FOOTER COMPONENT
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <div class="brand-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+            <span>Trade Insight</span>
+          </a>
+          <p>
+            High-performance technical editorial and tactical research publication. We empower quantitative traders, risk teams, and modern web agencies with actionable market playbooks.
+          </p>
+          <span class="footer-digest-label">Weekly Tech & Trading Digest</span>
+          <form class="footer-mini-form" onsubmit="event.preventDefault(); showToast('Subscribed to Weekly Digest!');">
+            <input type="email" placeholder="Enter your business email" required aria-label="Business Email">
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+
+        <div class="footer-col">
+          <h4>Publication Areas</h4>
+          <ul>
+            <li><a href="index.html#all">All Editorial Guides</a></li>
+            <li><a href="how-to-identify-support-and-resistance.html">Support & Resistance</a></li>
+            <li><a href="how-to-read-candlestick-charts.html">Candlestick Charts Guide</a></li>
+            <li><a href="automated-trading-on-deriv.html">Deriv & Synthetic Indices</a></li>
+            <li><a href="how-to-start-learning-trading.html">Beginner Foundations</a></li>
+            <li><a href="manage-risk-when-using-a-trading-bot.html">Risk Management</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Popular Playbooks</h4>
+          <ul>
+            <li><a href="what-is-automated-trading.html">What Is Automated Trading?</a></li>
+            <li><a href="how-to-identify-support-and-resistance.html">Support & Resistance Levels</a></li>
+            <li><a href="how-to-read-candlestick-charts.html">How to Read Candlesticks</a></li>
+            <li><a href="how-to-start-learning-trading.html">Learning Trading for Beginners</a></li>
+            <li><a href="automated-trading-on-deriv.html">How to Start on Deriv</a></li>
+            <li><a href="manage-risk-when-using-a-trading-bot.html">Managing Bot Risk</a></li>
+            <li><a href="manual-vs-automated-trading.html">Manual vs Automated Trading</a></li>
+            <li><a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer">Explore FXnod Platform</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Compliance & Legal</h4>
+          <ul>
+            <li><a href="index.html#editorial">Editorial Independence</a></li>
+            <li><a href="index.html#risk-notice">Risk Disclosure Notice</a></li>
+            <li><a href="index.html#terms">Terms of Service</a></li>
+            <li><a href="index.html#privacy">Privacy Policy</a></li>
+            <li><a href="index.html#cookies">Cookie Preferences</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 Trade Insight Editorial. All content is for educational and technical informational purposes only. Trading financial derivatives carries substantial risk.
+        </div>
+        <div>
+          Designed for Agency Quantitative Operations
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>

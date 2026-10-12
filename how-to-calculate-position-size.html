@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Calculate Position Size in Trading: Beginner's Guide | Trade Insight</title>
+  <meta name="description" content="Learn how to calculate trading position size using account balance, risk percentage, and stop-loss distance, with simple examples for beginners.">
+  <meta name="keywords" content="how to calculate position size, position sizing in trading, risk per trade, position size calculator, stop loss and position size, trading risk management, lot size calculation, FXnod">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="How to Calculate Position Size in Trading: Beginner's Guide">
+  <meta property="og:description" content="Learn how to calculate trading position size using account balance, risk percentage, and stop-loss distance, with simple examples for beginners.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tradeinsight.com/how-to-calculate-position-size/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .article-featured-image-wrap {
+      margin: 2rem 0 2.5rem 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      background: #f1f5f9;
+      box-shadow: var(--shadow-md);
+    }
+    .article-featured-image {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      display: block;
+    }
+    .image-caption {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      background: #ffffff;
+      border-top: 1px solid var(--color-border);
+      text-align: center;
+      font-style: italic;
+    }
+    .math-card {
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      color: #f8fafc;
+      margin: 1.5rem 0;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.2);
+    }
+    .math-card-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #60a5fa;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .math-formula {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.15rem;
+      background: #1e293b;
+      padding: 0.85rem 1.25rem;
+      border-radius: var(--radius-sm);
+      color: #38bdf8;
+      margin: 0.75rem 0;
+      display: inline-block;
+    }
+    .factors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+    .factor-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      border-top: 4px solid var(--color-primary);
+    }
+    .factor-card h4 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+    .sizing-table-wrapper {
+      margin: 1.75rem 0;
+      overflow-x: auto;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+    }
+    .sizing-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9rem;
+      background: #ffffff;
+    }
+    .sizing-table th {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 0.9rem 1.25rem;
+      font-weight: 700;
+      border-bottom: 2px solid #334155;
+    }
+    .sizing-table td {
+      padding: 0.85rem 1.25rem;
+      border-bottom: 1px solid var(--color-border);
+      vertical-align: top;
+    }
+    .sizing-table tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+    .sizing-table tr:hover td {
+      background: #f1f5f9;
+    }
+    .mistake-list {
+      display: grid;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .mistake-box {
+      background: #ffffff;
+      border: 1px solid #fee2e2;
+      border-left: 4px solid #ef4444;
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+    }
+    .mistake-box h4 {
+      margin-top: 0;
+      margin-bottom: 0.4rem;
+      font-size: 1rem;
+      color: #b91c1c;
+    }
+  </style>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "How to Calculate Position Size in Trading: Beginner's Guide",
+    "description": "Learn how to calculate trading position size using account balance, risk percentage, and stop-loss distance, with simple examples for beginners.",
+    "author": {
+      "@type": "Organization",
+      "name": "Trade Insight Editorial"
+    },
+    "datePublished": "2026-10-12",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+    "mainEntityOfPage": "https://tradeinsight.com/how-to-calculate-position-size/"
+  }
+  </script>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is position sizing in trading?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Position sizing is deciding how much of an asset to trade based on factors such as account size, acceptable risk, and the potential loss per unit."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I calculate my risk amount?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Multiply the account balance or equity selected for your calculation by the risk percentage. For example, 1% of $1,000 is $10."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does a smaller position reduce risk?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For the same instrument and price movement, a smaller position generally reduces the monetary gain or loss. However, the total risk also depends on price movements, leverage, costs, and other positions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should beginners risk 1% per trade?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "One percent is a commonly discussed educational example, not a rule that suits everyone. The appropriate level depends on your financial situation, risk tolerance, and trading product. You can also choose not to risk real money while learning."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I calculate position size without a stop-loss?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can calculate the monetary exposure of a position in other ways, but without a defined exit or risk limit, the potential loss may be difficult to control. The appropriate calculation depends on the product and strategy."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is position size the same as leverage?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Position size describes the amount being traded. Leverage describes how much market exposure you can control relative to the funds required. They are related, but they are not the same thing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do trading bots always calculate position size automatically?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The available functionality depends on the bot. Check its documentation and verify its calculations before relying on automated risk management."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container announcement-content">
+      <span>📐 <strong>Capital Preservation Blueprint:</strong> Master mathematical position sizing to survive losing streaks and protect account equity.</span>
+      <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="announcement-link">Explore Automated Trading with FXnod &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="index.html" class="logo">
+        <span class="logo-badge">TI</span>
+        <span>Trade Insight</span>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html">Guides</a>
+        <a href="index.html#deriv">Deriv Ecosystem</a>
+        <a href="index.html#risk">Risk Management</a>
+        <a href="index.html#about">About Us</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Connect FXnod Bot</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Article Layout -->
+  <main class="article-layout">
+    <div class="container article-grid">
+      
+      <!-- Article Content Column -->
+      <article class="article-content">
+        
+        <!-- Breadcrumbs -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a> &rsaquo;
+          <a href="index.html#risk">Risk Management</a> &rsaquo;
+          <span>Position Sizing</span>
+        </nav>
+
+        <header class="article-header">
+          <div class="article-meta-tags">
+            <span class="tag">Risk Management</span>
+            <span class="tag">Position Sizing</span>
+            <span class="tag">Capital Protection</span>
+          </div>
+          <h1 class="article-title">How to Calculate Position Size in Trading: A Beginner's Guide</h1>
+          
+          <div class="article-author-bar">
+            <div class="author-avatar">TI</div>
+            <div class="author-info">
+              <span class="author-name">Trade Insight Quantitative Research</span>
+              <span class="publish-date">Published October 12, 2026 &bull; 9 min read</span>
+            </div>
+          </div>
+        </header>
+
+        <!-- Featured Image -->
+        <div class="article-featured-image-wrap">
+          <img 
+            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" 
+            alt="Trading position size calculation using account balance and risk management" 
+            class="article-featured-image"
+          >
+          <div class="image-caption">Position sizing adjusts your trade quantity inversely with stop-loss distance, ensuring that unexpected price swings never compromise account survival.</div>
+        </div>
+
+        <!-- Article Intro -->
+        <div class="article-lead">
+          One of the most essential yet frequently neglected skills in trading is knowing exactly <strong>how much</strong> to trade on every setup.
+        </div>
+
+        <p>Beginners routinely spend weeks looking for the "perfect" technical indicator, perfecting candlestick chart analysis, or attempting to predict the next market breakout. However, they frequently overlook an equally critical question: <em>how large should my order size be?</em></p>
+
+        <p>This is where <strong>position sizing</strong> becomes the definitive factor between long-term survival and sudden account liquidation.</p>
+
+        <p>Position sizing determines the exact quantity of an asset to buy or sell based on your total account capital, your predefined risk tolerance, and the distance to your technical stop-loss. While it cannot prevent losing trades, mathematical position sizing guarantees that no single mistake can wipe out your account balance.</p>
+
+        <p>In this comprehensive guide, you will learn how position sizing works, master the step-by-step formulas, and understand how to avoid devastating over-leveraged mistakes.</p>
+
+        <!-- What Is Position Sizing? -->
+        <h2 id="what-is-position-sizing">What Is Position Sizing in Trading?</h2>
+        <p><strong>Position sizing</strong> is the disciplined quantitative process of determining the exact volume or contract quantity to execute when opening a trade.</p>
+
+        <p>Depending on the financial market you trade, position size is measured in different units:</p>
+        <ul>
+          <li><strong>Lots</strong> in Forex currency trading (Standard, Mini, and Micro lots).</li>
+          <li><strong>Shares</strong> in stock and equity trading.</li>
+          <li><strong>Units</strong> in spot commodities or cryptocurrencies.</li>
+          <li><strong>Contracts</strong> in futures and CFDs.</li>
+          <li><strong>Stake Amounts</strong> in fixed-payout synthetic options products.</li>
+        </ul>
+
+        <p>The primary objective is universal across all instruments: ensuring that if a trade reaches your stop-loss, the resulting loss remains strictly within your predefined capital preservation limit.</p>
+
+        <!-- Why Is It Important? -->
+        <h2 id="why-it-matters">Why Is Position Sizing Important?</h2>
+        <p>Position size is the multiplier that translates market price fluctuations into actual monetary profit and loss.</p>
+
+        <div class="info-card">
+          <h4>A Tale of Two Traders</h4>
+          <p>Consider Trader A and Trader B. Both buy EUR/USD at 1.0800, and the market drops 50 pips against them:</p>
+          <ul>
+            <li><strong>Trader A</strong> calculated risk mathematically, opened 0.10 lots, and lost <strong>$50 (1% of their $5,000 account)</strong>. Their portfolio remains stable and unaffected.</li>
+            <li><strong>Trader B</strong> guessed a size of 2.0 standard lots without checking risk, losing <strong>$1,000 (20% of their account)</strong> in minutes. Emotional panic and revenge trading quickly follow.</li>
+          </ul>
+        </div>
+
+        <p>Proper position sizing enables traders to:</p>
+        <ol>
+          <li>Establish an unshakeable, disciplined risk budget for every setup.</li>
+          <li>Eliminate the risk of catastrophic account blowups during normal losing streaks.</li>
+          <li>Normalize risk across different assets with varying volatility.</li>
+          <li>Preserve emotional composure and execute with quantitative clarity.</li>
+        </ol>
+
+        <!-- The Three Main Factors -->
+        <h2 id="three-factors">The Three Main Factors Used to Calculate Position Size</h2>
+        <p>Before running your calculation, you must determine these three variables:</p>
+
+        <div class="factors-grid">
+          <div class="factor-card">
+            <h4>1. Account Balance / Equity</h4>
+            <p>Your total capital baseline. Many traders use realized account balance, while others calculate based on real-time equity. Whichever baseline you choose, apply it consistently.</p>
+          </div>
+          <div class="factor-card">
+            <h4>2. Risk Percentage Per Trade</h4>
+            <p>The maximum percentage of total capital you are prepared to lose if the setup fails. Professional analysts typically limit risk to <strong>1% to 2%</strong> per position.</p>
+          </div>
+          <div class="factor-card">
+            <h4>3. Stop-Loss Distance</h4>
+            <p>The technical distance between your entry price and your invalidation stop-loss. This must be determined by market structure—never arbitrarily adjusted to fit lot size.</p>
+          </div>
+        </div>
+
+        <!-- How to Calculate Position Size -->
+        <h2 id="how-to-calculate">How to Calculate Position Size (The Formula)</h2>
+        <p>The mathematical process follows two sequential equations:</p>
+
+        <div class="math-card">
+          <div class="math-card-title">Step 1: Calculate the Monetary Amount at Risk</div>
+          <div class="math-formula">Amount at Risk ($) = Account Balance &times; Risk Percentage (%)</div>
+        </div>
+
+        <div class="math-card">
+          <div class="math-card-title">Step 2: Calculate Position Size</div>
+          <div class="math-formula">Position Size = Amount at Risk &divide; Potential Loss Per Unit</div>
+        </div>
+
+        <h3>Worked Example: Step-by-Step Calculation</h3>
+        <p>Imagine an equity or commodity trader with the following trade parameters:</p>
+        <ul>
+          <li><strong>Account Balance:</strong> $1,000</li>
+          <li><strong>Planned Risk Percentage:</strong> 1% (0.01)</li>
+          <li><strong>Entry Price:</strong> $50.00</li>
+          <li><strong>Technical Stop-Loss:</strong> $48.00</li>
+        </ul>
+
+        <p><strong>Step 1:</strong> Amount at risk = <code>$1,000 &times; 1% = $10.00</code>.</p>
+        <p><strong>Step 2:</strong> Potential loss per unit = <code>$50.00 &minus; $48.00 = $2.00</code>.</p>
+        <p><strong>Step 3:</strong> Position size = <code>$10.00 &divide; $2.00 = 5 Units (Shares)</code>.</p>
+        <p>If the trade drops to $48.00 and exits, the trader loses exactly 5 &times; $2 = <strong>$10.00</strong>, adhering precisely to their 1% risk rule!</p>
+
+        <!-- Stop-Loss Distance Impact Table -->
+        <h2 id="stop-loss-impact">How Does Stop-Loss Distance Affect Position Size?</h2>
+        <p>There is an <strong>inverse mathematical relationship</strong> between stop-loss distance and position size:</p>
+        <p>As market volatility expands and your stop-loss widens, your position size <em>must decrease</em> proportionally to maintain the exact same dollar risk budget.</p>
+
+        <div class="sizing-table-wrapper">
+          <table class="sizing-table">
+            <thead>
+              <tr>
+                <th>Risk Budget ($)</th>
+                <th>Stop-Loss Distance Per Unit</th>
+                <th>Calculated Position Size</th>
+                <th>Total Potential Loss</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>$10.00</td>
+                <td>$1.00 (Tight stop)</td>
+                <td><strong>10 Units</strong></td>
+                <td>$10.00 (1%)</td>
+              </tr>
+              <tr>
+                <td>$10.00</td>
+                <td>$2.00 (Moderate stop)</td>
+                <td><strong>5 Units</strong></td>
+                <td>$10.00 (1%)</td>
+              </tr>
+              <tr>
+                <td>$10.00</td>
+                <td>$5.00 (Wide stop)</td>
+                <td><strong>2 Units</strong></td>
+                <td>$10.00 (1%)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>This table demonstrates why traders should never choose their position size first and then arbitrarily squeeze their stop-loss to fit it. Determine your stop-loss from chart structure first, then let the formula dictate position size.</p>
+
+        <!-- Position Sizing in Forex -->
+        <h2 id="forex-sizing">How to Calculate Position Size in Forex</h2>
+        <p>In currency trading, price movement is measured in <strong>pips</strong>, and order volume is structured into standardized lot tiers:</p>
+        <ul>
+          <li><strong>Standard Lot (1.0):</strong> 100,000 currency units (~$10 per pip on EUR/USD)</li>
+          <li><strong>Mini Lot (0.10):</strong> 10,000 currency units (~$1 per pip on EUR/USD)</li>
+          <li><strong>Micro Lot (0.01):</strong> 1,000 currency units (~$0.10 per pip on EUR/USD)</li>
+        </ul>
+
+        <p>To calculate lot size in Forex:</p>
+        <p><code>Lot Size = Amount at Risk ($) &divide; (Stop-Loss in Pips &times; Pip Value per Standard Lot)</code></p>
+        <p><strong>Example:</strong> Risking $50 on a trade with a 25-pip stop on EUR/USD ($10/pip per standard lot):</p>
+        <p><code>$50 &divide; (25 &times; $10) = $50 &divide; $250 = 0.20 Lots (2 Mini Lots)</code>.</p>
+
+        <!-- Differences Across Products -->
+        <h2 id="product-differences">Does the Same Formula Work for Every Trading Product?</h2>
+        <p>No. Each financial contract features distinct price tick mechanics:</p>
+        <ul>
+          <li><strong>Equities:</strong> Calculated simply as dollar risk divided by price difference per share.</li>
+          <li><strong>CFDs & Indices:</strong> Require multiplying point movement by contract point value.</li>
+          <li><strong>Deriv Synthetic Contracts:</strong> Products like synthetic multipliers or rise/fall contracts on <a href="https://deriv.com/trading-platforms/" target="_blank" rel="noopener noreferrer" style="color: #2563eb; font-weight: 600;">Deriv</a> utilize predefined fixed stakes with built-in stop-out limits rather than traditional lot sizing. Always verify your broker's contract notes.</li>
+        </ul>
+
+        <!-- Common Mistakes -->
+        <h2 id="common-mistakes">Common Position Sizing Mistakes</h2>
+        <div class="mistake-list">
+          <div class="mistake-box">
+            <h4>1. Using Fixed Lot Sizes on Every Trade</h4>
+            <p style="margin-bottom: 0;">Trading 0.50 lots on every setup regardless of whether your stop is 10 pips or 80 pips means your actual monetary risk swings wildly from trade to trade.</p>
+          </div>
+          <div class="mistake-box">
+            <h4>2. Martingale Sizing (Doubling Down After Losses)</h4>
+            <p style="margin-bottom: 0;">Increasing position size after a loss to "recover fast" is the single most common cause of catastrophic margin liquidation.</p>
+          </div>
+          <div class="mistake-box">
+            <h4>3. Ignoring Spread and Slippage Friction</h4>
+            <p style="margin-bottom: 0;">Wide spreads and execution slippage widen the actual loss. Factor transaction costs into your calculations (see: <a href="what-is-spread-in-trading.html">What Is Spread in Trading?</a>).</p>
+          </div>
+          <div class="mistake-box">
+            <h4>4. Over-Leveraging Accounts</h4>
+            <p style="margin-bottom: 0;">Leverage allows you to open large positions with small margin deposits, but it multiplies losses just as rapidly as gains.</p>
+          </div>
+          <div class="mistake-box">
+            <h4>5. Assuming Stop-Loss Orders Prevent All Gaps</h4>
+            <p style="margin-bottom: 0;">During weekend gaps or major economic announcements, prices can gap right past your stop-loss level, resulting in slippage.</p>
+          </div>
+        </div>
+
+        <!-- How It Fits Into Strategy -->
+        <h2 id="strategy-integration">How Position Sizing Fits Into a Trading Strategy</h2>
+        <p>Position sizing operates as the shield of your overall trading system. A strategy with a modest 45% win rate can remain consistently profitable if winning trades produce a 1:2 risk-to-reward ratio and losing trades are strictly capped at 1% of equity.</p>
+        <p>To evaluate the long-term mathematical expectancy of your setup, review: <a href="how-to-evaluate-a-trading-strategy.html">How to Evaluate a Trading Strategy Before Using It</a> and document every trade in a journal: <a href="how-to-keep-a-trading-journal.html">How to Keep a Trading Journal: A Beginner's Guide</a>.</p>
+
+        <!-- Automated Trading & FXnod -->
+        <h2 id="automated-trading">Can Automated Trading Bots Calculate Position Size?</h2>
+        <p>Many modern algorithmic trading systems support dynamic position sizing, automatically querying real-time account balance and calibrating order lots based on ATR (Average True Range) volatility or technical stop distances.</p>
+        <p>However, many bots default to dangerous fixed lot sizes or aggressive martingale recovery logic. Never deploy a bot on live capital without thoroughly verifying its position-sizing algorithms.</p>
+
+        <!-- FXnod Partner Highlight Box -->
+        <div class="fxnod-partner-box">
+          <div class="fxnod-partner-badge">Algorithmic Automation</div>
+          <h3 class="fxnod-partner-title">Automating Risk Management with FXnod</h3>
+          <p class="fxnod-partner-desc">
+            When developing automated trading bots on supported brokers like Deriv, software like <strong>FXnod</strong> enables systematic, rule-based execution. FXnod allows traders to establish predefined entry rules, profit targets, and stop-loss limits. Always check official documentation to understand supported execution setups, account requirements, and spread conditions, and thoroughly test strategies in virtual demo mode before risking real capital.
+          </p>
+          <div class="fxnod-partner-actions">
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              Explore FXnod Platform &rarr;
+            </a>
+          </div>
+          <div class="fxnod-partner-disclaimer">
+            *Regulatory Notice: No automated tool eliminates market risk. Always test setups in a simulated demo environment and enforce strict money management. Learn more: <a href="manage-risk-when-using-a-trading-bot.html" style="color: #94a3b8; text-decoration: underline;">How to Manage Risk When Using a Trading Bot</a>.
+          </div>
+        </div>
+
+        <!-- Section: FAQs -->
+        <h2 id="faqs">Frequently Asked Questions</h2>
+        <div class="faq-accordion">
+          
+          <div class="faq-item">
+            <h3 class="faq-question">What is position sizing in trading?</h3>
+            <div class="faq-answer">
+              <p>Position sizing is deciding how much of an asset to trade based on factors such as account size, acceptable risk, and the potential loss per unit.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">How do I calculate my risk amount?</h3>
+            <div class="faq-answer">
+              <p>Multiply the account balance or equity selected for your calculation by the risk percentage. For example, 1% of $1,000 is $10.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">Does a smaller position reduce risk?</h3>
+            <div class="faq-answer">
+              <p>For the same instrument and price movement, a smaller position generally reduces the monetary gain or loss. However, the total risk also depends on price movements, leverage, costs, and other positions.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">Should beginners risk 1% per trade?</h3>
+            <div class="faq-answer">
+              <p>One percent is a commonly discussed educational example, not a rule that suits everyone. The appropriate level depends on your financial situation, risk tolerance, and trading product. You can also choose not to risk real money while learning.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">Can I calculate position size without a stop-loss?</h3>
+            <div class="faq-answer">
+              <p>You can calculate the monetary exposure of a position in other ways, but without a defined exit or risk limit, the potential loss may be difficult to control. The appropriate calculation depends on the product and strategy.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">Is position size the same as leverage?</h3>
+            <div class="faq-answer">
+              <p>No. Position size describes the amount being traded. Leverage describes how much market exposure you can control relative to the funds required. They are related, but they are not the same thing.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">Do trading bots always calculate position size automatically?</h3>
+            <div class="faq-answer">
+              <p>No. The available functionality depends on the bot. Check its documentation and verify its calculations before relying on automated risk management.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Section: Conclusion -->
+        <h2 id="conclusion">Conclusion</h2>
+        <p>Position sizing is the cornerstone of quantitative capital preservation. By linking your order volume directly to your account balance, chosen risk percentage, and technical stop-loss distance, you ensure that no adverse market move can compromise your solvency.</p>
+        <p>Never enter a position without knowing your exact maximum dollar risk in advance. Calculate your sizing with precision, respect your stop-loss, and protect your capital at all times.</p>
+
+        <!-- Affiliate Disclosure -->
+        <div class="affiliate-disclosure-box">
+          <strong>Affiliate Disclosure:</strong> Some links on this website may be affiliate or referral links. If you sign up through an eligible link, the website may earn a commission at no additional cost to you. This does not guarantee trading results. Trading financial derivatives involves substantial risk of losing money.
+        </div>
+
+        <!-- Internal Links Plan Callout -->
+        <div class="further-reading-box" style="margin-top: 2rem; padding: 1.5rem; background: #f8fafc; border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+          <h4 style="margin-top: 0; color: #0f172a;">Recommended Next Articles:</h4>
+          <ul style="margin-bottom: 0;">
+            <li><a href="what-is-spread-in-trading.html">What Is Spread in Trading? A Beginner's Guide</a></li>
+            <li><a href="how-to-evaluate-a-trading-strategy.html">How to Evaluate a Trading Strategy Before Using It</a></li>
+            <li><a href="how-to-keep-a-trading-journal.html">How to Keep a Trading Journal: A Beginner's Guide</a></li>
+            <li><a href="manage-risk-when-using-a-trading-bot.html">How to Manage Risk When Using a Trading Bot</a></li>
+            <li><a href="can-trading-bots-lose-money.html">Can Trading Bots Lose Money?</a></li>
+            <li><a href="how-to-test-a-trading-bot.html">How to Test a Trading Bot Before Using Real Money</a></li>
+          </ul>
+        </div>
+
+        <!-- Bottom CTA -->
+        <div class="article-footer-cta">
+          <h3>Automate Your Trading Strategy Responsibly</h3>
+          <p>Deploy systematic indicator rules, test strategies in demo environments, and integrate risk management with FXnod.</p>
+          <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">
+            Get Started with FXnod &rarr;
+          </a>
+        </div>
+
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="article-sidebar">
+        <div class="sticky-sidebar">
+          
+          <!-- Table of Contents -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-title">Article Contents</h3>
+            <ul class="toc-list">
+              <li><a href="#what-is-position-sizing">What Is Position Sizing?</a></li>
+              <li><a href="#why-it-matters">Why Is Sizing Important?</a></li>
+              <li><a href="#three-factors">The Three Core Factors</a></li>
+              <li><a href="#how-to-calculate">The Position Sizing Formula</a></li>
+              <li><a href="#stop-loss-impact">Stop-Loss Distance Impact</a></li>
+              <li><a href="#forex-sizing">Calculating Lot Size in Forex</a></li>
+              <li><a href="#product-differences">Differences Across Markets</a></li>
+              <li><a href="#common-mistakes">Common Mistakes to Avoid</a></li>
+              <li><a href="#strategy-integration">Fitting Sizing Into a Plan</a></li>
+              <li><a href="#automated-trading">Bots & Dynamic Sizing</a></li>
+              <li><a href="#faqs">Frequently Asked Questions</a></li>
+              <li><a href="#conclusion">Conclusion</a></li>
+            </ul>
+          </div>
+
+          <!-- Sidebar FXnod CTA -->
+          <div class="sidebar-card sidebar-cta-card">
+            <div class="cta-badge">Verified Automation</div>
+            <h4>Automate with FXnod</h4>
+            <p>Deploy algorithmic bots with automated risk controls and custom entry triggers on supported platforms.</p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block">
+              Open FXnod Account &rarr;
+            </a>
+            <span class="cta-microcopy">Free demo testing &bull; No deposit required</span>
+          </div>
+
+          <!-- Related Reading -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-title">Related Analysis</h3>
+            <ul class="related-posts-list">
+              <li>
+                <a href="what-is-spread-in-trading.html">
+                  <span class="related-post-title">What Is Spread in Trading?</span>
+                  <span class="related-post-meta">8 min read</span>
+                </a>
+              </li>
+              <li>
+                <a href="manage-risk-when-using-a-trading-bot.html">
+                  <span class="related-post-title">Managing Risk When Using Bots</span>
+                  <span class="related-post-meta">7 min read</span>
+                </a>
+              </li>
+              <li>
+                <a href="how-to-evaluate-a-trading-strategy.html">
+                  <span class="related-post-title">How to Evaluate a Strategy</span>
+                  <span class="related-post-meta">9 min read</span>
+                </a>
+              </li>
+              <li>
+                <a href="can-trading-bots-lose-money.html">
+                  <span class="related-post-title">Can Trading Bots Lose Money?</span>
+                  <span class="related-post-meta">7 min read</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col brand-col">
+          <a href="index.html" class="logo footer-logo">
+            <span class="logo-badge">TI</span>
+            <span>Trade Insight</span>
+          </a>
+          <p class="footer-desc">
+            Independent educational resource focused on algorithmic trading systems, quantitative risk management, and market mechanics.
+          </p>
+          <form class="footer-newsletter">
+            <input type="email" placeholder="Enter your business email" required aria-label="Business Email">
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+
+        <div class="footer-col">
+          <h4>Publication Areas</h4>
+          <ul>
+            <li><a href="index.html#all">All Editorial Guides</a></li>
+            <li><a href="how-to-calculate-position-size.html">Position Sizing</a></li>
+            <li><a href="what-is-spread-in-trading.html">Trading Spreads</a></li>
+            <li><a href="what-is-rsi-indicator-in-trading.html">RSI Indicator Guide</a></li>
+            <li><a href="how-moving-averages-work-in-trading.html">Moving Averages</a></li>
+            <li><a href="manage-risk-when-using-a-trading-bot.html">Risk Management</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Popular Playbooks</h4>
+          <ul>
+            <li><a href="what-is-automated-trading.html">What Is Automated Trading?</a></li>
+            <li><a href="how-to-calculate-position-size.html">Position Sizing Guide</a></li>
+            <li><a href="what-is-spread-in-trading.html">What Is Spread in Trading?</a></li>
+            <li><a href="what-is-rsi-indicator-in-trading.html">What Is the RSI Indicator?</a></li>
+            <li><a href="how-moving-averages-work-in-trading.html">How Moving Averages Work</a></li>
+            <li><a href="what-is-a-breakout-in-trading.html">What Is a Breakout in Trading?</a></li>
+            <li><a href="best-trading-timeframe-for-beginners.html">Best Trading Timeframes</a></li>
+            <li><a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer">Explore FXnod Platform</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Compliance & Legal</h4>
+          <ul>
+            <li><a href="index.html#editorial">Editorial Independence</a></li>
+            <li><a href="index.html#risk-notice">Risk Disclosure Notice</a></li>
+            <li><a href="index.html#terms">Terms of Service</a></li>
+            <li><a href="index.html#privacy">Privacy Policy</a></li>
+            <li><a href="index.html#cookies">Cookie Preferences</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 Trade Insight Editorial. All content is for educational and technical informational purposes only. Trading financial derivatives carries substantial risk.
+        </div>
+        <div>
+          Designed for Agency Quantitative Operations
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>

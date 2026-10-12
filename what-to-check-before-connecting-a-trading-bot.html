@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What to Check Before Connecting a Trading Bot | Trade Insight</title>
+  <meta name="description" content="Learn what to check before connecting a trading bot, including platform compatibility, account permissions, security, risk controls, and demo testing.">
+  <meta name="keywords" content="what to check before connecting a trading bot, trading bot security, connect a trading bot, trading platform compatibility, trading bot permissions, trading bot risk management, FXnod">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="What to Check Before Connecting a Trading Bot">
+  <meta property="og:description" content="Learn what to check before connecting a trading bot, including platform compatibility, account permissions, security, risk controls, and demo testing.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tradeinsight.com/what-to-check-before-connecting-a-trading-bot/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .article-featured-image-wrap {
+      margin: 2rem 0 2.5rem 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      background: #f1f5f9;
+      box-shadow: var(--shadow-md);
+    }
+    .article-featured-image {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      display: block;
+    }
+    .image-caption {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      background: #ffffff;
+      border-top: 1px solid var(--color-border);
+      text-align: center;
+      font-style: italic;
+    }
+    .fxnod-partner-box {
+      background: linear-gradient(135deg, #0b1120 0%, #172554 100%);
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      margin: 2.5rem 0;
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.25);
+    }
+    .fxnod-partner-box::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(240, 58, 39, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .fxnod-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(240, 58, 39, 0.2);
+      border: 1px solid rgba(240, 58, 39, 0.5);
+      color: #fca5a5;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .fxnod-partner-box h3 {
+      color: #ffffff;
+      font-size: 1.45rem;
+      margin-bottom: 0.65rem;
+    }
+    .fxnod-partner-box p {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      margin-bottom: 1.4rem;
+    }
+    .fxnod-cta-btn {
+      background: var(--color-primary);
+      color: #ffffff;
+      font-weight: 700;
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius-md);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      transition: all var(--transition-fast);
+      box-shadow: 0 4px 14px rgba(240, 58, 39, 0.35);
+    }
+    .fxnod-cta-btn:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(240, 58, 39, 0.45);
+      color: #ffffff;
+    }
+    .security-alert-box {
+      background: #fef2f2;
+      border-left: 4px solid #ef4444;
+      border-radius: var(--radius-sm);
+      padding: 1.25rem;
+      margin: 1.5rem 0;
+      color: #991b1b;
+    }
+    .security-alert-box h4 {
+      font-size: 1rem;
+      color: #b91c1c;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .security-alert-box p {
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: #7f1d1d;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Reading Progress Indicator -->
+  <div class="reading-progress-bar" id="reading-progress"></div>
+
+  <!-- ======================================================================
+       HEADER & NAVIGATION
+       ====================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <div style="display: flex; align-items: center;">
+        <a href="index.html" class="brand-logo" aria-label="Trade Insight Home">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <span>Trade Insight</span>
+        </a>
+
+        <nav class="nav-links" aria-label="Main Navigation">
+          <a href="index.html" class="nav-link">All Guides</a>
+          <a href="automated-trading-on-deriv.html" class="nav-link">Deriv Guides</a>
+          <a href="how-to-choose-a-trading-bot.html" class="nav-link">Trading Bots</a>
+          <a href="index.html#category-fxnod" class="nav-link">FXnod Guides</a>
+        </nav>
+      </div>
+
+      <div class="header-right">
+        <!-- Direct FXnod Referral Header Button -->
+        <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.45rem 1.1rem; font-size: 0.82rem;" title="Explore FXnod Platform">
+          <span>Explore FXnod</span>
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+
+        <div class="header-search">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+          <input type="text" placeholder="Search security checklist..." aria-label="Search articles">
+        </div>
+
+        <button class="profile-avatar" title="User Profile" aria-label="User Profile">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Breadcrumbs">
+      <a href="index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="index.html#category-bots">Security & Setup</a>
+      <span class="separator">/</span>
+      <span class="current">What to Check Before Connecting a Trading Bot</span>
+    </nav>
+
+    <!-- Article Header -->
+    <header class="article-header">
+      <div class="article-tags-row">
+        <span class="badge-article-category" style="background: #0284c7;">Security & Integration</span>
+        <span class="badge-updated">Updated October 2026</span>
+        <span class="badge-read-time">10 min practical checklist</span>
+      </div>
+
+      <h1 class="article-headline">What Should You Check Before Connecting a Trading Bot?</h1>
+
+      <p class="article-deck">
+        Connecting a trading bot can automate your execution, but authorizing unchecked software can expose your account to security threats, unintended trades, and rapid losses. Review this essential 10-point audit before approving any connection.
+      </p>
+
+      <div class="article-meta-bar">
+        <div class="meta-author-group">
+          <div class="meta-author-avatar">TI</div>
+          <div class="meta-author-details">
+            <span class="meta-author-name">Trade Insight Quantitative Editorial</span>
+            <span class="meta-author-role">Security & Platform Integration Audit</span>
+          </div>
+        </div>
+
+        <div class="meta-stat-group">
+          <div class="meta-stat-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <span>Published: Oct 2026</span>
+          </div>
+          <div class="meta-stat-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <span>Verified Integration Standard</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Featured Image -->
+    <div class="article-featured-image-wrap">
+      <img 
+        src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80" 
+        alt="Security checks before connecting a trading bot to a trading platform" 
+        class="article-featured-image"
+        loading="eager"
+      >
+      <div class="image-caption">
+        Figure 1: Auditing API permissions, token scopes, and provider legitimacy protects your capital and personal credentials from unauthorized access.
+      </div>
+    </div>
+
+    <!-- 2-Column Article Layout -->
+    <div class="article-main-grid">
+
+      <!-- LEFT SIDEBAR: Table of Contents & Sticky Promo -->
+      <aside class="article-sidebar">
+        <div class="sidebar-toc-card">
+          <div class="toc-header">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path></svg>
+            <span>Audit Checklist Index</span>
+          </div>
+          <ul class="toc-list" id="toc-list">
+            <li class="toc-item"><a href="#intro" class="active">Introduction</a></li>
+            <li class="toc-item"><a href="#check-1">1. Verify Provider Trust</a></li>
+            <li class="toc-item"><a href="#check-2">2. Check Platform Compatibility</a></li>
+            <li class="toc-item"><a href="#check-3">3. Understand Permissions</a></li>
+            <li class="toc-item"><a href="#check-4">4. Protect Account Credentials</a></li>
+            <li class="toc-item"><a href="#check-5">5. Understand the Strategy</a></li>
+            <li class="toc-item"><a href="#check-6">6. Review Risk Controls</a></li>
+            <li class="toc-item"><a href="#check-7">7. Test Before Real Money</a></li>
+            <li class="toc-item"><a href="#check-8">8. Check Costs & Fees</a></li>
+            <li class="toc-item"><a href="#check-9">9. Know How to Revoke Access</a></li>
+            <li class="toc-item"><a href="#check-10">10. Keep Records & Monitor</a></li>
+            <li class="toc-item"><a href="#quick-checklist">Interactive Quick Checklist</a></li>
+            <li class="toc-item"><a href="#fxnod-section">Can FXnod Help?</a></li>
+            <li class="toc-item"><a href="#faq">Frequently Asked Questions</a></li>
+            <li class="toc-item"><a href="#final-thoughts">Final Thoughts</a></li>
+          </ul>
+
+          <div style="margin-top: 1.25rem;">
+            <div class="target-audience-box">
+              <div class="target-audience-title">Related Foundation Guides</div>
+              <ul style="display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.4rem;">
+                <li><a href="how-to-choose-a-trading-bot.html" style="color: #2563eb; font-weight: 600;">3. How to Choose a Trading Bot &gt;</a></li>
+                <li><a href="how-to-test-a-trading-bot.html" style="color: #2563eb; font-weight: 600;">6. Testing Bots Before Real Money &gt;</a></li>
+                <li><a href="manage-risk-when-using-a-trading-bot.html" style="color: #2563eb; font-weight: 600;">7. Managing Bot Risk &gt;</a></li>
+                <li><a href="how-trading-bots-connect-to-platforms.html" style="color: #2563eb; font-weight: 600;">8. How Bots Connect to Platforms &gt;</a></li>
+                <li><a href="why-is-my-trading-bot-not-working.html" style="color: #2563eb; font-weight: 600;">4. Bot Troubleshooting &gt;</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sticky FXnod Promo Card (Official Referral Link) -->
+        <div class="sidebar-cta-card" style="background: radial-gradient(circle at 10% 10%, #1e3a8a 0%, #0f172a 90%); border-color: rgba(59, 130, 246, 0.4);">
+          <div class="sidebar-cta-tag" style="color: #60a5fa;">Verified Webhook Infrastructure</div>
+          <h4 style="font-size: 1.05rem;">Explore FXnod Workflows</h4>
+          <p style="font-size: 0.8rem; color: #cbd5e1;">
+            Research low-latency webhook execution, platform integration guides, and clear parameter settings.
+          </p>
+          <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="sidebar-cta-btn" style="text-decoration: none;">
+            <span>Explore FXnod Official Site</span>
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </a>
+        </div>
+
+        <!-- Share Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title">Share Checklist</div>
+          <div class="share-buttons-row">
+            <button class="share-btn btn-copy-link" title="Copy Link">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+              <span>Copy</span>
+            </button>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="share-btn" title="Share on Twitter/X">
+              <svg fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              <span>X/Post</span>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="share-btn" title="Share on LinkedIn">
+              <svg fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              <span>Share</span>
+            </a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- RIGHT COLUMN: Article Content -->
+      <article class="article-content">
+
+        <!-- INTRO -->
+        <section id="intro" class="article-section">
+          <p class="lead-text">
+            Connecting a trading bot to a trading platform can make parts of your trading process more automated. However, before connecting any bot to your account, it is critical to understand how it works, what access it requires, and what financial and security risks may be involved.
+          </p>
+          <p>
+            A bot that is poorly configured, incompatible with your platform, or connected through an unsafe third-party service could cause unexpected balance depletions. Taking a few minutes to complete this pre-connection audit helps ensure your account remains safe and under your control.
+          </p>
+          <p>
+            In this guide, you will learn the ten most essential items to check before connecting a trading bot to platforms such as Deriv.
+          </p>
+        </section>
+
+        <!-- 1. VERIFY TRUST -->
+        <section id="check-1" class="article-section">
+          <h2>1. Verify That the Trading Bot Is Trustworthy</h2>
+          <p>
+            Before allowing any tool access to your brokerage account, find out who developed it and verify the provider's track record and identity:
+          </p>
+          <ul style="margin-left: 1.5rem; display: flex; flex-direction: column; gap: 0.35rem; list-style-type: disc;">
+            <li>Is the provider's official company website accessible and clearly registered?</li>
+            <li>Does the provider transparently explain how the underlying algorithm works?</li>
+            <li>Are the inherent risks and limitations of the tool openly documented?</li>
+            <li>Is there an accessible technical support team and active documentation?</li>
+            <li>Does the marketing rely on unrealistic, guaranteed profit claims?</li>
+          </ul>
+          <div class="callout-warning">
+            <div class="callout-warning-icon">
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+            </div>
+            <div class="callout-warning-content">
+              <h4>Watch Out for High-Pressure Sales Tactics</h4>
+              <p>
+                Be cautious with services that claim losses are impossible or pressure you to deposit live funds immediately. A polished landing page does not automatically mean a bot is safe or profitable.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. CHECK COMPATIBILITY -->
+        <section id="check-2" class="article-section">
+          <h2>2. Check Platform Compatibility</h2>
+          <p>
+            Trading bots cannot connect to every platform indiscriminately. Software designed for MetaTrader (MQL5) will not communicate with Deriv's WebSocket endpoints, and vice versa.
+          </p>
+          <p>
+            Before connecting, confirm which platforms are officially supported, whether your target instruments (e.g., Synthetic Indices, Volatility 75, Forex) are available, and whether extra server middleware is required.
+          </p>
+          <p>
+            For example, Deriv provides its own native visual automation ecosystem, <strong>Deriv Bot</strong>, built specifically for block-based trading:
+          </p>
+          <div class="conn-method-card" style="border-left-color: #2563eb;">
+            <h4>Official Deriv Automation</h4>
+            <p>
+              Explore official documentation, block structures, and synthetic index options directly at the <a href="https://deriv.com/trading-platforms/deriv-bot" target="_blank" rel="noopener noreferrer" style="color: #2563eb; font-weight: 600;">official Deriv Bot page &gt;</a>
+            </p>
+          </div>
+          <p>
+            <em>Do not assume an external bot connects to Deriv unless official documentation confirms direct API compatibility.</em>
+          </p>
+        </section>
+
+        <!-- 3. UNDERSTAND PERMISSIONS -->
+        <section id="check-3" class="article-section">
+          <h2>3. Understand the Permissions You Are Giving</h2>
+          <p>
+            This is one of the most vital security checks. When creating an API token or linking through OAuth, trading platforms allow you to restrict the <strong>scopes</strong> granted to external applications:
+          </p>
+          <div class="checklist-wrapper">
+            <div class="checklist-title">Permission Scopes Audit:</div>
+            <div class="checklist-list">
+              <div class="checklist-item" style="cursor: default;"><input type="checkbox" checked disabled><div class="checklist-text"><strong>Read Access:</strong> Allows viewing open balances and trade history. Safe for analytical bots.</div></div>
+              <div class="checklist-item" style="cursor: default;"><input type="checkbox" checked disabled><div class="checklist-text"><strong>Trade Access:</strong> Permits placing and closing orders. Necessary for execution bots.</div></div>
+              <div class="checklist-item" style="cursor: default;"><input type="checkbox" disabled><div class="checklist-text" style="color: #dc2626;"><strong>Payment & Withdrawal Rights: NEVER GRANT.</strong> Legitimate trading bots NEVER require permission to withdraw funds. If requested, reject immediately!</div></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. PROTECT CREDENTIALS -->
+        <section id="check-4" class="article-section">
+          <h2>4. Protect Your Account Credentials</h2>
+          <p>
+            Your trading account holds real financial capital. A legitimate bot provider will never ask you to hand over your broker account password or one-time SMS verification codes:
+          </p>
+          <div class="security-alert-box">
+            <h4>
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 1.944A11.954 11.954 0 012.166 5C2.056 5.649 2 6.319 2 7c0 5.225 3.34 9.67 8 11.317C14.66 16.67 18 12.225 18 7c0-.682-.057-1.35-.166-2.001A11.954 11.954 0 0110 1.944zM11 14a1 1 0 11-2 0 1 1 0 012 0zm0-7a1 1 0 10-2 0v3a1 1 0 002 0V7z" clip-rule="evenodd"></path></svg>
+              Critical Security Rule:
+            </h4>
+            <p>
+              <strong>Never paste private API tokens or secret keys into public forums, Telegram chats, Discord channels, or GitHub repositories.</strong> Enable Two-Factor Authentication (2FA) across your trading accounts immediately.
+            </p>
+          </div>
+        </section>
+
+        <!-- 5. UNDERSTAND THE STRATEGY -->
+        <section id="check-5" class="article-section">
+          <h2>5. Understand the Bot's Trading Strategy</h2>
+          <p>
+            Never deploy a bot whose underlying logic is a complete black box. You must understand the basic mathematical conditions that trigger its operations:
+          </p>
+          <ul style="margin-left: 1.5rem; display: flex; flex-direction: column; gap: 0.35rem; list-style-type: disc;">
+            <li>What exact indicator or price action triggers an entry?</li>
+            <li>How does the bot determine contract duration or expiry?</li>
+            <li>What happens immediately after a losing trade? (Does it double the stake like Martingale?)</li>
+            <li>Under what market conditions is the strategy known to suffer drawdowns?</li>
+          </ul>
+          <p>
+            For a full breakdown of why strategies lose money, review: <a href="can-trading-bots-lose-money.html" style="color: #2563eb; font-weight: 600;">Can Trading Bots Lose Money? Risks Every Trader Should Know &gt;</a>
+          </p>
+        </section>
+
+        <!-- 6. REVIEW RISK CONTROLS -->
+        <section id="check-6" class="article-section">
+          <h2>6. Review Risk Controls and Trading Limits</h2>
+          <p>
+            Automated tools execute orders rapidly. If a market spikes violently, an unrestricted bot can place dozen of orders in seconds, wiping out account margin:
+          </p>
+          <ul style="margin-left: 1.5rem; display: flex; flex-direction: column; gap: 0.35rem; list-style-type: disc;">
+            <li><strong>Maximum Daily Loss Limit:</strong> Does the bot stop trading when a specific dollar threshold is reached?</li>
+            <li><strong>Maximum Consecutive Losses:</strong> Can you force the bot to pause after 3 or 4 losing trades?</li>
+            <li><strong>Stake Size Caps:</strong> Is there a hard ceiling on maximum individual stake allocations?</li>
+          </ul>
+          <p>
+            Learn more in our guide: <a href="manage-risk-when-using-a-trading-bot.html" style="color: #2563eb; font-weight: 600;">How to Manage Risk When Using a Trading Bot &gt;</a>
+          </p>
+        </section>
+
+        <!-- 7. TEST BEFORE REAL MONEY -->
+        <section id="check-7" class="article-section">
+          <h2>7. Test the Bot Before Using Real Money</h2>
+          <p>
+            Never connect a new bot directly to a live funded account. Always validate execution in a risk-free demo sandbox:
+          </p>
+          <div class="conn-method-card" style="border-left-color: #0284c7;">
+            <h4>The 4-Step Demo Testing Sequence</h4>
+            <ol style="margin-left: 1.5rem; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.4rem;">
+              <li>Read the setup documentation and set up the connection using demo account credentials.</li>
+              <li>Observe live tick executions under varying volatility conditions (market open, news events).</li>
+              <li>Record win rate, average win-to-loss size, and maximum drawdown over at least 100+ trades.</li>
+              <li>Verify that emergency stop commands work instantly without lag.</li>
+            </ol>
+          </div>
+          <p>
+            Read the complete guide: <a href="how-to-test-a-trading-bot.html" style="color: #2563eb; font-weight: 600;">How to Test a Trading Bot Before Using Real Money &gt;</a>
+          </p>
+        </section>
+
+        <!-- 8. CHECK COSTS -->
+        <section id="check-8" class="article-section">
+          <h2>8. Check Costs and Other Conditions</h2>
+          <p>
+            Evaluate the total operational overhead of the software before connecting:
+          </p>
+          <ul style="margin-left: 1.5rem; display: flex; flex-direction: column; gap: 0.35rem; list-style-type: disc;">
+            <li><strong>Software Fees:</strong> Is there a monthly subscription, one-time license, or profit-sharing fee?</li>
+            <li><strong>Hosting Overhead:</strong> Does the bot require a continuous cloud VPS (Virtual Private Server) to run 24/7?</li>
+            <li><strong>Broker Execution Costs:</strong> How do spreads, overnight swaps, or asset payout percentages affect the net math?</li>
+          </ul>
+        </section>
+
+        <!-- 9. KNOW HOW TO REVOKE ACCESS -->
+        <section id="check-9" class="article-section">
+          <h2>9. Know How to Stop the Bot and Revoke Access</h2>
+          <p>
+            Before you click "Connect", ensure you know the exact emergency kill-switch procedure:
+          </p>
+          <ul style="margin-left: 1.5rem; display: flex; flex-direction: column; gap: 0.35rem; list-style-type: disc;">
+            <li>Locate the pause and stop toggles within the bot interface.</li>
+            <li>Know where to delete or invalidate the API token inside your broker security settings.</li>
+            <li>Understand what happens to open trades if you kill the connection (open contracts usually remain active until expiry or manual closure).</li>
+          </ul>
+        </section>
+
+        <!-- 10. KEEP RECORDS -->
+        <section id="check-10" class="article-section">
+          <h2>10. Keep Records and Monitor Activity</h2>
+          <p>
+            Never adopt a "set-and-forget" mentality. Audit your bot's execution logs daily to verify that traded stake sizes, contract types, and slippage figures match your intended configuration parameters.
+          </p>
+        </section>
+
+        <!-- QUICK CHECKLIST -->
+        <section id="quick-checklist" class="article-section">
+          <h2>Quick Checklist Before Connecting a Trading Bot</h2>
+          <div class="checklist-wrapper">
+            <div class="checklist-title">10-Point Pre-Connection Verification:</div>
+            <div class="checklist-list">
+              <div class="checklist-item"><input type="checkbox" id="c1"><label for="c1" class="checklist-text"><strong>1. Verified Provider:</strong> Identity, documentation, and contact channels confirmed.</label></div>
+              <div class="checklist-item"><input type="checkbox" id="c2"><label for="c2" class="checklist-text"><strong>2. Verified Compatibility:</strong> Explicitly confirmed for your platform and target contracts.</label></div>
+              <div class="checklist-item"><input type="checkbox" id="c3"><label for="c3" class="checklist-text"><strong>3. Scoped Permissions:</strong> Trade/Read only; zero withdrawal permissions allowed.</label></div>
+              <div class="checklist-item"><input type="checkbox" id="c4"><label for="c4" class="checklist-text"><strong>4. Protected Credentials:</strong> Passwords, 2FA, and secret API tokens secured.</label></div>
+              <div class="checklist-item"><input type="checkbox" id="c5"><label for="c5" class="checklist-text"><strong>5. Understand Strategy:</strong> Entry, exit, and stake adjustment logic understood.</label></div>
+              <div class="checklist-item"><input type="checkbox" id="c6"><label for="c6" class="checklist-text"><strong>6. Verified Risk Limits:</strong> Hard daily stop-loss and maximum stake limits configured.</label></div>
+              <div class="checklist-item"><input type="checkbox" id="c7"><label for="c7" class="checklist-text"><strong>7. Demo Testing:</strong> Strategy verified over 100+ demo trades with acceptable drawdowns.</label></div>
+              <div class="checklist-item"><input type="checkbox" id="c8"><label for="c8" class="checklist-text"><strong>8. Audited Full Costs:</strong> Software subscriptions, VPS costs, and broker spreads calculated.</label></div>
+              <div class="checklist-item"><input type="checkbox" id="c9"><label for="c9" class="checklist-text"><strong>9. Emergency Kill-Switch:</strong> Know how to revoke API access immediately in broker settings.</label></div>
+              <div class="checklist-item"><input type="checkbox" id="c10"><label for="c10" class="checklist-text"><strong>10. Monitoring Plan:</strong> Schedule in place for daily execution log reviews.</label></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CAN FXNOD HELP -->
+        <section id="fxnod-section" class="article-section">
+          <h2>Can FXnod Help With an Automated Trading Workflow?</h2>
+          <p>
+            If you are exploring tools for an automated trading workflow, <strong>FXnod</strong> may be worth investigating as part of your research. Before connecting any tool, review its official documentation, supported platforms, available webhook features, and security requirements to confirm whether it matches your needs.
+          </p>
+          <p>
+            Do not connect an account or commit funds until you understand the integration and have verified its compatibility with your intended trading platform.
+          </p>
+
+          <!-- SPECIAL FXNOD PARTNER CALLOUT (Embedded Official Referral Link) -->
+          <div class="fxnod-partner-box">
+            <span class="fxnod-badge">Verified Automation Resource</span>
+            <h3>Explore FXnod Platform & Documentation</h3>
+            <p>
+              Looking to streamline your automated trading workflows and inspect connection documentation? Visit FXnod to evaluate platform compatibility and execution features.
+            </p>
+            <div>
+              <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="fxnod-cta-btn">
+                <span>Explore FXnod Official Platform</span>
+                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </a>
+            </div>
+            <p style="font-size: 0.78rem; color: #94a3b8; margin-top: 1rem; margin-bottom: 0;">
+              *Affiliate disclosure: This article may contain an affiliate link. The publisher may receive a commission if you sign up through it, at no additional cost to you. Research any tool independently and understand the risks before using it.
+            </p>
+          </div>
+        </section>
+
+        <!-- FAQS -->
+        <section id="faq" class="article-section">
+          <h2>Frequently Asked Questions</h2>
+
+          <div class="faq-list">
+            <div class="faq-card">
+              <h4>Is it safe to connect a trading bot to my account?</h4>
+              <p>It depends on the provider, the permissions requested, the security of the integration, and how you configure the bot. Always restrict scopes to Trade/Read only and verify the provider's reputation beforehand.</p>
+            </div>
+
+            <div class="faq-card">
+              <h4>Should I give a trading bot my account password?</h4>
+              <p>Never. Legitimate trading platforms use tokenized API keys or official OAuth redirects. Sharing your master account password gives full unauthorized control over your entire balance.</p>
+            </div>
+
+            <div class="faq-card">
+              <h4>Should I test a trading bot before connecting it to a live account?</h4>
+              <p>Yes. Testing in a demo environment is non-negotiable. Demo testing highlights configuration errors, socket disconnections, and execution flaws before real capital is exposed.</p>
+            </div>
+
+            <div class="faq-card">
+              <h4>Can a trading bot lose money even if it is connected correctly?</h4>
+              <p>Yes. A technically flawless connection simply means instructions reach the broker. If market conditions shift or the underlying strategy lacks an edge, the bot will faithfully execute losing trades.</p>
+            </div>
+
+            <div class="faq-card">
+              <h4>What should I do if a trading bot behaves unexpectedly?</h4>
+              <p>Immediately halt the bot, revoke its API token in your broker dashboard, inspect open positions, and review execution logs to determine the cause before restarting.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- FINAL THOUGHTS -->
+        <section id="final-thoughts" class="article-section">
+          <h2>Final Thoughts</h2>
+          <p>
+            Before connecting a trading bot, prioritize three core safeguards: <strong>security, compatibility, and risk management</strong>. Verify the provider, understand token scopes, test the strategy extensively, and always know how to revoke access instantly.
+          </p>
+          <p>
+            Automation can make execution seamless, but it does not eliminate risk or guarantee profits. Make informed, cautious decisions and remain actively responsible for your account activity.
+          </p>
+
+          <!-- Second CTA Banner (Official FXnod Referral Link) -->
+          <div class="article-footer-cta" style="margin: 2.5rem 0 1.5rem 0;">
+            <div>
+              <h3>Explore Reliable Trading Automation with FXnod</h3>
+              <p>
+                Visit FXnod to inspect platform features, automated relays, and step-by-step setup guides.
+              </p>
+            </div>
+            <div class="article-footer-cta-actions">
+              <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="text-decoration: none;">
+                <span>Visit FXnod Official Site</span>
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Legal Disclaimer -->
+          <div style="background: #f8fafc; border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 1.25rem; font-size: 0.8rem; color: #64748b; line-height: 1.6; margin-top: 2rem;">
+            <em><strong>Disclaimer:</strong> This article is for educational purposes only and is not financial advice. Trading involves substantial risk, and losses can exceed initial deposits. This article may contain affiliate links, which may earn the publisher a commission from qualifying referrals at no additional cost to you.</em>
+          </div>
+        </section>
+
+      </article>
+    </div>
+  </main>
+
+  <!-- ======================================================================
+       FOOTER COMPONENT
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <div class="brand-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+            <span>Trade Insight</span>
+          </a>
+          <p>
+            High-performance technical editorial and tactical research publication. We empower quantitative traders, risk teams, and modern web agencies with actionable market playbooks.
+          </p>
+          <span class="footer-digest-label">Weekly Tech & Trading Digest</span>
+          <form class="footer-mini-form" onsubmit="event.preventDefault(); showToast('Subscribed to Weekly Digest!');">
+            <input type="email" placeholder="Enter your business email" required aria-label="Business Email">
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+
+        <div class="footer-col">
+          <h4>Publication Areas</h4>
+          <ul>
+            <li><a href="index.html#all">All Editorial Guides</a></li>
+            <li><a href="automated-trading-on-deriv.html">Deriv & Synthetic Indices</a></li>
+            <li><a href="how-to-choose-a-trading-bot.html">Automated Trading Bots</a></li>
+            <li><a href="what-to-check-before-connecting-a-trading-bot.html">Bot Connection Security</a></li>
+            <li><a href="why-is-my-trading-bot-not-working.html">Bot Troubleshooting</a></li>
+            <li><a href="manage-risk-when-using-a-trading-bot.html">Risk Management</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Popular Playbooks</h4>
+          <ul>
+            <li><a href="what-is-automated-trading.html">What Is Automated Trading?</a></li>
+            <li><a href="automated-trading-on-deriv.html">How to Start on Deriv</a></li>
+            <li><a href="what-to-check-before-connecting-a-trading-bot.html">Pre-Connection Security Checks</a></li>
+            <li><a href="how-to-choose-a-trading-bot.html">How to Choose a Trading Bot</a></li>
+            <li><a href="how-to-test-a-trading-bot.html">How to Test a Trading Bot</a></li>
+            <li><a href="manage-risk-when-using-a-trading-bot.html">Managing Bot Risk</a></li>
+            <li><a href="manual-vs-automated-trading.html">Manual vs Automated Trading</a></li>
+            <li><a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer">Explore FXnod Platform</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Compliance & Legal</h4>
+          <ul>
+            <li><a href="index.html#editorial">Editorial Independence</a></li>
+            <li><a href="index.html#risk-notice">Risk Disclosure Notice</a></li>
+            <li><a href="index.html#terms">Terms of Service</a></li>
+            <li><a href="index.html#privacy">Privacy Policy</a></li>
+            <li><a href="index.html#cookies">Cookie Preferences</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 Trade Insight Editorial. All content is for educational and technical informational purposes only. Trading financial derivatives carries substantial risk.
+        </div>
+        <div>
+          Designed for Agency Quantitative Operations
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>

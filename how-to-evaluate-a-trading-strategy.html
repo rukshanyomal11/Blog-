@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Evaluate a Trading Strategy Before Using It | Trade Insight</title>
+  <meta name="description" content="Learn how to evaluate a trading strategy before using real money. Discover backtesting, demo testing, risk analysis, and common mistakes to avoid.">
+  <meta name="keywords" content="how to evaluate a trading strategy, trading strategy testing, backtesting a trading strategy, demo trading, trading strategy performance, automated trading strategy, FXnod">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="How to Evaluate a Trading Strategy Before Using It">
+  <meta property="og:description" content="Learn how to evaluate a trading strategy before using real money. Discover backtesting, demo testing, risk analysis, and common mistakes to avoid.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tradeinsight.com/how-to-evaluate-a-trading-strategy/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .article-featured-image-wrap {
+      margin: 2rem 0 2.5rem 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      background: #f1f5f9;
+      box-shadow: var(--shadow-md);
+    }
+    .article-featured-image {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      display: block;
+    }
+    .image-caption {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      background: #ffffff;
+      border-top: 1px solid var(--color-border);
+      text-align: center;
+      font-style: italic;
+    }
+    .math-card {
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      color: #f8fafc;
+      margin: 1.5rem 0;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.2);
+    }
+    .math-card-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #60a5fa;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .math-formula {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.15rem;
+      background: #1e293b;
+      padding: 0.85rem 1.25rem;
+      border-radius: var(--radius-sm);
+      color: #38bdf8;
+      margin: 0.75rem 0;
+      display: inline-block;
+    }
+    .steps-nav-box {
+      background: #f8fafc;
+      border: 1px solid var(--color-border);
+      border-left: 4px solid var(--color-primary);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0;
+    }
+    .steps-nav-title {
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 0.75rem;
+    }
+    .steps-nav-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.5rem 1rem;
+      font-size: 0.875rem;
+    }
+    .steps-nav-grid a {
+      color: var(--color-text-muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .steps-nav-grid a:hover {
+      color: var(--color-primary);
+      text-decoration: underline;
+    }
+    .step-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      margin: 1.75rem 0;
+      box-shadow: var(--shadow-sm);
+    }
+    .step-badge {
+      display: inline-block;
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-sm);
+      background: #e0f2fe;
+      color: #0369a1;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .mistake-list {
+      display: grid;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .mistake-card {
+      background: #fff;
+      border: 1px solid #fee2e2;
+      border-left: 4px solid #ef4444;
+      padding: 1.25rem;
+      border-radius: var(--radius-md);
+    }
+    .mistake-card h4 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      color: #b91c1c;
+      font-size: 1rem;
+    }
+  </style>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "How to Evaluate a Trading Strategy Before Using It",
+    "description": "Learn how to evaluate a trading strategy before using real money. Discover backtesting, demo testing, risk analysis, and common mistakes to avoid.",
+    "author": {
+      "@type": "Organization",
+      "name": "Trade Insight Editorial"
+    },
+    "datePublished": "2026-10-12",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+    "mainEntityOfPage": "https://tradeinsight.com/how-to-evaluate-a-trading-strategy/"
+  }
+  </script>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I know whether a trading strategy is good?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Examine its rules, testing process, net performance, drawdown, win rate, average wins and losses, and behaviour across different conditions. No single metric proves that a strategy will be profitable in the future."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many trades should I test?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "There is no universal number that guarantees a reliable conclusion. The appropriate sample depends on the strategy, trade frequency, variability of results, and quality of the data."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is backtesting enough before using real money?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Backtesting can help assess historical behaviour, but it cannot reproduce every live trading condition. Demo testing and continued monitoring may provide additional information."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can a profitable trading bot still lose money?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Market conditions can change, and past results do not guarantee future performance. Technical failures, costs, and strategy limitations can also affect outcomes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should beginners use real money to test a new strategy?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Beginners should first understand the strategy and use historical or demo testing where suitable. Never risk money needed for essential expenses, and remember that even a well-tested strategy can lose money."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container announcement-content">
+      <span>📊 <strong>Quantitative Strategy Protocol:</strong> How professional analysts validate trading models prior to live execution.</span>
+      <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="announcement-link">Explore Automated FXnod Testing &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="index.html" class="logo">
+        <span class="logo-badge">TI</span>
+        <span>Trade Insight</span>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html">Guides</a>
+        <a href="index.html#deriv">Deriv Platforms</a>
+        <a href="index.html#risk">Risk Management</a>
+        <a href="index.html#about">About Us</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Connect FXnod Bot</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Layout -->
+  <main class="article-layout">
+    <div class="container article-grid">
+      
+      <!-- Article Content Column -->
+      <article class="article-content">
+        
+        <!-- Breadcrumbs -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a> &rsaquo;
+          <a href="index.html#risk">Strategy Validation</a> &rsaquo;
+          <span>Evaluating a Strategy</span>
+        </nav>
+
+        <header class="article-header">
+          <div class="article-meta-tags">
+            <span class="tag">Strategy Evaluation</span>
+            <span class="tag">Backtesting</span>
+            <span class="tag">Risk Management</span>
+          </div>
+          <h1 class="article-title">How to Evaluate a Trading Strategy Before Using It</h1>
+          
+          <div class="article-author-bar">
+            <div class="author-avatar">TI</div>
+            <div class="author-info">
+              <span class="author-name">Trade Insight Quantitative Research</span>
+              <span class="publish-date">Published October 12, 2026 &bull; 9 min read</span>
+            </div>
+          </div>
+        </header>
+
+        <!-- Featured Image -->
+        <div class="article-featured-image-wrap">
+          <img 
+            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" 
+            alt="How to evaluate a trading strategy using charts and performance records" 
+            class="article-featured-image"
+          >
+          <div class="image-caption">Objective strategy evaluation requires backtesting, demo verification, drawdown inspection, and disciplined risk-to-reward ratio tracking.</div>
+        </div>
+
+        <!-- Article Intro -->
+        <div class="article-lead">
+          A trading strategy is a structured set of rules that helps a trader decide when to enter a trade, when to exit, and how to protect capital against adverse market moves.
+        </div>
+
+        <p>However, having a strategy written on paper does not mean it will perform well in real market conditions. A strategy may look remarkably successful over a handful of cherry-picked examples, but produce completely different results when tested rigorously across a large sample of trades.</p>
+
+        <p>Before risking real money, it is vital to evaluate how a strategy functions, understand its statistical limitations, and examine its historical or simulated performance.</p>
+
+        <p>In this comprehensive guide, you will learn how to evaluate a trading strategy step by step—including how to test its rules, measure key performance metrics, and identify dangerous warning signs such as overfitting.</p>
+
+        <!-- Navigation Box -->
+        <div class="steps-nav-box">
+          <div class="steps-nav-title">11 Steps to Rigorous Strategy Evaluation:</div>
+          <div class="steps-nav-grid">
+            <a href="#step-1">1. Understand Strategy Rules</a>
+            <a href="#step-2">2. Backtest Historical Data</a>
+            <a href="#step-3">3. Test in Demo Environment</a>
+            <a href="#step-4">4. Measure the Win Rate</a>
+            <a href="#step-5">5. Examine Average Win/Loss</a>
+            <a href="#step-6">6. Analyze Maximum Drawdown</a>
+            <a href="#step-7">7. Check Risk-to-Reward Ratio</a>
+            <a href="#step-8">8. Test Across Market Regimes</a>
+            <a href="#step-9">9. Identify Overfitting Risks</a>
+            <a href="#step-10">10. Evaluate Trading Bots</a>
+            <a href="#step-11">11. Maintain a Testing Journal</a>
+          </div>
+        </div>
+
+        <!-- Section: What Does It Mean to Evaluate a Strategy? -->
+        <h2 id="what-it-means">What Does It Mean to Evaluate a Trading Strategy?</h2>
+        <p>Evaluating a trading strategy means examining whether its rules are clear and unambiguous, whether it has been tested appropriately over significant sample sizes, and how it performs under different market environments.</p>
+
+        <p>A proper quantitative evaluation considers far more than just the raw number of winning trades. You must examine:</p>
+        <ul>
+          <li><strong>Average profit and average loss:</strong> The relative payout size of winners versus losers.</li>
+          <li><strong>Win rate:</strong> The statistical percentage of winning executions.</li>
+          <li><strong>Risk-to-reward ratio:</strong> Planned trade payoff geometry.</li>
+          <li><strong>Maximum drawdown:</strong> Peak-to-trough account equity decline.</li>
+          <li><strong>Trading costs:</strong> Spreads, commissions, swap fees, and execution slippage.</li>
+          <li><strong>Performance across regimes:</strong> Trending, ranging, and high-volatility conditions.</li>
+          <li><strong>Rule consistency:</strong> Whether the strategy follows its predefined rules without emotional deviation.</li>
+        </ul>
+
+        <p>The purpose of this evaluation is never to "prove" that a strategy will always make money. Rather, it is to understand the empirical evidence, manage expectations, and respect the downside risk involved.</p>
+
+        <!-- Step 1 -->
+        <div class="step-card" id="step-1">
+          <span class="step-badge">Step 1</span>
+          <h3>Understand the Strategy's Rules</h3>
+          <p>Before testing a strategy, ensure you understand exactly how it makes decisions. A complete trading strategy must clearly specify:</p>
+          <ul>
+            <li>Which asset class or instrument it is built for (e.g., EUR/USD, Volatility 75 Index).</li>
+            <li>Which specific market conditions trigger an entry.</li>
+            <li>Exactly when and under what criteria a trade should close (profit target, trailing stop, stop-loss).</li>
+            <li>How position size or stake is calculated (fixed lot size, risk percentage of equity).</li>
+            <li>How risk is managed when consecutive losses occur.</li>
+            <li>When the strategy should explicitly <em>not</em> be traded (e.g., major news releases or low-liquidity periods).</li>
+          </ul>
+          <p style="margin-bottom: 0;">For example, stating that a strategy "buys when moving averages cross" is incomplete. You must define the exact moving average periods, the candle close confirmation, the stop distance, and the take-profit target. Clear rules allow for objective, reproducible testing.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card" id="step-2">
+          <span class="step-badge">Step 2</span>
+          <h3>Backtest the Strategy</h3>
+          <p><strong>Backtesting</strong> means applying a strategy's exact rules to historical market data to see how it would have performed in the past.</p>
+          <p>A thorough backtest answers fundamental questions:</p>
+          <ul>
+            <li>How many trades would the strategy have triggered over a 6-month or 1-year period?</li>
+            <li>What was the total distribution of winners and losers?</li>
+            <li>What was the net profit after deducting simulated spreads and commissions?</li>
+            <li>How deep and prolonged were the losing streaks during adverse market cycles?</li>
+            <li>Did performance collapse during specific volatility spikes?</li>
+          </ul>
+          <div class="callout callout-info">
+            <strong>What makes a backtest credible?</strong>
+            A reliable backtest uses clean tick-level historical data, applies entry and exit rules without hindsight bias, incorporates realistic spreads, and accounts for slippage. Always remember: past performance is never a guarantee of future outcomes.
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card" id="step-3">
+          <span class="step-badge">Step 3</span>
+          <h3>Test the Strategy on Demo</h3>
+          <p>If a suitable demo account or simulated paper-trading environment is available, use it to observe how the strategy behaves in current, live-streaming market conditions without risking capital.</p>
+          <p>During forward demo testing, meticulously log:</p>
+          <ul>
+            <li>The precise timestamp when the strategy triggered an entry.</li>
+            <li>Whether orders were filled at the expected price or experienced slippage.</li>
+            <li>Whether emotional hesitation or technical delays impacted order placement.</li>
+            <li>Any platform disconnections, internet hiccups, or software errors.</li>
+            <li>Whether live results align with or diverge from your backtest data.</li>
+          </ul>
+          <p style="margin-bottom: 0;">For automated bots, refer to our dedicated workflow guide: <a href="how-to-test-a-trading-bot.html">How to Test a Trading Bot Before Using Real Money</a>.</p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step-card" id="step-4">
+          <span class="step-badge">Step 4</span>
+          <h3>Measure the Win Rate</h3>
+          <p>The <strong>win rate</strong> is the percentage of closed trades that finish with a positive profit.</p>
+          
+          <div class="math-card">
+            <div class="math-card-title">📐 Win Rate Mathematical Formula</div>
+            <div class="math-formula">Win Rate = (Winning Trades &divide; Total Closed Trades) &times; 100</div>
+          </div>
+
+          <p><strong>Example:</strong> Suppose a strategy completes 100 trades, resulting in 55 winning trades and 45 losing trades:</p>
+          <p><code>55 &divide; 100 &times; 100 = 55% Win Rate</code></p>
+          <p style="margin-bottom: 0;">Crucially, a high win rate does not automatically translate to profitability. If a strategy wins 90% of the time making $5 per trade, but the 10% losing trades lose $100 each, the account will rapidly face catastrophic losses. Win rate must always be evaluated in conjunction with average profit and loss.</p>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="step-card" id="step-5">
+          <span class="step-badge">Step 5</span>
+          <h3>Examine Average Profit and Average Loss</h3>
+          <p>The monetary payoff of winning trades versus losing trades is just as crucial as trade frequency.</p>
+          
+          <div class="info-card">
+            <h4>Worked Scenario: Why Win Rate Can Deceive</h4>
+            <ul>
+              <li>6 winning trades earning $10 each: <code>6 &times; $10 = +$60</code></li>
+              <li>4 losing trades losing $20 each: <code>4 &times; $20 = -$80</code></li>
+              <li><strong>Net Result Before Costs:</strong> <code>+$60 - $80 = -$20 Loss</code></li>
+            </ul>
+            <p style="margin-bottom: 0;">Even with an attractive 60% win rate, larger average losses produced an overall losing system. This is why evaluating payoff asymmetry is vital.</p>
+          </div>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="step-card" id="step-6">
+          <span class="step-badge">Step 6</span>
+          <h3>Understand Drawdown</h3>
+          <p><strong>Drawdown</strong> measures the percentage decline in account balance from its highest peak to its lowest subsequent trough.</p>
+
+          <div class="math-card">
+            <div class="math-card-title">📉 Maximum Drawdown Formula</div>
+            <div class="math-formula">Drawdown (%) = [(Peak Value - Trough Value) &divide; Peak Value] &times; 100</div>
+          </div>
+
+          <p><strong>Example:</strong> If an account equity peak reaches $1,000 and subsequently declines to $800 during a losing streak:</p>
+          <p><code>($1,000 - $800) &divide; $1,000 &times; 100 = 20% Drawdown</code></p>
+          <p>When evaluating a strategy, examine both the <strong>depth</strong> and the <strong>duration</strong> of its drawdowns. A system that takes six months to recover from a 30% drawdown requires intense psychological patience and strict capital preservation.</p>
+        </div>
+
+        <!-- Step 7 -->
+        <div class="step-card" id="step-7">
+          <span class="step-badge">Step 7</span>
+          <h3>Check the Risk-to-Reward Ratio</h3>
+          <p>The risk-to-reward ratio contrasts how much capital is at risk versus how much profit is expected from a trade setup.</p>
+          <p>For example, risking $10 to make $20 represents a 1:2 risk-to-reward ratio. However, a favorable ratio alone does not guarantee success. You must consider how frequently the profit target is reached and how trading fees impact overall expectancy.</p>
+          <p>For deep mathematical breakdowns on this topic, read our full article: <a href="what-is-risk-to-reward-ratio.html">What Is Risk-to-Reward Ratio in Trading? A Beginner's Guide</a>.</p>
+        </div>
+
+        <!-- Step 8 -->
+        <div class="step-card" id="step-8">
+          <span class="step-badge">Step 8</span>
+          <h3>Test Across Different Market Conditions</h3>
+          <p>Financial markets alternate across distinct regimes:</p>
+          <ul>
+            <li><strong>Strong directional trends:</strong> Favorable for breakout and moving average trend-following systems.</li>
+            <li><strong>Choppy sideways consolidation:</strong> Ideal for mean-reversion strategies, but disastrous for trend followers.</li>
+            <li><strong>High volatility spikes:</strong> Can trigger slippage, widen spreads, or prematurely hit stop-losses.</li>
+          </ul>
+          <p style="margin-bottom: 0;">Never evaluate a strategy during just one favorable market period. If a bot produced stellar results during a smooth bullish trend, test how it holds up during protracted choppy consolidation before risking real capital.</p>
+        </div>
+
+        <!-- Step 9 -->
+        <div class="step-card" id="step-9">
+          <span class="step-badge">Step 9</span>
+          <h3>Check for Overfitting (Curve-Fitting)</h3>
+          <p><strong>Overfitting</strong> occurs when a strategy's parameters are tuned so aggressively to past market data that it simply "memorizes" historical noise rather than capturing genuine market mechanics.</p>
+          <p>For example, if an analyst tests 500 different RSI and MACD combinations until one combination shows zero losing trades in historical tests, that strategy is severely overfitted and will almost certainly fail on live market data.</p>
+          <div class="callout callout-warning">
+            <strong>How to Prevent Overfitting:</strong>
+            <ul>
+              <li>Keep rules simple and logically sound.</li>
+              <li>Avoid adjusting parameters purely to turn historical losing trades into winners.</li>
+              <li>Perform "out-of-sample" testing on fresh historical data that wasn't used in building the model.</li>
+              <li>Document the rationale for every parameter selection.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Step 10 -->
+        <div class="step-card" id="step-10">
+          <span class="step-badge">Step 10</span>
+          <h3>Evaluate Trading Bots Separately</h3>
+          <p>If you are testing an automated bot, you must evaluate both the <strong>underlying strategy logic</strong> and the <strong>execution software itself</strong>.</p>
+          <p>Key technical questions to ask:</p>
+          <ul>
+            <li>Does the software execute entries and exits with precision timing?</li>
+            <li>Which platforms and asset types are natively supported?</li>
+            <li>How does the bot handle API disconnections, rate limits, or broker latency?</li>
+            <li>Can stop-losses be enforced on the broker server if your internet fails?</li>
+            <li>Are advertised marketing results verifiable with live third-party audit records?</li>
+          </ul>
+
+          <!-- FXnod Partner Highlight Box -->
+          <div class="fxnod-partner-box">
+            <div class="fxnod-partner-badge">Automated Trading Verification</div>
+            <h3 class="fxnod-partner-title">Evaluating Strategy Automation with FXnod</h3>
+            <p class="fxnod-partner-desc">
+              When exploring automated trading systems on platforms such as Deriv, tools like <strong>FXnod</strong> offer rule-based bot management solutions. When testing an automation platform, always review its official documentation, verify its risk configurations, and run extensive paper tests on virtual demo accounts before connecting live funds.
+            </p>
+            <div class="fxnod-partner-actions">
+              <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                Explore FXnod Platform &rarr;
+              </a>
+            </div>
+            <div class="fxnod-partner-disclaimer">
+              *Compliance Notice: No trading bot can guarantee profits or insulate an account from risk. Always test tools in demo mode and evaluate suitability independently. Learn more in our analysis: <a href="can-trading-bots-lose-money.html" style="color: #94a3b8; text-decoration: underline;">Can Trading Bots Lose Money?</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 11 -->
+        <div class="step-card" id="step-11">
+          <span class="step-badge">Step 11</span>
+          <h3>Keep a Record of Your Testing</h3>
+          <p>A rigorous testing journal allows you to track iterations objectively and diagnose why systems underperform.</p>
+          <p>Log the following data points for every test cycle:</p>
+          <ul>
+            <li>Strategy name, version number, and underlying indicator rules.</li>
+            <li>Instrument tested (e.g., EUR/USD or Boom 1000) and exact testing timeframe.</li>
+            <li>Total number of completed trades executed.</li>
+            <li>Calculated win rate, average win, and average loss.</li>
+            <li>Net performance after deducting simulated transaction fees.</li>
+            <li>Maximum observed drawdown percentage.</li>
+            <li>Technical anomalies or unusual market spread conditions.</li>
+          </ul>
+          <p style="margin-bottom: 0;">For a complete logging template, see our practical guide: <a href="how-to-keep-a-trading-journal.html">How to Keep a Trading Journal: A Beginner's Guide</a>.</p>
+        </div>
+
+        <!-- Section: Common Mistakes -->
+        <h2 id="mistakes">Common Mistakes When Evaluating Trading Strategies</h2>
+        <div class="mistake-list">
+          
+          <div class="mistake-card">
+            <h4>1. Trusting Selected Profit Screenshots</h4>
+            <p style="margin-bottom: 0;">Social media screenshots often highlight isolated winning streaks while omitting deep drawdowns, margin calls, or accumulated trading costs. Always demand verifiable, full-cycle performance statements.</p>
+          </div>
+
+          <div class="mistake-card">
+            <h4>2. Testing on Too Few Trades</h4>
+            <p style="margin-bottom: 0;">Evaluating a strategy based on 10 or 20 trades is statistically insignificant. A random coin flip can easily land heads 7 times out of 10. Test across sufficiently large samples to establish statistical confidence.</p>
+          </div>
+
+          <div class="mistake-card">
+            <h4>3. Ignoring Real-World Transaction Costs</h4>
+            <p style="margin-bottom: 0;">High-frequency strategies that look profitable on raw charts can turn heavily negative once broker spreads, overnight swap rates, and commissions are deducted.</p>
+          </div>
+
+          <div class="mistake-card">
+            <h4>4. Changing Rules After Every Loss</h4>
+            <p style="margin-bottom: 0;">Tinkering with indicator settings after every losing trade destroys consistency and leads to severe curve-fitting. Stick to established rules until you have evaluated a valid sample size.</p>
+          </div>
+
+          <div class="mistake-card">
+            <h4>5. Assuming Past Results Predict Future Outperformance</h4>
+            <p style="margin-bottom: 0;">Markets evolve as macroeconomic conditions shift. Historical backtests represent past probabilities, not guaranteed future performance.</p>
+          </div>
+
+        </div>
+
+        <!-- Section: FAQs -->
+        <h2 id="faqs">Frequently Asked Questions</h2>
+        <div class="faq-accordion">
+          
+          <div class="faq-item">
+            <h3 class="faq-question">How do I know whether a trading strategy is good?</h3>
+            <div class="faq-answer">
+              <p>Examine its rules, testing process, net performance, drawdown, win rate, average wins and losses, and behaviour across different conditions. No single metric proves that a strategy will be profitable in the future.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">How many trades should I test?</h3>
+            <div class="faq-answer">
+              <p>There is no universal number that guarantees a reliable conclusion. The appropriate sample depends on the strategy, trade frequency, variability of results, and quality of the data. Generally, a sample of 100 or more trades provides far more reliable insights than a handful of setups.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">Is backtesting enough before using real money?</h3>
+            <div class="faq-answer">
+              <p>No. Backtesting can help assess historical behaviour, but it cannot reproduce every live trading condition. Demo testing and continued monitoring may provide additional information regarding latency, slippage, and execution.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">Can a profitable trading bot still lose money?</h3>
+            <div class="faq-answer">
+              <p>Yes. Market conditions can change, and past results do not guarantee future performance. Technical failures, costs, and strategy limitations can also affect outcomes.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">Should beginners use real money to test a new strategy?</h3>
+            <div class="faq-answer">
+              <p>Beginners should first understand the strategy and use historical or demo testing where suitable. Never risk money needed for essential expenses, and remember that even a well-tested strategy can lose money.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Section: Final Thoughts -->
+        <h2 id="final-thoughts">Final Thoughts</h2>
+        <p>Evaluating a trading strategy before using real money is an essential cornerstone of responsible risk management. By methodically defining clear rules, backtesting historical samples, running forward demo simulations, and tracking drawdowns, traders can make disciplined, data-driven decisions.</p>
+        <p>No test or validation procedure can guarantee future profits. The goal is to eliminate reckless guesswork, protect capital from severe drawdowns, and build a consistent trading process.</p>
+
+        <!-- Affiliate Disclosure -->
+        <div class="affiliate-disclosure-box">
+          <strong>Affiliate Disclosure:</strong> This article may contain affiliate links. The publisher may receive a commission if you use an affiliate link, at no additional cost to you. Trading involves significant risk, and losses are possible. Independently verify any platform, bot, or financial tool before using it.
+        </div>
+
+        <!-- Internal Links Plan Callout -->
+        <div class="further-reading-box" style="margin-top: 2rem; padding: 1.5rem; background: #f8fafc; border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+          <h4 style="margin-top: 0; color: #0f172a;">Essential Related Guides:</h4>
+          <ul style="margin-bottom: 0;">
+            <li><a href="what-is-risk-to-reward-ratio.html">What Is Risk-to-Reward Ratio in Trading?</a> — Calculate payoff asymmetry accurately.</li>
+            <li><a href="how-to-test-a-trading-bot.html">How to Test a Trading Bot Before Using Real Money</a> — Safe validation workflows for bots.</li>
+            <li><a href="how-to-keep-a-trading-journal.html">How to Keep a Trading Journal: A Beginner's Guide</a> — Track data-driven trade performance.</li>
+            <li><a href="can-trading-bots-lose-money.html">Can Trading Bots Lose Money?</a> — Understand automated algorithmic risks.</li>
+          </ul>
+        </div>
+
+        <!-- Bottom CTA -->
+        <div class="article-footer-cta">
+          <h3>Test and Deploy Automated Strategies with Confidence</h3>
+          <p>Explore algorithmic workflows, configure custom risk parameters, and evaluate trading logic in a controlled demo environment with FXnod.</p>
+          <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">
+            Get Started with FXnod &rarr;
+          </a>
+        </div>
+
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="article-sidebar">
+        <div class="sticky-sidebar">
+          
+          <!-- Table of Contents -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-title">Article Contents</h3>
+            <ul class="toc-list">
+              <li><a href="#what-it-means">What Is Strategy Evaluation?</a></li>
+              <li><a href="#step-1">1. Understand Strategy Rules</a></li>
+              <li><a href="#step-2">2. Backtest Historical Data</a></li>
+              <li><a href="#step-3">3. Test in Demo Environment</a></li>
+              <li><a href="#step-4">4. Measure the Win Rate</a></li>
+              <li><a href="#step-5">5. Average Win vs Average Loss</a></li>
+              <li><a href="#step-6">6. Understand Drawdown</a></li>
+              <li><a href="#step-7">7. Check Risk-to-Reward Ratio</a></li>
+              <li><a href="#step-8">8. Test Across Market Conditions</a></li>
+              <li><a href="#step-9">9. Identify Overfitting Risks</a></li>
+              <li><a href="#step-10">10. Evaluate Trading Bots</a></li>
+              <li><a href="#step-11">11. Maintain a Testing Journal</a></li>
+              <li><a href="#mistakes">Common Mistakes to Avoid</a></li>
+              <li><a href="#faqs">Frequently Asked Questions</a></li>
+              <li><a href="#final-thoughts">Final Thoughts</a></li>
+            </ul>
+          </div>
+
+          <!-- Sidebar FXnod CTA -->
+          <div class="sidebar-card sidebar-cta-card">
+            <div class="cta-badge">Verified Automation</div>
+            <h4>Automate with FXnod</h4>
+            <p>Deploy rule-based trading systems on supported platforms with custom risk and money management safeguards.</p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block">
+              Open FXnod Account &rarr;
+            </a>
+            <span class="cta-microcopy">Free demo testing &bull; No deposit required</span>
+          </div>
+
+          <!-- Related Reading -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-title">Related Analysis</h3>
+            <ul class="related-posts-list">
+              <li>
+                <a href="what-is-risk-to-reward-ratio.html">
+                  <span class="related-post-title">What Is Risk-to-Reward Ratio in Trading?</span>
+                  <span class="related-post-meta">8 min read</span>
+                </a>
+              </li>
+              <li>
+                <a href="how-to-test-a-trading-bot.html">
+                  <span class="related-post-title">How to Test a Trading Bot Safely</span>
+                  <span class="related-post-meta">8 min read</span>
+                </a>
+              </li>
+              <li>
+                <a href="can-trading-bots-lose-money.html">
+                  <span class="related-post-title">Can Trading Bots Lose Money?</span>
+                  <span class="related-post-meta">7 min read</span>
+                </a>
+              </li>
+              <li>
+                <a href="how-to-keep-a-trading-journal.html">
+                  <span class="related-post-title">How to Keep a Trading Journal</span>
+                  <span class="related-post-meta">9 min read</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col brand-col">
+          <a href="index.html" class="logo footer-logo">
+            <span class="logo-badge">TI</span>
+            <span>Trade Insight</span>
+          </a>
+          <p class="footer-desc">
+            Independent educational resource focused on algorithmic trading systems, quantitative risk management, and market mechanics.
+          </p>
+          <form class="footer-newsletter">
+            <input type="email" placeholder="Enter your business email" required aria-label="Business Email">
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+
+        <div class="footer-col">
+          <h4>Publication Areas</h4>
+          <ul>
+            <li><a href="index.html#all">All Editorial Guides</a></li>
+            <li><a href="how-to-evaluate-a-trading-strategy.html">Strategy Evaluation</a></li>
+            <li><a href="what-is-risk-to-reward-ratio.html">Risk-to-Reward Ratio</a></li>
+            <li><a href="forex-vs-synthetic-indices.html">Forex vs Synthetic Indices</a></li>
+            <li><a href="how-to-test-a-trading-bot.html">Bot Testing Protocols</a></li>
+            <li><a href="manage-risk-when-using-a-trading-bot.html">Risk Management</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Popular Playbooks</h4>
+          <ul>
+            <li><a href="what-is-automated-trading.html">What Is Automated Trading?</a></li>
+            <li><a href="how-to-evaluate-a-trading-strategy.html">How to Evaluate a Strategy</a></li>
+            <li><a href="what-is-risk-to-reward-ratio.html">Risk-to-Reward Ratio Guide</a></li>
+            <li><a href="forex-vs-synthetic-indices.html">Forex vs Synthetic Indices</a></li>
+            <li><a href="how-to-control-emotions-while-trading.html">Controlling Trading Emotions</a></li>
+            <li><a href="how-to-keep-a-trading-journal.html">How to Keep a Trading Journal</a></li>
+            <li><a href="how-to-identify-support-and-resistance.html">Support & Resistance Levels</a></li>
+            <li><a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer">Explore FXnod Platform</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Compliance & Legal</h4>
+          <ul>
+            <li><a href="index.html#editorial">Editorial Independence</a></li>
+            <li><a href="index.html#risk-notice">Risk Disclosure Notice</a></li>
+            <li><a href="index.html#terms">Terms of Service</a></li>
+            <li><a href="index.html#privacy">Privacy Policy</a></li>
+            <li><a href="index.html#cookies">Cookie Preferences</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 Trade Insight Editorial. All content is for educational and technical informational purposes only. Trading financial derivatives carries substantial risk.
+        </div>
+        <div>
+          Designed for Agency Quantitative Operations
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>

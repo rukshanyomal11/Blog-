@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Keep a Trading Journal: A Beginner's Guide | Trade Insight</title>
+  <meta name="description" content="Learn how to keep a trading journal, what details to record, how to review wins and losses, and how to identify patterns in your trading decisions.">
+  <meta name="keywords" content="how to keep a trading journal, trading journal for beginners, trading journal template, how to track trading performance, trading journal spreadsheet, review trading mistakes, FXnod">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="How to Keep a Trading Journal: A Beginner's Guide">
+  <meta property="og:description" content="Learn how to keep a trading journal, what details to record, how to review wins and losses, and how to identify patterns in your trading decisions.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tradeinsight.com/how-to-keep-a-trading-journal/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .article-featured-image-wrap {
+      margin: 2rem 0 2.5rem 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      background: #f1f5f9;
+      box-shadow: var(--shadow-md);
+    }
+    .article-featured-image {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      display: block;
+    }
+    .image-caption {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      background: #ffffff;
+      border-top: 1px solid var(--color-border);
+      text-align: center;
+      font-style: italic;
+    }
+    .journal-entry-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: var(--shadow-sm);
+    }
+    .journal-entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 0.75rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .journal-entry-title {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 1.1rem;
+    }
+    .journal-entry-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      font-size: 0.88rem;
+    }
+    .journal-entry-item strong {
+      display: block;
+      color: #64748b;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.2rem;
+    }
+    .terms-table-wrapper {
+      margin: 1.75rem 0;
+      overflow-x: auto;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+    }
+    .terms-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9rem;
+      background: #ffffff;
+    }
+    .terms-table th {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 0.9rem 1.25rem;
+      font-weight: 700;
+      border-bottom: 2px solid #334155;
+    }
+    .terms-table td {
+      padding: 0.85rem 1.25rem;
+      border-bottom: 1px solid var(--color-border);
+      color: #334155;
+    }
+    .terms-table tr:nth-child(even) {
+      background: #f8fafc;
+    }
+    .terms-table td:first-child {
+      font-weight: 600;
+      color: #1e293b;
+      white-space: nowrap;
+    }
+    .fxnod-partner-box {
+      background: linear-gradient(135deg, #0b1120 0%, #172554 100%);
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      margin: 2.5rem 0;
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.25);
+    }
+    .fxnod-partner-box::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(240, 58, 39, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .fxnod-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(240, 58, 39, 0.2);
+      border: 1px solid rgba(240, 58, 39, 0.5);
+      color: #fca5a5;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .fxnod-partner-box h3 {
+      color: #ffffff;
+      font-size: 1.45rem;
+      margin-bottom: 0.65rem;
+    }
+    .fxnod-partner-box p {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      margin-bottom: 1.4rem;
+    }
+    .fxnod-cta-btn {
+      background: var(--color-primary);
+      color: #ffffff;
+      font-weight: 700;
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius-md);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      transition: all var(--transition-fast);
+      box-shadow: 0 4px 14px rgba(240, 58, 39, 0.35);
+    }
+    .fxnod-cta-btn:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(240, 58, 39, 0.45);
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Reading Progress Indicator -->
+  <div class="reading-progress-bar" id="reading-progress"></div>
+
+  <!-- ======================================================================
+       HEADER & NAVIGATION
+       ====================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <div style="display: flex; align-items: center;">
+        <a href="index.html" class="brand-logo" aria-label="Trade Insight Home">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <span>Trade Insight</span>
+        </a>
+
+        <nav class="nav-links" aria-label="Main Navigation">
+          <a href="index.html" class="nav-link">All Guides</a>
+          <a href="automated-trading-on-deriv.html" class="nav-link">Deriv Guides</a>
+          <a href="how-to-choose-a-trading-bot.html" class="nav-link">Trading Bots</a>
+          <a href="index.html#category-fxnod" class="nav-link">FXnod Guides</a>
+        </nav>
+      </div>
+
+      <div class="header-right">
+        <!-- Direct FXnod Referral Header Button -->
+        <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.45rem 1.1rem; font-size: 0.82rem;" title="Explore FXnod Platform">
+          <span>Explore FXnod</span>
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+
+        <div class="header-search">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+          <input type="text" placeholder="Search trading journal..." aria-label="Search articles">
+        </div>
+
+        <button class="profile-avatar" title="User Profile" aria-label="User Profile">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Breadcrumbs">
+      <a href="index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="index.html#category-bots">Trading Discipline</a>
+      <span class="separator">/</span>
+      <span class="current">How to Keep a Trading Journal</span>
+    </nav>
+
+    <!-- Article Header -->
+    <header class="article-header">
+      <div class="article-tags-row">
+        <span class="badge-article-category" style="background: #0284c7;">Performance & Tracking</span>
+        <span class="badge-updated">Updated October 2026</span>
+        <span class="badge-read-time">10 min practical guide</span>
+      </div>
+
+      <h1 class="article-headline">How to Keep a Trading Journal: A Beginner's Guide</h1>
+
+      <p class="article-deck">
+        Discover why professional traders treat journaling as their most critical edge: learn what metrics to track, how to audit wins and losses objectively, and how to eliminate recurring psychological and strategic mistakes.
+      </p>
+
+      <div class="article-meta-bar">
+        <div class="meta-author-group">
+          <div class="meta-author-avatar">TI</div>
+          <div class="meta-author-details">
+            <span class="meta-author-name">Trade Insight Quantitative Editorial</span>
+            <span class="meta-author-role">Performance Auditing & Trade Analytics</span>
+          </div>
+        </div>
+
+        <div class="meta-stat-group">
+          <div class="meta-stat-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <span>Published: Oct 2026</span>
+          </div>
+          <div class="meta-stat-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <span>Audited Curriculum Standard</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Featured Image -->
+    <div class="article-featured-image-wrap">
+      <img 
+        src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=80" 
+        alt="How to keep a trading journal and track trading performance" 
+        class="article-featured-image"
+        loading="eager"
+      >
+      <div class="image-caption">
+        Figure 1: Systematic trade recording transforms emotional guesswork into measurable statistical data, enabling sustainable strategy refinement.
+      </div>
+    </div>
+
+    <!-- 2-Column Article Layout -->
+    <div class="article-main-grid">
+
+      <!-- LEFT SIDEBAR: Table of Contents & Sticky Promo -->
+      <aside class="article-sidebar">
+        <div class="sidebar-toc-card">
+          <div class="toc-header">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path></svg>
+            <span>Guide Index</span>
+          </div>
+          <ul class="toc-list" id="toc-list">
+            <li class="toc-item"><a href="#intro" class="active">Introduction</a></li>
+            <li class="toc-item"><a href="#what-is-journal">1. What Is a Trading Journal?</a></li>
+            <li class="toc-item"><a href="#why-keep-journal">2. Why Keep a Journal?</a></li>
+            <li class="toc-item"><a href="#what-to-record">3. What to Record</a></li>
+            <li class="toc-item"><a href="#step-by-step">4. Step-by-Step Creation</a></li>
+            <li class="toc-item"><a href="#example-entry">5. Practical Entry Example</a></li>
+            <li class="toc-item"><a href="#how-to-review">6. How to Review Your Journal</a></li>
+            <li class="toc-item"><a href="#key-statistics">7. Statistics You Can Track</a></li>
+            <li class="toc-item"><a href="#common-mistakes">8. Common Journaling Mistakes</a></li>
+            <li class="toc-item"><a href="#bots-journal">9. Journaling for Automated Bots</a></li>
+            <li class="toc-item"><a href="#faq">Frequently Asked Questions</a></li>
+            <li class="toc-item"><a href="#final-thoughts">Final Thoughts</a></li>
+          </ul>
+
+          <div style="margin-top: 1.25rem;">
+            <div class="target-audience-box">
+              <div class="target-audience-title">Related Foundation Guides</div>
+              <ul style="display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.4rem;">
+                <li><a href="how-to-start-learning-trading.html" style="color: #2563eb; font-weight: 600;">13. Learning Trading for Beginners &gt;</a></li>
+                <li><a href="manage-risk-when-using-a-trading-bot.html" style="color: #2563eb; font-weight: 600;">7. Managing Bot Risk &gt;</a></li>
+                <li><a href="how-to-test-a-trading-bot.html" style="color: #2563eb; font-weight: 600;">6. Testing Bots Before Real Money &gt;</a></li>
+                <li><a href="why-trading-bots-make-losing-trades.html" style="color: #2563eb; font-weight: 600;">9. Why Bots Make Losing Trades &gt;</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sticky FXnod Promo Card (Official Referral Link) -->
+        <div class="sidebar-cta-card" style="background: radial-gradient(circle at 10% 10%, #1e3a8a 0%, #0f172a 90%); border-color: rgba(59, 130, 246, 0.4);">
+          <div class="sidebar-cta-tag" style="color: #60a5fa;">Algorithmic Execution</div>
+          <h4 style="font-size: 1.05rem;">Explore FXnod Platform</h4>
+          <p style="font-size: 0.8rem; color: #cbd5e1;">
+            Record automated signals, track execution speed, and explore low-latency webhook integrations on FXnod.
+          </p>
+          <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="sidebar-cta-btn" style="text-decoration: none;">
+            <span>Explore FXnod Official Site</span>
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </a>
+        </div>
+
+        <!-- Share Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title">Share Guide</div>
+          <div class="share-buttons-row">
+            <button class="share-btn btn-copy-link" title="Copy Link">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+              <span>Copy</span>
+            </button>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="share-btn" title="Share on Twitter/X">
+              <svg fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              <span>X/Post</span>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="share-btn" title="Share on LinkedIn">
+              <svg fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              <span>Share</span>
+            </a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- RIGHT COLUMN: Article Content -->
+      <article class="article-content">
+
+        <!-- INTRO -->
+        <section id="intro" class="article-section">
+          <p class="lead-text">
+            Learning to trade involves far more than memorising candlestick formations and downloading strategies. The real challenge lies in mastering your own decision-making process, diagnosing repetitive behavioral mistakes, and evaluating whether your edge is holding up across changing market conditions.
+          </p>
+          <p>
+            A trading journal serves as your objective mirror. Instead of relying on selective human memory—which remembers wins and downplays losses—a journal preserves an unvarnished audit trail of why you entered, how you sized your stake, and what lessons you learned.
+          </p>
+          <p>
+            In this guide, you will learn what a trading journal is, which data fields matter most, how to calculate essential statistical metrics, and how to use your records to evolve as a trader.
+          </p>
+        </section>
+
+        <!-- 1. WHAT IS A TRADING JOURNAL -->
+        <section id="what-is-journal" class="article-section">
+          <h2>1. What Is a Trading Journal?</h2>
+          <p>
+            A <strong>trading journal</strong> is a structured record of all executed trades and the strategic rationale behind them. It can be maintained in a physical notebook, a Google Sheet/Excel spreadsheet, or specialized analytics software.
+          </p>
+          <p>
+            A truly valuable trading journal documents much more than raw profit and loss numbers. It answers foundational questions:
+          </p>
+          <ul style="margin-left: 1.5rem; display: flex; flex-direction: column; gap: 0.35rem; list-style-type: disc;">
+            <li>Did this trade strictly comply with my predefined written trading plan?</li>
+            <li>What specific cognitive or emotional triggers (FOMO, greed, frustration) influenced the entry?</li>
+            <li>How does my strategy perform during high volatility versus quiet sideways sessions?</li>
+            <li>Did I increase my stake after a loss in an attempt to recover capital quickly?</li>
+          </ul>
+        </section>
+
+        <!-- 2. WHY KEEP A JOURNAL -->
+        <section id="why-keep-journal" class="article-section">
+          <h2>2. Why Should Traders Keep a Journal?</h2>
+          <div class="checklist-wrapper">
+            <div class="checklist-title">Core Benefits of Regular Journaling:</div>
+            <div class="checklist-list">
+              <div class="checklist-item" style="cursor: default;"><input type="checkbox" checked disabled><div class="checklist-text"><strong>Isolate Repetitive Errors:</strong> Instantly discover if you consistently take trades before confirmation or exit winners too early.</div></div>
+              <div class="checklist-item" style="cursor: default;"><input type="checkbox" checked disabled><div class="checklist-text"><strong>Verify Strategy Viability:</strong> Gather statistically meaningful sample sizes (50–100 trades) before abandoning or altering a strategy.</div></div>
+              <div class="checklist-item" style="cursor: default;"><input type="checkbox" checked disabled><div class="checklist-text"><strong>Unmask Psychological Biases:</strong> Observe how emotional turbulence directly degrades decision quality.</div></div>
+              <div class="checklist-item" style="cursor: default;"><input type="checkbox" checked disabled><div class="checklist-text"><strong>Evaluate Risk-Adjusted Returns:</strong> Look at maximum drawdown and expectancy rather than fixing solely on short-term win rate.</div></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. WHAT SHOULD YOU RECORD -->
+        <section id="what-to-record" class="article-section">
+          <h2>3. What Should You Record in a Trading Journal?</h2>
+          <p>
+            Start with the core fields below. You can add more nuance as your analytical requirements expand:
+          </p>
+
+          <div class="terms-table-wrapper">
+            <table class="terms-table">
+              <thead>
+                <tr>
+                  <th>Field</th>
+                  <th>What to Record</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Date & Time</td>
+                  <td>The exact timestamp of trade execution.</td>
+                </tr>
+                <tr>
+                  <td>Market / Instrument</td>
+                  <td>Asset traded (e.g., Synthetic Volatility 75, EUR/USD, Gold).</td>
+                </tr>
+                <tr>
+                  <td>Direction</td>
+                  <td>Buy/Call or Sell/Put.</td>
+                </tr>
+                <tr>
+                  <td>Strategy Setup</td>
+                  <td>The predefined rule set (e.g., H1 Support Bounce + Pinbar).</td>
+                </tr>
+                <tr>
+                  <td>Entry Price</td>
+                  <td>The exact executed fill price.</td>
+                </tr>
+                <tr>
+                  <td>Stake / Position Size</td>
+                  <td>Total dollars or contract volume allocated.</td>
+                </tr>
+                <tr>
+                  <td>Planned Risk</td>
+                  <td>Dollar amount risked if stop-loss is hit (max 1%–2% of balance).</td>
+                </tr>
+                <tr>
+                  <td>Outcome / PnL</td>
+                  <td>Win (+$X), Loss (-$Y), or Break-even.</td>
+                </tr>
+                <tr>
+                  <td>Rules Followed?</td>
+                  <td>Yes, Partially, or No (Honest audit).</td>
+                </tr>
+                <tr>
+                  <td>Emotional State</td>
+                  <td>Calm, Anxious, Impulsive, or Revenge Trading.</td>
+                </tr>
+                <tr>
+                  <td>Key Takeaway / Lesson</td>
+                  <td>One concrete lesson to remember for the next session.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 4. STEP BY STEP -->
+        <section id="step-by-step" class="article-section">
+          <h2>4. How to Create a Trading Journal Step by Step</h2>
+          <ol style="margin-left: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
+            <li><strong>Select your medium:</strong> A simple Google Sheet or Excel workbook is ideal because it automatically tallies totals and calculates percentages.</li>
+            <li><strong>Log your trade plan BEFORE clicking enter:</strong> Write down your setup reason and exact stop-loss level prior to opening the trade. This eliminates hindsight bias.</li>
+            <li><strong>Record the actual outcome immediately after exit:</strong> Note the financial result and whether you executed smoothly or panicked mid-trade.</li>
+            <li><strong>Attach a chart screenshot:</strong> Visual memory fades rapidly. A clean screenshot showing entry and exit points provides invaluable post-trade feedback.</li>
+            <li><strong>Extract one clear lesson:</strong> End every entry with an honest observation. A loss where you followed all rules is a good trade; a win where you broke all rules is dangerous luck.</li>
+          </ol>
+        </section>
+
+        <!-- 5. EXAMPLE ENTRY -->
+        <section id="example-entry" class="article-section">
+          <h2>5. Example of a Trading Journal Entry</h2>
+          <p>Here is an example of an honest, structured journal log:</p>
+
+          <div class="journal-entry-card">
+            <div class="journal-entry-header">
+              <span class="journal-entry-title">Trade #42 — Synthetic Volatility 75 Index</span>
+              <span style="background: #fee2e2; color: #991b1b; padding: 0.2rem 0.6rem; border-radius: var(--radius-sm); font-size: 0.75rem; font-weight: 700;">OUTCOME: LOSS (-$5.00)</span>
+            </div>
+            <div class="journal-entry-grid">
+              <div class="journal-entry-item">
+                <strong>Date & Time</strong>
+                12 Oct 2026, 14:15 UTC
+              </div>
+              <div class="journal-entry-item">
+                <strong>Strategy</strong>
+                H1 Support Retest + Bullish Engulfing
+              </div>
+              <div class="journal-entry-item">
+                <strong>Stake Allocated</strong>
+                $5.00 (1.0% of $500 Account)
+              </div>
+              <div class="journal-entry-item">
+                <strong>Rules Followed?</strong>
+                Yes (100% compliant)
+              </div>
+              <div class="journal-entry-item">
+                <strong>Emotional State</strong>
+                Disciplined & calm before entry
+              </div>
+              <div class="journal-entry-item">
+                <strong>Key Takeaway</strong>
+                Market broke through support with sudden volume spike. Stop-loss respected. Acceptable risk expense.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 6. HOW TO REVIEW -->
+        <section id="how-to-review" class="article-section">
+          <h2>6. How to Review Your Trading Journal</h2>
+          <p>
+            Logging data without reviewing it is pointless. Establish a structured review cadence:
+          </p>
+          <ul style="margin-left: 1.5rem; display: flex; flex-direction: column; gap: 0.4rem; list-style-type: disc;">
+            <li><strong>Weekly Routine Review:</strong> Every weekend, review the past 5 trading days. Calculate your rule adherence rate (how many trades followed the plan?).</li>
+            <li><strong>Sample-Based Audits:</strong> Group your trades in blocks of 50. Never alter trading rules based on 3 bad days; examine statistical trends across 50 trades.</li>
+            <li><strong>Identify Patterns, Not Excuses:</strong> If 8 of your last 10 losses happened after 18:00 UTC, you have found an actionable pattern to eliminate.</li>
+          </ul>
+        </section>
+
+        <!-- 7. KEY STATISTICS -->
+        <section id="key-statistics" class="article-section">
+          <h2>7. Which Trading Journal Statistics Can You Track?</h2>
+          <p>
+            Once you have accumulated at least 30 entries, compute these four core health metrics:
+          </p>
+
+          <div class="terms-table-wrapper">
+            <table class="terms-table">
+              <thead>
+                <tr>
+                  <th>Metric</th>
+                  <th>Formula / Calculation</th>
+                  <th>Strategic Significance</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Win Rate</td>
+                  <td>(Winning Trades ÷ Total Trades) × 100</td>
+                  <td>Measures frequency of wins (not profitability on its own).</td>
+                </tr>
+                <tr>
+                  <td>Average Win vs Loss</td>
+                  <td>Avg Win Size ($) ÷ Avg Loss Size ($)</td>
+                  <td>Ensures average wins sufficiently exceed average losses.</td>
+                </tr>
+                <tr>
+                  <td>Maximum Drawdown</td>
+                  <td>Peak Equity − Lowest Subsequent Trough</td>
+                  <td>Reveals the deepest capital decline experienced by the system.</td>
+                </tr>
+                <tr>
+                  <td>Rule Adherence Rate</td>
+                  <td>(Disciplined Trades ÷ Total Trades) × 100</td>
+                  <td>Measures trader psychology and execution discipline. Target &gt;90%.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            Remember: A high win rate with poor risk management can still deplete an account. Read our deep dive: <a href="why-trading-bots-make-losing-trades.html" style="color: #2563eb; font-weight: 600;">Why Do Trading Bots Make Losing Trades? &gt;</a>
+          </p>
+        </section>
+
+        <!-- 8. COMMON MISTAKES -->
+        <section id="common-mistakes" class="article-section">
+          <h2>8. Common Trading Journal Mistakes</h2>
+          <p>Avoid these four pitfalls that undermine journal utility:</p>
+          <ul style="margin-left: 1.5rem; display: flex; flex-direction: column; gap: 0.35rem; list-style-type: disc;">
+            <li><strong>Selective Logging:</strong> Only recording winners and "forgetting" revenge trade blowouts. Be brutally honest.</li>
+            <li><strong>Vague Explanations:</strong> Writing "bad trade" instead of "entered 5 minutes before scheduled high-impact CPI release."</li>
+            <li><strong>Modifying Strategies Impulsively:</strong> Changing indicators after two consecutive losses ruins sample integrity.</li>
+            <li><strong>Ignoring Risk Caps:</strong> Failing to verify that stake limits were respected. Review: <a href="manage-risk-when-using-a-trading-bot.html" style="color: #2563eb; font-weight: 600;">How to Manage Risk When Using a Trading Bot &gt;</a></li>
+          </ul>
+        </section>
+
+        <!-- 9. BOTS & JOURNALING -->
+        <section id="bots-journal" class="article-section">
+          <h2>9. How to Keep a Journal for Automated Trading</h2>
+          <p>
+            If you run automated trading bots or webhook relays, journaling remains equally crucial. You must separate algorithm errors from market regime losses:
+          </p>
+          <ul style="margin-left: 1.5rem; display: flex; flex-direction: column; gap: 0.35rem; list-style-type: disc;">
+            <li>Record bot version, parameter weights, and contract expirations.</li>
+            <li>Log socket dropouts, latency slippage, and rejected broker orders.</li>
+            <li>Compare demo forward test results with live production executions. Read: <a href="how-to-test-a-trading-bot.html" style="color: #2563eb; font-weight: 600;">How to Test a Trading Bot Before Using Real Money &gt;</a></li>
+          </ul>
+
+          <p>
+            If you are exploring automated trading workflows, <strong>FXnod</strong> provides integration documentation and webhook capabilities. Review official FXnod documentation to confirm supported features and platform integrations.
+          </p>
+
+          <!-- SPECIAL FXNOD PARTNER CALLOUT (Embedded Official Referral Link) -->
+          <div class="fxnod-partner-box">
+            <span class="fxnod-badge">Verified Automation Resource</span>
+            <h3>Explore FXnod Platform & Documentation</h3>
+            <p>
+              Looking to streamline automated trading and webhook execution workflows? Visit FXnod to evaluate platform compatibility and execution features.
+            </p>
+            <div>
+              <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="fxnod-cta-btn">
+                <span>Explore FXnod Official Platform</span>
+                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </a>
+            </div>
+            <p style="font-size: 0.78rem; color: #94a3b8; margin-top: 1rem; margin-bottom: 0;">
+              *Affiliate disclosure: This article may contain an affiliate link to FXnod. The publisher may receive a commission if you sign up through it, at no additional cost to you. Research any tool independently before using it.
+            </p>
+          </div>
+        </section>
+
+        <!-- FAQS -->
+        <section id="faq" class="article-section">
+          <h2>Frequently Asked Questions</h2>
+
+          <div class="faq-list">
+            <div class="faq-card">
+              <h4>Can I keep a trading journal in Excel or Google Sheets?</h4>
+              <p>Yes. A spreadsheet is simple, free, and fully customizable. You can sort rows by strategy, compute automated win rates, and calculate net profit without expensive software.</p>
+            </div>
+
+            <div class="faq-card">
+              <h4>How often should I update my trading journal?</h4>
+              <p>Log your plan before clicking execute, and complete the result immediately after trade closure while emotional and technical details remain fresh in your mind.</p>
+            </div>
+
+            <div class="faq-card">
+              <h4>Should I record demo trades in my journal?</h4>
+              <p>Yes. Logging demo trades builds the habit of discipline before real money is on the line. Keep demo and live statistics separated for clean analysis.</p>
+            </div>
+
+            <div class="faq-card">
+              <h4>Do automated trading bots need a trading journal?</h4>
+              <p>Yes. Logging bot version configurations, network disconnects, and execution slippage helps you determine whether losses stem from strategy weakness or technical glitches.</p>
+            </div>
+
+            <div class="faq-card">
+              <h4>Does keeping a trading journal guarantee profitability?</h4>
+              <p>No. A journal provides diagnostic feedback. Profitability depends on the statistical validity of your strategy, execution discipline, and market conditions.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- FINAL THOUGHTS -->
+        <section id="final-thoughts" class="article-section">
+          <h2>Final Thoughts</h2>
+          <p>
+            A trading journal bridges the gap between chaotic gambling and professional trading. By committing to record your plan, entry reasons, emotional state, and concrete takeaways, you create an honest data repository that drives continuous improvement.
+          </p>
+          <p>
+            Start with a basic spreadsheet today, update it consistently, and review your logs with intellectual honesty. Explore more fundamentals in our guide: <a href="how-to-start-learning-trading.html" style="color: #2563eb; font-weight: 600;">How to Start Learning Trading as a Beginner &gt;</a>
+          </p>
+
+          <!-- Second CTA Banner (Official FXnod Referral Link) -->
+          <div class="article-footer-cta" style="margin: 2.5rem 0 1.5rem 0;">
+            <div>
+              <h3>Explore Modern Automation Features with FXnod</h3>
+              <p>
+                Visit FXnod to inspect platform features, automated relays, and step-by-step setup guides.
+              </p>
+            </div>
+            <div class="article-footer-cta-actions">
+              <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="text-decoration: none;">
+                <span>Visit FXnod Official Site</span>
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Legal Disclaimer -->
+          <div style="background: #f8fafc; border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 1.25rem; font-size: 0.8rem; color: #64748b; line-height: 1.6; margin-top: 2rem;">
+            <em><strong>Disclaimer:</strong> This article is for educational purposes only and is not financial advice. Trading involves substantial risk, and losses can exceed initial deposits. This article may contain affiliate links, which may earn the publisher a commission from qualifying referrals at no additional cost to you.</em>
+          </div>
+        </section>
+
+      </article>
+    </div>
+  </main>
+
+  <!-- ======================================================================
+       FOOTER COMPONENT
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <div class="brand-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+            <span>Trade Insight</span>
+          </a>
+          <p>
+            High-performance technical editorial and tactical research publication. We empower quantitative traders, risk teams, and modern web agencies with actionable market playbooks.
+          </p>
+          <span class="footer-digest-label">Weekly Tech & Trading Digest</span>
+          <form class="footer-mini-form" onsubmit="event.preventDefault(); showToast('Subscribed to Weekly Digest!');">
+            <input type="email" placeholder="Enter your business email" required aria-label="Business Email">
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+
+        <div class="footer-col">
+          <h4>Publication Areas</h4>
+          <ul>
+            <li><a href="index.html#all">All Editorial Guides</a></li>
+            <li><a href="how-to-keep-a-trading-journal.html">Trading Journal Guide</a></li>
+            <li><a href="how-to-identify-support-and-resistance.html">Support & Resistance</a></li>
+            <li><a href="how-to-read-candlestick-charts.html">Candlestick Charts</a></li>
+            <li><a href="how-to-start-learning-trading.html">Beginner Foundations</a></li>
+            <li><a href="manage-risk-when-using-a-trading-bot.html">Risk Management</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Popular Playbooks</h4>
+          <ul>
+            <li><a href="what-is-automated-trading.html">What Is Automated Trading?</a></li>
+            <li><a href="how-to-keep-a-trading-journal.html">How to Keep a Trading Journal</a></li>
+            <li><a href="how-to-identify-support-and-resistance.html">Support & Resistance Levels</a></li>
+            <li><a href="how-to-read-candlestick-charts.html">How to Read Candlesticks</a></li>
+            <li><a href="how-to-start-learning-trading.html">Learning Trading for Beginners</a></li>
+            <li><a href="automated-trading-on-deriv.html">How to Start on Deriv</a></li>
+            <li><a href="manage-risk-when-using-a-trading-bot.html">Managing Bot Risk</a></li>
+            <li><a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer">Explore FXnod Platform</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Compliance & Legal</h4>
+          <ul>
+            <li><a href="index.html#editorial">Editorial Independence</a></li>
+            <li><a href="index.html#risk-notice">Risk Disclosure Notice</a></li>
+            <li><a href="index.html#terms">Terms of Service</a></li>
+            <li><a href="index.html#privacy">Privacy Policy</a></li>
+            <li><a href="index.html#cookies">Cookie Preferences</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 Trade Insight Editorial. All content is for educational and technical informational purposes only. Trading financial derivatives carries substantial risk.
+        </div>
+        <div>
+          Designed for Agency Quantitative Operations
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
