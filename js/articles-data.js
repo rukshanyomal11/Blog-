@@ -6,6 +6,17 @@
 
 window.ARTICLES_DATA = [
   {
+    "id": 32,
+    "title": "How to Create and Set Up an FXnod Account in 2026: The Complete Step-by-Step Guide",
+    "slug": "blog/how-to-create-setup-fxnod-account-guide.html",
+    "category": "fxnod",
+    "badgeText": "FXnod Guides",
+    "badgeColor": "rgba(240, 58, 39, 0.95)",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+    "excerpt": "Learn how to create and set up your FXnod account in under 5 minutes. Connect Deriv safely via API token, enable security settings, and test bots risk-free.",
+    "readTime": "8 min read • Oct 2026"
+  },
+  {
     "id": 31,
     "title": "What is FXnod? The Complete Beginner’s Guide to Automated Deriv Trading",
     "slug": "blog/what-is-fxnod-complete-beginners-guide.html",
