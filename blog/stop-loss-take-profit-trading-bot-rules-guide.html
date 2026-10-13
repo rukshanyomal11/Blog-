@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Setting Stop Loss &amp; Take Profit on Deriv: Bot Trading Guide (2026) | Trade Insight</title>
+  <meta name="description" content="Master Stop Loss and Take Profit on Deriv. Learn realistic daily targets, the 3x capital cushion rule, and how FXnod automates profit locking and capital protection.">
+  <meta name="keywords" content="stop loss take profit guide, trading bot rules, profit target discipline, how to set stop loss Deriv, take profit strategy Deriv, safe bot trading targets, Deriv risk management rules">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="Setting Stop Loss &amp; Take Profit on Deriv: Bot Trading Guide (2026)">
+  <meta property="og:description" content="Master Stop Loss and Take Profit on Deriv. Learn realistic daily targets, the 3x capital cushion rule, and how FXnod automates profit locking and capital protection.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tradeinsight.com/stop-loss-take-profit-trading-bot-rules-guide/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Twitter Meta -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Setting Stop Loss &amp; Take Profit on Deriv: Bot Trading Guide (2026)">
+  <meta name="twitter:description" content="Learn the golden rules of Stop Loss and Take Profit on Deriv. Automate capital protection with FXnod's precision risk engine.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .article-featured-image-wrap {
+      margin: 2rem 0 2.5rem 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      background: #f1f5f9;
+      box-shadow: var(--shadow-md);
+    }
+    .article-featured-image {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      display: block;
+    }
+    .image-caption {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      background: #ffffff;
+      border-top: 1px solid var(--color-border);
+      text-align: center;
+      font-style: italic;
+    }
+    .fxnod-partner-box {
+      background: linear-gradient(135deg, #0b1120 0%, #172554 100%);
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      margin: 2.5rem 0;
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.25);
+    }
+    .fxnod-partner-box::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(240, 58, 39, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .fxnod-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(240, 58, 39, 0.2);
+      border: 1px solid rgba(240, 58, 39, 0.5);
+      color: #fca5a5;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .fxnod-partner-box h3 {
+      color: #ffffff;
+      font-size: 1.45rem;
+      margin-bottom: 0.65rem;
+    }
+    .fxnod-partner-box p {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      margin-bottom: 1.4rem;
+    }
+    .fxnod-cta-btn {
+      background: var(--color-primary);
+      color: #ffffff;
+      font-weight: 700;
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 16px rgba(240, 58, 39, 0.35);
+      transition: all var(--transition-normal);
+      text-decoration: none;
+    }
+    .fxnod-cta-btn:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(240, 58, 39, 0.45);
+      color: #ffffff;
+    }
+    .diagram-box {
+      background: #0f172a;
+      color: #38bdf8;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 1.75rem;
+      border-radius: var(--radius-md);
+      overflow-x: auto;
+      margin: 2rem 0;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      border: 1px solid #1e293b;
+      box-shadow: var(--shadow-md);
+    }
+    .table-container {
+      overflow-x: auto;
+      margin: 2rem 0;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-sm);
+    }
+    .table-custom {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+    .table-custom th {
+      background: #f8fafc;
+      padding: 1rem 1.25rem;
+      font-weight: 700;
+      color: var(--color-text-main);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .table-custom td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+    }
+    .table-custom tr:last-child td {
+      border-bottom: none;
+    }
+    .table-custom tr:hover td {
+      background: #f8fafc;
+    }
+    .targets-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin: 2rem 0;
+    }
+    .target-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .target-card.tier-small {
+      border-top: 4px solid #10b981;
+    }
+    .target-card.tier-medium {
+      border-top: 4px solid #3b82f6;
+    }
+    .target-card h3 {
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+      font-size: 1.2rem;
+    }
+    .target-card ul {
+      margin: 0;
+      padding-left: 1.25rem;
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.65;
+    }
+    .cushion-formula-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-left: 5px solid #2563eb;
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1.75rem;
+      margin: 2rem 0;
+    }
+    .cushion-formula-box h4 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      color: #1e3a8a;
+      font-size: 1.1rem;
+    }
+    .cushion-formula-box p {
+      margin: 0;
+      font-size: 0.92rem;
+      color: #1e40af;
+      line-height: 1.6;
+    }
+    .formula-display {
+      background: #ffffff;
+      border: 1px dashed #93c5fd;
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 1.25rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #1d4ed8;
+      margin: 0.75rem 0;
+      text-align: center;
+    }
+    .workflow-steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+    .workflow-step-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      display: flex;
+      gap: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      transition: border-color var(--transition-fast);
+    }
+    .workflow-step-card:hover {
+      border-color: #3b82f6;
+    }
+    .workflow-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #eff6ff;
+      color: #2563eb;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+      border: 1px solid #bfdbfe;
+    }
+    .workflow-content h4 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+      color: var(--color-text-main);
+    }
+    .workflow-content p {
+      margin-bottom: 0.5rem;
+      font-size: 0.92rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .faq-question {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--color-text-main);
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+    .faq-answer p {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+  </style>
+
+  <!-- Structured Data (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Setting Stop Loss & Take Profit on Deriv: Bot Trading Guide (2026)",
+    "description": "Master Stop Loss and Take Profit on Deriv. Learn realistic daily targets, the 3x capital cushion rule, and how FXnod automates profit locking and capital protection.",
+    "author": {
+      "@type": "Organization",
+      "name": "Trade Insight Editorial"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Trade Insight",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://tradeinsight.com/images/logo.png"
+      }
+    },
+    "datePublished": "2026-10-13T10:00:00Z",
+    "dateModified": "2026-10-13T10:00:00Z",
+    "mainEntityOfPage": "https://tradeinsight.com/stop-loss-take-profit-trading-bot-rules-guide/",
+    "image": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What should I do if my bot hits its Stop-Loss?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Accept the loss calmly. A Stop-Loss hit is proof that your risk management protected the rest of your account. Do not revenge trade. Take a break for the day, review your journal, and resume during your next scheduled session."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many times per day should I run a bot?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most successful traders run 1 to 2 short sessions per day (e.g., one in the morning and one in the evening). Running multiple short sessions with clear profit targets is far safer than running one long, continuous session."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I change my Stop-Loss while a bot is running?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "On FXnod, active parameters are locked while a bot is in motion to prevent emotional tampering. If you need to stop, use the 1-click Emergency Force Stop, adjust your numbers, and restart with a clear head."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is a $1 daily profit target really worth it on a $50 account?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! A $1 profit on a $50 account is a 2% daily return. In the traditional banking world, a 2% return takes an entire year. Compounded daily, 2% grows your balance exponentially over several months."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does FXnod automatically stop when my target profit is reached?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, 100%! The Live Run Monitor automatically shuts down the bot and displays a 'Take-Profit Reached' confirmation the moment your target threshold is crossed."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ======================================================================
+       HEADER / NAVBAR COMPONENT
+       ====================================================================== -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="../index.html" class="brand-logo">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+          </svg>
+        </div>
+        <span>Trade Insight</span>
+      </a>
+
+      <nav class="desktop-nav">
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="automated-trading-on-deriv.html">Deriv Automation</a></li>
+          <li><a href="how-to-choose-a-trading-bot.html">Bot Selection</a></li>
+          <li><a href="what-is-automated-trading.html">Risk Management</a></li>
+          <li><a href="what-is-fxnod-complete-beginners-guide.html">FXnod Guide</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          Open FXnod Free
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       MAIN CONTENT: TWO-COLUMN LAYOUT
+       ====================================================================== -->
+  <main class="container" style="padding-top: 3rem; padding-bottom: 5rem;">
+    <div class="article-layout">
+      
+      <!-- LEFT SIDEBAR: METRICS & TABLE OF CONTENTS -->
+      <aside class="article-sidebar">
+        <div class="sidebar-sticky-wrap">
+          
+          <!-- Quick Specs Box -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-heading">Trading Rule Specs</h3>
+            <div class="sidebar-metric">
+              <span class="metric-label">Target Daily ROI</span>
+              <span class="metric-value" style="color: #10b981;">1.0% – 3.0%</span>
+            </div>
+            <div class="sidebar-metric">
+              <span class="metric-label">Stop-Loss Cushion</span>
+              <span class="metric-value">3x Deposit Minimum</span>
+            </div>
+            <div class="sidebar-metric">
+              <span class="metric-label">Session Duration</span>
+              <span class="metric-value">5 – 15 Minutes</span>
+            </div>
+            <div class="sidebar-metric">
+              <span class="metric-label">Execution Guard</span>
+              <span class="metric-value" style="color: #2563eb;">Auto TP / Refused Stake</span>
+            </div>
+            <div class="sidebar-metric">
+              <span class="metric-label">Discipline Rule</span>
+              <span class="metric-value" style="color: #f59e0b;">Hit Target &amp; Close App</span>
+            </div>
+          </div>
+
+          <!-- Table of Contents -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-heading">Table of Contents</h3>
+            <ul class="toc-list">
+              <li><a href="#infinite-bot-trap">The "Infinite Bot" Trap</a></li>
+              <li><a href="#power-of-daily-targets">The Power of 1% to 3%</a></li>
+              <li><a href="#setting-take-profit">Setting Realistic Take-Profits</a></li>
+              <li><a href="#protective-stop-loss">Protective Stop-Loss Boundaries</a></li>
+              <li><a href="#close-the-app-routine">The "Hit &amp; Close" Routine</a></li>
+              <li><a href="#faqs">Frequently Asked Questions</a></li>
+              <li><a href="#final-thoughts">Final Thoughts</a></li>
+            </ul>
+          </div>
+
+          <!-- Author Info & Sharing -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-heading">Author &amp; Meta</h3>
+            <p style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.5; margin-bottom: 0.75rem;">
+              Published by <strong>Trade Insight Risk Team</strong>. Focusing on capital preservation, algorithmic discipline, and synthetic derivatives.
+            </p>
+            <div style="font-size: 0.8rem; color: var(--color-text-muted);">
+              <span>Updated: Oct 2026</span> • <span>8 min read</span>
+            </div>
+          </div>
+
+        </div>
+      </aside>
+
+      <!-- RIGHT COLUMN: MAIN ARTICLE BODY -->
+      <div class="article-content-wrap">
+        <article class="article-body">
+
+          <!-- Category Badge & Headline -->
+          <div class="article-meta-top">
+            <span class="badge" style="background: rgba(240, 58, 39, 0.95); color: #ffffff;">FXnod Guides</span>
+            <span class="read-time">8 min read • Technical Discipline Manual</span>
+          </div>
+
+          <h1 class="article-title">Setting Realistic Stop Losses and Take Profits: The Golden Rules of Bot Trading</h1>
+
+          <!-- Featured Image -->
+          <div class="article-featured-image-wrap">
+            <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80" 
+                 alt="Setting realistic Stop Losses and Take Profits on Deriv with FXnod trading bots" 
+                 class="article-featured-image">
+            <div class="image-caption">
+              Algorithmic discipline in action: setting pre-calculated Take Profits and protective Stop Losses safeguards capital against statistical market variance.
+            </div>
+          </div>
+
+          <!-- Introductory Paragraphs -->
+          <p class="article-lead">
+            If you ask professional algorithmic traders the secret to their long-term consistency, their answer will almost never be about a "secret indicator" or a "magic bot."
+          </p>
+
+          <p>
+            Instead, it comes down to a simple, unshakeable habit: <strong>setting realistic profit targets, locking in gains, and walking away.</strong>
+          </p>
+
+          <p>
+            Many beginners make the mistake of treating an automated bot like an infinite money printer. They start a bot, watch it make $5 in twenty minutes, and think: <em>"If it made $5 in twenty minutes, I will just let it run for 24 hours straight and make $360!"</em>
+          </p>
+
+          <p>
+            In reality, running any trading bot indefinitely without a target is the fastest way to run straight into an inevitable statistical outlier streak. Markets cycle through volatility, and unchecked greed always gives profits back to the broker. Explore our full breakdown of algorithmic modules in <strong><a href="inside-fxnod-autohub-bots-guide.html" style="color: #2563eb; font-weight: 600;">Inside FXnod Auto Hub: 22 Ready-Made Bots</a></strong>.
+          </p>
+
+          <p>
+            In this essential risk management guide, you will learn the golden rules of setting <strong>Stop Losses</strong> and <strong>Take Profits</strong> on Deriv, understand the compounding power of modest daily targets, and discover how FXnod automates profit locking so you never overtrade again.
+          </p>
+
+          <!-- ==================================================================
+               SECTION 1: THE PSYCHOLOGY OF THE "INFINITE BOT" TRAP
+               ================================================================== -->
+          <h2 id="infinite-bot-trap">The Psychology of the "Infinite Bot" Trap</h2>
+
+          <p>
+            To understand why profit targets are essential, look at how probability works in trading:
+          </p>
+
+          <div class="diagram-box">
+┌────────────────────────────────────────────────────────┐
+│               THE CYCLE OF OVERTRADING                 │
+├────────────────────────────────────────────────────────┤
+│ 1. Bot starts with discipline ──► Wins $3.00 (Happy!)  │
+│ 2. Greed kicks in: "Let it run forever!"               │
+│ 3. Market shifts into high-volatility sideways chop    │
+│ 4. Unfavorable streak hits ──► Account drawdown occurs │
+│ 5. Trader panics and blames the bot                    │
+└────────────────────────────────────────────────────────┘
+          </div>
+
+          <p>
+            Every trading strategy has market conditions where it thrives, and conditions where it faces friction. 
+          </p>
+
+          <p>
+            A disciplined trader uses an automated bot like a <strong>precision surgical tool</strong>: you enter the market, capture a targeted profit during favorable conditions, and shut the bot down immediately.
+          </p>
+
+          <!-- ==================================================================
+               SECTION 2: THE GOLDEN RULE OF DAILY TARGETS
+               ================================================================== -->
+          <h2 id="power-of-daily-targets">The Golden Rule of Daily Targets: The Power of 1% to 3%</h2>
+
+          <p>
+            Many retail traders struggle because their expectations are completely unrealistic. They deposit $20 and expect the bot to make $50 every day (a 250% daily return). No financial market in the world can sustain that level of risk without blowing up.
+          </p>
+
+          <p>
+            Professional traders target <strong>1% to 3% daily account growth</strong>.
+          </p>
+
+          <p>
+            If you want low-volatility staking methods to achieve these modest benchmarks, review our tactical guide on <strong><a href="gentle-step-vs-flat-stake-low-risk-guide.html" style="color: #2563eb; font-weight: 600;">Gentle Step vs Same Stake: Low-Risk Alternatives to Martingale</a></strong>.
+          </p>
+
+          <p>
+            Look at what happens when you grow a modest <strong>$50 balance by just 2% per day</strong> using disciplined compounding:
+          </p>
+
+          <div class="table-container">
+            <table class="table-custom">
+              <thead>
+                <tr>
+                  <th style="text-align: center;">Timeline</th>
+                  <th style="text-align: center;">Daily Profit Target</th>
+                  <th style="text-align: center;">Account Balance</th>
+                  <th style="text-align: center;">Total Growth</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="text-align: center; font-weight: 700;">Day 1</td>
+                  <td style="text-align: center; color: #10b981; font-weight: 600;">$1.00</td>
+                  <td style="text-align: center; font-weight: 700;">$51.00</td>
+                  <td style="text-align: center; color: #10b981;">+2.0%</td>
+                </tr>
+                <tr>
+                  <td style="text-align: center; font-weight: 700;">Day 15</td>
+                  <td style="text-align: center; color: #10b981; font-weight: 600;">$1.34</td>
+                  <td style="text-align: center; font-weight: 700;">$67.29</td>
+                  <td style="text-align: center; color: #10b981;">+34.5%</td>
+                </tr>
+                <tr>
+                  <td style="text-align: center; font-weight: 700;">Day 30</td>
+                  <td style="text-align: center; color: #10b981; font-weight: 600;">$1.81</td>
+                  <td style="text-align: center; font-weight: 700;">$90.57</td>
+                  <td style="text-align: center; color: #10b981;">+81.1%</td>
+                </tr>
+                <tr>
+                  <td style="text-align: center; font-weight: 700;">Day 60</td>
+                  <td style="text-align: center; color: #10b981; font-weight: 600;">$3.27</td>
+                  <td style="text-align: center; font-weight: 700;">$164.05</td>
+                  <td style="text-align: center; color: #10b981;">+228.1%</td>
+                </tr>
+                <tr>
+                  <td style="text-align: center; font-weight: 700;">Day 90</td>
+                  <td style="text-align: center; color: #10b981; font-weight: 600;">$5.93</td>
+                  <td style="text-align: center; font-weight: 700; color: #2563eb;">$297.07</td>
+                  <td style="text-align: center; color: #10b981; font-weight: 800;">+494.1%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>
+            Starting with just $50 and capturing tiny <strong>$1 to $2 daily wins</strong> compounds into nearly <strong>$300 in 90 days</strong>—all without ever taking massive, stressful risks! Small, consistent wins beat reckless gambling every single time.
+          </p>
+
+          <!-- ==================================================================
+               SECTION 3: HOW TO SET REALISTIC TAKE-PROFIT TARGETS
+               ================================================================== -->
+          <h2 id="setting-take-profit">How to Set Realistic Take-Profit (TP) Targets on FXnod</h2>
+
+          <p>
+            When setting your profit target, align it strictly with your account balance and risk tolerance:
+          </p>
+
+          <div class="targets-grid">
+            
+            <div class="target-card tier-small">
+              <span class="badge" style="background: rgba(16, 185, 129, 0.15); color: #059669; font-weight: 700; margin-bottom: 0.75rem; display: inline-block;">Micro Balance</span>
+              <h3>Account: $25 – $50</h3>
+              <ul>
+                <li><strong>Session Target:</strong> $1.00 to $2.50</li>
+                <li><strong>Daily Total Goal:</strong> $2.00 to $4.00</li>
+                <li><strong>Run Time:</strong> 5 to 15 minutes max</li>
+                <li><strong>Ideal Setup:</strong> Fixed Plan ($20) or Same Stake ($0.50)</li>
+              </ul>
+            </div>
+
+            <div class="target-card tier-medium">
+              <span class="badge" style="background: rgba(59, 130, 246, 0.15); color: #2563eb; font-weight: 700; margin-bottom: 0.75rem; display: inline-block;">Standard Balance</span>
+              <h3>Account: $100 – $200</h3>
+              <ul>
+                <li><strong>Session Target:</strong> $3.00 to $5.00</li>
+                <li><strong>Daily Total Goal:</strong> $5.00 to $10.00</li>
+                <li><strong>Run Time:</strong> 10 to 20 minutes max</li>
+                <li><strong>Ideal Setup:</strong> Fixed Plan ($50 / $100) or Gentle Step</li>
+              </ul>
+            </div>
+
+          </div>
+
+          <h3>Automatic Profit Locking on FXnod:</h3>
+          <p>
+            You don't have to sit by your screen biting your nails waiting to click stop. On FXnod:
+          </p>
+
+          <ul>
+            <li><strong>Automated Session Ceiling:</strong> When you select a <strong>Fixed Plan</strong> (like the $20 Plan) or set a custom Take-Profit, the engine tracks your session net profit tick by tick.</li>
+            <li><strong>Zero-Latency Shutdown:</strong> The moment your target is touched, the <strong>Live Run Monitor</strong> instantly halts all execution and locks in your profits. Read our in-depth operational guide: <strong><a href="fxnod-live-run-monitor-stats-controls-guide.html" style="color: #2563eb; font-weight: 600;">How to Use the FXnod Live Run Monitor</a></strong>.</li>
+            <li><strong>Contract Take-Profit:</strong> If your plan includes <strong>Contract Take-Profit</strong> (<code>contractTakeProfit</code>), the bot can even exit individual trade positions early to bank profit during specific milestone volatility spikes!</li>
+          </ul>
+
+          <!-- FXnod Partner Box -->
+          <div class="fxnod-partner-box">
+            <span class="fxnod-badge">Automated Profit Guards</span>
+            <h3>Lock In Daily Gains with Automated Targets</h3>
+            <p>
+              Stop giving profits back to the market. FXnod tracks your target tick-by-tick and force-locks profits the millisecond your Take-Profit threshold is touched.
+            </p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="fxnod-cta-btn">
+              <span>Try FXnod Auto-Lock Free</span>
+              <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </a>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 4: PROTECTIVE STOP-LOSS BOUNDARIES
+               ================================================================== -->
+          <h2 id="protective-stop-loss">How to Set Protective Stop-Loss (SL) Boundaries</h2>
+
+          <p>
+            Your Stop Loss is not an enemy; <strong>it is your account’s bulletproof vest.</strong>
+          </p>
+
+          <p>
+            The sole purpose of a Stop Loss is to ensure that even if the market encounters the worst possible statistical streak, <strong>you retain the vast majority of your capital to trade tomorrow.</strong> To understand how recovery sequences interact with your capital ceiling, review <strong><a href="ultimate-guide-to-safe-martingale-deriv.html" style="color: #2563eb; font-weight: 600;">The Ultimate Guide to Safe Martingale on Deriv</a></strong>.
+          </p>
+
+          <div class="cushion-formula-box">
+            <h4>The 3x Capital Cushion Principle</h4>
+            <p>
+              Never risk your entire deposit on a single session. Always ensure your account balance is at least <strong>three times (3x)</strong> the bot’s pre-set stop loss:
+            </p>
+            <div class="formula-display">
+              Recommended Deposit &ge; Plan Stop-Loss &times; 3
+            </div>
+            <p>
+              <strong>Real-World Application:</strong> If running a <strong>$20 Stop-Loss plan</strong>, your account balance should be <strong>$60 or higher</strong>. If a Stop-Loss is hit, you only lose $20, leaving <strong>$40 (67% of your capital)</strong> completely safe and available for future trading.
+            </p>
+          </div>
+
+          <h3>The "Refused Stake" Protection:</h3>
+          <p>
+            On FXnod, your Stop-Loss is non-negotiable. If the next planned recovery stake would push your session drawdown beyond your Stop-Loss ceiling, the <strong>Refused Stake safeguard</strong> automatically halts the bot, ensuring you never lose more than your agreed boundary.
+          </p>
+
+          <p>
+            For a deep dive into verifying these exact numbers, see our tactical breakdown in <strong><a href="how-to-read-fxnod-loss-progression-sheet-guide.html" style="color: #2563eb; font-weight: 600;">How to Read the FXnod Loss Progression Sheet</a></strong>.
+          </p>
+
+          <!-- ==================================================================
+               SECTION 5: THE "HIT TARGET & CLOSE THE APP" ROUTINE
+               ================================================================== -->
+          <h2 id="close-the-app-routine">The "Hit Target &amp; Close the App" Routine</h2>
+
+          <p>
+            To build a professional trading habit that lasts for years, adopt this simple 3-step daily routine:
+          </p>
+
+          <div class="diagram-box">
+[ Step 1: Open FXnod &amp; Choose Your Favorite Bot ]
+                       │
+                       ▼
+[ Step 2: Start Bot &amp; Monitor Until Take-Profit Hits ]
+                       │
+                       ▼
+[ Step 3: Take Profit Confirmed ──► CLOSE THE APP! ]
+          </div>
+
+          <div class="workflow-steps-list">
+            
+            <div class="workflow-step-card">
+              <div class="workflow-num">1</div>
+              <div class="workflow-content">
+                <h4>Open FXnod &amp; Choose Your Favorite Bot</h4>
+                <p>
+                  Launch the FXnod Auto Hub, select a bot aligned with your balance, and confirm that your Take-Profit and Stop-Loss limits match your daily plan.
+                </p>
+              </div>
+            </div>
+
+            <div class="workflow-step-card">
+              <div class="workflow-num">2</div>
+              <div class="workflow-content">
+                <h4>Start Bot &amp; Monitor Until Target Hits</h4>
+                <p>
+                  Click "Start Bot". Let the algorithm execute smoothly in the Live Run Monitor without interfering with active parameters.
+                </p>
+              </div>
+            </div>
+
+            <div class="workflow-step-card">
+              <div class="workflow-num">3</div>
+              <div class="workflow-content">
+                <h4>Take Profit Confirmed &mdash; Close the App!</h4>
+                <p>
+                  The moment your Take-Profit screen flashes green, shut down the platform. Do not chase adrenaline. Walk away with your profits banked.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <p>
+            Once your Take-Profit confirmation appears:
+          </p>
+          <ol>
+            <li><strong>Do not start another bot immediately</strong> out of adrenaline or overconfidence.</li>
+            <li><strong>Log the win</strong> in your personal trading journal with the exact date, session profit, and market traded.</li>
+            <li><strong>Close the app or browser tab</strong> and enjoy the rest of your day knowing your algorithmic goals have been met.</li>
+          </ol>
+
+          <p>
+            Consistency is built by stepping away, not by overtrading.
+          </p>
+
+          <!-- ==================================================================
+               SECTION 6: FREQUENTLY ASKED QUESTIONS (FAQ)
+               ================================================================== -->
+          <h2 id="faqs">Frequently Asked Questions (FAQ)</h2>
+
+          <div class="faq-list">
+            
+            <div class="faq-item">
+              <h3 class="faq-question">What should I do if my bot hits its Stop-Loss?</h3>
+              <div class="faq-answer">
+                <p>
+                  Accept the loss calmly. A Stop-Loss hit is proof that your risk management protected the rest of your account. Do not revenge trade. Take a break for the day, review your journal, and resume during your next scheduled session.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">How many times per day should I run a bot?</h3>
+              <div class="faq-answer">
+                <p>
+                  Most successful traders run <strong>1 to 2 short sessions per day</strong> (e.g., one in the morning and one in the evening). Running multiple short sessions with clear profit targets is far safer than running one long, continuous session.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Can I change my Stop-Loss while a bot is running?</h3>
+              <div class="faq-answer">
+                <p>
+                  On FXnod, active parameters are locked while a bot is in motion to prevent emotional tampering. If you need to stop, use the 1-click <strong>Emergency Force Stop</strong>, adjust your numbers, and restart with a clear head.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Is a $1 daily profit target really worth it on a $50 account?</h3>
+              <div class="faq-answer">
+                <p>
+                  Yes! A $1 profit on a $50 account is a <strong>2% daily return</strong>. In the traditional banking world, a 2% return takes an entire year. Compounded daily, 2% grows your balance exponentially over several months.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Does FXnod automatically stop when my target profit is reached?</h3>
+              <div class="faq-answer">
+                <p>
+                  Yes, 100%! The Live Run Monitor automatically shuts down the bot and displays a "Take-Profit Reached" confirmation the moment your target threshold is crossed.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ==================================================================
+               SECTION 7: FINAL THOUGHTS & CONCLUSION
+               ================================================================== -->
+          <h2 id="final-thoughts">Final Thoughts: The Discipline That Separates Winners from Losers</h2>
+
+          <p>
+            The difference between successful traders and gamblers is not luck—it is <strong>knowing when to stop.</strong>
+          </p>
+
+          <p>
+            By setting realistic daily Take-Profits, respecting protective Stop-Losses, and letting <strong>FXnod’s automated engine</strong> enforce your boundaries, you take the emotional chaos out of trading and replace it with steady, compounding consistency.
+          </p>
+
+          <p>
+            Set your target, hit your goal, and protect your capital.
+          </p>
+
+          <p>
+            <strong><a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" style="color: #2563eb; font-weight: 600;">Launch your favorite bot on your free FXnod Demo account today and practice the art of disciplined profit-taking!</a></strong>
+          </p>
+
+          <!-- Affiliate Disclosure Box -->
+          <div class="affiliate-disclosure-box" style="margin-top: 2rem; padding: 1.25rem; background: #f8fafc; border: 1px solid var(--color-border); border-radius: var(--radius-md); font-size: 0.82rem; color: #64748b; line-height: 1.55;">
+            <strong>Affiliate Disclosure:</strong> This educational article contains partner referral links. If you register on FXnod through links on this page, we may earn a referral commission at no additional cost to you. Trading financial derivatives and synthetic indices carries substantial risk of capital loss. Always trade responsibly and test strategies using demo environments first.
+          </div>
+
+          <!-- Further Reading Box -->
+          <div class="further-reading-box">
+            <h4>Recommended Related Guides:</h4>
+            <ul>
+              <li><a href="understanding-fxnod-active-tools-guide.html">Understanding FXnod Active Tools: How to Unlock and Manage Premium Trading Tools</a></li>
+              <li><a href="how-to-read-fxnod-loss-progression-sheet-guide.html">How to Read the FXnod Loss Progression Sheet: Know Your Worst-Case Scenario</a></li>
+              <li><a href="ultimate-guide-to-safe-martingale-deriv.html">The Ultimate Guide to Safe Martingale on Deriv: Avoid Account Blowouts</a></li>
+              <li><a href="gentle-step-vs-flat-stake-low-risk-guide.html">Gentle Step vs. Flat Stake: Low-Risk Alternatives to Martingale</a></li>
+              <li><a href="fxnod-live-run-monitor-stats-controls-guide.html">How to Use the FXnod Live Run Monitor: Real-Time Stats &amp; Controls</a></li>
+              <li><a href="inside-fxnod-autohub-bots-guide.html">Inside FXnod Auto Hub: The No-Code Trading Bot Suite with 22 Ready-Made Bots</a></li>
+              <li><a href="test-fxnod-bots-demo-virtual-account-guide.html">How to Test FXnod Bots on a Virtual (Demo) Account</a></li>
+            </ul>
+          </div>
+
+          <!-- Bottom CTA -->
+          <div class="article-footer-cta">
+            <h3>Trade with Algorithmic Discipline</h3>
+            <p>Lock in daily gains and enforce automatic Stop-Loss boundaries with FXnod.</p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">
+              Get Started with FXnod &rarr;
+            </a>
+          </div>
+
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <!-- ======================================================================
+       FOOTER COMPONENT (53 Playbooks Total)
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="brand-logo">
+            <div class="brand-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+            <span>Trade Insight</span>
+          </a>
+          <p>
+            High-performance technical editorial and tactical research publication. We empower quantitative traders, risk teams, and modern web agencies with actionable market playbooks.
+          </p>
+          <span class="footer-digest-label">Weekly Tech &amp; Trading Digest</span>
+          <form class="footer-mini-form" onsubmit="event.preventDefault(); showToast('Subscribed to Weekly Digest!');">
+            <input type="email" placeholder="Enter your business email" required aria-label="Business Email">
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+
+        <div class="footer-col">
+          <h4>Publication Areas</h4>
+          <ul>
+            <li><a href="../index.html#all">All Editorial Guides</a></li>
+            <li><a href="automated-trading-on-deriv.html">Deriv &amp; Synthetic Indices</a></li>
+            <li><a href="how-to-choose-a-trading-bot.html">Automated Trading Bots</a></li>
+            <li><a href="what-is-automated-trading.html">Risk &amp; Margin Management</a></li>
+            <li><a href="../index.html#seo">SEO &amp; Growth Strategy</a></li>
+            <li><a href="../index.html#infra">Web Tech &amp; Infrastructure</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-col-playbooks">
+          <h4>Popular Playbooks</h4>
+          <ul class="footer-playbooks-list">
+            <li><a href="understanding-fxnod-active-tools-guide.html">FXnod Active Tools Guide</a></li>
+            <li><a href="stop-loss-take-profit-trading-bot-rules-guide.html">Stop Loss &amp; Take Profit Rules</a></li>
+            <li><a href="gentle-step-vs-flat-stake-low-risk-guide.html">Gentle Step vs Flat Stake Guide</a></li>
+            <li><a href="how-to-read-fxnod-loss-progression-sheet-guide.html">Loss Progression Sheet Guide</a></li>
+            <li><a href="ultimate-guide-to-safe-martingale-deriv.html">Safe Martingale Guide</a></li>
+          </ul>
+
+          <!-- Expandable archive list of remaining playbooks -->
+          <ul class="footer-playbooks-archive" id="footer-playbooks-archive" style="display: none;">
+            <li><a href="fxnod-live-run-monitor-stats-controls-guide.html">FXnod Live Run Monitor Guide</a></li>
+            <li><a href="fixed-plan-vs-own-amount-trading-bots-fxnod.html">Fixed Plan vs Own Amount Bots</a></li>
+            <li><a href="fxnod-shadow-lane-phantom-trading-guide.html">FXnod Shadow Lane Guide</a></li>
+            <li><a href="rise-fall-trading-bots-volatility-indices-guide.html">Rise / Fall Bots on Volatility Indices</a></li>
+            <li><a href="over-under-trading-bots-strategy-guide-fxnod.html">Over / Under Trading Bots Strategy</a></li>
+            <li><a href="even-odd-trading-bots-strategy-guide-fxnod.html">Even / Odd Trading Bots Strategy</a></li>
+            <li><a href="matches-differs-bots-strategy-guide-fxnod.html">Matches &amp; Differs Bots Strategy</a></li>
+            <li><a href="inside-fxnod-autohub-bots-guide.html">Inside FXnod Auto Hub</a></li>
+            <li><a href="manage-multiple-deriv-accounts-fxnod-guide.html">Manage Multiple Deriv Accounts</a></li>
+            <li><a href="how-to-fix-deriv-session-expired-reconnect-fxnod.html">Fix Deriv Session Expired</a></li>
+            <li><a href="fxnod-wallet-deposits-transfers-subscriptions-guide.html">Managing the FXnod Wallet</a></li>
+            <li><a href="test-fxnod-bots-demo-virtual-account-guide.html">Test FXnod Bots on Demo Account</a></li>
+            <li><a href="how-to-connect-deriv-account-to-fxnod.html">How to Connect Deriv to FXnod</a></li>
+            <li><a href="is-fxnod-safe-legitimate-security-review.html">Is FXnod Safe &amp; Legit?</a></li>
+            <li><a href="fxnod-dashboard-complete-walkthrough-guide.html">FXnod Dashboard Walkthrough</a></li>
+            <li><a href="automated-vs-manual-trading-deriv-discipline.html">Automated vs Manual Trading</a></li>
+            <li><a href="fxnod-mobile-app-trading-guide.html">FXnod Mobile App Guide</a></li>
+            <li><a href="how-to-create-setup-fxnod-account-guide.html">FXnod Account Setup Guide</a></li>
+            <li><a href="what-is-fxnod-complete-beginners-guide.html">What is FXnod? (Complete Guide)</a></li>
+            <li><a href="what-is-automated-trading.html">What Is Automated Trading?</a></li>
+            <li><a href="automated-trading-on-deriv.html">How to Start on Deriv</a></li>
+            <li><a href="how-to-choose-a-trading-bot.html">How to Choose a Trading Bot</a></li>
+            <li><a href="automated-trading-risk-management.html">Risk Management Playbook</a></li>
+            <li><a href="deriv-bot-vs-binary-bot-comparison.html">Deriv Bot vs Binary Bot</a></li>
+            <li><a href="martingale-vs-flat-staking-deriv-bots.html">Martingale vs Flat Staking</a></li>
+            <li><a href="top-5-mistakes-new-deriv-bot-traders-make.html">Top 5 Bot Trading Mistakes</a></li>
+            <li><a href="how-deriv-api-token-works-bot-trading.html">How Deriv API Token Works</a></li>
+            <li><a href="digit-differ-bot-strategy-deriv.html">Digit Differ Strategy Guide</a></li>
+            <li><a href="how-to-backtest-deriv-trading-bot.html">How to Backtest Deriv Bots</a></li>
+            <li><a href="volatility-indices-trading-bots-guide.html">Trading Volatility Indices</a></li>
+            <li><a href="setting-realistic-profit-targets-bot-trading.html">Profit Targets Playbook</a></li>
+            <li><a href="synthetic-indices-vs-forex-for-bots.html">Synthetic Indices vs Forex</a></li>
+            <li><a href="best-deriv-bots-for-small-accounts.html">Best Bots for Small Accounts</a></li>
+            <li><a href="why-deriv-trading-bots-lose-money.html">Why Trading Bots Lose Money</a></li>
+            <li><a href="how-to-run-deriv-bot-on-vps.html">Running Deriv Bot on VPS</a></li>
+            <li><a href="what-to-check-before-connecting-a-trading-bot.html">Pre-Connection Checks (Security)</a></li>
+            <li><a href="trading-bot-faqs.html">Trading Bot FAQs (15 Answers)</a></li>
+            <li><a href="how-to-start-learning-trading.html">How to Start Learning Trading</a></li>
+            <li><a href="how-to-read-candlestick-charts.html">How to Read Candlesticks</a></li>
+            <li><a href="how-to-identify-support-and-resistance.html">Support &amp; Resistance Levels</a></li>
+            <li><a href="how-to-keep-a-trading-journal.html">How to Keep a Trading Journal</a></li>
+            <li><a href="how-to-control-emotions-while-trading.html">Controlling Trading Emotions</a></li>
+            <li><a href="forex-vs-synthetic-indices.html">Forex vs Synthetic Indices</a></li>
+            <li><a href="how-to-evaluate-a-trading-strategy.html">How to Evaluate a Strategy</a></li>
+            <li><a href="why-market-prices-go-up-and-down.html">Why Market Prices Move</a></li>
+            <li><a href="how-economic-news-affects-trading.html">Economic News &amp; Trading</a></li>
+            <li><a href="best-trading-timeframe-for-beginners.html">Best Trading Timeframes</a></li>
+            <li><a href="what-is-a-breakout-in-trading.html">What Is a Breakout in Trading?</a></li>
+            <li><a href="how-moving-averages-work-in-trading.html">How Moving Averages Work</a></li>
+            <li><a href="what-is-rsi-indicator-in-trading.html">What Is the RSI Indicator?</a></li>
+            <li><a href="what-is-spread-in-trading.html">What Is Spread in Trading?</a></li>
+            <li><a href="how-to-calculate-position-size.html">Position Sizing Guide</a></li>
+            <li><a href="what-is-drawdown-in-trading.html">What Is Drawdown in Trading?</a></li>
+            <li><a href="is-high-win-rate-enough-to-be-profitable.html">Is a High Win Rate Enough?</a></li>
+          </ul>
+
+          <button type="button" class="footer-toggle-btn" id="footer-playbooks-toggle" aria-expanded="false">
+            <span>+ View All 54 Playbooks</span>
+          </button>
+        </div>
+
+        <div class="footer-col">
+          <h4>Compliance &amp; Legal</h4>
+          <ul>
+            <li><a href="../index.html#editorial">Editorial Independence</a></li>
+            <li><a href="../index.html#risk-notice">Risk Disclosure Notice</a></li>
+            <li><a href="../index.html#privacy">Privacy Protocol</a></li>
+            <li><a href="../index.html#terms">Terms of Tactical Use</a></li>
+            <li><a href="../index.html#cookies">Cookie Preferences</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Trade Insight Editorial. All content is for educational and technical informational purposes only. Trading financial derivatives carries substantial risk.
+        </div>
+        <div>
+          Designed for Agency Quantitative Operations
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+</body>
+</html>

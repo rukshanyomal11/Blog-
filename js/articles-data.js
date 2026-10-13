@@ -6,6 +6,39 @@
 
 window.ARTICLES_DATA = [
   {
+    "id": 54,
+    "title": "Understanding FXnod Active Tools: How to Unlock & Manage (2026)",
+    "slug": "blog/understanding-fxnod-active-tools-guide.html",
+    "category": "fxnod",
+    "badgeText": "FXnod Guides",
+    "badgeColor": "rgba(240, 58, 39, 0.95)",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+    "excerpt": "Discover FXnod Active Tools: how to browse, unlock, and manage automated Deriv trading bots. Learn about subscription tiers, coupon discounts, and cloud sync.",
+    "readTime": "7 min read • Oct 2026"
+  },
+  {
+    "id": 53,
+    "title": "Setting Stop Loss & Take Profit on Deriv: Bot Trading Guide (2026)",
+    "slug": "blog/stop-loss-take-profit-trading-bot-rules-guide.html",
+    "category": "fxnod",
+    "badgeText": "FXnod Guides",
+    "badgeColor": "rgba(240, 58, 39, 0.95)",
+    "image": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80",
+    "excerpt": "Master Stop Loss and Take Profit on Deriv. Learn realistic daily targets, the 3x capital cushion rule, and how FXnod automates profit locking and capital protection.",
+    "readTime": "8 min read • Oct 2026"
+  },
+  {
+    "id": 52,
+    "title": "Gentle Step vs Same Stake: Low-Risk Deriv Staking Guide (2026)",
+    "slug": "blog/gentle-step-vs-flat-stake-low-risk-guide.html",
+    "category": "fxnod",
+    "badgeText": "FXnod Guides",
+    "badgeColor": "rgba(240, 58, 39, 0.95)",
+    "image": "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=1200&q=80",
+    "excerpt": "Discover low-risk alternatives to Martingale on Deriv. Compare Same Stake (Flat) vs Gentle Step staking in FXnod for stress-free, disciplined automated trading.",
+    "readTime": "7 min read • Oct 2026"
+  },
+  {
     "id": 51,
     "title": "How to Read the FXnod Loss Progression Sheet (Risk Guide 2026)",
     "slug": "blog/how-to-read-fxnod-loss-progression-sheet-guide.html",
