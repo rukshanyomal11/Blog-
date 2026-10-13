@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Even / Odd Trading Bots on Deriv: Complete Strategy Guide (2026) | Trade Insight</title>
+  <meta name="description" content="Discover how Even / Odd trading bots work on Deriv with FXnod. Learn about 50/50 parity math, staking options, loss progression, and 1-click automated setup.">
+  <meta name="keywords" content="Even Odd bot Deriv, digit trading bot strategy, FXnod even odd, Deriv even odd strategy, automated digit trading, Deriv synthetic index bots, parity trading strategy">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="Even / Odd Trading Bots on Deriv: Complete Strategy Guide (2026)">
+  <meta property="og:description" content="Discover how Even / Odd digit trading bots work on Deriv with FXnod. Learn about 50/50 parity math, disciplined recovery ladders, and 1-click setup.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tradeinsight.com/even-odd-trading-bots-strategy-guide-fxnod/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Twitter Meta -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Even / Odd Trading Bots on Deriv: Complete Strategy Guide (2026)">
+  <meta name="twitter:description" content="Master Even / Odd digit trading on Deriv. Learn how FXnod eliminates streak traps with disciplined recovery ladders and automated stop-loss protection.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .article-featured-image-wrap {
+      margin: 2rem 0 2.5rem 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      background: #f1f5f9;
+      box-shadow: var(--shadow-md);
+    }
+    .article-featured-image {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      display: block;
+    }
+    .image-caption {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      background: #ffffff;
+      border-top: 1px solid var(--color-border);
+      text-align: center;
+      font-style: italic;
+    }
+    .fxnod-partner-box {
+      background: linear-gradient(135deg, #0b1120 0%, #172554 100%);
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      margin: 2.5rem 0;
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.25);
+    }
+    .fxnod-partner-box::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(240, 58, 39, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .fxnod-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(240, 58, 39, 0.2);
+      border: 1px solid rgba(240, 58, 39, 0.5);
+      color: #fca5a5;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .fxnod-partner-box h3 {
+      color: #ffffff;
+      font-size: 1.45rem;
+      margin-bottom: 0.65rem;
+    }
+    .fxnod-partner-box p {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      margin-bottom: 1.4rem;
+    }
+    .fxnod-cta-btn {
+      background: var(--color-primary);
+      color: #ffffff;
+      font-weight: 700;
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 16px rgba(240, 58, 39, 0.35);
+      transition: all var(--transition-normal);
+      text-decoration: none;
+    }
+    .fxnod-cta-btn:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(240, 58, 39, 0.45);
+      color: #ffffff;
+    }
+    .diagram-box {
+      background: #0f172a;
+      color: #38bdf8;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 1.75rem;
+      border-radius: var(--radius-md);
+      overflow-x: auto;
+      margin: 2rem 0;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      border: 1px solid #1e293b;
+      box-shadow: var(--shadow-md);
+    }
+    .parity-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin: 2rem 0;
+    }
+    .parity-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .parity-card h4 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.15rem;
+    }
+    .parity-card p {
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+    .callout-quote-box {
+      background: #fef2f2;
+      border-left: 4px solid #ef4444;
+      padding: 1.5rem;
+      border-radius: var(--radius-md);
+      margin: 2rem 0;
+    }
+    .callout-quote-box blockquote {
+      margin: 0;
+      font-style: italic;
+      color: #991b1b;
+      font-size: 1.05rem;
+      font-weight: 500;
+    }
+    .callout-quote-box p {
+      margin: 0.75rem 0 0 0;
+      font-size: 0.88rem;
+      color: #7f1d1d;
+    }
+    .features-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin: 2rem 0;
+    }
+    .feature-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .feature-card h4 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .feature-card p {
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+    .workflow-steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+    .workflow-step-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      display: flex;
+      gap: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      transition: border-color var(--transition-fast);
+    }
+    .workflow-step-card:hover {
+      border-color: #3b82f6;
+    }
+    .workflow-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #eff6ff;
+      color: #2563eb;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+      border: 1px solid #bfdbfe;
+    }
+    .workflow-content h4 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+      color: var(--color-text-main);
+    }
+    .workflow-content p {
+      margin-bottom: 0.5rem;
+      font-size: 0.92rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin: 2rem 0;
+    }
+    .tip-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .tip-card h4 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+      color: var(--color-text-main);
+    }
+    .tip-card p {
+      color: var(--color-text-muted);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .faq-question {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--color-text-main);
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+    .faq-answer p {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+  </style>
+
+  <!-- Structured Data (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Even / Odd Trading Bots on Deriv: Complete Strategy Guide (2026)",
+    "description": "Discover how Even / Odd trading bots work on Deriv with FXnod. Learn about 50/50 parity math, staking options, loss progression, and 1-click automated setup.",
+    "author": {
+      "@type": "Organization",
+      "name": "Trade Insight Editorial"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Trade Insight",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://tradeinsight.com/assets/logo.png"
+      }
+    },
+    "datePublished": "2026-10-13",
+    "dateModified": "2026-10-13",
+    "image": "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=1200&q=80",
+    "mainEntityOfPage": "https://tradeinsight.com/even-odd-trading-bots-strategy-guide-fxnod/"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the win rate of an Even / Odd bot?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Because there are 5 Even numbers and 5 Odd numbers out of 10, the theoretical win rate sits right at 50%. With disciplined staking and recovery ladders, bots can generate consistent net profit even with an even win-loss distribution."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the payout for an Even / Odd contract on Deriv?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Deriv typically pays between 95% and 96% on winning Even / Odd contracts (e.g., a $1.00 winning trade returns $1.95 to $1.96)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can an Even / Odd bot survive 5 losses in a row?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! When you click View Loss Run on FXnod, you can see the exact number of consecutive losses your chosen plan is designed to survive before reaching its safety ceiling."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I run Even / Odd bots on my smartphone?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The FXnod Mobile App gives you full access to all Even / Odd bots, live meters, and 1-tap emergency force-stop controls on both Android and iOS."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Even / Odd safer than Matches / Differs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Both have distinct risk profiles. Differs offers higher win frequency (~90%) with smaller individual payouts, while Even / Odd offers a 50/50 balance with substantially larger payouts (~95%) per win."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="article-page">
+
+  <!-- Top Reading Progress Indicator -->
+  <div class="reading-progress-bar" id="reading-progress"></div>
+
+  <!-- ======================================================================
+       HEADER & NAVIGATION
+       ====================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <div style="display: flex; align-items: center;">
+        <a href="../index.html" class="brand-logo" aria-label="Trade Insight Home">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <span>Trade Insight</span>
+        </a>
+
+        <nav class="nav-links" aria-label="Main Navigation">
+          <a href="../index.html" class="nav-link">All Guides</a>
+          <a href="automated-trading-on-deriv.html" class="nav-link">Deriv Guides</a>
+          <a href="how-to-choose-a-trading-bot.html" class="nav-link">Trading Bots</a>
+          <a href="../index.html#category-fxnod" class="nav-link">FXnod Guides</a>
+        </nav>
+      </div>
+
+      <div class="header-right">
+        <!-- Direct FXnod Referral Header Button -->
+        <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.45rem 1.1rem; font-size: 0.82rem;" title="Explore FXnod Platform">
+          <span>Explore FXnod</span>
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+
+        <div class="header-search">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+          <input type="text" placeholder="Search parity guides..." aria-label="Search articles">
+        </div>
+
+        <button class="profile-avatar" title="User Profile" aria-label="User Profile">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       BREADCRUMB & HERO HEADER
+       ====================================================================== -->
+  <main class="article-page-wrapper">
+    <div class="container">
+      
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item"><a href="../index.html#category-fxnod">FXnod Guides</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item current" aria-current="page">Even / Odd Bots</li>
+        </ol>
+      </nav>
+
+      <!-- Article Header -->
+      <header class="article-header">
+        <div class="article-meta-badges">
+          <span class="badge" style="background: rgba(240, 58, 39, 0.95); color: #fff;">FXnod Guides</span>
+          <span class="badge badge-accent">Parity Momentum</span>
+          <span class="article-reading-time">7 min read • Updated Oct 2026</span>
+        </div>
+
+        <h1 class="article-title">
+          Even / Odd Trading Bots Explained: How to Build Consistent Daily Returns
+        </h1>
+
+        <p class="article-lead">
+          Even and Odd digit trading delivers clean 50/50 probability splits with generous 95%+ payouts. Discover how FXnod automates parity mechanics, eliminates the emotional Gambler's Fallacy streak trap, and secures disciplined daily session targets.
+        </p>
+
+        <div class="article-author-bar">
+          <div class="author-profile-chip">
+            <div class="author-chip-avatar">TI</div>
+            <span class="author-chip-name">Trade Insight Editorial</span>
+          </div>
+          <span class="author-bar-divider">•</span>
+          <span class="article-verified-badge">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+            Verified Strategy Guide
+          </span>
+        </div>
+      </header>
+
+      <!-- Featured Hero Image -->
+      <div class="article-featured-image-wrap">
+        <img 
+          src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=1200&q=80" 
+          alt="FXnod Even Odd trading bot dashboard showing real-time digit parity and profit meters" 
+          class="article-featured-image"
+          loading="eager"
+        >
+        <div class="image-caption">
+          Figure 1: Fast 1-tick parity trading combines 50/50 balance with 95%+ payouts when backed by automated recovery ladders.
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           TWO-COLUMN EDITORIAL LAYOUT
+           ====================================================================== -->
+      <div class="article-layout">
+        
+        <!-- LEFT STICKY SIDEBAR -->
+        <aside class="article-sidebar">
+          <div class="sidebar-widget toc-widget">
+            <div class="widget-title">
+              <span>Quick Navigation</span>
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path></svg>
+            </div>
+            <ul class="toc-list">
+              <li class="toc-item active"><a href="#how-it-works">How Even / Odd Trading Works</a></li>
+              <li class="toc-item"><a href="#streak-trap">The Streak Trap (Gambler's Fallacy)</a></li>
+              <li class="toc-item"><a href="#fxnod-even-odd">Exploring Even / Odd Bots</a></li>
+              <li class="toc-item"><a href="#step-by-step">Step-by-Step: Run Your Bot</a></li>
+              <li class="toc-item"><a href="#pro-tips">4 Pro Tips for Daily Consistency</a></li>
+              <li class="toc-item"><a href="#faq">Frequently Asked Questions</a></li>
+              <li class="toc-item"><a href="#final-thoughts">Final Thoughts &amp; Next Steps</a></li>
+            </ul>
+          </div>
+
+          <!-- Official Partner Quick Box -->
+          <div class="sidebar-card">
+            <h4>Trade Parity Bots Free</h4>
+            <p>Deploy Even / Odd algorithms on Deriv with pre-calculated loss progression ladders on your free demo account.</p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; text-align: center; justify-content: center;">
+              Launch FXnod Free &rarr;
+            </a>
+          </div>
+
+          <!-- Companion Guides Box -->
+          <div class="sidebar-card" style="margin-top: 1.5rem; background: #ffffff;">
+            <h4>Companion Guides</h4>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; line-height: 1.6;">
+              <li style="margin-bottom: 0.75rem;"><a href="inside-fxnod-autohub-bots-guide.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; Inside FXnod Auto Hub (22 Bots)</a></li>
+              <li style="margin-bottom: 0.75rem;"><a href="matches-differs-bots-strategy-guide-fxnod.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; Matches &amp; Differs Bots Strategy</a></li>
+              <li style="margin-bottom: 0.75rem;"><a href="test-fxnod-bots-demo-virtual-account-guide.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; Test Bots on Demo Account</a></li>
+              <li style="margin-bottom: 0.75rem;"><a href="manage-multiple-deriv-accounts-fxnod-guide.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; Multi-Account Switching</a></li>
+              <li><a href="what-is-fxnod-complete-beginners-guide.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; What is FXnod? Beginner's Guide</a></li>
+            </ul>
+          </div>
+        </aside>
+
+        <!-- RIGHT MAIN EDITORIAL CONTENT -->
+        <article class="article-content">
+
+          <p>
+            When traders look for a balanced, high-action market on Deriv, <strong>Even / Odd Digit Trading</strong> is often the top choice.
+          </p>
+
+          <p>
+            Unlike strategies that require predicting complex chart indicators, trend channels, or economic news events, Even / Odd trading is straightforward: you predict whether the final digit of the next market tick will be an <strong>Even number</strong> (0, 2, 4, 6, 8) or an <strong>Odd number</strong> (1, 3, 5, 7, 9).
+          </p>
+
+          <p>
+            With a clean 50/50 probability split and fast 1-tick contract durations, Even / Odd trading offers balanced payouts of around <strong>95% to 96%</strong> per win.
+          </p>
+
+          <p>
+            However, trading Even / Odd manually by guessing colors or chasing feelings often leads to emotional mistakes—especially when sudden streaks of four or five consecutive odds appear.
+          </p>
+
+          <p>
+            <strong>FXnod transforms Even / Odd trading into a structured, emotion-free science.</strong> If you are new to the platform, check our starter guide: <strong><a href="what-is-fxnod-complete-beginners-guide.html" style="color: #2563eb; font-weight: 600;">What is FXnod? Complete Beginner's Guide</a></strong>.
+          </p>
+
+          <!-- ==================================================================
+               SECTION 1: HOW EVEN / ODD WORKS
+               ================================================================== -->
+          <h2 id="how-it-works">How Even / Odd Digit Trading Works (The Simple Math)</h2>
+
+          <p>
+            Every single second on Deriv Volatility Indices, the price ticks up or down. The contract inspects only the <strong>very last digit</strong> of that tick:
+          </p>
+
+          <div class="diagram-box">
+┌──────────────────────────────────────┐     ┌──────────────────────────────────────┐
+│             EVEN DIGITS              │     │              ODD DIGITS              │
+├──────────────────────────────────────┤     ├──────────────────────────────────────┤
+│               0, 2, 4, 6, 8          │     │             1, 3, 5, 7, 9            │
+│  • Exactly 5 outcomes out of 10      │     │  • Exactly 5 outcomes out of 10      │
+│  • 50% Statistical Probability       │     │  • 50% Statistical Probability       │
+│  • ~95% to 96% Payout on Win         │     │  • ~95% to 96% Payout on Win         │
+└──────────────────────────────────────┘     └──────────────────────────────────────┘
+          </div>
+
+          <p>
+            Because both sides have an equal mathematical likelihood, Even / Odd offers one of the fairest risk-to-reward environments in synthetic trading. A winning $1.00 trade returns roughly <strong>$1.95 to $1.96</strong> (giving you $0.95 to $0.96 in clean net profit).
+          </p>
+
+          <!-- Partner Box -->
+          <div class="fxnod-partner-box">
+            <span class="fxnod-badge">Automated Parity Suite</span>
+            <h3>Run Even / Odd Bots on FXnod</h3>
+            <p>
+              Trade balanced 50/50 parity contracts with automated loss progression ladders and instant profit locking.
+            </p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="fxnod-cta-btn">
+              <span>Open Free FXnod Account</span>
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 2: THE STREAK TRAP
+               ================================================================== -->
+          <h2 id="streak-trap">The Biggest Pitfall of Manual Even / Odd Trading: The "Streak Trap"</h2>
+
+          <p>
+            When trading manually, human psychology often falls into the famous <strong>Gambler's Fallacy</strong>:
+          </p>
+
+          <div class="callout-quote-box">
+            <blockquote>
+              "The market just produced four Odd numbers in a row, so the next tick MUST be Even!"
+            </blockquote>
+            <p>
+              — The classic cognitive trap that causes retail traders to blow their account balance.
+            </p>
+          </div>
+
+          <p>
+            In reality, each price tick is mathematically independent. The market can easily produce five, six, or seven Odd numbers in a row. A manual trader who keeps doubling their stake on "Even" because they <em>feel</em> it is due will quickly run out of capital.
+          </p>
+
+          <h3>How FXnod Automates Parity Discipline:</h3>
+
+          <p>
+            FXnod removes human guesswork completely through automated platform guardrails:
+          </p>
+
+          <div class="parity-grid">
+            <div class="parity-card" style="border-left: 4px solid #3b82f6;">
+              <h4 style="color: #1d4ed8;">Zero Emotional Biases</h4>
+              <p>The bot never "hopes" or "feels" an outcome is due; it executes solely based on pre-defined mathematical parity rules.</p>
+            </div>
+
+            <div class="parity-card" style="border-left: 4px solid #10b981;">
+              <h4 style="color: #047857;">Controlled Staking Ladders</h4>
+              <p>Instead of doubling blindly, the bot adheres strictly to pre-calculated loss progression ladders designed for sustainable recovery.</p>
+            </div>
+
+            <div class="parity-card" style="border-left: 4px solid #ef4444;">
+              <h4 style="color: #b91c1c;">Hard Stop-Loss Enforcement</h4>
+              <p>If an extreme streak challenges the safety boundary, the bot cuts execution instantly, preserving your account balance for another day.</p>
+            </div>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 3: EXPLORING EVEN / ODD BOTS IN AUTO HUB
+               ================================================================== -->
+          <h2 id="fxnod-even-odd">Exploring Even / Odd Bots in the FXnod Auto Hub</h2>
+
+          <p>
+            Inside the <strong>Auto Hub</strong> on FXnod, the <strong>Even / Odd</strong> family features bots specifically engineered for parity markets. (To explore all 22 ready-made bots across 4 contract families, read our full breakdown: <strong><a href="inside-fxnod-autohub-bots-guide.html" style="color: #2563eb; font-weight: 600;">Inside FXnod Auto Hub</a></strong>).
+          </p>
+
+          <div class="features-card-grid">
+            
+            <div class="feature-card">
+              <h4>🎯 Pre-Configured Fixed Plans</h4>
+              <p>
+                Rather than wondering what stake to choose, you can pick a plan calibrated for your account size:
+              </p>
+              <ul style="margin: 0.5rem 0 0 1.25rem; font-size: 0.88rem; color: #64748b; line-height: 1.6;">
+                <li><strong>$20 Plan:</strong> Starts with a modest $1.00 stake. Calibrated for steady recovery without explosive exponential jumps. Ideal for accounts between $30 and $50.</li>
+                <li><strong>$50 Plan:</strong> Provides a wider safety cushion for daily targets of $3 to $5.</li>
+                <li><strong>$100 Plan:</strong> Designed for larger balances seeking maximum streak resilience.</li>
+              </ul>
+            </div>
+
+            <div class="feature-card">
+              <h4>⚖️ Flexible Money Options</h4>
+              <p>
+                For traders using "Own Amount" bots, FXnod offers multiple staking styles:
+              </p>
+              <ul style="margin: 0.5rem 0 0 1.25rem; font-size: 0.88rem; color: #64748b; line-height: 1.6;">
+                <li><strong>Same Stake (Flat):</strong> Every trade uses the exact same dollar amount. Completely eliminates streak risk.</li>
+                <li><strong>Gentle Step:</strong> Adds one starting stake after a loss, and removes one after a win. Recovers drawdowns gently.</li>
+                <li><strong>Martingale:</strong> Recovers streaks in a single win, strictly bounded by the <strong>Refused Stake</strong> ceiling.</li>
+              </ul>
+            </div>
+
+            <div class="feature-card">
+              <h4>📊 Upfront Loss Progression Sheet</h4>
+              <p>
+                Before launching any Even / Odd bot, tap <strong>"View Loss Run"</strong>:
+              </p>
+              <ul style="margin: 0.5rem 0 0 1.25rem; font-size: 0.88rem; color: #64748b; line-height: 1.6;">
+                <li>Review the exact stake for every potential consecutive loss.</li>
+                <li>Confirm how many consecutive losses your selected plan can absorb.</li>
+                <li>Verify your <strong>Refused Stake limit</strong> before placing live orders.</li>
+              </ul>
+            </div>
+
+          </div>
+
+          <!-- ==================================================================
+               SECTION 4: STEP-BY-STEP WORKFLOW
+               ================================================================== -->
+          <h2 id="step-by-step">Step-by-Step: How to Run an Even / Odd Bot on FXnod</h2>
+
+          <p>
+            Setting up your bot takes less than 20 seconds. Follow these steps:
+          </p>
+
+          <div class="workflow-steps-list">
+            
+            <div class="workflow-step-card">
+              <div class="workflow-num">1</div>
+              <div class="workflow-content">
+                <h4>Open Auto Hub &amp; Select Even / Odd</h4>
+                <p>
+                  Open your FXnod dashboard or Mobile App and tap the <strong>Even / Odd</strong> category tab under Auto Hub.
+                </p>
+              </div>
+            </div>
+
+            <div class="workflow-step-card">
+              <div class="workflow-num">2</div>
+              <div class="workflow-content">
+                <h4>Select a Bot &amp; Pick Your Plan</h4>
+                <p>
+                  Click <strong>"Set Up"</strong> on your preferred bot card. Select your plan (e.g., the beginner-friendly <strong>$20 Plan</strong>). Read the "How It Works" card to understand the entry speed and winning rules.
+                </p>
+              </div>
+            </div>
+
+            <div class="workflow-step-card">
+              <div class="workflow-num">3</div>
+              <div class="workflow-content">
+                <h4>Inspect the Loss Progression Sheet</h4>
+                <p>
+                  Tap <strong>"View Loss Run"</strong> to inspect your exact recovery ladder and confirm your safety cushion before launching.
+                </p>
+              </div>
+            </div>
+
+            <div class="workflow-step-card">
+              <div class="workflow-num">4</div>
+              <div class="workflow-content">
+                <h4>Click "Start Bot" &amp; Track Live</h4>
+                <p>
+                  Tap <strong>"Start Bot"</strong>. The visual progress ring tracks your session profit in real time. The moment your target is reached, the bot shuts down automatically, locking in your gains!
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ==================================================================
+               SECTION 5: 4 PRO TIPS FOR CONSISTENCY
+               ================================================================== -->
+          <h2 id="pro-tips">4 Pro Tips for Daily Even / Odd Consistency</h2>
+
+          <p>
+            To build consistent daily results with Even / Odd bots, follow these trader-tested rules:
+          </p>
+
+          <div class="tips-grid">
+            <div class="tip-card">
+              <h4>1. Aim for Small, Achievable Targets</h4>
+              <p>On a $50 account, target $2 to $3 per session. Once your bot hits Take-Profit, close the app and enjoy your day.</p>
+            </div>
+
+            <div class="tip-card">
+              <h4>2. Never Revenge Trade After a Stop Loss</h4>
+              <p>If market conditions trigger a Stop-Loss, respect it. The stop loss did its job by saving the rest of your balance.</p>
+            </div>
+
+            <div class="tip-card">
+              <h4>3. Always Test in Demo First</h4>
+              <p>Run at least 25 simulated cycles on your free <strong>Virtual USD Demo</strong> account to watch streak behavior. Learn more: <strong><a href="test-fxnod-bots-demo-virtual-account-guide.html" style="color: #2563eb; font-weight: 600;">Testing Bots on Demo</a></strong>.</p>
+            </div>
+
+            <div class="tip-card">
+              <h4>4. Choose Liquid Volatility Indices</h4>
+              <p>Even / Odd bots perform exceptionally well on continuous markets like Volatility 10 (1s) and Volatility 100 (1s) due to their steady 1-second tick cadence.</p>
+            </div>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 6: FREQUENTLY ASKED QUESTIONS
+               ================================================================== -->
+          <h2 id="faq">Frequently Asked Questions (FAQ)</h2>
+
+          <div class="faq-list">
+            <div class="faq-item">
+              <h3 class="faq-question">What is the win rate of an Even / Odd bot?</h3>
+              <div class="faq-answer">
+                <p>
+                  Because there are 5 Even numbers and 5 Odd numbers out of 10, the theoretical win rate sits right at 50%. With disciplined staking and recovery ladders, bots can generate consistent net profit even with an even win-loss distribution.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">What is the payout for an Even / Odd contract on Deriv?</h3>
+              <div class="faq-answer">
+                <p>
+                  Deriv typically pays between 95% and 96% on winning Even / Odd contracts (e.g., a $1.00 winning trade returns $1.95 to $1.96).
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Can an Even / Odd bot survive 5 losses in a row?</h3>
+              <div class="faq-answer">
+                <p>
+                  Yes! When you click <strong>"View Loss Run"</strong> on FXnod, you can see the exact number of consecutive losses your chosen plan is designed to survive before reaching its safety ceiling.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Can I run Even / Odd bots on my smartphone?</h3>
+              <div class="faq-answer">
+                <p>
+                  Yes. The FXnod Mobile App gives you full access to all Even / Odd bots, live meters, and 1-tap emergency force-stop controls on both Android and iOS.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Is Even / Odd safer than Matches / Differs?</h3>
+              <div class="faq-answer">
+                <p>
+                  Both have distinct risk profiles. Differs offers higher win frequency (~90%) with smaller individual payouts, while Even / Odd offers a 50/50 balance with substantially larger payouts (~95%) per win. Compare both in our dedicated guide: <strong><a href="matches-differs-bots-strategy-guide-fxnod.html" style="color: #2563eb; font-weight: 600;">Mastering Matches &amp; Differs Bots</a></strong>.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 7: FINAL THOUGHTS & CONCLUSION
+               ================================================================== -->
+          <h2 id="final-thoughts">Final Thoughts: Discipline Over Guesswork</h2>
+
+          <p>
+            Even / Odd trading on Deriv is fast, exciting, and mathematically fair. But trying to predict parity manually with emotional impulses is a recipe for burnout.
+          </p>
+
+          <p>
+            By letting <strong>FXnod Auto Hub</strong> handle your Even / Odd strategy, you replace guesswork with cold mathematical precision, automated risk protection, and instant profit locking.
+          </p>
+
+          <p>
+            <strong><a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" style="color: #2563eb; font-weight: 600;">Try an Even / Odd bot on your free FXnod Demo account today</a> and experience disciplined trading firsthand!</strong>
+          </p>
+
+          <!-- Affiliate Disclosure Box -->
+          <div class="affiliate-disclosure-box" style="margin-top: 2rem; padding: 1.25rem; background: #f8fafc; border: 1px solid var(--color-border); border-radius: var(--radius-md); font-size: 0.82rem; color: #64748b; line-height: 1.55;">
+            <strong>Affiliate Disclosure:</strong> This educational article contains partner referral links. If you register on FXnod through links on this page, we may earn a referral commission at no additional cost to you. Trading derivatives and synthetic indices involves high risk of capital loss. Always trade responsibly and test strategies using demo environments first.
+          </div>
+
+          <!-- Further Reading Box -->
+          <div class="further-reading-box">
+            <h4>Recommended Related Guides:</h4>
+            <ul>
+              <li><a href="matches-differs-bots-strategy-guide-fxnod.html">Mastering Matches / Differs Bots on FXnod: 90%+ Win Rates</a></li>
+              <li><a href="inside-fxnod-autohub-bots-guide.html">Inside FXnod Auto Hub: The No-Code Trading Bot Suite with 22 Ready-Made Bots</a></li>
+              <li><a href="manage-multiple-deriv-accounts-fxnod-guide.html">How to Manage Multiple Deriv Accounts on FXnod</a></li>
+              <li><a href="test-fxnod-bots-demo-virtual-account-guide.html">How to Test FXnod Bots on a Virtual (Demo) Account</a></li>
+              <li><a href="what-is-fxnod-complete-beginners-guide.html">What is FXnod? The Complete Beginner's Guide</a></li>
+              <li><a href="automated-vs-manual-trading-deriv-discipline.html">Automated vs Manual Trading on Deriv: Why Bots Win on Discipline</a></li>
+            </ul>
+          </div>
+
+          <!-- Bottom CTA -->
+          <div class="article-footer-cta">
+            <h3>Trade Parity Markets with Automated Discipline</h3>
+            <p>Deploy battle-tested Even and Odd algorithms with 50/50 balance and 95%+ payouts on Deriv.</p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">
+              Get Started with FXnod &rarr;
+            </a>
+          </div>
+
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <!-- ======================================================================
+       FOOTER COMPONENT
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="brand-logo">
+            <div class="brand-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+            <span>Trade Insight</span>
+          </a>
+          <p>
+            High-performance technical editorial and tactical research publication. We empower quantitative traders, risk teams, and modern web agencies with actionable market playbooks.
+          </p>
+          <span class="footer-digest-label">Weekly Tech & Trading Digest</span>
+          <form class="footer-mini-form" onsubmit="event.preventDefault(); showToast('Subscribed to Weekly Digest!');">
+            <input type="email" placeholder="Enter your business email" required aria-label="Business Email">
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+
+        <div class="footer-col">
+          <h4>Publication Areas</h4>
+          <ul>
+            <li><a href="../index.html#all">All Editorial Guides</a></li>
+            <li><a href="automated-trading-on-deriv.html">Deriv & Synthetic Indices</a></li>
+            <li><a href="how-to-choose-a-trading-bot.html">Automated Trading Bots</a></li>
+            <li><a href="what-is-automated-trading.html">Risk & Margin Management</a></li>
+            <li><a href="../index.html#seo">SEO & Growth Strategy</a></li>
+            <li><a href="../index.html#infra">Web Tech & Infrastructure</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-col-playbooks">
+          <h4>Popular Playbooks</h4>
+          <ul class="footer-playbooks-list">
+            <li><a href="even-odd-trading-bots-strategy-guide-fxnod.html">Even / Odd Trading Bots Strategy</a></li>
+            <li><a href="matches-differs-bots-strategy-guide-fxnod.html">Matches &amp; Differs Bots Strategy</a></li>
+            <li><a href="inside-fxnod-autohub-bots-guide.html">Inside FXnod Auto Hub</a></li>
+            <li><a href="manage-multiple-deriv-accounts-fxnod-guide.html">Manage Multiple Deriv Accounts</a></li>
+            <li><a href="how-to-fix-deriv-session-expired-reconnect-fxnod.html">Fix Deriv Session Expired</a></li>
+          </ul>
+
+          <!-- Expandable archive list of remaining playbooks -->
+          <ul class="footer-playbooks-archive" id="footer-playbooks-archive" style="display: none;">
+            <li><a href="fxnod-wallet-deposits-transfers-subscriptions-guide.html">Managing the FXnod Wallet</a></li>
+            <li><a href="test-fxnod-bots-demo-virtual-account-guide.html">Test FXnod Bots on Demo Account</a></li>
+            <li><a href="how-to-connect-deriv-account-to-fxnod.html">How to Connect Deriv to FXnod</a></li>
+            <li><a href="is-fxnod-safe-legitimate-security-review.html">Is FXnod Safe & Legit?</a></li>
+            <li><a href="fxnod-dashboard-complete-walkthrough-guide.html">FXnod Dashboard Walkthrough</a></li>
+            <li><a href="automated-vs-manual-trading-deriv-discipline.html">Automated vs Manual Trading</a></li>
+            <li><a href="fxnod-mobile-app-trading-guide.html">FXnod Mobile App Guide</a></li>
+            <li><a href="how-to-create-setup-fxnod-account-guide.html">FXnod Account Setup Guide</a></li>
+            <li><a href="what-is-fxnod-complete-beginners-guide.html">What is FXnod? (Complete Guide)</a></li>
+            <li><a href="what-is-automated-trading.html">What Is Automated Trading?</a></li>
+            <li><a href="automated-trading-on-deriv.html">How to Start on Deriv</a></li>
+            <li><a href="how-to-choose-a-trading-bot.html">How to Choose a Trading Bot</a></li>
+            <li><a href="manage-risk-when-using-a-trading-bot.html">Managing Bot Risk</a></li>
+            <li><a href="why-is-my-trading-bot-not-working.html">Bot Troubleshooting Guide</a></li>
+            <li><a href="can-trading-bots-lose-money.html">Can Bots Lose Money? (Risks)</a></li>
+            <li><a href="what-is-risk-to-reward-ratio.html">Risk-to-Reward Ratio Guide</a></li>
+            <li><a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" data-ref-link>Explore FXnod Platform</a></li>
+            <li><a href="how-to-test-a-trading-bot.html">How to Test a Trading Bot</a></li>
+            <li><a href="how-trading-bots-connect-to-platforms.html">How Bots Connect to Platforms</a></li>
+            <li><a href="why-trading-bots-make-losing-trades.html">Why Bots Make Losing Trades</a></li>
+            <li><a href="manual-vs-automated-trading.html">Manual vs Automated Trading</a></li>
+            <li><a href="what-to-check-before-connecting-a-trading-bot.html">Pre-Connection Checks (Security)</a></li>
+            <li><a href="trading-bot-faqs.html">Trading Bot FAQs (15 Answers)</a></li>
+            <li><a href="how-to-start-learning-trading.html">How to Start Learning Trading</a></li>
+            <li><a href="how-to-read-candlestick-charts.html">How to Read Candlesticks</a></li>
+            <li><a href="how-to-identify-support-and-resistance.html">Support & Resistance Levels</a></li>
+            <li><a href="how-to-keep-a-trading-journal.html">How to Keep a Trading Journal</a></li>
+            <li><a href="how-to-control-emotions-while-trading.html">Controlling Trading Emotions</a></li>
+            <li><a href="forex-vs-synthetic-indices.html">Forex vs Synthetic Indices</a></li>
+            <li><a href="how-to-evaluate-a-trading-strategy.html">How to Evaluate a Strategy</a></li>
+            <li><a href="why-market-prices-go-up-and-down.html">Why Market Prices Move</a></li>
+            <li><a href="how-economic-news-affects-trading.html">Economic News & Trading</a></li>
+            <li><a href="best-trading-timeframe-for-beginners.html">Best Trading Timeframes</a></li>
+            <li><a href="what-is-a-breakout-in-trading.html">What Is a Breakout in Trading?</a></li>
+            <li><a href="how-moving-averages-work-in-trading.html">How Moving Averages Work</a></li>
+            <li><a href="what-is-rsi-indicator-in-trading.html">What Is the RSI Indicator?</a></li>
+            <li><a href="what-is-spread-in-trading.html">What Is Spread in Trading?</a></li>
+            <li><a href="how-to-calculate-position-size.html">Position Sizing Guide</a></li>
+            <li><a href="what-is-drawdown-in-trading.html">What Is Drawdown in Trading?</a></li>
+            <li><a href="is-high-win-rate-enough-to-be-profitable.html">Is a High Win Rate Enough?</a></li>
+          </ul>
+
+          <button type="button" class="footer-toggle-btn" id="footer-playbooks-toggle" aria-expanded="false">
+            <span>+ View All 44 Playbooks</span>
+          </button>
+        </div>
+
+        <div class="footer-col">
+          <h4>Compliance & Legal</h4>
+          <ul>
+            <li><a href="../index.html#editorial">Editorial Independence</a></li>
+            <li><a href="../index.html#risk-notice">Risk Disclosure Notice</a></li>
+            <li><a href="../index.html#terms">Terms of Service</a></li>
+            <li><a href="../index.html#privacy">Privacy Policy</a></li>
+            <li><a href="../index.html#cookies">Cookie Preferences</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 Trade Insight Editorial. All content is for educational and technical informational purposes only. Trading financial derivatives carries substantial risk.
+        </div>
+        <div>
+          Designed for Agency Quantitative Operations
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+</body>
+</html>

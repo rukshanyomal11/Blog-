@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fix "Deriv Session Expired" in FXnod (Quick 30-Second Solution) | Trade Insight</title>
+  <meta name="description" content="Seeing Drive Reconnect or Deriv Session Expired on FXnod? Learn why it happens and how to fix it in under 30 seconds with this simple step-by-step guide.">
+  <meta name="keywords" content="Deriv reconnect error FXnod, Deriv session expired fix, FXnod drive reconnect, Deriv token expired, fix FXnod connection, Deriv API token reconnect, FXnod connection troubleshooting">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="Fix 'Deriv Session Expired' in FXnod (Quick 30-Second Solution)">
+  <meta property="og:description" content="Seeing Drive Reconnect or Deriv Session Expired on FXnod? Learn why it happens and how to fix it in under 30 seconds with this simple step-by-step guide.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tradeinsight.com/how-to-fix-deriv-session-expired-reconnect-fxnod/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Twitter Meta -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Fix 'Deriv Session Expired' in FXnod (Quick 30-Second Solution)">
+  <meta name="twitter:description" content="Quick 30-second fix for Deriv session expired or drive reconnect alerts in FXnod with zero stress.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .article-featured-image-wrap {
+      margin: 2rem 0 2.5rem 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      background: #f1f5f9;
+      box-shadow: var(--shadow-md);
+    }
+    .article-featured-image {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      display: block;
+    }
+    .image-caption {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      background: #ffffff;
+      border-top: 1px solid var(--color-border);
+      text-align: center;
+      font-style: italic;
+    }
+    .fxnod-partner-box {
+      background: linear-gradient(135deg, #0b1120 0%, #172554 100%);
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      margin: 2.5rem 0;
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.25);
+    }
+    .fxnod-partner-box::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(240, 58, 39, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .fxnod-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(240, 58, 39, 0.2);
+      border: 1px solid rgba(240, 58, 39, 0.5);
+      color: #fca5a5;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .fxnod-partner-box h3 {
+      color: #ffffff;
+      font-size: 1.45rem;
+      margin-bottom: 0.65rem;
+    }
+    .fxnod-partner-box p {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      margin-bottom: 1.4rem;
+    }
+    .fxnod-cta-btn {
+      background: var(--color-primary);
+      color: #ffffff;
+      font-weight: 700;
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 16px rgba(240, 58, 39, 0.35);
+      transition: all var(--transition-normal);
+      text-decoration: none;
+    }
+    .fxnod-cta-btn:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(240, 58, 39, 0.45);
+      color: #ffffff;
+    }
+    .alert-reassurance-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-left: 4px solid #2563eb;
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1.75rem;
+      margin: 2rem 0;
+    }
+    .alert-reassurance-box h4 {
+      color: #1e40af;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.15rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .alert-reassurance-box p {
+      color: #1e3a8a;
+      margin-bottom: 0;
+      line-height: 1.65;
+      font-size: 0.94rem;
+    }
+    .diagram-box {
+      background: #0f172a;
+      color: #38bdf8;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 1.75rem;
+      border-radius: var(--radius-md);
+      overflow-x: auto;
+      margin: 2rem 0;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      border: 1px solid #1e293b;
+      box-shadow: var(--shadow-md);
+    }
+    .workflow-steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+    .workflow-step-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      display: flex;
+      gap: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      transition: border-color var(--transition-fast);
+    }
+    .workflow-step-card:hover {
+      border-color: #3b82f6;
+    }
+    .workflow-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #eff6ff;
+      color: #2563eb;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+      border: 1px solid #bfdbfe;
+    }
+    .workflow-content h4 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+      color: var(--color-text-main);
+    }
+    .workflow-content p {
+      margin-bottom: 0.5rem;
+      font-size: 0.92rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+    .workflow-content ol, .workflow-content ul {
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      padding-left: 1.25rem;
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin: 2rem 0;
+    }
+    .tip-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .tip-card h4 {
+      color: var(--color-text-main);
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.08rem;
+    }
+    .tip-card p {
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .faq-question {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--color-text-main);
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+    .faq-answer p {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+  </style>
+
+  <!-- Structured Data (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Fix 'Deriv Session Expired' in FXnod (Quick 30-Second Solution)",
+    "description": "Seeing Drive Reconnect or Deriv Session Expired on FXnod? Learn why it happens and how to fix it in under 30 seconds with this simple step-by-step guide.",
+    "author": {
+      "@type": "Organization",
+      "name": "Trade Insight Editorial"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Trade Insight",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://tradeinsight.com/assets/logo.png"
+      }
+    },
+    "datePublished": "2026-10-13",
+    "dateModified": "2026-10-13",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+    "mainEntityOfPage": "https://tradeinsight.com/how-to-fix-deriv-session-expired-reconnect-fxnod/"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can a session disconnect cause me to lose money?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. If an active trade contract was already dispatched to Deriv, that single contract settles independently on Deriv's servers according to its tick duration. If a session disconnects, FXnod's safety guard stops the bot from opening new trades until you reconnect, protecting your balance from unattended market swings."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why did I get a reconnect alert right after creating a token?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This usually happens if an accidental extra whitespace character was copied along with the token key, or if the token was created on a Demo account while trying to connect in Real mode. Double-check that your token matches your intended account mode."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How often do Deriv API tokens expire?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Depending on your network stability and Deriv's routine security sweeps, tokens can remain active for weeks or may require renewal every few days. Refreshing your token takes only 30 seconds."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I have to pay anything to reconnect?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Reconnecting your Deriv account to FXnod is completely free and can be done as many times as needed."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will reinstalling the FXnod app fix the reconnect alert?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You do not need to reinstall the app. A reconnect alert is purely an authorization handshake between Deriv and your platform. Simply pasting a fresh token resolves it immediately."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="article-page">
+
+  <!-- Top Reading Progress Indicator -->
+  <div class="reading-progress-bar" id="reading-progress"></div>
+
+  <!-- ======================================================================
+       HEADER & NAVIGATION
+       ====================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <div style="display: flex; align-items: center;">
+        <a href="../index.html" class="brand-logo" aria-label="Trade Insight Home">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <span>Trade Insight</span>
+        </a>
+
+        <nav class="nav-links" aria-label="Main Navigation">
+          <a href="../index.html" class="nav-link">All Guides</a>
+          <a href="automated-trading-on-deriv.html" class="nav-link">Deriv Guides</a>
+          <a href="how-to-choose-a-trading-bot.html" class="nav-link">Trading Bots</a>
+          <a href="../index.html#category-fxnod" class="nav-link">FXnod Guides</a>
+        </nav>
+      </div>
+
+      <div class="header-right">
+        <!-- Direct FXnod Referral Header Button -->
+        <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.45rem 1.1rem; font-size: 0.82rem;" title="Explore FXnod Platform">
+          <span>Explore FXnod</span>
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+
+        <div class="header-search">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+          <input type="text" placeholder="Search troubleshooting guides..." aria-label="Search articles">
+        </div>
+
+        <button class="profile-avatar" title="User Profile" aria-label="User Profile">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       BREADCRUMB & HERO HEADER
+       ====================================================================== -->
+  <main class="article-page-wrapper">
+    <div class="container">
+      
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item"><a href="../index.html#category-fxnod">FXnod Guides</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item current" aria-current="page">Fix Deriv Reconnect Alert</li>
+        </ol>
+      </nav>
+
+      <!-- Article Header -->
+      <header class="article-header">
+        <div class="article-meta-badges">
+          <span class="badge" style="background: rgba(240, 58, 39, 0.95); color: #fff;">FXnod Guides</span>
+          <span class="badge badge-accent">Quick Troubleshooting</span>
+          <span class="article-reading-time">6 min read • Updated Oct 2026</span>
+        </div>
+
+        <h1 class="article-title">
+          How to Fix "Deriv Session Expired" or "Drive Reconnect" in FXnod (Quick 30-Second Fix)
+        </h1>
+
+        <p class="article-lead">
+          Have you logged into FXnod to start a trading bot, only to see a notification saying "Drive Reconnect Required" or "Deriv Session Expired"? Learn why this routine security protection happens, how to resolve it in under 30 seconds, and simple tips to keep your connection uninterrupted.
+        </p>
+
+        <div class="article-author-bar">
+          <div class="author-profile-chip">
+            <div class="author-chip-avatar">TI</div>
+            <span class="author-chip-name">Trade Insight Editorial</span>
+          </div>
+          <div class="author-meta-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+            <span>Published Oct 2026</span>
+          </div>
+          <div class="author-meta-item author-meta-verified">
+            <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+            <span>Verified 30-Sec Solution</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Featured Hero Image -->
+      <div class="article-featured-image-wrap">
+        <img 
+          src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" 
+          alt="Step-by-step guide to fixing Deriv session expired and reconnect alert on FXnod" 
+          class="article-featured-image"
+          loading="eager"
+        >
+        <div class="image-caption">
+          Figure 1: Reconnecting Deriv takes under 30 seconds. Your saved bot preferences, plans, and historical ended runs remain 100% safe.
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           TWO-COLUMN EDITORIAL LAYOUT
+           ====================================================================== -->
+      <div class="article-layout">
+        
+        <!-- LEFT STICKY SIDEBAR -->
+        <aside class="article-sidebar">
+          <div class="sidebar-widget toc-widget">
+            <div class="widget-title">
+              <span>Quick Navigation</span>
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path></svg>
+            </div>
+            <ul class="toc-list">
+              <li class="toc-item active"><a href="#peace-of-mind">100% Peace of Mind</a></li>
+              <li class="toc-item"><a href="#why-reconnect">Why Does Reconnect Happen?</a></li>
+              <li class="toc-item"><a href="#quick-fix-steps">The 30-Second Fix (4 Steps)</a></li>
+              <li class="toc-item"><a href="#saved-settings">Are Saved Settings Safe?</a></li>
+              <li class="toc-item"><a href="#prevention-tips">4 Tips to Prevent Disconnections</a></li>
+              <li class="toc-item"><a href="#faq">Frequently Asked Questions</a></li>
+              <li class="toc-item"><a href="#final-thoughts">Final Thoughts &amp; Next Steps</a></li>
+            </ul>
+          </div>
+
+          <!-- Official Partner Quick Box -->
+          <div class="sidebar-card">
+            <h4>Encrypted Connection</h4>
+            <p>FXnod pauses bot executions if a connection stales, ensuring no blind trades are ever fired into the market.</p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; text-align: center; justify-content: center;">
+              Launch FXnod Free &rarr;
+            </a>
+          </div>
+
+          <!-- Companion Guides Box -->
+          <div class="sidebar-card" style="margin-top: 1.5rem; background: #ffffff;">
+            <h4>Companion Guides</h4>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; line-height: 1.6;">
+              <li style="margin-bottom: 0.75rem;"><a href="how-to-connect-deriv-account-to-fxnod.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; Connect Deriv to FXnod Guide</a></li>
+              <li style="margin-bottom: 0.75rem;"><a href="is-fxnod-safe-legitimate-security-review.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; Is FXnod Safe and Legitimate?</a></li>
+              <li style="margin-bottom: 0.75rem;"><a href="fxnod-dashboard-complete-walkthrough-guide.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; FXnod Dashboard Walkthrough</a></li>
+              <li><a href="test-fxnod-bots-demo-virtual-account-guide.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; Test Bots on Demo Account</a></li>
+            </ul>
+          </div>
+        </aside>
+
+        <!-- RIGHT MAIN EDITORIAL CONTENT -->
+        <article class="article-content">
+
+          <!-- ==================================================================
+               SECTION 1: PEACE OF MIND FIRST
+               ================================================================== -->
+          <h2 id="peace-of-mind">First, Take a Deep Breath: Everything Is 100% Safe</h2>
+
+          <p>
+            Have you ever logged into FXnod to start a trading bot, only to see a notification saying <strong>"Drive Reconnect Required"</strong> or <strong>"Deriv Session Expired"</strong>—even though you already connected your account in the past?
+          </p>
+
+          <p>
+            If this has happened to you, take a deep breath: <strong>nothing is broken, your account is not banned, and your money is 100% safe.</strong>
+          </p>
+
+          <div class="alert-reassurance-box">
+            <h4>
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              Standard Regulatory Security Protection
+            </h4>
+            <p>
+              This notification is actually a standard security feature built by Deriv to protect your account. Just like your mobile banking app logs you out after a period of inactivity to prevent unauthorized access, Deriv periodically refreshes security keys to ensure that only you can authorize trade commands.
+            </p>
+          </div>
+
+          <p>
+            In this quick guide, you will learn why this notification appears, how to resolve it in under 30 seconds, and simple tips to keep your connection uninterrupted during your trading sessions.
+          </p>
+
+          <!-- ==================================================================
+               SECTION 2: WHY DOES DERIV RECONNECT HAPPEN?
+               ================================================================== -->
+          <h2 id="why-reconnect">Why Does "Deriv Reconnect" Happen?</h2>
+
+          <p>
+            Understanding why this occurs gives you complete peace of mind. Here are the three most common reasons Deriv prompts for a reconnect:
+          </p>
+
+          <div class="diagram-box">
+┌────────────────────────────────────────────────────────────────────────┐
+│ 1. ROUTINE SECURITY TIMEOUT                                            │
+│    Deriv automatically expires connection tokens after a set period to │
+│    protect your account from inactive browser sessions.               │
+├────────────────────────────────────────────────────────────────────────┤
+│ 2. NETWORK OR IP ADDRESS CHANGE                                        │
+│    Switching your phone from home Wi-Fi to mobile 4G/5G can trigger a  │
+│    security verification on Deriv's servers.                           │
+├────────────────────────────────────────────────────────────────────────┤
+│ 3. RECENT DERIV PASSWORD OR SECURITY RESET                             │
+│    If you changed your Deriv password or updated 2FA, Deriv resets all │
+│    active tokens instantly to prevent unauthorized access.             │
+└────────────────────────────────────────────────────────────────────────┘
+          </div>
+
+          <p>
+            When a session expires, FXnod’s background safety guard pauses pending bot actions immediately. It will <strong>never</strong> attempt to place blind trades with an unverified connection. For a complete look at non-custodial protection, read: <strong><a href="is-fxnod-safe-legitimate-security-review.html" style="color: #2563eb; font-weight: 600;">Is FXnod Safe and Legitimate? Security &amp; Fund Protection Review</a></strong>.
+          </p>
+
+          <!-- Partner Box -->
+          <div class="fxnod-partner-box">
+            <span class="fxnod-badge">Automated Protection</span>
+            <h3>Zero Risk from Unattended Market Swings</h3>
+            <p>
+              FXnod's background sentinels automatically safeguard your account balance the instant an authorization handshake times out.
+            </p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="fxnod-cta-btn">
+              <span>Open Free FXnod Account</span>
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 3: THE 30-SECOND FIX
+               ================================================================== -->
+          <h2 id="quick-fix-steps">The 30-Second Fix: How to Reconnect Step-by-Step</h2>
+
+          <p>
+            Resolving the reconnect notification takes less than half a minute. Follow these four quick steps:
+          </p>
+
+          <div class="workflow-steps-list">
+            
+            <div class="workflow-step-card">
+              <div class="workflow-num">1</div>
+              <div class="workflow-content">
+                <h4>Open the Connection Screen</h4>
+                <p>
+                  Inside the FXnod dashboard or mobile app, simply tap on the <strong>"Drive Reconnect"</strong> banner or navigate to <strong>Settings &gt; Deriv Connection</strong>. For an overview of the interface, see our <strong><a href="fxnod-dashboard-complete-walkthrough-guide.html" style="color: #2563eb; font-weight: 600;">FXnod Dashboard Complete Walkthrough</a></strong>.
+                </p>
+              </div>
+            </div>
+
+            <div class="workflow-step-card">
+              <div class="workflow-num">2</div>
+              <div class="workflow-content">
+                <h4>Grab a Fresh Token from Deriv</h4>
+                <p>
+                  In another tab or on your phone browser, open <a href="https://deriv.com" target="_blank" rel="noopener noreferrer" style="color: #2563eb; font-weight: 600;">Deriv.com</a> and log in:
+                </p>
+                <ol>
+                  <li>Go to your <strong>Profile &gt; Account Settings &gt; API Token</strong>.</li>
+                  <li>Under <strong>Create New Token</strong>:
+                    <ul>
+                      <li>Give it a name like <code>FXnod Daily Token</code>.</li>
+                      <li>Check only <strong>Read</strong> and <strong>Trade</strong>.</li>
+                    </ul>
+                  </li>
+                  <li>Click <strong>Create</strong> and tap <strong>Copy</strong> next to the new token string.</li>
+                </ol>
+                <p style="margin-top: 0.5rem; font-size: 0.88rem; color: #64748b; font-style: italic;">
+                  If you need a refresher on token creation, check our guide: <a href="how-to-connect-deriv-account-to-fxnod.html" style="color: #2563eb; font-weight: 600;">How to Connect Deriv to FXnod Safely</a>.
+                </p>
+              </div>
+            </div>
+
+            <div class="workflow-step-card">
+              <div class="workflow-num">3</div>
+              <div class="workflow-content">
+                <h4>Paste into FXnod Connection Box</h4>
+                <p>
+                  Switch back to your FXnod tab or mobile app:
+                </p>
+                <ol>
+                  <li>Paste the copied key into the <strong>Enter Deriv API Token</strong> box.</li>
+                  <li>Tap <strong>Connect Account</strong>.</li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="workflow-step-card">
+              <div class="workflow-num">4</div>
+              <div class="workflow-content">
+                <h4>Confirm Your Connection Restored</h4>
+                <p>
+                  Within two seconds, the reconnect alert will vanish:
+                </p>
+                <ul>
+                  <li>The status bar turns bright green with the <strong>"Connected"</strong> badge.</li>
+                  <li>Your live balance reloads automatically.</li>
+                  <li>Your Auto Hub bots are immediately ready to launch!</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ==================================================================
+               SECTION 4: ARE SAVED BOT SETTINGS SAFE?
+               ================================================================== -->
+          <h2 id="saved-settings">Are Your Saved Bot Settings Safe During a Reconnect?</h2>
+
+          <p>
+            <strong>Yes, 100%!</strong>
+          </p>
+
+          <p>
+            A temporary Deriv session reconnect does <strong>not</strong> erase your preferences, selected plans, or saved bot configurations. Your FXnod profile stores your favorite presets separately from the broker connection. Once you paste the fresh token, all your settings reappear exactly where you left them.
+          </p>
+
+          <p>
+            Furthermore, if a bot had already completed a run, your trade history and session receipts remain permanently logged under your <strong>Ended Runs</strong> section.
+          </p>
+
+          <!-- ==================================================================
+               SECTION 5: 4 PREVENTION TIPS
+               ================================================================== -->
+          <h2 id="prevention-tips">4 Simple Tips to Prevent Frequent Disconnections</h2>
+
+          <p>
+            If you want to keep your trading sessions running smoothly with minimal reconnect interruptions, follow these best practices:
+          </p>
+
+          <div class="tips-grid">
+            <div class="tip-card">
+              <h4>1. Use a Dedicated Token for FXnod</h4>
+              <p>Do not use the same API token across multiple different apps or scripts. Create one unique token specifically labeled <code>FXnod-App</code>.</p>
+            </div>
+
+            <div class="tip-card">
+              <h4>2. Stick to "Read" and "Trade" Only</h4>
+              <p>Selecting extra unnecessary permissions (like Admin) can cause Deriv's automated security filters to flag and expire tokens more frequently.</p>
+            </div>
+
+            <div class="tip-card">
+              <h4>3. Avoid Constant Network Hopping</h4>
+              <p>If running an active bot on your phone, try to stay on a stable Wi-Fi or steady mobile network rather than switching back and forth mid-session. See our <strong><a href="fxnod-mobile-app-trading-guide.html" style="color: #2563eb; font-weight: 600;">FXnod Mobile App Guide</a></strong> for optimal network settings.</p>
+            </div>
+
+            <div class="tip-card">
+              <h4>4. Keep Your Deriv Tab Logged In</h4>
+              <p>If you trade on a laptop, keeping your official Deriv tab open in the background helps maintain active session handshakes smoothly.</p>
+            </div>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 6: FREQUENTLY ASKED QUESTIONS
+               ================================================================== -->
+          <h2 id="faq">Frequently Asked Questions (FAQ)</h2>
+
+          <div class="faq-list">
+            <div class="faq-item">
+              <h3 class="faq-question">Can a session disconnect cause me to lose money?</h3>
+              <div class="faq-answer">
+                <p>
+                  No. If an active trade contract was already dispatched to Deriv, that single contract settles independently on Deriv’s servers according to its tick duration. If a session disconnects, FXnod’s safety guard stops the bot from opening <em>new</em> trades until you reconnect, protecting your balance from unattended market swings.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Why did I get a reconnect alert right after creating a token?</h3>
+              <div class="faq-answer">
+                <p>
+                  This usually happens if an accidental extra whitespace character was copied along with the token key, or if the token was created on a Demo account while trying to connect in Real mode. Read our guide on <strong><a href="test-fxnod-bots-demo-virtual-account-guide.html" style="color: #2563eb; font-weight: 600;">How to Test FXnod Bots on Demo</a></strong> to ensure your token matches your intended mode.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">How often do Deriv API tokens expire?</h3>
+              <div class="faq-answer">
+                <p>
+                  Depending on your network stability and Deriv’s routine security sweeps, tokens can remain active for weeks or may require renewal every few days. Refreshing your token takes only 30 seconds.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Do I have to pay anything to reconnect?</h3>
+              <div class="faq-answer">
+                <p>
+                  No. Reconnecting your Deriv account to FXnod is completely free and can be done as many times as needed.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Will reinstalling the FXnod app fix the reconnect alert?</h3>
+              <div class="faq-answer">
+                <p>
+                  You do not need to reinstall the app. A reconnect alert is purely an authorization handshake between Deriv and your platform. Simply pasting a fresh token resolves it immediately.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 7: FINAL THOUGHTS & CONCLUSION
+               ================================================================== -->
+          <h2 id="final-thoughts">Final Thoughts: Quick, Safe, and Back in Action</h2>
+
+          <p>
+            Security alerts like "Drive Reconnect" or "Session Expired" are not errors—they are proof that Deriv’s security architecture is actively protecting your trading account from stale connections.
+          </p>
+
+          <p>
+            By taking 30 seconds to paste a fresh token, you restore full access and ensure that every trade is backed by an encrypted, verified connection.
+          </p>
+
+          <p>
+            Ready to get back to trading? <strong>Grab a fresh token from Deriv, reconnect in seconds, and let your automated bots execute with complete peace of mind!</strong>
+          </p>
+
+          <!-- Affiliate Disclosure Box -->
+          <div class="affiliate-disclosure-box" style="margin-top: 2rem; padding: 1.25rem; background: #f8fafc; border: 1px solid var(--color-border); border-radius: var(--radius-md); font-size: 0.82rem; color: #64748b; line-height: 1.55;">
+            <strong>Affiliate Disclosure:</strong> This educational article contains partner referral links. If you register on FXnod through links on this page, we may earn a referral commission at no additional cost to you. Trading derivatives and synthetic indices involves high risk of capital loss. Always trade responsibly and test strategies using demo environments first.
+          </div>
+
+          <!-- Further Reading Box -->
+          <div class="further-reading-box">
+            <h4>Recommended Related Guides:</h4>
+            <ul>
+              <li><a href="manage-multiple-deriv-accounts-fxnod-guide.html">Multi-Account Management: Switching Real &amp; Demo Accounts</a></li>
+              <li><a href="how-to-connect-deriv-account-to-fxnod.html">How to Connect Your Deriv Account to FXnod Safely</a></li>
+              <li><a href="is-fxnod-safe-legitimate-security-review.html">Is FXnod Safe and Legitimate? Security &amp; Fund Protection Review</a></li>
+              <li><a href="fxnod-dashboard-complete-walkthrough-guide.html">Exploring the FXnod Dashboard: A Complete Walkthrough</a></li>
+              <li><a href="fxnod-mobile-app-trading-guide.html">Getting Started with the FXnod Mobile App</a></li>
+              <li><a href="test-fxnod-bots-demo-virtual-account-guide.html">How to Test FXnod Bots on a Virtual (Demo) Account</a></li>
+              <li><a href="what-is-fxnod-complete-beginners-guide.html">What is FXnod? The Complete Beginner's Guide</a></li>
+              <li><a href="fxnod-wallet-deposits-transfers-subscriptions-guide.html">Managing the FXnod Internal Wallet</a></li>
+            </ul>
+          </div>
+
+          <!-- Bottom CTA -->
+          <div class="article-footer-cta">
+            <h3>Trade Deriv with Institutional Precision</h3>
+            <p>Deploy 22 battle-tested automated bots with encrypted API bridges and instant reconnection safety.</p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">
+              Get Started with FXnod &rarr;
+            </a>
+          </div>
+
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <!-- ======================================================================
+       FOOTER COMPONENT
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="brand-logo">
+            <div class="brand-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+            <span>Trade Insight</span>
+          </a>
+          <p>
+            High-performance technical editorial and tactical research publication. We empower quantitative traders, risk teams, and modern web agencies with actionable market playbooks.
+          </p>
+          <span class="footer-digest-label">Weekly Tech & Trading Digest</span>
+          <form class="footer-mini-form" onsubmit="event.preventDefault(); showToast('Subscribed to Weekly Digest!');">
+            <input type="email" placeholder="Enter your business email" required aria-label="Business Email">
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+
+        <div class="footer-col">
+          <h4>Publication Areas</h4>
+          <ul>
+            <li><a href="../index.html#all">All Editorial Guides</a></li>
+            <li><a href="automated-trading-on-deriv.html">Deriv & Synthetic Indices</a></li>
+            <li><a href="how-to-choose-a-trading-bot.html">Automated Trading Bots</a></li>
+            <li><a href="what-is-automated-trading.html">Risk & Margin Management</a></li>
+            <li><a href="../index.html#seo">SEO & Growth Strategy</a></li>
+            <li><a href="../index.html#infra">Web Tech & Infrastructure</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-col-playbooks">
+          <h4>Popular Playbooks</h4>
+          <ul class="footer-playbooks-list">
+            <li><a href="manage-multiple-deriv-accounts-fxnod-guide.html">Manage Multiple Deriv Accounts</a></li>
+            <li><a href="how-to-fix-deriv-session-expired-reconnect-fxnod.html">Fix Deriv Session Expired</a></li>
+            <li><a href="fxnod-wallet-deposits-transfers-subscriptions-guide.html">Managing the FXnod Wallet</a></li>
+            <li><a href="test-fxnod-bots-demo-virtual-account-guide.html">Test FXnod Bots on Demo Account</a></li>
+            <li><a href="how-to-connect-deriv-account-to-fxnod.html">How to Connect Deriv to FXnod</a></li>
+          </ul>
+
+          <!-- Expandable archive list of remaining playbooks -->
+          <ul class="footer-playbooks-archive" id="footer-playbooks-archive" style="display: none;">
+            <li><a href="is-fxnod-safe-legitimate-security-review.html">Is FXnod Safe & Legit?</a></li>
+            <li><a href="fxnod-dashboard-complete-walkthrough-guide.html">FXnod Dashboard Walkthrough</a></li>
+            <li><a href="automated-vs-manual-trading-deriv-discipline.html">Automated vs Manual Trading</a></li>
+            <li><a href="fxnod-mobile-app-trading-guide.html">FXnod Mobile App Guide</a></li>
+            <li><a href="how-to-create-setup-fxnod-account-guide.html">FXnod Account Setup Guide</a></li>
+            <li><a href="what-is-fxnod-complete-beginners-guide.html">What is FXnod? (Complete Guide)</a></li>
+            <li><a href="what-is-automated-trading.html">What Is Automated Trading?</a></li>
+            <li><a href="automated-trading-on-deriv.html">How to Start on Deriv</a></li>
+            <li><a href="how-to-choose-a-trading-bot.html">How to Choose a Trading Bot</a></li>
+            <li><a href="manage-risk-when-using-a-trading-bot.html">Managing Bot Risk</a></li>
+            <li><a href="why-is-my-trading-bot-not-working.html">Bot Troubleshooting Guide</a></li>
+            <li><a href="can-trading-bots-lose-money.html">Can Bots Lose Money? (Risks)</a></li>
+            <li><a href="what-is-risk-to-reward-ratio.html">Risk-to-Reward Ratio Guide</a></li>
+            <li><a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" data-ref-link>Explore FXnod Platform</a></li>
+            <li><a href="how-to-test-a-trading-bot.html">How to Test a Trading Bot</a></li>
+            <li><a href="how-trading-bots-connect-to-platforms.html">How Bots Connect to Platforms</a></li>
+            <li><a href="why-trading-bots-make-losing-trades.html">Why Bots Make Losing Trades</a></li>
+            <li><a href="manual-vs-automated-trading.html">Manual vs Automated Trading</a></li>
+            <li><a href="what-to-check-before-connecting-a-trading-bot.html">Pre-Connection Checks (Security)</a></li>
+            <li><a href="trading-bot-faqs.html">Trading Bot FAQs (15 Answers)</a></li>
+            <li><a href="how-to-start-learning-trading.html">How to Start Learning Trading</a></li>
+            <li><a href="how-to-read-candlestick-charts.html">How to Read Candlesticks</a></li>
+            <li><a href="how-to-identify-support-and-resistance.html">Support & Resistance Levels</a></li>
+            <li><a href="how-to-keep-a-trading-journal.html">How to Keep a Trading Journal</a></li>
+            <li><a href="how-to-control-emotions-while-trading.html">Controlling Trading Emotions</a></li>
+            <li><a href="forex-vs-synthetic-indices.html">Forex vs Synthetic Indices</a></li>
+            <li><a href="how-to-evaluate-a-trading-strategy.html">How to Evaluate a Strategy</a></li>
+            <li><a href="why-market-prices-go-up-and-down.html">Why Market Prices Move</a></li>
+            <li><a href="how-economic-news-affects-trading.html">Economic News & Trading</a></li>
+            <li><a href="best-trading-timeframe-for-beginners.html">Best Trading Timeframes</a></li>
+            <li><a href="what-is-a-breakout-in-trading.html">What Is a Breakout in Trading?</a></li>
+            <li><a href="how-moving-averages-work-in-trading.html">How Moving Averages Work</a></li>
+            <li><a href="what-is-rsi-indicator-in-trading.html">What Is the RSI Indicator?</a></li>
+            <li><a href="what-is-spread-in-trading.html">What Is Spread in Trading?</a></li>
+            <li><a href="how-to-calculate-position-size.html">Position Sizing Guide</a></li>
+            <li><a href="what-is-drawdown-in-trading.html">What Is Drawdown in Trading?</a></li>
+            <li><a href="is-high-win-rate-enough-to-be-profitable.html">Is a High Win Rate Enough?</a></li>
+          </ul>
+
+          <button type="button" class="footer-toggle-btn" id="footer-playbooks-toggle" aria-expanded="false">
+            <span>+ View All 41 Playbooks</span>
+          </button>
+        </div>
+
+        <div class="footer-col">
+          <h4>Compliance & Legal</h4>
+          <ul>
+            <li><a href="../index.html#editorial">Editorial Independence</a></li>
+            <li><a href="../index.html#risk-notice">Risk Disclosure Notice</a></li>
+            <li><a href="../index.html#terms">Terms of Service</a></li>
+            <li><a href="../index.html#privacy">Privacy Policy</a></li>
+            <li><a href="../index.html#cookies">Cookie Preferences</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 Trade Insight Editorial. All content is for educational and technical informational purposes only. Trading financial derivatives carries substantial risk.
+        </div>
+        <div>
+          Designed for Agency Quantitative Operations
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-Account Management in FXnod: Switch Real & Demo (2026 Guide) | Trade Insight</title>
+  <meta name="description" content="Learn how to manage multiple Deriv accounts in FXnod. Switch between Virtual Demo and Real USD seamlessly with 1-click account switching and safety badges.">
+  <meta name="keywords" content="multiple Deriv accounts FXnod, switch demo to real Deriv bot, manage multiple trading accounts, Deriv multi account trading, FXnod account switcher, Deriv bot account manager">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="Multi-Account Management in FXnod: Switch Real & Demo (2026 Guide)">
+  <meta property="og:description" content="Learn how to manage multiple Deriv accounts in FXnod. Switch between Virtual Demo and Real USD seamlessly with 1-click account switching and safety badges.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tradeinsight.com/manage-multiple-deriv-accounts-fxnod-guide/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Twitter Meta -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Multi-Account Management in FXnod: Switch Real & Demo (2026 Guide)">
+  <meta name="twitter:description" content="Organize your Deriv accounts in FXnod. Toggle between Virtual Demo and Real USD in 1-click with zero risk of accidental trades.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .article-featured-image-wrap {
+      margin: 2rem 0 2.5rem 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      background: #f1f5f9;
+      box-shadow: var(--shadow-md);
+    }
+    .article-featured-image {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      display: block;
+    }
+    .image-caption {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      background: #ffffff;
+      border-top: 1px solid var(--color-border);
+      text-align: center;
+      font-style: italic;
+    }
+    .fxnod-partner-box {
+      background: linear-gradient(135deg, #0b1120 0%, #172554 100%);
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      margin: 2.5rem 0;
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.25);
+    }
+    .fxnod-partner-box::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(240, 58, 39, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .fxnod-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(240, 58, 39, 0.2);
+      border: 1px solid rgba(240, 58, 39, 0.5);
+      color: #fca5a5;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .fxnod-partner-box h3 {
+      color: #ffffff;
+      font-size: 1.45rem;
+      margin-bottom: 0.65rem;
+    }
+    .fxnod-partner-box p {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      margin-bottom: 1.4rem;
+    }
+    .fxnod-cta-btn {
+      background: var(--color-primary);
+      color: #ffffff;
+      font-weight: 700;
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 16px rgba(240, 58, 39, 0.35);
+      transition: all var(--transition-normal);
+      text-decoration: none;
+    }
+    .fxnod-cta-btn:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(240, 58, 39, 0.45);
+      color: #ffffff;
+    }
+    .diagram-box {
+      background: #0f172a;
+      color: #38bdf8;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 1.75rem;
+      border-radius: var(--radius-md);
+      overflow-x: auto;
+      margin: 2rem 0;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      border: 1px solid #1e293b;
+      box-shadow: var(--shadow-md);
+    }
+    .badge-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin: 2rem 0;
+    }
+    .badge-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .badge-card h4 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.08rem;
+    }
+    .badge-card p {
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+    .workflow-steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+    .workflow-step-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      display: flex;
+      gap: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      transition: border-color var(--transition-fast);
+    }
+    .workflow-step-card:hover {
+      border-color: #3b82f6;
+    }
+    .workflow-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #eff6ff;
+      color: #2563eb;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+      border: 1px solid #bfdbfe;
+    }
+    .workflow-content h4 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+      color: var(--color-text-main);
+    }
+    .workflow-content p {
+      margin-bottom: 0.5rem;
+      font-size: 0.92rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+    .workflow-content ol, .workflow-content ul {
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      padding-left: 1.25rem;
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    .analogy-card {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-left: 4px solid #16a34a;
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1.75rem;
+      margin: 2rem 0;
+    }
+    .analogy-card h4 {
+      color: #166534;
+      margin-top: 0;
+      margin-bottom: 0.6rem;
+      font-size: 1.15rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .analogy-card p {
+      color: #14532d;
+      margin-bottom: 0;
+      line-height: 1.65;
+      font-size: 0.94rem;
+    }
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin: 2rem 0;
+    }
+    .tip-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .tip-card h4 {
+      color: var(--color-text-main);
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.08rem;
+    }
+    .tip-card p {
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .faq-question {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--color-text-main);
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+    .faq-answer p {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+  </style>
+
+  <!-- Structured Data (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Multi-Account Management in FXnod: Switch Real & Demo (2026 Guide)",
+    "description": "Learn how to manage multiple Deriv accounts in FXnod. Switch between Virtual Demo and Real USD seamlessly with 1-click account switching and safety badges.",
+    "author": {
+      "@type": "Organization",
+      "name": "Trade Insight Editorial"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Trade Insight",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://tradeinsight.com/assets/logo.png"
+      }
+    },
+    "datePublished": "2026-10-13",
+    "dateModified": "2026-10-13",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+    "mainEntityOfPage": "https://tradeinsight.com/manage-multiple-deriv-accounts-fxnod-guide/"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can I link more than two Deriv accounts to FXnod?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. You can link multiple Deriv accounts (such as different currency accounts or multiple sub-accounts) under one FXnod profile."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can an accidental click on Demo place a trade on my Real money?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Because Demo and Real accounts use entirely separate security tokens issued by Deriv, a trade dispatched to a Demo token cannot interact with real capital. Deriv's server infrastructure strictly separates demo balances from real funds."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to pay twice for FXnod tools to use them on multiple accounts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No! Your FXnod tool subscriptions and Auto Hub bot access belong to your FXnod user profile, not your individual Deriv accounts. Once unlocked, you can use your tools across all your linked Deriv accounts."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I disconnect one account without affecting the other?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. In Settings > Deriv Connection, each linked account has its own Disconnect / Remove option. You can remove a specific token anytime while keeping your other connections intact."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does switching accounts on my phone also switch it on my computer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. FXnod features real-time cloud profile synchronization. When you toggle your active account on your mobile app, your web dashboard reflects the active selection seamlessly."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="article-page">
+
+  <!-- Top Reading Progress Indicator -->
+  <div class="reading-progress-bar" id="reading-progress"></div>
+
+  <!-- ======================================================================
+       HEADER & NAVIGATION
+       ====================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <div style="display: flex; align-items: center;">
+        <a href="../index.html" class="brand-logo" aria-label="Trade Insight Home">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <span>Trade Insight</span>
+        </a>
+
+        <nav class="nav-links" aria-label="Main Navigation">
+          <a href="../index.html" class="nav-link">All Guides</a>
+          <a href="automated-trading-on-deriv.html" class="nav-link">Deriv Guides</a>
+          <a href="how-to-choose-a-trading-bot.html" class="nav-link">Trading Bots</a>
+          <a href="../index.html#category-fxnod" class="nav-link">FXnod Guides</a>
+        </nav>
+      </div>
+
+      <div class="header-right">
+        <!-- Direct FXnod Referral Header Button -->
+        <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.45rem 1.1rem; font-size: 0.82rem;" title="Explore FXnod Platform">
+          <span>Explore FXnod</span>
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+
+        <div class="header-search">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+          <input type="text" placeholder="Search account guides..." aria-label="Search articles">
+        </div>
+
+        <button class="profile-avatar" title="User Profile" aria-label="User Profile">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       BREADCRUMB & HERO HEADER
+       ====================================================================== -->
+  <main class="article-page-wrapper">
+    <div class="container">
+      
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item"><a href="../index.html#category-fxnod">FXnod Guides</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item current" aria-current="page">Multi-Account Management</li>
+        </ol>
+      </nav>
+
+      <!-- Article Header -->
+      <header class="article-header">
+        <div class="article-meta-badges">
+          <span class="badge" style="background: rgba(240, 58, 39, 0.95); color: #fff;">FXnod Guides</span>
+          <span class="badge badge-accent">Multi-Account Cockpit</span>
+          <span class="article-reading-time">7 min read • Updated Oct 2026</span>
+        </div>
+
+        <h1 class="article-title">
+          How to Manage Multiple Deriv Accounts on FXnod: Switch Between Real and Demo Seamlessly
+        </h1>
+
+        <p class="article-lead">
+          Every serious trader knows that keeping your trading activities organized is a cornerstone of long-term consistency. Learn how to link multiple Deriv accounts in FXnod, toggle between Virtual Demo and Real USD in 1-click, and let high-visibility safety badges protect you from accidental trades.
+        </p>
+
+        <div class="article-author-bar">
+          <div class="author-profile-chip">
+            <div class="author-chip-avatar">TI</div>
+            <span class="author-chip-name">Trade Insight Editorial</span>
+          </div>
+          <div class="author-meta-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+            <span>Published Oct 2026</span>
+          </div>
+          <div class="author-meta-item author-meta-verified">
+            <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+            <span>Verified Multi-Account Protocol</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Featured Hero Image -->
+      <div class="article-featured-image-wrap">
+        <img 
+          src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" 
+          alt="FXnod interface showing 1-click switching between Deriv Real USD and Virtual Demo accounts" 
+          class="article-featured-image"
+          loading="eager"
+        >
+        <div class="image-caption">
+          Figure 1: High-visibility safety badges in FXnod ensure you are always 100% certain whether you are testing on Virtual Demo or trading live capital.
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           TWO-COLUMN EDITORIAL LAYOUT
+           ====================================================================== -->
+      <div class="article-layout">
+        
+        <!-- LEFT STICKY SIDEBAR -->
+        <aside class="article-sidebar">
+          <div class="sidebar-widget toc-widget">
+            <div class="widget-title">
+              <span>Quick Navigation</span>
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path></svg>
+            </div>
+            <ul class="toc-list">
+              <li class="toc-item active"><a href="#why-multiple-accounts">Why Use Multiple Accounts?</a></li>
+              <li class="toc-item"><a href="#safety-badges">High-Visibility Safety Badges</a></li>
+              <li class="toc-item"><a href="#step-by-step">Step-by-Step: Link &amp; Switch</a></li>
+              <li class="toc-item"><a href="#active-bot-sessions">Active Bot Session Binding</a></li>
+              <li class="toc-item"><a href="#golden-rules">Best Practices &amp; Golden Rules</a></li>
+              <li class="toc-item"><a href="#faq">Frequently Asked Questions</a></li>
+              <li class="toc-item"><a href="#final-thoughts">Final Thoughts &amp; Next Steps</a></li>
+            </ul>
+          </div>
+
+          <!-- Official Partner Quick Box -->
+          <div class="sidebar-card">
+            <h4>1-Click Account Switcher</h4>
+            <p>Link both your Deriv Virtual Demo and Real USD accounts under one profile. Switch seamlessly without re-authenticating.</p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; text-align: center; justify-content: center;">
+              Launch FXnod Free &rarr;
+            </a>
+          </div>
+
+          <!-- Companion Guides Box -->
+          <div class="sidebar-card" style="margin-top: 1.5rem; background: #ffffff;">
+            <h4>Companion Guides</h4>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; line-height: 1.6;">
+              <li style="margin-bottom: 0.75rem;"><a href="how-to-connect-deriv-account-to-fxnod.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; Connect Deriv to FXnod Guide</a></li>
+              <li style="margin-bottom: 0.75rem;"><a href="test-fxnod-bots-demo-virtual-account-guide.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; Test Bots on Demo Account</a></li>
+              <li style="margin-bottom: 0.75rem;"><a href="is-fxnod-safe-legitimate-security-review.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; Is FXnod Safe and Legitimate?</a></li>
+              <li><a href="fxnod-dashboard-complete-walkthrough-guide.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; FXnod Dashboard Walkthrough</a></li>
+            </ul>
+          </div>
+        </aside>
+
+        <!-- RIGHT MAIN EDITORIAL CONTENT -->
+        <article class="article-content">
+
+          <p>
+            Every serious trader knows that keeping your trading activities organized is a cornerstone of long-term success.
+          </p>
+
+          <p>
+            You wouldn't test a brand-new experimental strategy with your primary savings, just as you wouldn't want to log out and log back in every time you want to switch between your <strong>Demo account</strong> and your <strong>Real account</strong>.
+          </p>
+
+          <p>
+            Many traders also maintain separate accounts for different purposes—for example, one conservative account for steady daily growth, and a separate account for higher-frequency testing.
+          </p>
+
+          <p>
+            <strong>FXnod makes managing multiple Deriv accounts effortless.</strong>
+          </p>
+
+          <p>
+            With FXnod's built-in multi-account manager, you can link both your Demo and Real Deriv accounts under a single profile, toggle between them with a single click, and supervise your balances without ever sharing passwords or re-authenticating from scratch. If you are just getting started, read our foundational guide: <strong><a href="what-is-fxnod-complete-beginners-guide.html" style="color: #2563eb; font-weight: 600;">What is FXnod? Complete Beginner’s Guide</a></strong>.
+          </p>
+
+          <!-- ==================================================================
+               SECTION 1: WHY TRADERS USE MULTIPLE ACCOUNTS
+               ================================================================== -->
+          <h2 id="why-multiple-accounts">Why Traders Use Multiple Deriv Accounts</h2>
+
+          <p>
+            Managing more than one account is a standard practice among disciplined traders. Here are the three primary reasons to keep separate accounts:
+          </p>
+
+          <div class="diagram-box">
+┌────────────────────────────────────────────────────────────────────────┐
+│ 1. RISK-FREE EXPERIMENTATION (DEMO ACCOUNT)                            │
+│    Test new Auto Hub bots, try out unfamiliar volatility indices, and  │
+│    observe consecutive losing runs without risking real money.         │
+├────────────────────────────────────────────────────────────────────────┤
+│ 2. DISCIPLINED REAL TRADING (PRIMARY REAL ACCOUNT)                     │
+│    Execute your verified, reliable strategies with strict daily profit │
+│    targets and conservative stop-loss limits.                          │
+├────────────────────────────────────────────────────────────────────────┤
+│ 3. STRATEGY SEGREGATION (CONSERVATIVE VS. SCALPING)                    │
+│    Keep high-frequency digit strategies (like Differs) separated from  │
+│    trending directional strategies (like Rise/Fall) for clear records. │
+└────────────────────────────────────────────────────────────────────────┘
+          </div>
+
+          <p>
+            For a full breakdown of risk-free testing strategies, explore our detailed guide: <strong><a href="test-fxnod-bots-demo-virtual-account-guide.html" style="color: #2563eb; font-weight: 600;">How to Test FXnod Bots on a Virtual (Demo) Account</a></strong>.
+          </p>
+
+          <!-- Partner Box -->
+          <div class="fxnod-partner-box">
+            <span class="fxnod-badge">Multi-Account Sandbox</span>
+            <h3>Connect Demo &amp; Real Under 1 Profile</h3>
+            <p>
+              Link your $10,000 Deriv Virtual Demo account alongside your Real USD account. Switch in under 2 seconds right from your top status bar.
+            </p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="fxnod-cta-btn">
+              <span>Open Free FXnod Account</span>
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 2: SAFETY BADGES
+               ================================================================== -->
+          <h2 id="safety-badges">How FXnod Keeps Multiple Accounts Organized &amp; Safe</h2>
+
+          <p>
+            The biggest fear when managing multiple accounts is making a costly mistake: <em>What if I think I'm on Demo, but I accidentally place a trade on my Real account?</em>
+          </p>
+
+          <p>
+            FXnod eliminates this risk entirely with <strong>High-Visibility Account Badges</strong>:
+          </p>
+
+          <div class="badge-card-grid">
+            <div class="badge-card" style="border-left: 4px solid #3b82f6;">
+              <h4 style="color: #1d4ed8;">🔵 Bright "Virtual USD (Demo)" Badge</h4>
+              <p>When connected to your demo account, this badge stays permanently visible in the top status bar. You have 100% visual certainty that no real funds are involved.</p>
+            </div>
+
+            <div class="badge-card" style="border-left: 4px solid #16a34a;">
+              <h4 style="color: #15803d;">🟢 Vibrant "Real USD" Badge</h4>
+              <p>When connected to your live capital, the badge turns green with your real account ID (e.g., <code>CR123456</code>) displayed alongside your live balance.</p>
+            </div>
+
+            <div class="badge-card" style="border-left: 4px solid #f59e0b;">
+              <h4 style="color: #b45309;">⚠️ Session Confirmation Prompt</h4>
+              <p>If you switch to a Real account, the platform prompts a subtle visual confirmation, ensuring you are always conscious of where trade commands are dispatched.</p>
+            </div>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 3: STEP-BY-STEP SETUP & SWITCHING
+               ================================================================== -->
+          <h2 id="step-by-step">Step-by-Step: How to Link and Switch Accounts in FXnod</h2>
+
+          <p>
+            Linking multiple accounts takes less than two minutes. Follow these simple steps:
+          </p>
+
+          <div class="workflow-steps-list">
+            
+            <div class="workflow-step-card">
+              <div class="workflow-num">1</div>
+              <div class="workflow-content">
+                <h4>Generate Separate Tokens on Deriv</h4>
+                <p>
+                  Log in to your Deriv account and generate an API token for each account you want to connect:
+                </p>
+                <ol>
+                  <li><strong>For Demo:</strong> Select your <strong>Virtual USD</strong> account in Deriv. Go to <strong>Account Settings &gt; API Token</strong>, create a token named <code>FXnod Demo</code> with <strong>Read</strong> and <strong>Trade</strong> checked, and copy it.</li>
+                  <li><strong>For Real:</strong> Switch your Deriv account to <strong>Real USD</strong>. Repeat the process to create a token named <code>FXnod Real</code> with <strong>Read</strong> and <strong>Trade</strong> checked, and copy it.</li>
+                </ol>
+                <p style="margin-top: 0.5rem; font-size: 0.88rem; color: #64748b; font-style: italic;">
+                  Need step-by-step token instructions? See our guide: <a href="how-to-connect-deriv-account-to-fxnod.html" style="color: #2563eb; font-weight: 600;">How to Connect Deriv to FXnod Safely</a>.
+                </p>
+              </div>
+            </div>
+
+            <div class="workflow-step-card">
+              <div class="workflow-num">2</div>
+              <div class="workflow-content">
+                <h4>Save Both Accounts in FXnod Settings</h4>
+                <p>
+                  Open your FXnod dashboard (Web or Mobile) and link the tokens:
+                </p>
+                <ol>
+                  <li>Navigate to <strong>Settings &gt; Deriv Connection</strong>.</li>
+                  <li>Paste your <strong>Demo Token</strong> first and click <strong>Connect</strong>. FXnod saves your Virtual account details.</li>
+                  <li>Tap <strong>Add Another Account</strong> and paste your <strong>Real Token</strong>.</li>
+                  <li>Give each account a clear nickname (e.g., <em>"My Demo Tester"</em> and <em>"My Real Account"</em>).</li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="workflow-step-card">
+              <div class="workflow-num">3</div>
+              <div class="workflow-content">
+                <h4>Switch Accounts in 1 Click</h4>
+                <p>
+                  Once your accounts are linked, you never need to visit the settings page again to switch:
+                </p>
+                <ol>
+                  <li>Look at the top status bar of your FXnod screen.</li>
+                  <li>Click or tap directly on the <strong>Account Badge</strong>.</li>
+                  <li>A clean dropdown list appears displaying your linked accounts with their live balances.</li>
+                  <li>Tap the account you wish to activate.</li>
+                  <li>In less than two seconds, FXnod switches the active connection, updates your balance display, and readies your bots!</li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="workflow-step-card">
+              <div class="workflow-num">4</div>
+              <div class="workflow-content">
+                <h4>Verify Badge Color &amp; Launch</h4>
+                <p>
+                  Confirm the top status badge color (Blue for Demo, Green for Real) and launch your chosen bot from the Auto Hub with total confidence.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ==================================================================
+               SECTION 4: ACTIVE BOT SESSIONS
+               ================================================================== -->
+          <h2 id="active-bot-sessions">What Happens to Active Bots When You Switch Accounts?</h2>
+
+          <p>
+            A common question is: <em>Can I have a bot running on Demo while I check my Real balance?</em>
+          </p>
+
+          <p>
+            To keep your trading risk completely contained and disciplined, FXnod binds each active bot session to the specific account on which it was launched:
+          </p>
+
+          <ul style="line-height: 1.7; margin-bottom: 1.5rem;">
+            <li>An active bot on Demo will <strong>only</strong> trade on that virtual balance.</li>
+            <li>It is technically impossible for a demo bot to "spill over" and place orders on your real account.</li>
+            <li>If you switch the active screen, your running session continues its pre-programmed rules independently according to its pre-set Stop-Loss and Take-Profit limits.</li>
+          </ul>
+
+          <div class="analogy-card">
+            <h4>
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+              Complete Account Isolation
+            </h4>
+            <p>
+              Deriv API tokens are tied to specific Account IDs (e.g. <code>VRTC...</code> vs. <code>CR...</code>). Deriv's broker server flatly rejects any command intended for one account that is dispatched through another token.
+            </p>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 5: BEST PRACTICES & GOLDEN RULES
+               ================================================================== -->
+          <h2 id="golden-rules">Best Practices for Multi-Account Trading</h2>
+
+          <p>
+            To get the most out of your multi-account setup without confusion, follow these four golden rules:
+          </p>
+
+          <div class="tips-grid">
+            <div class="tip-card">
+              <h4>1. Double-Check the Badge Color</h4>
+              <p>Form the habit of glancing at the top badge color (Blue for Demo, Green for Real) before launching any bot run.</p>
+            </div>
+
+            <div class="tip-card">
+              <h4>2. Use Clear Nicknames</h4>
+              <p>When saving tokens, give them descriptive names like <code>Demo Sandbox</code> and <code>Real $100 Bankroll</code> for instant recognition.</p>
+            </div>
+
+            <div class="tip-card">
+              <h4>3. Never Test New Bots on Real First</h4>
+              <p>Run at least 30 to 50 simulated cycles on your Demo account before toggling over to your Real account.</p>
+            </div>
+
+            <div class="tip-card">
+              <h4>4. Keep Real Account Tokens Fresh</h4>
+              <p>If you change your Deriv password, both your Demo and Real tokens will refresh. Update both in FXnod to prevent session disconnects.</p>
+            </div>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 6: FREQUENTLY ASKED QUESTIONS
+               ================================================================== -->
+          <h2 id="faq">Frequently Asked Questions (FAQ)</h2>
+
+          <div class="faq-list">
+            <div class="faq-item">
+              <h3 class="faq-question">Can I link more than two Deriv accounts to FXnod?</h3>
+              <div class="faq-answer">
+                <p>
+                  Yes. You can link multiple Deriv accounts (such as different currency accounts or multiple sub-accounts) under one FXnod profile.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Can an accidental click on Demo place a trade on my Real money?</h3>
+              <div class="faq-answer">
+                <p>
+                  No. Because Demo and Real accounts use entirely separate security tokens issued by Deriv, a trade dispatched to a Demo token cannot interact with real capital. Deriv's server infrastructure strictly separates demo balances from real funds. Read our full security breakdown: <strong><a href="is-fxnod-safe-legitimate-security-review.html" style="color: #2563eb; font-weight: 600;">Is FXnod Safe and Legitimate?</a></strong>.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Do I need to pay twice for FXnod tools to use them on multiple accounts?</h3>
+              <div class="faq-answer">
+                <p>
+                  No! Your FXnod tool subscriptions and Auto Hub bot access belong to your <strong>FXnod user profile</strong>, not your individual Deriv accounts. Once unlocked, you can use your tools across all your linked Deriv accounts.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Can I disconnect one account without affecting the other?</h3>
+              <div class="faq-answer">
+                <p>
+                  Yes. In <strong>Settings &gt; Deriv Connection</strong>, each linked account has its own "Disconnect / Remove" option. You can remove a specific token anytime while keeping your other connections intact.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Does switching accounts on my phone also switch it on my computer?</h3>
+              <div class="faq-answer">
+                <p>
+                  Yes. FXnod features real-time cloud profile synchronization. When you toggle your active account on your mobile app, your web dashboard reflects the active selection seamlessly.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 7: FINAL THOUGHTS & CONCLUSION
+               ================================================================== -->
+          <h2 id="final-thoughts">Final Thoughts: Complete Flexibility, Zero Stress</h2>
+
+          <p>
+            Trading with both a Virtual Demo account and a Real account is the smartest way to build consistency on Deriv. With FXnod's multi-account switcher, you no longer have to deal with annoying logouts, multiple browser tabs, or confusing setup steps.
+          </p>
+
+          <p>
+            Test your strategies risk-free on Demo, switch to Real when you're confident, and maintain complete control over your capital at all times.
+          </p>
+
+          <p>
+            <strong><a href="how-to-create-setup-fxnod-account-guide.html" style="color: #2563eb; font-weight: 600;">Link your Demo and Real accounts to FXnod today</a> and experience the easiest way to manage your automated trading!</strong>
+          </p>
+
+          <!-- Affiliate Disclosure Box -->
+          <div class="affiliate-disclosure-box" style="margin-top: 2rem; padding: 1.25rem; background: #f8fafc; border: 1px solid var(--color-border); border-radius: var(--radius-md); font-size: 0.82rem; color: #64748b; line-height: 1.55;">
+            <strong>Affiliate Disclosure:</strong> This educational article contains partner referral links. If you register on FXnod through links on this page, we may earn a referral commission at no additional cost to you. Trading derivatives and synthetic indices involves high risk of capital loss. Always trade responsibly and test strategies using demo environments first.
+          </div>
+
+          <!-- Further Reading Box -->
+          <div class="further-reading-box">
+            <h4>Recommended Related Guides:</h4>
+            <ul>
+              <li><a href="inside-fxnod-autohub-bots-guide.html">Inside FXnod Auto Hub: The No-Code Trading Bot Suite with 22 Ready-Made Bots</a></li>
+              <li><a href="how-to-fix-deriv-session-expired-reconnect-fxnod.html">How to Fix "Deriv Session Expired" or "Drive Reconnect" in FXnod</a></li>
+              <li><a href="test-fxnod-bots-demo-virtual-account-guide.html">How to Test FXnod Bots on a Virtual (Demo) Account</a></li>
+              <li><a href="how-to-connect-deriv-account-to-fxnod.html">How to Connect Your Deriv Account to FXnod Safely</a></li>
+              <li><a href="is-fxnod-safe-legitimate-security-review.html">Is FXnod Safe and Legitimate? Security &amp; Fund Protection Review</a></li>
+              <li><a href="fxnod-wallet-deposits-transfers-subscriptions-guide.html">Managing the FXnod Internal Wallet</a></li>
+              <li><a href="fxnod-dashboard-complete-walkthrough-guide.html">Exploring the FXnod Dashboard: A Complete Walkthrough</a></li>
+              <li><a href="what-is-fxnod-complete-beginners-guide.html">What is FXnod? The Complete Beginner's Guide</a></li>
+            </ul>
+          </div>
+
+          <!-- Bottom CTA -->
+          <div class="article-footer-cta">
+            <h3>Organize Your Deriv Automation Today</h3>
+            <p>Deploy 22 battle-tested algorithmic bots across multiple accounts with seamless 1-click toggling.</p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">
+              Get Started with FXnod &rarr;
+            </a>
+          </div>
+
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <!-- ======================================================================
+       FOOTER COMPONENT
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="brand-logo">
+            <div class="brand-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+            <span>Trade Insight</span>
+          </a>
+          <p>
+            High-performance technical editorial and tactical research publication. We empower quantitative traders, risk teams, and modern web agencies with actionable market playbooks.
+          </p>
+          <span class="footer-digest-label">Weekly Tech & Trading Digest</span>
+          <form class="footer-mini-form" onsubmit="event.preventDefault(); showToast('Subscribed to Weekly Digest!');">
+            <input type="email" placeholder="Enter your business email" required aria-label="Business Email">
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+
+        <div class="footer-col">
+          <h4>Publication Areas</h4>
+          <ul>
+            <li><a href="../index.html#all">All Editorial Guides</a></li>
+            <li><a href="automated-trading-on-deriv.html">Deriv & Synthetic Indices</a></li>
+            <li><a href="how-to-choose-a-trading-bot.html">Automated Trading Bots</a></li>
+            <li><a href="what-is-automated-trading.html">Risk & Margin Management</a></li>
+            <li><a href="../index.html#seo">SEO & Growth Strategy</a></li>
+            <li><a href="../index.html#infra">Web Tech & Infrastructure</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-col-playbooks">
+          <h4>Popular Playbooks</h4>
+          <ul class="footer-playbooks-list">
+            <li><a href="inside-fxnod-autohub-bots-guide.html">Inside FXnod Auto Hub</a></li>
+            <li><a href="manage-multiple-deriv-accounts-fxnod-guide.html">Manage Multiple Deriv Accounts</a></li>
+            <li><a href="how-to-fix-deriv-session-expired-reconnect-fxnod.html">Fix Deriv Session Expired</a></li>
+            <li><a href="fxnod-wallet-deposits-transfers-subscriptions-guide.html">Managing the FXnod Wallet</a></li>
+            <li><a href="test-fxnod-bots-demo-virtual-account-guide.html">Test FXnod Bots on Demo Account</a></li>
+          </ul>
+
+          <!-- Expandable archive list of remaining playbooks -->
+          <ul class="footer-playbooks-archive" id="footer-playbooks-archive" style="display: none;">
+            <li><a href="how-to-connect-deriv-account-to-fxnod.html">How to Connect Deriv to FXnod</a></li>
+            <li><a href="is-fxnod-safe-legitimate-security-review.html">Is FXnod Safe & Legit?</a></li>
+            <li><a href="fxnod-dashboard-complete-walkthrough-guide.html">FXnod Dashboard Walkthrough</a></li>
+            <li><a href="automated-vs-manual-trading-deriv-discipline.html">Automated vs Manual Trading</a></li>
+            <li><a href="fxnod-mobile-app-trading-guide.html">FXnod Mobile App Guide</a></li>
+            <li><a href="how-to-create-setup-fxnod-account-guide.html">FXnod Account Setup Guide</a></li>
+            <li><a href="what-is-fxnod-complete-beginners-guide.html">What is FXnod? (Complete Guide)</a></li>
+            <li><a href="what-is-automated-trading.html">What Is Automated Trading?</a></li>
+            <li><a href="automated-trading-on-deriv.html">How to Start on Deriv</a></li>
+            <li><a href="how-to-choose-a-trading-bot.html">How to Choose a Trading Bot</a></li>
+            <li><a href="manage-risk-when-using-a-trading-bot.html">Managing Bot Risk</a></li>
+            <li><a href="why-is-my-trading-bot-not-working.html">Bot Troubleshooting Guide</a></li>
+            <li><a href="can-trading-bots-lose-money.html">Can Bots Lose Money? (Risks)</a></li>
+            <li><a href="what-is-risk-to-reward-ratio.html">Risk-to-Reward Ratio Guide</a></li>
+            <li><a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" data-ref-link>Explore FXnod Platform</a></li>
+            <li><a href="how-to-test-a-trading-bot.html">How to Test a Trading Bot</a></li>
+            <li><a href="how-trading-bots-connect-to-platforms.html">How Bots Connect to Platforms</a></li>
+            <li><a href="why-trading-bots-make-losing-trades.html">Why Bots Make Losing Trades</a></li>
+            <li><a href="manual-vs-automated-trading.html">Manual vs Automated Trading</a></li>
+            <li><a href="what-to-check-before-connecting-a-trading-bot.html">Pre-Connection Checks (Security)</a></li>
+            <li><a href="trading-bot-faqs.html">Trading Bot FAQs (15 Answers)</a></li>
+            <li><a href="how-to-start-learning-trading.html">How to Start Learning Trading</a></li>
+            <li><a href="how-to-read-candlestick-charts.html">How to Read Candlesticks</a></li>
+            <li><a href="how-to-identify-support-and-resistance.html">Support & Resistance Levels</a></li>
+            <li><a href="how-to-keep-a-trading-journal.html">How to Keep a Trading Journal</a></li>
+            <li><a href="how-to-control-emotions-while-trading.html">Controlling Trading Emotions</a></li>
+            <li><a href="forex-vs-synthetic-indices.html">Forex vs Synthetic Indices</a></li>
+            <li><a href="how-to-evaluate-a-trading-strategy.html">How to Evaluate a Strategy</a></li>
+            <li><a href="why-market-prices-go-up-and-down.html">Why Market Prices Move</a></li>
+            <li><a href="how-economic-news-affects-trading.html">Economic News & Trading</a></li>
+            <li><a href="best-trading-timeframe-for-beginners.html">Best Trading Timeframes</a></li>
+            <li><a href="what-is-a-breakout-in-trading.html">What Is a Breakout in Trading?</a></li>
+            <li><a href="how-moving-averages-work-in-trading.html">How Moving Averages Work</a></li>
+            <li><a href="what-is-rsi-indicator-in-trading.html">What Is the RSI Indicator?</a></li>
+            <li><a href="what-is-spread-in-trading.html">What Is Spread in Trading?</a></li>
+            <li><a href="how-to-calculate-position-size.html">Position Sizing Guide</a></li>
+            <li><a href="what-is-drawdown-in-trading.html">What Is Drawdown in Trading?</a></li>
+            <li><a href="is-high-win-rate-enough-to-be-profitable.html">Is a High Win Rate Enough?</a></li>
+          </ul>
+
+          <button type="button" class="footer-toggle-btn" id="footer-playbooks-toggle" aria-expanded="false">
+            <span>+ View All 42 Playbooks</span>
+          </button>
+        </div>
+
+        <div class="footer-col">
+          <h4>Compliance & Legal</h4>
+          <ul>
+            <li><a href="../index.html#editorial">Editorial Independence</a></li>
+            <li><a href="../index.html#risk-notice">Risk Disclosure Notice</a></li>
+            <li><a href="../index.html#terms">Terms of Service</a></li>
+            <li><a href="../index.html#privacy">Privacy Policy</a></li>
+            <li><a href="../index.html#cookies">Cookie Preferences</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 Trade Insight Editorial. All content is for educational and technical informational purposes only. Trading financial derivatives carries substantial risk.
+        </div>
+        <div>
+          Designed for Agency Quantitative Operations
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -6,6 +6,61 @@
 
 window.ARTICLES_DATA = [
   {
+    "id": 44,
+    "title": "Even / Odd Trading Bots Explained: How to Build Consistent Daily Returns",
+    "slug": "blog/even-odd-trading-bots-strategy-guide-fxnod.html",
+    "category": "fxnod",
+    "badgeText": "FXnod Guides",
+    "badgeColor": "rgba(240, 58, 39, 0.95)",
+    "image": "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=1200&q=80",
+    "excerpt": "Discover how Even / Odd trading bots work on Deriv with FXnod. Learn about 50/50 parity math, staking options, loss progression, and 1-click automated setup.",
+    "readTime": "7 min read • Oct 2026"
+  },
+  {
+    "id": 43,
+    "title": "Mastering Matches & Differs Bots on FXnod: How to Capitalize on 90%+ Win Rates",
+    "slug": "blog/matches-differs-bots-strategy-guide-fxnod.html",
+    "category": "fxnod",
+    "badgeText": "FXnod Guides",
+    "badgeColor": "rgba(240, 58, 39, 0.95)",
+    "image": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80",
+    "excerpt": "Master Matches and Differs bots on FXnod. Learn how 90%+ win rate digit trading works, how to manage risk safely, and how to run pre-built bots in 1 click.",
+    "readTime": "8 min read • Oct 2026"
+  },
+  {
+    "id": 42,
+    "title": "Inside FXnod Auto Hub: The No-Code Trading Bot Suite with 22 Ready-Made Bots",
+    "slug": "blog/inside-fxnod-autohub-bots-guide.html",
+    "category": "fxnod",
+    "badgeText": "FXnod Guides",
+    "badgeColor": "rgba(240, 58, 39, 0.95)",
+    "image": "https://images.unsplash.com/photo-1642543492481-44e81e3914a7?auto=format&fit=crop&w=1200&q=80",
+    "excerpt": "Explore FXnod Auto Hub: 22 pre-built, no-code trading bots for Deriv. Learn about Matches/Differs, Even/Odd, Rise/Fall, and 1-click risk-free testing.",
+    "readTime": "8 min read • Oct 2026"
+  },
+  {
+    "id": 41,
+    "title": "Multi-Account Management in FXnod: Switch Real & Demo (2026 Guide)",
+    "slug": "blog/manage-multiple-deriv-accounts-fxnod-guide.html",
+    "category": "fxnod",
+    "badgeText": "FXnod Guides",
+    "badgeColor": "rgba(240, 58, 39, 0.95)",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+    "excerpt": "Learn how to manage multiple Deriv accounts in FXnod. Switch between Virtual Demo and Real USD seamlessly with 1-click account switching and safety badges.",
+    "readTime": "7 min read • Oct 2026"
+  },
+  {
+    "id": 40,
+    "title": "How to Fix 'Deriv Session Expired' or 'Drive Reconnect' in FXnod (Quick 30-Second Fix)",
+    "slug": "blog/how-to-fix-deriv-session-expired-reconnect-fxnod.html",
+    "category": "fxnod",
+    "badgeText": "FXnod Guides",
+    "badgeColor": "rgba(240, 58, 39, 0.95)",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+    "excerpt": "Seeing Drive Reconnect or Deriv Session Expired on FXnod? Learn why it happens and how to fix it in under 30 seconds with this simple step-by-step guide.",
+    "readTime": "6 min read • Oct 2026"
+  },
+  {
     "id": 39,
     "title": "Managing the FXnod Internal Wallet: Deposits, Transfers & Subscriptions",
     "slug": "blog/fxnod-wallet-deposits-transfers-subscriptions-guide.html",
