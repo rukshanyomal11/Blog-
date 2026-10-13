@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Connect Deriv to FXnod: Step-by-Step Guide (2026) | Trade Insight</title>
+  <meta name="description" content="Learn how to connect your Deriv account to FXnod safely in under 60 seconds. Simple step-by-step API token guide with zero technical jargon.">
+  <meta name="keywords" content="connect Deriv to FXnod, Deriv API token setup, link Deriv account, FXnod Deriv connection, safe Deriv trading bot, how to use FXnod with Deriv">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="How to Connect Deriv to FXnod: Step-by-Step Guide (2026)">
+  <meta property="og:description" content="Learn how to connect your Deriv account to FXnod safely in under 60 seconds. Simple step-by-step API token guide with zero technical jargon.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tradeinsight.com/how-to-connect-deriv-account-to-fxnod/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Twitter Meta -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Connect Deriv to FXnod: Step-by-Step Guide (2026)">
+  <meta name="twitter:description" content="Connect your Deriv account to FXnod in under 60 seconds with our beginner-friendly, non-technical walkthrough.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .article-featured-image-wrap {
+      margin: 2rem 0 2.5rem 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      background: #f1f5f9;
+      box-shadow: var(--shadow-md);
+    }
+    .article-featured-image {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      display: block;
+    }
+    .image-caption {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      background: #ffffff;
+      border-top: 1px solid var(--color-border);
+      text-align: center;
+      font-style: italic;
+    }
+    .fxnod-partner-box {
+      background: linear-gradient(135deg, #0b1120 0%, #172554 100%);
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      margin: 2.5rem 0;
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.25);
+    }
+    .fxnod-partner-box::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(240, 58, 39, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .fxnod-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(240, 58, 39, 0.2);
+      border: 1px solid rgba(240, 58, 39, 0.5);
+      color: #fca5a5;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .fxnod-partner-box h3 {
+      color: #ffffff;
+      font-size: 1.45rem;
+      margin-bottom: 0.65rem;
+    }
+    .fxnod-partner-box p {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      margin-bottom: 1.4rem;
+    }
+    .fxnod-cta-btn {
+      background: var(--color-primary);
+      color: #ffffff;
+      font-weight: 700;
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 16px rgba(240, 58, 39, 0.35);
+      transition: all var(--transition-normal);
+      text-decoration: none;
+    }
+    .fxnod-cta-btn:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(240, 58, 39, 0.45);
+      color: #ffffff;
+    }
+    .comparison-table-wrap {
+      margin: 2rem 0;
+      overflow-x: auto;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+    }
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+      background: #ffffff;
+    }
+    .comparison-table th {
+      background: #f8fafc;
+      padding: 1rem 1.25rem;
+      font-weight: 700;
+      color: var(--color-text-main);
+      border-bottom: 2px solid var(--color-border);
+    }
+    .comparison-table td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      vertical-align: middle;
+    }
+    .comparison-table tr:last-child td {
+      border-bottom: none;
+    }
+    .diagram-box {
+      background: #0f172a;
+      color: #38bdf8;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 1.75rem;
+      border-radius: var(--radius-md);
+      overflow-x: auto;
+      margin: 2rem 0;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      border: 1px solid #1e293b;
+      box-shadow: var(--shadow-md);
+    }
+    .analogy-card {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-left: 4px solid #16a34a;
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1.75rem;
+      margin: 2rem 0;
+    }
+    .analogy-card h4 {
+      color: #166534;
+      margin-top: 0;
+      margin-bottom: 0.6rem;
+      font-size: 1.15rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .analogy-card p {
+      color: #14532d;
+      margin-bottom: 0;
+      line-height: 1.65;
+      font-size: 0.94rem;
+    }
+    .workflow-steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+    .workflow-step-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      display: flex;
+      gap: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      transition: border-color var(--transition-fast);
+    }
+    .workflow-step-card:hover {
+      border-color: #3b82f6;
+    }
+    .workflow-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #eff6ff;
+      color: #2563eb;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+      border: 1px solid #bfdbfe;
+    }
+    .workflow-content h4 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+      color: var(--color-text-main);
+    }
+    .workflow-content p {
+      margin-bottom: 0.5rem;
+      font-size: 0.92rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+    .workflow-content ol, .workflow-content ul {
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      padding-left: 1.25rem;
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .faq-question {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--color-text-main);
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+    .faq-answer p {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+  </style>
+
+  <!-- Structured Data (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Connect Deriv to FXnod: Step-by-Step Guide (2026)",
+    "description": "Learn how to connect your Deriv account to FXnod safely in under 60 seconds. Simple step-by-step API token guide with zero technical jargon.",
+    "author": {
+      "@type": "Organization",
+      "name": "Trade Insight Editorial"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Trade Insight",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://tradeinsight.com/assets/logo.png"
+      }
+    },
+    "datePublished": "2026-10-13",
+    "dateModified": "2026-10-13",
+    "image": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80",
+    "mainEntityOfPage": "https://tradeinsight.com/how-to-connect-deriv-account-to-fxnod/"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can FXnod take money from my Deriv account?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, never. The token permissions you select only allow viewing account data and opening trade contracts. Deriv's system completely blocks any withdrawal or transfer attempts through an API token."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does it cost anything to connect my Deriv account to FXnod?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Connecting your Deriv account to FXnod is completely free. You can test all 22 Auto Hub bots on your demo account without paying anything."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I connect using my smartphone?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! You can complete the exact same steps on your mobile phone browser or inside the FXnod Mobile App."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What should I do if my connection shows Disconnected?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This usually means your token has expired or your internet connection briefly paused. Simply open Settings > Deriv Connection, re-enter a fresh token from Deriv, and click Connect."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I connect more than one Deriv account?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. You can manage multiple linked accounts (such as a Real account and a Demo account) under one FXnod profile."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="article-page">
+
+  <!-- Top Reading Progress Indicator -->
+  <div class="reading-progress-bar" id="reading-progress"></div>
+
+  <!-- ======================================================================
+       HEADER & NAVIGATION
+       ====================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <div style="display: flex; align-items: center;">
+        <a href="../index.html" class="brand-logo" aria-label="Trade Insight Home">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <span>Trade Insight</span>
+        </a>
+
+        <nav class="nav-links" aria-label="Main Navigation">
+          <a href="../index.html" class="nav-link">All Guides</a>
+          <a href="automated-trading-on-deriv.html" class="nav-link">Deriv Guides</a>
+          <a href="how-to-choose-a-trading-bot.html" class="nav-link">Trading Bots</a>
+          <a href="../index.html#category-fxnod" class="nav-link">FXnod Guides</a>
+        </nav>
+      </div>
+
+      <div class="header-right">
+        <!-- Direct FXnod Referral Header Button -->
+        <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.45rem 1.1rem; font-size: 0.82rem;" title="Explore FXnod Platform">
+          <span>Explore FXnod</span>
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+
+        <div class="header-search">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+          <input type="text" placeholder="Search connection guides..." aria-label="Search articles">
+        </div>
+
+        <button class="profile-avatar" title="User Profile" aria-label="User Profile">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       BREADCRUMB & HERO HEADER
+       ====================================================================== -->
+  <main class="article-page-wrapper">
+    <div class="container">
+      
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item"><a href="../index.html#category-fxnod">FXnod Guides</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item current" aria-current="page">Connect Deriv to FXnod</li>
+        </ol>
+      </nav>
+
+      <!-- Article Header -->
+      <header class="article-header">
+        <div class="article-meta-badges">
+          <span class="badge" style="background: rgba(240, 58, 39, 0.95); color: #fff;">FXnod Guides</span>
+          <span class="badge badge-accent">Step-by-Step Tutorial</span>
+          <span class="article-reading-time">7 min read • Updated Oct 2026</span>
+        </div>
+
+        <h1 class="article-title">
+          How to Connect Your Deriv Account to FXnod Safely: Step-by-Step Guide
+        </h1>
+
+        <p class="article-lead">
+          The biggest hesitation traders face when starting with automated bots is the setup process. Learn how to link your Deriv account to FXnod in under 60 seconds using a secure, non-custodial API token—with zero code, zero computer installations, and total fund protection.
+        </p>
+
+        <div class="article-author-bar">
+          <div class="author-profile-chip">
+            <div class="author-chip-avatar">TI</div>
+            <span class="author-chip-name">Trade Insight Editorial</span>
+          </div>
+          <div class="author-meta-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+            <span>Published Oct 2026</span>
+          </div>
+          <div class="author-meta-item author-meta-verified">
+            <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+            <span>Verified Non-Custodial Setup</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Featured Hero Image -->
+      <div class="article-featured-image-wrap">
+        <img 
+          src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80" 
+          alt="Secure Deriv API token link to the FXnod automated trading dashboard" 
+          class="article-featured-image"
+          loading="eager"
+        >
+        <div class="image-caption">
+          Figure 1: Linking your Deriv account to FXnod requires only a scoped Read and Trade token—leaving full custody of your capital in your own hands.
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           TWO-COLUMN EDITORIAL LAYOUT
+           ====================================================================== -->
+      <div class="article-layout">
+        
+        <!-- LEFT STICKY SIDEBAR -->
+        <aside class="article-sidebar">
+          <div class="sidebar-widget toc-widget">
+            <div class="widget-title">
+              <span>Quick Navigation</span>
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path></svg>
+            </div>
+            <ul class="toc-list">
+              <li class="toc-item active"><a href="#why-safe">Why API Tokens Are 100% Safe</a></li>
+              <li class="toc-item"><a href="#prerequisites">What You Need Before Starting</a></li>
+              <li class="toc-item"><a href="#roadmap">60-Second Visual Roadmap</a></li>
+              <li class="toc-item"><a href="#step-by-step">4-Step Connection Guide</a></li>
+              <li class="toc-item"><a href="#permissions-table">API Permissions Breakdown</a></li>
+              <li class="toc-item"><a href="#demo-vs-real">Switching Demo & Real Accounts</a></li>
+              <li class="toc-item"><a href="#disconnect-revoke">Disconnecting Anytime</a></li>
+              <li class="toc-item"><a href="#common-mistakes">Common Mistakes to Avoid</a></li>
+              <li class="toc-item"><a href="#faq">Frequently Asked Questions</a></li>
+              <li class="toc-item"><a href="#final-thoughts">Final Thoughts & Next Steps</a></li>
+            </ul>
+          </div>
+
+          <!-- Official Partner Quick Box -->
+          <div class="sidebar-card">
+            <h4>Ready to Connect?</h4>
+            <p>Create your free FXnod account and link your Deriv Virtual Demo account in under 60 seconds.</p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; text-align: center; justify-content: center;">
+              Launch FXnod Free &rarr;
+            </a>
+          </div>
+
+          <!-- Companion Guides Box -->
+          <div class="sidebar-card" style="margin-top: 1.5rem; background: #ffffff;">
+            <h4>Companion Guides</h4>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; line-height: 1.6;">
+              <li style="margin-bottom: 0.75rem;"><a href="what-is-fxnod-complete-beginners-guide.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; What is FXnod? Beginner's Guide</a></li>
+              <li style="margin-bottom: 0.75rem;"><a href="how-to-create-setup-fxnod-account-guide.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; FXnod Account Setup Guide</a></li>
+              <li style="margin-bottom: 0.75rem;"><a href="is-fxnod-safe-legitimate-security-review.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; Is FXnod Safe and Legitimate?</a></li>
+              <li><a href="fxnod-dashboard-complete-walkthrough-guide.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; FXnod Dashboard Walkthrough</a></li>
+            </ul>
+          </div>
+        </aside>
+
+        <!-- RIGHT MAIN EDITORIAL CONTENT -->
+        <article class="article-content">
+
+          <p>
+            The biggest hesitation traders face when starting with automated tools is the setup process. Many people worry that connecting their trading account will be too complicated, require technical computer skills, or accidentally put their money at risk.
+          </p>
+
+          <p>
+            <strong>With FXnod, connecting your Deriv account takes less than 60 seconds.</strong>
+          </p>
+
+          <p>
+            There is no software installation, no coding, and no complex configuration. You simply copy a secure key from Deriv, paste it into FXnod, and your account is instantly linked and ready to trade. Most importantly, this connection is built so that <strong>only you</strong> have control over your funds—FXnod can never withdraw or transfer your money.
+          </p>
+
+          <p>
+            In this simple, beginner-friendly guide, we will walk you through the exact steps to link your Deriv account to FXnod safely, whether you are on a computer or your smartphone. If you are new to the platform, you can also explore our foundational overview: <strong><a href="what-is-fxnod-complete-beginners-guide.html" style="color: #2563eb; font-weight: 600;">What is FXnod? Complete Beginner’s Guide</a></strong>.
+          </p>
+
+          <!-- ==================================================================
+               SECTION 1: WHY API TOKENS ARE 100% SAFE
+               ================================================================== -->
+          <h2 id="why-safe">Why Connecting via API Token Is 100% Safe</h2>
+
+          <p>
+            Before we begin, let’s clear up what an "API Token" actually is in plain, everyday language.
+          </p>
+
+          <div class="analogy-card">
+            <h4>
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+              The Valet Key Analogy: Controlled Access Without Risk
+            </h4>
+            <p>
+              Think of an API Token as a <strong>valet key for your car</strong>. When you give a valet parking attendant your valet key, they can drive your car into a designated parking space, but they cannot open your locked glove compartment, access your trunk, or drive away with your car permanently.
+            </p>
+          </div>
+
+          <p>
+            Similarly, when you create an API token for FXnod:
+          </p>
+
+          <ul style="line-height: 1.7; margin-bottom: 1.5rem;">
+            <li>✅ You allow FXnod to <strong>view your balance</strong> and <strong>place bot trades</strong> when you tell a strategy to start.</li>
+            <li>❌ You <strong>do NOT</strong> give FXnod permission to withdraw, transfer, or deposit your money.</li>
+            <li>❌ You <strong>do NOT</strong> share your Deriv account password or personal banking credentials.</li>
+          </ul>
+
+          <p>
+            Your money stays 100% inside your Deriv account at all times, protected by your personal banking details, Deriv’s multi-factor security, and global regulatory standards. For a complete deep-dive into non-custodial protection, read our comprehensive review: <strong><a href="is-fxnod-safe-legitimate-security-review.html" style="color: #2563eb; font-weight: 600;">Is FXnod Safe and Legitimate? Security &amp; Fund Protection Review</a></strong>.
+          </p>
+
+          <!-- Callout Box -->
+          <div class="fxnod-partner-box">
+            <span class="fxnod-badge">Zero-Risk Practice</span>
+            <h3>Start with a Free Demo Account</h3>
+            <p>
+              You don’t have to risk real money to try FXnod. Generate a token for your Deriv Virtual Demo account ($10,000 virtual balance) and test all 22 Auto Hub bots completely free of charge.
+            </p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="fxnod-cta-btn">
+              <span>Open Free FXnod Account</span>
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 2: WHAT YOU NEED BEFORE YOU START
+               ================================================================== -->
+          <h2 id="prerequisites">What You Need Before You Start</h2>
+
+          <p>
+            To complete the connection, you only need three simple things ready:
+          </p>
+
+          <ol style="line-height: 1.7; margin-bottom: 1.5rem;">
+            <li><strong>An active FXnod account:</strong> It takes under 30 seconds to sign up with just your email. Follow our <strong><a href="how-to-create-setup-fxnod-account-guide.html" style="color: #2563eb; font-weight: 600;">FXnod Account Setup Guide</a></strong> if you haven't created one yet.</li>
+            <li><strong>An active Deriv account:</strong> Either a Real account with funds or a free Virtual Demo account provided by Deriv.</li>
+            <li><strong>A standard web browser or smartphone:</strong> Works seamlessly on Google Chrome, Safari, Firefox, or inside the native mobile app.</li>
+          </ol>
+
+          <!-- ==================================================================
+               SECTION 3: 60-SECOND VISUAL ROADMAP
+               ================================================================== -->
+          <h2 id="roadmap">60-Second Visual Roadmap</h2>
+
+          <p>
+            Here is the quick bird's-eye view of how the connection flows from Deriv into your FXnod cockpit:
+          </p>
+
+          <div class="diagram-box">
+┌────────────────────────────────────────────────────────┐
+│  STEP 1: Log in to Deriv &gt; Account Settings &gt; API Token │
+└──────────────────────────┬─────────────────────────────┘
+                           │
+                           ▼
+┌────────────────────────────────────────────────────────┐
+│  STEP 2: Create Token with [Read] and [Trade] Checked   │
+│          (Leave Payments &amp; Admin UNCHECKED!)           │
+└──────────────────────────┬─────────────────────────────┘
+                           │
+                           ▼
+┌────────────────────────────────────────────────────────┐
+│  STEP 3: Copy Token Key &amp; Paste into FXnod Dashboard   │
+└──────────────────────────┬─────────────────────────────┘
+                           │
+                           ▼
+┌────────────────────────────────────────────────────────┐
+│  STEP 4: Green "Connected" Badge &amp; Live Balance Appear │
+└────────────────────────────────────────────────────────┘
+          </div>
+
+          <!-- ==================================================================
+               SECTION 4: STEP-BY-STEP SETUP GUIDE
+               ================================================================== -->
+          <h2 id="step-by-step">Step-by-Step: How to Link Deriv to FXnod in 60 Seconds</h2>
+
+          <p>
+            Follow these four clear steps to connect your account:
+          </p>
+
+          <div class="workflow-steps-list">
+            
+            <div class="workflow-step-card">
+              <div class="workflow-num">1</div>
+              <div class="workflow-content">
+                <h4>Open Your Deriv API Settings</h4>
+                <p>
+                  Log in to your personal trading account on <a href="https://deriv.com" target="_blank" rel="noopener noreferrer" style="color: #2563eb; font-weight: 600;">Deriv.com</a>.
+                </p>
+                <ol>
+                  <li>In the top-right corner of your screen, click on your <strong>Profile icon</strong> (or open the main side menu on mobile).</li>
+                  <li>Click on <strong>Account Settings</strong>.</li>
+                  <li>Scroll down the left navigation menu to the <strong>Security &amp; Safety</strong> section and click on <strong>API Token</strong>.</li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="workflow-step-card">
+              <div class="workflow-num">2</div>
+              <div class="workflow-content">
+                <h4>Create Your New Connection Token</h4>
+                <p>
+                  On the API Token page, you will see a simple form with a name field and a few permission checkboxes:
+                </p>
+                <ol>
+                  <li><strong>Token Name:</strong> Type a friendly name so you remember what it is used for, such as <code>My FXnod Bot</code>.</li>
+                  <li><strong>Choose Permissions (Very Important):</strong>
+                    <ul>
+                      <li>Check the box for <strong>Read</strong> (allows FXnod to display your balance and trade results).</li>
+                      <li>Check the box for <strong>Trade</strong> (allows your bots to execute contracts).</li>
+                      <li><strong>Leave everything else UNCHECKED</strong> (do NOT check "Admin" or "Payments").</li>
+                    </ul>
+                  </li>
+                  <li>Click the red <strong>Create</strong> button.</li>
+                  <li>Your new token string will appear on your screen. Click the small <strong>Copy</strong> icon next to it.</li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="workflow-step-card">
+              <div class="workflow-num">3</div>
+              <div class="workflow-content">
+                <h4>Paste Your Token into FXnod</h4>
+                <p>
+                  Now, switch over to your FXnod dashboard (either in your web browser or inside the mobile app):
+                </p>
+                <ol>
+                  <li>Log in to your FXnod account.</li>
+                  <li>In the navigation menu, go to <strong>Settings</strong> and select <strong>Deriv Connection</strong> (or simply tap the <strong>Deriv Status</strong> badge located in the top bar).</li>
+                  <li>Click inside the <strong>"Enter Deriv API Token"</strong> text box.</li>
+                  <li><strong>Paste</strong> the token key you copied from Deriv.</li>
+                  <li>Click the <strong>"Connect Account"</strong> button.</li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="workflow-step-card">
+              <div class="workflow-num">4</div>
+              <div class="workflow-content">
+                <h4>Confirm Your Connection</h4>
+                <p>
+                  Within two seconds, the screen will automatically refresh:
+                </p>
+                <ul>
+                  <li>A bright green <strong>"Connected"</strong> badge will appear at the top.</li>
+                  <li>Your official <strong>Deriv Account ID</strong> (such as <code>CR123456</code> or <code>VRTC123456</code>) will show up.</li>
+                  <li>Your <strong>Live Balance</strong> will display immediately on the dashboard.</li>
+                </ul>
+                <p style="margin-top: 0.5rem; color: #166534; font-weight: 600;">
+                  Congratulations! Your FXnod platform is now linked and ready to run bots safely!
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ==================================================================
+               SECTION 5: PERMISSION BREAKDOWN TABLE
+               ================================================================== -->
+          <h2 id="permissions-table">API Token Permissions Breakdown: What Deriv Allows</h2>
+
+          <p>
+            To understand why your funds can never be touched or transferred, look at how Deriv's official security boundaries work:
+          </p>
+
+          <div class="comparison-table-wrap">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Permission Scope</th>
+                  <th>Required by FXnod?</th>
+                  <th>What It Allows</th>
+                  <th>Can Funds Be Withdrawn?</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Read</strong></td>
+                  <td><span style="color: #16a34a; font-weight: 700;">✅ YES</span></td>
+                  <td>Displays live account balance, open positions, and market tick history</td>
+                  <td><span style="color: #dc2626; font-weight: 700;">❌ Impossible</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Trade</strong></td>
+                  <td><span style="color: #16a34a; font-weight: 700;">✅ YES</span></td>
+                  <td>Places bot contracts (e.g., Rise/Fall, Digits) when you start a bot</td>
+                  <td><span style="color: #dc2626; font-weight: 700;">❌ Impossible</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Payments / Cashier</strong></td>
+                  <td><span style="color: #dc2626; font-weight: 700;">❌ NEVER</span></td>
+                  <td>Depositing or withdrawing money to banks, cards, or crypto wallets</td>
+                  <td><span style="color: #dc2626; font-weight: 700;">❌ Blocked by Deriv</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Admin</strong></td>
+                  <td><span style="color: #dc2626; font-weight: 700;">❌ NEVER</span></td>
+                  <td>Changing passwords, account emails, or 2FA credentials on Deriv</td>
+                  <td><span style="color: #dc2626; font-weight: 700;">❌ Blocked by Deriv</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>
+            Because FXnod operates strictly under <strong>Read</strong> and <strong>Trade</strong> permissions, Deriv's central banking server will flatly reject any withdrawal or transfer request sent through that token. Withdrawals can only ever be authorized by you through Deriv's official website using your personal 2FA credentials.
+          </p>
+
+          <!-- ==================================================================
+               SECTION 6: SWITCHING DEMO & REAL ACCOUNTS
+               ================================================================== -->
+          <h2 id="demo-vs-real">How to Switch Between Virtual (Demo) and Real Accounts</h2>
+
+          <p>
+            FXnod gives you the flexibility to practice risk-free on your <strong>Demo account</strong> before deploying real capital.
+          </p>
+
+          <p>
+            If you want to connect both your Demo and Real accounts:
+          </p>
+
+          <ol style="line-height: 1.7; margin-bottom: 1.5rem;">
+            <li>On Deriv, click your account balance dropdown and switch your active account to <strong>Demo</strong>.</li>
+            <li>Go back to <strong>Account Settings &gt; API Token</strong> and create a new token named <code>FXnod Demo</code> (with Read and Trade checked).</li>
+            <li>Paste this token into FXnod.</li>
+            <li>You can now switch between your <strong>Demo</strong> and <strong>Real</strong> balances right from the top navigation bar of your FXnod screen at any time!</li>
+          </ol>
+
+          <div class="analogy-card" style="background: #eff6ff; border-color: #bfdbfe; border-left-color: #2563eb;">
+            <h4 style="color: #1e40af;">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+              Golden Rule for Beginners
+            </h4>
+            <p style="color: #1e3a8a;">
+              Always run your first 15–20 bot sessions on your <strong>Virtual USD (Demo)</strong> balance. Watch how the Loss Progression sheet calculates stakes and get comfortable with your stop-loss settings before switching to real funds.
+            </p>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 7: DISCONNECTING ANYTIME
+               ================================================================== -->
+          <h2 id="disconnect-revoke">How to Disconnect or Revoke Access Anytime</h2>
+
+          <p>
+            You are always in complete control of your connection. If you ever want to disconnect FXnod from Deriv, you can do it in two easy ways:
+          </p>
+
+          <ul style="line-height: 1.7; margin-bottom: 1.5rem;">
+            <li><strong>From Inside FXnod:</strong> Go to <strong>Settings &gt; Deriv Connection</strong> and click the red <strong>"Disconnect"</strong> button. This removes the token from your active session.</li>
+            <li><strong>From Inside Deriv:</strong> Log in to Deriv, navigate to <strong>Account Settings &gt; API Token</strong>, locate your FXnod token in the list, and click the red <strong>Delete (Trash)</strong> icon.</li>
+          </ul>
+
+          <p>
+            The instant you click Delete on Deriv, Deriv immediately revokes the token. Even if FXnod attempted to fetch tick data, Deriv’s servers would instantly deny access.
+          </p>
+
+          <!-- ==================================================================
+               SECTION 8: COMMON MISTAKES TO AVOID
+               ================================================================== -->
+          <h2 id="common-mistakes">Common Mistakes to Avoid When Connecting</h2>
+
+          <p>
+            Connecting is remarkably straightforward, but keeping an eye out for these three minor mistakes will ensure a smooth, error-free setup:
+          </p>
+
+          <div class="faq-list" style="margin-bottom: 2rem;">
+            <div class="faq-item">
+              <h4 class="faq-question">1. Accidental Extra Spaces When Copying</h4>
+              <div class="faq-answer">
+                <p>When selecting and copying your token text on Deriv, make sure you don't accidentally highlight an empty space at the very beginning or end. An extra space will cause FXnod to show an "Invalid Token Format" message. Always use the built-in copy icon on Deriv when possible.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h4 class="faq-question">2. Selecting "Payments" or "Admin" Permissions</h4>
+              <div class="faq-answer">
+                <p>FXnod does not need or want payments access. Stick strictly to <strong>Read</strong> and <strong>Trade</strong>. Keeping other boxes unchecked maintains your strict security posture.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h4 class="faq-question">3. Changing Your Deriv Password</h4>
+              <div class="faq-answer">
+                <p>If you reset or update your Deriv account password, Deriv automatically deactivates all active API tokens for security reasons. If this occurs, your FXnod status will simply switch to "Disconnected." Just create a fresh token on Deriv and paste it into FXnod.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 9: FREQUENTLY ASKED QUESTIONS
+               ================================================================== -->
+          <h2 id="faq">Frequently Asked Questions (FAQ)</h2>
+
+          <div class="faq-list">
+            <div class="faq-item">
+              <h3 class="faq-question">Can FXnod take money from my Deriv account?</h3>
+              <div class="faq-answer">
+                <p>
+                  <strong>No, never.</strong> The token permissions you select only allow viewing account data and opening trade contracts. Deriv's system completely blocks any withdrawal or transfer attempts through an API token.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Does it cost anything to connect my Deriv account to FXnod?</h3>
+              <div class="faq-answer">
+                <p>
+                  No. Connecting your Deriv account to FXnod is completely free. You can test all 22 Auto Hub bots on your demo account without paying anything.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Can I connect using my smartphone?</h3>
+              <div class="faq-answer">
+                <p>
+                  Yes! You can complete the exact same steps on your mobile phone browser or inside the <strong><a href="fxnod-mobile-app-trading-guide.html" style="color: #2563eb; font-weight: 600;">FXnod Mobile App</a></strong>.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">What should I do if my connection shows "Disconnected"?</h3>
+              <div class="faq-answer">
+                <p>
+                  This usually means your token has expired, your internet connection briefly paused, or you changed your Deriv password. Simply open <strong>Settings &gt; Deriv Connection</strong>, enter a fresh token from Deriv, and click Connect.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Can I connect more than one Deriv account?</h3>
+              <div class="faq-answer">
+                <p>
+                  Yes. You can manage multiple linked accounts (such as a Real account and a Demo account) under one FXnod profile.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 10: FINAL THOUGHTS & CONCLUSION
+               ================================================================== -->
+          <h2 id="final-thoughts">Final Thoughts: Start Trading in Under a Minute</h2>
+
+          <p>
+            Connecting your Deriv account to FXnod is quick, completely transparent, and 100% secure. By utilizing Deriv’s official token system, you get all the benefits of automated, emotion-free trading while keeping total control of your money.
+          </p>
+
+          <p>
+            Stop guessing your entries and let automated precision work for you. <strong><a href="how-to-create-setup-fxnod-account-guide.html" style="color: #2563eb; font-weight: 600;">Create your free FXnod account</a>, connect your Demo account today, and see your first bot in action!</strong>
+          </p>
+
+          <!-- Affiliate Disclosure Box -->
+          <div class="affiliate-disclosure-box" style="margin-top: 2rem; padding: 1.25rem; background: #f8fafc; border: 1px solid var(--color-border); border-radius: var(--radius-md); font-size: 0.82rem; color: #64748b; line-height: 1.55;">
+            <strong>Affiliate Disclosure:</strong> This educational article contains partner referral links. If you register on FXnod through links on this page, we may earn a referral commission at no additional cost to you. Trading derivatives and synthetic indices involves high risk of capital loss. Always trade responsibly and test strategies using demo environments first.
+          </div>
+
+          <!-- Further Reading Box -->
+          <div class="further-reading-box">
+            <h4>Recommended Related Guides:</h4>
+            <ul>
+              <li><a href="test-fxnod-bots-demo-virtual-account-guide.html">How to Test FXnod Bots on a Virtual (Demo) Account</a></li>
+              <li><a href="is-fxnod-safe-legitimate-security-review.html">Is FXnod Safe and Legitimate? Security &amp; Fund Protection Review</a></li>
+              <li><a href="what-is-fxnod-complete-beginners-guide.html">What is FXnod? The Complete Beginner's Guide</a></li>
+              <li><a href="how-to-create-setup-fxnod-account-guide.html">How to Create and Set Up an FXnod Account in 2026</a></li>
+              <li><a href="fxnod-dashboard-complete-walkthrough-guide.html">Exploring the FXnod Dashboard: A Complete Walkthrough</a></li>
+              <li><a href="fxnod-mobile-app-trading-guide.html">Getting Started with the FXnod Mobile App</a></li>
+              <li><a href="automated-vs-manual-trading-deriv-discipline.html">Automated vs. Manual Trading on Deriv</a></li>
+              <li><a href="automated-trading-on-deriv.html">How to Start Automated Trading on Deriv</a></li>
+            </ul>
+          </div>
+
+          <!-- Bottom CTA -->
+          <div class="article-footer-cta">
+            <h3>Ready to Link Deriv and Start Automating?</h3>
+            <p>Connect in under 60 seconds and explore 22 pre-built algorithmic trading bots on your free Demo account.</p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">
+              Get Started with FXnod &rarr;
+            </a>
+          </div>
+
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <!-- ======================================================================
+       FOOTER COMPONENT
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="brand-logo">
+            <div class="brand-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+            <span>Trade Insight</span>
+          </a>
+          <p>
+            High-performance technical editorial and tactical research publication. We empower quantitative traders, risk teams, and modern web agencies with actionable market playbooks.
+          </p>
+          <span class="footer-digest-label">Weekly Tech & Trading Digest</span>
+          <form class="footer-mini-form" onsubmit="event.preventDefault(); showToast('Subscribed to Weekly Digest!');">
+            <input type="email" placeholder="Enter your business email" required aria-label="Business Email">
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+
+        <div class="footer-col">
+          <h4>Publication Areas</h4>
+          <ul>
+            <li><a href="../index.html#all">All Editorial Guides</a></li>
+            <li><a href="automated-trading-on-deriv.html">Deriv & Synthetic Indices</a></li>
+            <li><a href="how-to-choose-a-trading-bot.html">Automated Trading Bots</a></li>
+            <li><a href="what-is-automated-trading.html">Risk & Margin Management</a></li>
+            <li><a href="../index.html#seo">SEO & Growth Strategy</a></li>
+            <li><a href="../index.html#infra">Web Tech & Infrastructure</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-col-playbooks">
+          <h4>Popular Playbooks</h4>
+          <ul class="footer-playbooks-list">
+            <li><a href="fxnod-wallet-deposits-transfers-subscriptions-guide.html">Managing the FXnod Wallet</a></li>
+            <li><a href="test-fxnod-bots-demo-virtual-account-guide.html">Test FXnod Bots on Demo Account</a></li>
+            <li><a href="how-to-connect-deriv-account-to-fxnod.html">How to Connect Deriv to FXnod</a></li>
+            <li><a href="is-fxnod-safe-legitimate-security-review.html">Is FXnod Safe & Legit?</a></li>
+            <li><a href="fxnod-dashboard-complete-walkthrough-guide.html">FXnod Dashboard Walkthrough</a></li>
+          </ul>
+
+          <!-- Expandable archive list of remaining playbooks -->
+          <ul class="footer-playbooks-archive" id="footer-playbooks-archive" style="display: none;">
+            <li><a href="automated-vs-manual-trading-deriv-discipline.html">Automated vs Manual Trading</a></li>
+            <li><a href="fxnod-mobile-app-trading-guide.html">FXnod Mobile App Guide</a></li>
+            <li><a href="how-to-create-setup-fxnod-account-guide.html">FXnod Account Setup Guide</a></li>
+            <li><a href="what-is-fxnod-complete-beginners-guide.html">What is FXnod? (Complete Guide)</a></li>
+            <li><a href="what-is-automated-trading.html">What Is Automated Trading?</a></li>
+            <li><a href="automated-trading-on-deriv.html">How to Start on Deriv</a></li>
+            <li><a href="how-to-choose-a-trading-bot.html">How to Choose a Trading Bot</a></li>
+            <li><a href="manage-risk-when-using-a-trading-bot.html">Managing Bot Risk</a></li>
+            <li><a href="why-is-my-trading-bot-not-working.html">Bot Troubleshooting Guide</a></li>
+            <li><a href="can-trading-bots-lose-money.html">Can Bots Lose Money? (Risks)</a></li>
+            <li><a href="what-is-risk-to-reward-ratio.html">Risk-to-Reward Ratio Guide</a></li>
+            <li><a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" data-ref-link>Explore FXnod Platform</a></li>
+            <li><a href="how-to-test-a-trading-bot.html">How to Test a Trading Bot</a></li>
+            <li><a href="how-trading-bots-connect-to-platforms.html">How Bots Connect to Platforms</a></li>
+            <li><a href="why-trading-bots-make-losing-trades.html">Why Bots Make Losing Trades</a></li>
+            <li><a href="manual-vs-automated-trading.html">Manual vs Automated Trading</a></li>
+            <li><a href="what-to-check-before-connecting-a-trading-bot.html">Pre-Connection Checks (Security)</a></li>
+            <li><a href="trading-bot-faqs.html">Trading Bot FAQs (15 Answers)</a></li>
+            <li><a href="how-to-start-learning-trading.html">How to Start Learning Trading</a></li>
+            <li><a href="how-to-read-candlestick-charts.html">How to Read Candlesticks</a></li>
+            <li><a href="how-to-identify-support-and-resistance.html">Support & Resistance Levels</a></li>
+            <li><a href="how-to-keep-a-trading-journal.html">How to Keep a Trading Journal</a></li>
+            <li><a href="how-to-control-emotions-while-trading.html">Controlling Trading Emotions</a></li>
+            <li><a href="forex-vs-synthetic-indices.html">Forex vs Synthetic Indices</a></li>
+            <li><a href="how-to-evaluate-a-trading-strategy.html">How to Evaluate a Strategy</a></li>
+            <li><a href="why-market-prices-go-up-and-down.html">Why Market Prices Move</a></li>
+            <li><a href="how-economic-news-affects-trading.html">Economic News & Trading</a></li>
+            <li><a href="best-trading-timeframe-for-beginners.html">Best Trading Timeframes</a></li>
+            <li><a href="what-is-a-breakout-in-trading.html">What Is a Breakout in Trading?</a></li>
+            <li><a href="how-moving-averages-work-in-trading.html">How Moving Averages Work</a></li>
+            <li><a href="what-is-rsi-indicator-in-trading.html">What Is the RSI Indicator?</a></li>
+            <li><a href="what-is-spread-in-trading.html">What Is Spread in Trading?</a></li>
+            <li><a href="how-to-calculate-position-size.html">Position Sizing Guide</a></li>
+            <li><a href="what-is-drawdown-in-trading.html">What Is Drawdown in Trading?</a></li>
+            <li><a href="is-high-win-rate-enough-to-be-profitable.html">Is a High Win Rate Enough?</a></li>
+          </ul>
+
+          <button type="button" class="footer-toggle-btn" id="footer-playbooks-toggle" aria-expanded="false">
+            <span>+ View All 39 Playbooks</span>
+          </button>
+        </div>
+
+        <div class="footer-col">
+          <h4>Compliance & Legal</h4>
+          <ul>
+            <li><a href="../index.html#editorial">Editorial Independence</a></li>
+            <li><a href="../index.html#risk-notice">Risk Disclosure Notice</a></li>
+            <li><a href="../index.html#terms">Terms of Service</a></li>
+            <li><a href="../index.html#privacy">Privacy Policy</a></li>
+            <li><a href="../index.html#cookies">Cookie Preferences</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 Trade Insight Editorial. All content is for educational and technical informational purposes only. Trading financial derivatives carries substantial risk.
+        </div>
+        <div>
+          Designed for Agency Quantitative Operations
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+</body>
+</html>

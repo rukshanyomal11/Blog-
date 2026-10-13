@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Test FXnod Bots on a Demo Account Before Risking Real Money (2026) | Trade Insight</title>
+  <meta name="description" content="Learn how to test FXnod trading bots risk-free on a Deriv Virtual Demo account. Master bot mechanics, test risk presets, and trade with 100% confidence.">
+  <meta name="keywords" content="test Deriv bots demo account, FXnod virtual account test, paper trading Deriv bots, test trading bot without risk, Deriv demo bot trading, free trading bot test, practice automated trading">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="How to Test FXnod Bots on a Demo Account Before Risking Real Money (2026)">
+  <meta property="og:description" content="Learn how to test FXnod trading bots risk-free on a Deriv Virtual Demo account. Master bot mechanics, test risk presets, and trade with 100% confidence.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tradeinsight.com/test-fxnod-bots-demo-virtual-account-guide/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Twitter Meta -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Test FXnod Bots on a Demo Account Before Risking Real Money (2026)">
+  <meta name="twitter:description" content="Master automated trading on Deriv risk-free with FXnod's virtual demo account guide.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .article-featured-image-wrap {
+      margin: 2rem 0 2.5rem 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      background: #f1f5f9;
+      box-shadow: var(--shadow-md);
+    }
+    .article-featured-image {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      display: block;
+    }
+    .image-caption {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      background: #ffffff;
+      border-top: 1px solid var(--color-border);
+      text-align: center;
+      font-style: italic;
+    }
+    .fxnod-partner-box {
+      background: linear-gradient(135deg, #0b1120 0%, #172554 100%);
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      margin: 2.5rem 0;
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.25);
+    }
+    .fxnod-partner-box::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(240, 58, 39, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .fxnod-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(240, 58, 39, 0.2);
+      border: 1px solid rgba(240, 58, 39, 0.5);
+      color: #fca5a5;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .fxnod-partner-box h3 {
+      color: #ffffff;
+      font-size: 1.45rem;
+      margin-bottom: 0.65rem;
+    }
+    .fxnod-partner-box p {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      margin-bottom: 1.4rem;
+    }
+    .fxnod-cta-btn {
+      background: var(--color-primary);
+      color: #ffffff;
+      font-weight: 700;
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 16px rgba(240, 58, 39, 0.35);
+      transition: all var(--transition-normal);
+      text-decoration: none;
+    }
+    .fxnod-cta-btn:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(240, 58, 39, 0.45);
+      color: #ffffff;
+    }
+    .comparison-table-wrap {
+      margin: 2rem 0;
+      overflow-x: auto;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+    }
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+      background: #ffffff;
+    }
+    .comparison-table th {
+      background: #f8fafc;
+      padding: 1rem 1.25rem;
+      font-weight: 700;
+      color: var(--color-text-main);
+      border-bottom: 2px solid var(--color-border);
+    }
+    .comparison-table td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      vertical-align: middle;
+    }
+    .comparison-table tr:last-child td {
+      border-bottom: none;
+    }
+    .diagram-box {
+      background: #0f172a;
+      color: #38bdf8;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 1.75rem;
+      border-radius: var(--radius-md);
+      overflow-x: auto;
+      margin: 2rem 0;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      border: 1px solid #1e293b;
+      box-shadow: var(--shadow-md);
+    }
+    .analogy-card {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-left: 4px solid #16a34a;
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1.75rem;
+      margin: 2rem 0;
+    }
+    .analogy-card h4 {
+      color: #166534;
+      margin-top: 0;
+      margin-bottom: 0.6rem;
+      font-size: 1.15rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .analogy-card p {
+      color: #14532d;
+      margin-bottom: 0;
+      line-height: 1.65;
+      font-size: 0.94rem;
+    }
+    .workflow-steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+    .workflow-step-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      display: flex;
+      gap: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      transition: border-color var(--transition-fast);
+    }
+    .workflow-step-card:hover {
+      border-color: #3b82f6;
+    }
+    .workflow-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #eff6ff;
+      color: #2563eb;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+      border: 1px solid #bfdbfe;
+    }
+    .workflow-content h4 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+      color: var(--color-text-main);
+    }
+    .workflow-content p {
+      margin-bottom: 0.5rem;
+      font-size: 0.92rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+    .workflow-content ol, .workflow-content ul {
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      padding-left: 1.25rem;
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    .indicator-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin: 2rem 0;
+    }
+    .indicator-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .indicator-card h4 {
+      color: var(--color-text-main);
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.08rem;
+    }
+    .indicator-card p {
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .faq-question {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--color-text-main);
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+    .faq-answer p {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+  </style>
+
+  <!-- Structured Data (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Test FXnod Bots on a Demo Account Before Risking Real Money (2026)",
+    "description": "Learn how to test FXnod trading bots risk-free on a Deriv Virtual Demo account. Master bot mechanics, test risk presets, and trade with 100% confidence.",
+    "author": {
+      "@type": "Organization",
+      "name": "Trade Insight Editorial"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Trade Insight",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://tradeinsight.com/assets/logo.png"
+      }
+    },
+    "datePublished": "2026-10-13",
+    "dateModified": "2026-10-13",
+    "image": "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=1200&q=80",
+    "mainEntityOfPage": "https://tradeinsight.com/test-fxnod-bots-demo-virtual-account-guide/"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Deriv demo market data different from real market data?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Deriv synthetic indices use the exact same cryptographic random number generation algorithms for both demo and real accounts. The tick prices, volatility, and speed are 100% identical."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I reset my demo balance if I lose it all while testing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Inside your Deriv account, you can reset your Virtual USD balance back to $10,000 at any time with a single click."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does FXnod charge any fees to use the Virtual Demo account?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. You can test all 22 Auto Hub bots on your Deriv Demo account completely free of charge."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I switch back to my Real account when I'm ready?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Simply open Settings > Deriv Connection in FXnod and connect your Real account API token. The top badge will update from Virtual Demo to Real USD instantly."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many demo trades should I run before trading live?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We recommend completing at least 30 to 50 individual bot runs across several days. This ensures you understand how the bot handles both favorable streaks and challenging market runs."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="article-page">
+
+  <!-- Top Reading Progress Indicator -->
+  <div class="reading-progress-bar" id="reading-progress"></div>
+
+  <!-- ======================================================================
+       HEADER & NAVIGATION
+       ====================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <div style="display: flex; align-items: center;">
+        <a href="../index.html" class="brand-logo" aria-label="Trade Insight Home">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <span>Trade Insight</span>
+        </a>
+
+        <nav class="nav-links" aria-label="Main Navigation">
+          <a href="../index.html" class="nav-link">All Guides</a>
+          <a href="automated-trading-on-deriv.html" class="nav-link">Deriv Guides</a>
+          <a href="how-to-choose-a-trading-bot.html" class="nav-link">Trading Bots</a>
+          <a href="../index.html#category-fxnod" class="nav-link">FXnod Guides</a>
+        </nav>
+      </div>
+
+      <div class="header-right">
+        <!-- Direct FXnod Referral Header Button -->
+        <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.45rem 1.1rem; font-size: 0.82rem;" title="Explore FXnod Platform">
+          <span>Explore FXnod</span>
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+
+        <div class="header-search">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+          <input type="text" placeholder="Search testing guides..." aria-label="Search articles">
+        </div>
+
+        <button class="profile-avatar" title="User Profile" aria-label="User Profile">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       BREADCRUMB & HERO HEADER
+       ====================================================================== -->
+  <main class="article-page-wrapper">
+    <div class="container">
+      
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item"><a href="../index.html#category-fxnod">FXnod Guides</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item current" aria-current="page">Testing Bots on Demo Account</li>
+        </ol>
+      </nav>
+
+      <!-- Article Header -->
+      <header class="article-header">
+        <div class="article-meta-badges">
+          <span class="badge" style="background: rgba(240, 58, 39, 0.95); color: #fff;">FXnod Guides</span>
+          <span class="badge badge-accent">Risk-Free Practice</span>
+          <span class="article-reading-time">8 min read • Updated Oct 2026</span>
+        </div>
+
+        <h1 class="article-title">
+          How to Test FXnod Bots on a Virtual (Demo) Account Before Risking Real Money
+        </h1>
+
+        <p class="article-lead">
+          The golden rule of successful trading is simple: never risk real money on a strategy you haven't thoroughly tested. Learn how to connect Deriv's $10,000 virtual balance to FXnod, test all 22 Auto Hub bots, and complete the 6-point readiness checklist before trading live.
+        </p>
+
+        <div class="article-author-bar">
+          <div class="author-profile-chip">
+            <div class="author-chip-avatar">TI</div>
+            <span class="author-chip-name">Trade Insight Editorial</span>
+          </div>
+          <div class="author-meta-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+            <span>Published Oct 2026</span>
+          </div>
+          <div class="author-meta-item author-meta-verified">
+            <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+            <span>Verified Testing Protocol</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Featured Hero Image -->
+      <div class="article-featured-image-wrap">
+        <img 
+          src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=1200&q=80" 
+          alt="Trader testing FXnod automated bots on a Deriv Virtual Demo account with $10,000 balance" 
+          class="article-featured-image"
+          loading="eager"
+        >
+        <div class="image-caption">
+          Figure 1: Testing on Deriv's Virtual USD demo stream gives you 100% authentic market execution and real-time P&amp;L feedback with zero financial risk.
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           TWO-COLUMN EDITORIAL LAYOUT
+           ====================================================================== -->
+      <div class="article-layout">
+        
+        <!-- LEFT STICKY SIDEBAR -->
+        <aside class="article-sidebar">
+          <div class="sidebar-widget toc-widget">
+            <div class="widget-title">
+              <span>Quick Navigation</span>
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path></svg>
+            </div>
+            <ul class="toc-list">
+              <li class="toc-item active"><a href="#why-demo-testing">Why Demo Testing Is Your Secret Weapon</a></li>
+              <li class="toc-item"><a href="#roadmap">4-Step Setup Roadmap</a></li>
+              <li class="toc-item"><a href="#step-by-step">How to Activate Your Demo Account</a></li>
+              <li class="toc-item"><a href="#what-to-observe">What to Observe During a Run</a></li>
+              <li class="toc-item"><a href="#milestone-checklist">Ready-to-Trade Checklist</a></li>
+              <li class="toc-item"><a href="#psychology-transition">Moving from Demo to Real Money</a></li>
+              <li class="toc-item"><a href="#faq">Frequently Asked Questions</a></li>
+              <li class="toc-item"><a href="#final-thoughts">Final Thoughts & Next Steps</a></li>
+            </ul>
+          </div>
+
+          <!-- Official Partner Quick Box -->
+          <div class="sidebar-card">
+            <h4>$10,000 Virtual Practice</h4>
+            <p>Deploy all 22 Auto Hub bots risk-free on your Deriv Virtual Demo account in under 60 seconds.</p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; text-align: center; justify-content: center;">
+              Launch FXnod Free &rarr;
+            </a>
+          </div>
+
+          <!-- Companion Guides Box -->
+          <div class="sidebar-card" style="margin-top: 1.5rem; background: #ffffff;">
+            <h4>Companion Guides</h4>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; line-height: 1.6;">
+              <li style="margin-bottom: 0.75rem;"><a href="how-to-connect-deriv-account-to-fxnod.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; Connect Deriv to FXnod Guide</a></li>
+              <li style="margin-bottom: 0.75rem;"><a href="is-fxnod-safe-legitimate-security-review.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; Is FXnod Safe and Legitimate?</a></li>
+              <li style="margin-bottom: 0.75rem;"><a href="fxnod-dashboard-complete-walkthrough-guide.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; FXnod Dashboard Walkthrough</a></li>
+              <li><a href="what-is-fxnod-complete-beginners-guide.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; What is FXnod? Beginner's Guide</a></li>
+            </ul>
+          </div>
+        </aside>
+
+        <!-- RIGHT MAIN EDITORIAL CONTENT -->
+        <article class="article-content">
+
+          <p>
+            The golden rule of successful trading is simple: <strong>never risk real money on a strategy you haven't thoroughly tested.</strong>
+          </p>
+
+          <p>
+            One of the greatest advantages of using FXnod with Deriv is that you never have to guess whether a bot works. The platform gives you completely unrestricted access to a <strong>Virtual Demo Account</strong> loaded with $10,000 in virtual funds.
+          </p>
+
+          <p>
+            This means you can test all 22 Auto Hub bots, try out different risk presets, observe how consecutive losses behave, and watch the emergency safety stops in action—<strong>all with zero financial risk.</strong>
+          </p>
+
+          <p>
+            In this practical guide, you will learn how to set up your virtual demo environment, what to look for during a test run, and the exact checklist to follow before switching to real-money trading with complete confidence. For a step-by-step connection walkthrough, see our companion article: <strong><a href="how-to-connect-deriv-account-to-fxnod.html" style="color: #2563eb; font-weight: 600;">How to Connect Your Deriv Account to FXnod Safely</a></strong>.
+          </p>
+
+          <!-- ==================================================================
+               SECTION 1: WHY VIRTUAL DEMO TESTING IS YOUR SECRET WEAPON
+               ================================================================== -->
+          <h2 id="why-demo-testing">Why Virtual Demo Testing Is Your Secret Weapon</h2>
+
+          <p>
+            Many novice traders rush straight into live accounts out of excitement, only to make simple mistakes like choosing an oversized stake or not understanding how a bot behaves during a market streak.
+          </p>
+
+          <p>
+            Testing on a Virtual Demo account allows you to:
+          </p>
+
+          <ul style="line-height: 1.7; margin-bottom: 1.5rem;">
+            <li><strong>Master the Bot Mechanics Risk-Free:</strong> Understand tick speeds, winning conditions, and profit targets with play money.</li>
+            <li><strong>Experience Real Market Volatility:</strong> Deriv's virtual demo accounts run on the exact same live tick streams as real accounts. The market movement is 100% authentic.</li>
+            <li><strong>Build Ironclad Discipline:</strong> Watch your bots hit their Take-Profit or Stop-Loss without emotional panic or racing heartbeats.</li>
+            <li><strong>Find Your Ideal Strategy:</strong> Compare high-frequency bots (like <em>Differs</em>) against trending bots (like <em>Rise/Fall</em>) to see which fits your trading style best.</li>
+          </ul>
+
+          <div class="analogy-card">
+            <h4>
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+              Authentic Execution Engine: Same Math, Zero Stress
+            </h4>
+            <p>
+              Unlike some trading simulators that paint artificial "ideal" conditions, FXnod communicates directly with Deriv's live WebSocket API. When your demo bot opens a contract, Deriv evaluates it on real synthetic indices ticks (e.g., Volatility 100 (1s) Index) exactly as it would for a $1,000 real-money account.
+            </p>
+          </div>
+
+          <!-- Partner Box -->
+          <div class="fxnod-partner-box">
+            <span class="fxnod-badge">Free Demo Sandbox</span>
+            <h3>Explore All 22 Bots on Virtual USD</h3>
+            <p>
+              Sign up on FXnod in under 30 seconds. Connect your Deriv Demo token and deploy ready-made algorithmic bots with zero financial risk.
+            </p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="fxnod-cta-btn">
+              <span>Test Bots on Demo Free</span>
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 2: 4-STEP ROADMAP
+               ================================================================== -->
+          <h2 id="roadmap">4-Step Setup Roadmap: Demo Activation</h2>
+
+          <p>
+            Activating your Virtual Demo environment requires zero paperwork and takes less than two minutes:
+          </p>
+
+          <div class="diagram-box">
+┌────────────────────────────────────────────────────────┐
+│  STEP 1: Open Deriv &gt; Select "Demo" in Balance Dropdown│
+└──────────────────────────┬─────────────────────────────┘
+                           │
+                           ▼
+┌────────────────────────────────────────────────────────┐
+│  STEP 2: Create a Demo API Token (Read + Trade Scopes) │
+└──────────────────────────┬─────────────────────────────┘
+                           │
+                           ▼
+┌────────────────────────────────────────────────────────┐
+│  STEP 3: Link into FXnod &gt; "Virtual USD" Badge Appears │
+└──────────────────────────┬─────────────────────────────┘
+                           │
+                           ▼
+┌────────────────────────────────────────────────────────┐
+│  STEP 4: Select Auto Hub Bot &gt; Launch Risk-Free Test   │
+└────────────────────────────────────────────────────────┘
+          </div>
+
+          <!-- ==================================================================
+               SECTION 3: STEP-BY-STEP SETUP GUIDE
+               ================================================================== -->
+          <h2 id="step-by-step">Step-by-Step: How to Activate Your Virtual Demo Account on FXnod</h2>
+
+          <p>
+            Follow these simple steps to start simulated trading:
+          </p>
+
+          <div class="workflow-steps-list">
+            
+            <div class="workflow-step-card">
+              <div class="workflow-num">1</div>
+              <div class="workflow-content">
+                <h4>Switch to Demo on Deriv</h4>
+                <p>
+                  Log in to your personal account on <a href="https://deriv.com" target="_blank" rel="noopener noreferrer" style="color: #2563eb; font-weight: 600;">Deriv.com</a>.
+                </p>
+                <ol>
+                  <li>In the top-right corner, click on your account balance dropdown.</li>
+                  <li>Click on the <strong>Demo</strong> tab.</li>
+                  <li>Your active balance will switch to <strong>Virtual USD</strong> (typically initialized at $10,000.00).</li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="workflow-step-card">
+              <div class="workflow-num">2</div>
+              <div class="workflow-content">
+                <h4>Create a Demo API Token</h4>
+                <p>
+                  Generate a dedicated connection key for your demo account:
+                </p>
+                <ol>
+                  <li>Navigate to <strong>Account Settings &gt; API Token</strong> inside Deriv.</li>
+                  <li>Enter a friendly name such as <code>FXnod Demo Tester</code>.</li>
+                  <li>Check only two permission boxes:
+                    <ul>
+                      <li>✅ <strong>Read</strong> (fetches live balance and contract tick telemetry)</li>
+                      <li>✅ <strong>Trade</strong> (dispatches test contracts to the market)</li>
+                    </ul>
+                  </li>
+                  <li>Click the red <strong>Create</strong> button and click <strong>Copy</strong> next to your new token string.</li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="workflow-step-card">
+              <div class="workflow-num">3</div>
+              <div class="workflow-content">
+                <h4>Connect the Token in FXnod</h4>
+                <p>
+                  Link the token inside your FXnod control center:
+                </p>
+                <ol>
+                  <li>Open FXnod in your web browser or open the mobile app.</li>
+                  <li>Go to <strong>Settings &gt; Deriv Connection</strong>.</li>
+                  <li>Paste your demo token into the input box and click <strong>Connect Account</strong>.</li>
+                  <li>Look at the top status bar: you will see a prominent <strong>"Virtual USD (Demo)"</strong> green badge with your $10,000 virtual balance.</li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="workflow-step-card">
+              <div class="workflow-num">4</div>
+              <div class="workflow-content">
+                <h4>Launch Your First Risk-Free Run</h4>
+                <p>
+                  Open the <strong>Auto Hub</strong>, select a beginner-friendly bot (such as an <em>Even / Odd</em> or <em>Differs</em> bot), review the Loss Progression table, and click <strong>Start</strong>. You are now testing live market automation with zero risk!
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ==================================================================
+               SECTION 4: WHAT TO OBSERVE DURING YOUR FIRST DEMO RUN
+               ================================================================== -->
+          <h2 id="what-to-observe">What to Observe During Your First Demo Run</h2>
+
+          <p>
+            Once connected to your Demo account, launch a beginner-friendly bot from the Auto Hub (such as an <em>Even / Odd</em> or <em>Differs</em> bot on the <strong>$20 Plan</strong>).
+          </p>
+
+          <p>
+            As the bot runs, pay close attention to these three core indicators on the <strong>Live Run Monitor</strong>:
+          </p>
+
+          <div class="indicator-card-grid">
+            <div class="indicator-card">
+              <h4>1. The P&amp;L Progress Meter</h4>
+              <p>
+                Watch how the circular progress meter fills up as the bot lands winning trades. Notice how it smoothly tracks your distance to your target profit and displays net earnings in real time.
+              </p>
+            </div>
+
+            <div class="indicator-card">
+              <h4>2. The Loss Cushion &amp; Stake Behavior</h4>
+              <p>
+                Observe what happens when a losing trade occurs:
+                Does the bot use a fixed stake or a gentle step multiplier? Does the loss progression match the <strong>"View Loss Run"</strong> sheet? Notice how it never exceeds your pre-set Stop-Loss ceiling.
+              </p>
+            </div>
+
+            <div class="indicator-card">
+              <h4>3. The Automatic Shutdown</h4>
+              <p>
+                When the bot reaches its target profit (Take-Profit) or safety boundary (Stop-Loss), watch how the engine automatically halts the session and locks in the final result without human hesitation.
+              </p>
+            </div>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 5: THE READY-TO-TRADE CHECKLIST
+               ================================================================== -->
+          <h2 id="milestone-checklist">The "Ready-to-Trade" Checklist: When Are You Ready for Real Money?</h2>
+
+          <p>
+            Do not rush your transition to a real account. Before risking real capital, make sure you can check off every item on this practical milestone checklist:
+          </p>
+
+          <div class="comparison-table-wrap">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Milestone Checklist</th>
+                  <th>Recommended Target</th>
+                  <th>Why It Matters</th>
+                  <th>Completed?</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Completed Demo Cycles</strong></td>
+                  <td>At least 30 to 50 simulated bot runs</td>
+                  <td>Ensures statistical exposure across multiple market regimes</td>
+                  <td><span style="color: #2563eb; font-weight: 700;">[ ] Done</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Tested Different Market Hours</strong></td>
+                  <td>Quiet Asian session &amp; volatile European/US overlap</td>
+                  <td>Verifies bot resilience across varying volatility spikes</td>
+                  <td><span style="color: #2563eb; font-weight: 700;">[ ] Done</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Experienced a Losing Streak</strong></td>
+                  <td>Observed a Stop-Loss hit without feeling panic</td>
+                  <td>Proves you can respect mathematical loss boundaries calmly</td>
+                  <td><span style="color: #2563eb; font-weight: 700;">[ ] Done</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Reviewed Loss Progression</strong></td>
+                  <td>Checked the mathematical loss cushion for your plan</td>
+                  <td>Eliminates surprise stake sizes during recovery sequences</td>
+                  <td><span style="color: #2563eb; font-weight: 700;">[ ] Done</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Understood Emergency Controls</strong></td>
+                  <td>Tested the manual "Force Stop" button in demo mode</td>
+                  <td>Builds muscle memory for manual session intervention</td>
+                  <td><span style="color: #2563eb; font-weight: 700;">[ ] Done</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Realistic Capital Sizing</strong></td>
+                  <td>Planned real deposit is at least 3x the bot's Stop-Loss</td>
+                  <td>Prevents session drawdowns from threatening total account equity</td>
+                  <td><span style="color: #2563eb; font-weight: 700;">[ ] Done</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 6: THE PSYCHOLOGY OF MOVING FROM DEMO TO REAL MONEY
+               ================================================================== -->
+          <h2 id="psychology-transition">The Psychology of Moving from Demo to Real Money</h2>
+
+          <p>
+            Here is an honest truth every trader must understand: <strong>trading with real money feels completely different than trading with demo money.</strong>
+          </p>
+
+          <p>
+            When you trade with virtual funds, your brain feels completely relaxed. But when real dollars are on the line, feelings of fear and greed can tempt you to interfere with the bot, pause it too early, or revenge trade manually.
+          </p>
+
+          <p>
+            To learn why disciplined automated rules outperform emotional manual trading, read our full breakdown: <strong><a href="automated-vs-manual-trading-deriv-discipline.html" style="color: #2563eb; font-weight: 600;">Automated Trading vs. Manual Trading on Deriv: Why Bots Win on Discipline</a></strong>.
+          </p>
+
+          <div class="analogy-card" style="background: #eff6ff; border-color: #bfdbfe; border-left-color: #2563eb;">
+            <h4 style="color: #1e40af;">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+              Three Rules for a Smooth Live Transition
+            </h4>
+            <ol style="color: #1e3a8a; margin-bottom: 0; padding-left: 1.25rem; line-height: 1.65;">
+              <li><strong>Start with the Smallest Possible Stake:</strong> On your first live session, use the lowest fixed stake available (e.g., $0.50 or $1.00) with a small $20 plan.</li>
+              <li><strong>Treat Real Money Exactly Like Demo Money:</strong> Trust the pre-programmed mathematical rules. Do not stop the bot halfway through a normal streak out of nervousness.</li>
+              <li><strong>Set Small Daily Targets:</strong> Aim for modest wins (e.g., $1 to $3 per day on a small account). Small consistent gains compound rapidly over time without stress.</li>
+            </ol>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 7: FREQUENTLY ASKED QUESTIONS
+               ================================================================== -->
+          <h2 id="faq">Frequently Asked Questions (FAQ)</h2>
+
+          <div class="faq-list">
+            <div class="faq-item">
+              <h3 class="faq-question">Is Deriv demo market data different from real market data?</h3>
+              <div class="faq-answer">
+                <p>
+                  <strong>No.</strong> Deriv synthetic indices use the exact same cryptographic random number generation algorithms for both demo and real accounts. The tick prices, volatility, and speed are 100% identical.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Can I reset my demo balance if I lose it all while testing?</h3>
+              <div class="faq-answer">
+                <p>
+                  Yes. Inside your Deriv account, you can reset your Virtual USD balance back to $10,000 at any time with a single click in your account cashier.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Does FXnod charge any fees to use the Virtual Demo account?</h3>
+              <div class="faq-answer">
+                <p>
+                  No. You can test all 22 Auto Hub bots on your Deriv Demo account completely free of charge.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">How do I switch back to my Real account when I'm ready?</h3>
+              <div class="faq-answer">
+                <p>
+                  Simply open <strong>Settings &gt; Deriv Connection</strong> in FXnod and connect your Real account API token. The top badge will update from "Virtual Demo" to "Real USD" instantly.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">How many demo trades should I run before trading live?</h3>
+              <div class="faq-answer">
+                <p>
+                  We recommend completing at least 30 to 50 individual bot runs across several days. This ensures you understand how the bot handles both favorable streaks and challenging market runs.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 8: FINAL THOUGHTS & CONCLUSION
+               ================================================================== -->
+          <h2 id="final-thoughts">Final Thoughts: Practice Makes Consistent</h2>
+
+          <p>
+            Trading success is not about luck—it is about preparation, understanding your tools, and respecting risk. By leveraging FXnod’s free Virtual Demo environment, you can test every bot, study every market condition, and refine your approach without risking a single penny.
+          </p>
+
+          <p>
+            Take your time, practice with virtual funds, and build your confidence first. <strong><a href="how-to-create-setup-fxnod-account-guide.html" style="color: #2563eb; font-weight: 600;">Create your free FXnod account</a>, launch your first Demo bot today, and master automated trading with zero stress!</strong>
+          </p>
+
+          <!-- Affiliate Disclosure Box -->
+          <div class="affiliate-disclosure-box" style="margin-top: 2rem; padding: 1.25rem; background: #f8fafc; border: 1px solid var(--color-border); border-radius: var(--radius-md); font-size: 0.82rem; color: #64748b; line-height: 1.55;">
+            <strong>Affiliate Disclosure:</strong> This educational article contains partner referral links. If you register on FXnod through links on this page, we may earn a referral commission at no additional cost to you. Trading derivatives and synthetic indices involves high risk of capital loss. Always trade responsibly and test strategies using demo environments first.
+          </div>
+
+          <!-- Further Reading Box -->
+          <div class="further-reading-box">
+            <h4>Recommended Related Guides:</h4>
+            <ul>
+              <li><a href="fxnod-wallet-deposits-transfers-subscriptions-guide.html">Managing the FXnod Internal Wallet: Deposits, Transfers & Subscriptions</a></li>
+              <li><a href="how-to-connect-deriv-account-to-fxnod.html">How to Connect Your Deriv Account to FXnod Safely</a></li>
+              <li><a href="is-fxnod-safe-legitimate-security-review.html">Is FXnod Safe and Legitimate? Security &amp; Fund Protection Review</a></li>
+              <li><a href="automated-vs-manual-trading-deriv-discipline.html">Automated vs. Manual Trading on Deriv: Why Bots Win on Discipline</a></li>
+              <li><a href="fxnod-dashboard-complete-walkthrough-guide.html">Exploring the FXnod Dashboard: A Complete Walkthrough</a></li>
+              <li><a href="what-is-fxnod-complete-beginners-guide.html">What is FXnod? The Complete Beginner's Guide</a></li>
+              <li><a href="how-to-create-setup-fxnod-account-guide.html">How to Create and Set Up an FXnod Account in 2026</a></li>
+              <li><a href="automated-trading-on-deriv.html">How to Start Automated Trading on Deriv</a></li>
+            </ul>
+          </div>
+
+          <!-- Bottom CTA -->
+          <div class="article-footer-cta">
+            <h3>Start Your Risk-Free Practice Today</h3>
+            <p>Deploy 22 algorithmic bots on a $10,000 Deriv Virtual Demo account with upfront mathematical risk controls.</p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">
+              Get Started with FXnod &rarr;
+            </a>
+          </div>
+
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <!-- ======================================================================
+       FOOTER COMPONENT
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="brand-logo">
+            <div class="brand-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+            <span>Trade Insight</span>
+          </a>
+          <p>
+            High-performance technical editorial and tactical research publication. We empower quantitative traders, risk teams, and modern web agencies with actionable market playbooks.
+          </p>
+          <span class="footer-digest-label">Weekly Tech & Trading Digest</span>
+          <form class="footer-mini-form" onsubmit="event.preventDefault(); showToast('Subscribed to Weekly Digest!');">
+            <input type="email" placeholder="Enter your business email" required aria-label="Business Email">
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+
+        <div class="footer-col">
+          <h4>Publication Areas</h4>
+          <ul>
+            <li><a href="../index.html#all">All Editorial Guides</a></li>
+            <li><a href="automated-trading-on-deriv.html">Deriv & Synthetic Indices</a></li>
+            <li><a href="how-to-choose-a-trading-bot.html">Automated Trading Bots</a></li>
+            <li><a href="what-is-automated-trading.html">Risk & Margin Management</a></li>
+            <li><a href="../index.html#seo">SEO & Growth Strategy</a></li>
+            <li><a href="../index.html#infra">Web Tech & Infrastructure</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-col-playbooks">
+          <h4>Popular Playbooks</h4>
+          <ul class="footer-playbooks-list">
+            <li><a href="fxnod-wallet-deposits-transfers-subscriptions-guide.html">Managing the FXnod Wallet</a></li>
+            <li><a href="test-fxnod-bots-demo-virtual-account-guide.html">Test FXnod Bots on Demo Account</a></li>
+            <li><a href="how-to-connect-deriv-account-to-fxnod.html">How to Connect Deriv to FXnod</a></li>
+            <li><a href="is-fxnod-safe-legitimate-security-review.html">Is FXnod Safe & Legit?</a></li>
+            <li><a href="fxnod-dashboard-complete-walkthrough-guide.html">FXnod Dashboard Walkthrough</a></li>
+          </ul>
+
+          <!-- Expandable archive list of remaining playbooks -->
+          <ul class="footer-playbooks-archive" id="footer-playbooks-archive" style="display: none;">
+            <li><a href="automated-vs-manual-trading-deriv-discipline.html">Automated vs Manual Trading</a></li>
+            <li><a href="fxnod-mobile-app-trading-guide.html">FXnod Mobile App Guide</a></li>
+            <li><a href="how-to-create-setup-fxnod-account-guide.html">FXnod Account Setup Guide</a></li>
+            <li><a href="what-is-fxnod-complete-beginners-guide.html">What is FXnod? (Complete Guide)</a></li>
+            <li><a href="what-is-automated-trading.html">What Is Automated Trading?</a></li>
+            <li><a href="automated-trading-on-deriv.html">How to Start on Deriv</a></li>
+            <li><a href="how-to-choose-a-trading-bot.html">How to Choose a Trading Bot</a></li>
+            <li><a href="manage-risk-when-using-a-trading-bot.html">Managing Bot Risk</a></li>
+            <li><a href="why-is-my-trading-bot-not-working.html">Bot Troubleshooting Guide</a></li>
+            <li><a href="can-trading-bots-lose-money.html">Can Bots Lose Money? (Risks)</a></li>
+            <li><a href="what-is-risk-to-reward-ratio.html">Risk-to-Reward Ratio Guide</a></li>
+            <li><a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" data-ref-link>Explore FXnod Platform</a></li>
+            <li><a href="how-to-test-a-trading-bot.html">How to Test a Trading Bot</a></li>
+            <li><a href="how-trading-bots-connect-to-platforms.html">How Bots Connect to Platforms</a></li>
+            <li><a href="why-trading-bots-make-losing-trades.html">Why Bots Make Losing Trades</a></li>
+            <li><a href="manual-vs-automated-trading.html">Manual vs Automated Trading</a></li>
+            <li><a href="what-to-check-before-connecting-a-trading-bot.html">Pre-Connection Checks (Security)</a></li>
+            <li><a href="trading-bot-faqs.html">Trading Bot FAQs (15 Answers)</a></li>
+            <li><a href="how-to-start-learning-trading.html">How to Start Learning Trading</a></li>
+            <li><a href="how-to-read-candlestick-charts.html">How to Read Candlesticks</a></li>
+            <li><a href="how-to-identify-support-and-resistance.html">Support & Resistance Levels</a></li>
+            <li><a href="how-to-keep-a-trading-journal.html">How to Keep a Trading Journal</a></li>
+            <li><a href="how-to-control-emotions-while-trading.html">Controlling Trading Emotions</a></li>
+            <li><a href="forex-vs-synthetic-indices.html">Forex vs Synthetic Indices</a></li>
+            <li><a href="how-to-evaluate-a-trading-strategy.html">How to Evaluate a Strategy</a></li>
+            <li><a href="why-market-prices-go-up-and-down.html">Why Market Prices Move</a></li>
+            <li><a href="how-economic-news-affects-trading.html">Economic News & Trading</a></li>
+            <li><a href="best-trading-timeframe-for-beginners.html">Best Trading Timeframes</a></li>
+            <li><a href="what-is-a-breakout-in-trading.html">What Is a Breakout in Trading?</a></li>
+            <li><a href="how-moving-averages-work-in-trading.html">How Moving Averages Work</a></li>
+            <li><a href="what-is-rsi-indicator-in-trading.html">What Is the RSI Indicator?</a></li>
+            <li><a href="what-is-spread-in-trading.html">What Is Spread in Trading?</a></li>
+            <li><a href="how-to-calculate-position-size.html">Position Sizing Guide</a></li>
+            <li><a href="what-is-drawdown-in-trading.html">What Is Drawdown in Trading?</a></li>
+            <li><a href="is-high-win-rate-enough-to-be-profitable.html">Is a High Win Rate Enough?</a></li>
+          </ul>
+
+          <button type="button" class="footer-toggle-btn" id="footer-playbooks-toggle" aria-expanded="false">
+            <span>+ View All 39 Playbooks</span>
+          </button>
+        </div>
+
+        <div class="footer-col">
+          <h4>Compliance & Legal</h4>
+          <ul>
+            <li><a href="../index.html#editorial">Editorial Independence</a></li>
+            <li><a href="../index.html#risk-notice">Risk Disclosure Notice</a></li>
+            <li><a href="../index.html#terms">Terms of Service</a></li>
+            <li><a href="../index.html#privacy">Privacy Policy</a></li>
+            <li><a href="../index.html#cookies">Cookie Preferences</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 Trade Insight Editorial. All content is for educational and technical informational purposes only. Trading financial derivatives carries substantial risk.
+        </div>
+        <div>
+          Designed for Agency Quantitative Operations
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+</body>
+</html>

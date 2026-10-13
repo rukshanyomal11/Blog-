@@ -6,6 +6,39 @@
 
 window.ARTICLES_DATA = [
   {
+    "id": 39,
+    "title": "Managing the FXnod Internal Wallet: Deposits, Transfers & Subscriptions",
+    "slug": "blog/fxnod-wallet-deposits-transfers-subscriptions-guide.html",
+    "category": "fxnod",
+    "badgeText": "FXnod Guides",
+    "badgeColor": "rgba(240, 58, 39, 0.95)",
+    "image": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80",
+    "excerpt": "Learn how to manage your FXnod internal wallet. Step-by-step guide on deposits, peer transfers, unlocking bot subscriptions, and applying coupon discounts.",
+    "readTime": "7 min read • Oct 2026"
+  },
+  {
+    "id": 38,
+    "title": "How to Test FXnod Bots on a Virtual (Demo) Account Before Risking Real Money",
+    "slug": "blog/test-fxnod-bots-demo-virtual-account-guide.html",
+    "category": "fxnod",
+    "badgeText": "FXnod Guides",
+    "badgeColor": "rgba(240, 58, 39, 0.95)",
+    "image": "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=1200&q=80",
+    "excerpt": "Learn how to test FXnod trading bots risk-free on a Deriv Virtual Demo account. Master bot mechanics, test risk presets, and trade with 100% confidence.",
+    "readTime": "8 min read • Oct 2026"
+  },
+  {
+    "id": 37,
+    "title": "How to Connect Your Deriv Account to FXnod Safely: Step-by-Step Guide",
+    "slug": "blog/how-to-connect-deriv-account-to-fxnod.html",
+    "category": "fxnod",
+    "badgeText": "FXnod Guides",
+    "badgeColor": "rgba(240, 58, 39, 0.95)",
+    "image": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80",
+    "excerpt": "Learn how to connect your Deriv account to FXnod safely in under 60 seconds. Simple step-by-step API token guide with zero technical jargon.",
+    "readTime": "7 min read • Oct 2026"
+  },
+  {
     "id": 36,
     "title": "Is FXnod Safe and Legitimate? API Security & Fund Protection Explained",
     "slug": "blog/is-fxnod-safe-legitimate-security-review.html",

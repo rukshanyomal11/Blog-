@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Managing the FXnod Wallet: Deposits, Transfers & Tool Upgrades (2026) | Trade Insight</title>
+  <meta name="description" content="Learn how to manage your FXnod internal wallet. Step-by-step guide on deposits, peer transfers, unlocking bot subscriptions, and applying coupon discounts.">
+  <meta name="keywords" content="FXnod wallet guide, FXnod balance transfer, fund FXnod wallet, pay for FXnod tools, FXnod wallet deposit, FXnod tool subscriptions, FXnod coupons">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="Managing the FXnod Wallet: Deposits, Transfers & Tool Upgrades (2026)">
+  <meta property="og:description" content="Learn how to manage your FXnod internal wallet. Step-by-step guide on deposits, peer transfers, unlocking bot subscriptions, and applying coupon discounts.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tradeinsight.com/fxnod-wallet-deposits-transfers-subscriptions-guide/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Twitter Meta -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Managing the FXnod Wallet: Deposits, Transfers & Tool Upgrades (2026)">
+  <meta name="twitter:description" content="Step-by-step beginner guide to the FXnod internal wallet: funding, peer transfers, and unlocking bot tool passes.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .article-featured-image-wrap {
+      margin: 2rem 0 2.5rem 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      background: #f1f5f9;
+      box-shadow: var(--shadow-md);
+    }
+    .article-featured-image {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      display: block;
+    }
+    .image-caption {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      background: #ffffff;
+      border-top: 1px solid var(--color-border);
+      text-align: center;
+      font-style: italic;
+    }
+    .fxnod-partner-box {
+      background: linear-gradient(135deg, #0b1120 0%, #172554 100%);
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      margin: 2.5rem 0;
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.25);
+    }
+    .fxnod-partner-box::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(240, 58, 39, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .fxnod-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(240, 58, 39, 0.2);
+      border: 1px solid rgba(240, 58, 39, 0.5);
+      color: #fca5a5;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .fxnod-partner-box h3 {
+      color: #ffffff;
+      font-size: 1.45rem;
+      margin-bottom: 0.65rem;
+    }
+    .fxnod-partner-box p {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      margin-bottom: 1.4rem;
+    }
+    .fxnod-cta-btn {
+      background: var(--color-primary);
+      color: #ffffff;
+      font-weight: 700;
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 16px rgba(240, 58, 39, 0.35);
+      transition: all var(--transition-normal);
+      text-decoration: none;
+    }
+    .fxnod-cta-btn:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(240, 58, 39, 0.45);
+      color: #ffffff;
+    }
+    .comparison-table-wrap {
+      margin: 2rem 0;
+      overflow-x: auto;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+    }
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+      background: #ffffff;
+    }
+    .comparison-table th {
+      background: #f8fafc;
+      padding: 1rem 1.25rem;
+      font-weight: 700;
+      color: var(--color-text-main);
+      border-bottom: 2px solid var(--color-border);
+    }
+    .comparison-table td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      vertical-align: middle;
+    }
+    .comparison-table tr:last-child td {
+      border-bottom: none;
+    }
+    .diagram-box {
+      background: #0f172a;
+      color: #38bdf8;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 1.75rem;
+      border-radius: var(--radius-md);
+      overflow-x: auto;
+      margin: 2rem 0;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      border: 1px solid #1e293b;
+      box-shadow: var(--shadow-md);
+    }
+    .analogy-card {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-left: 4px solid #16a34a;
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1.75rem;
+      margin: 2rem 0;
+    }
+    .analogy-card h4 {
+      color: #166534;
+      margin-top: 0;
+      margin-bottom: 0.6rem;
+      font-size: 1.15rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .analogy-card p {
+      color: #14532d;
+      margin-bottom: 0;
+      line-height: 1.65;
+      font-size: 0.94rem;
+    }
+    .workflow-steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+    .workflow-step-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      display: flex;
+      gap: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      transition: border-color var(--transition-fast);
+    }
+    .workflow-step-card:hover {
+      border-color: #3b82f6;
+    }
+    .workflow-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #eff6ff;
+      color: #2563eb;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+      border: 1px solid #bfdbfe;
+    }
+    .workflow-content h4 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+      color: var(--color-text-main);
+    }
+    .workflow-content p {
+      margin-bottom: 0.5rem;
+      font-size: 0.92rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+    .workflow-content ol, .workflow-content ul {
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      padding-left: 1.25rem;
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    .feature-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin: 2rem 0;
+    }
+    .feature-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .feature-card h4 {
+      color: var(--color-text-main);
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.08rem;
+    }
+    .feature-card p {
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .faq-question {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--color-text-main);
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+    .faq-answer p {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+  </style>
+
+  <!-- Structured Data (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Managing the FXnod Wallet: Deposits, Transfers & Tool Upgrades (2026)",
+    "description": "Learn how to manage your FXnod internal wallet. Step-by-step guide on deposits, peer transfers, unlocking bot subscriptions, and applying coupon discounts.",
+    "author": {
+      "@type": "Organization",
+      "name": "Trade Insight Editorial"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Trade Insight",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://tradeinsight.com/assets/logo.png"
+      }
+    },
+    "datePublished": "2026-10-13",
+    "dateModified": "2026-10-13",
+    "image": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80",
+    "mainEntityOfPage": "https://tradeinsight.com/fxnod-wallet-deposits-transfers-subscriptions-guide/"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can I withdraw money from my FXnod Wallet back to my bank?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The FXnod internal wallet is designed specifically as a software billing wallet for unlocking platform tools and subscriptions. To manage or withdraw your trading profits, you do so directly through your official Deriv account cashier."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens if my tool subscription expires?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If your 1-month or 3-month subscription period ends, the tool status will change to Expired. Your historical trade data and settings are safely preserved. You can simply renew the tool from your wallet balance whenever you wish."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are there any fees for transferring balance to another FXnod user?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Internal peer-to-peer balance transfers between FXnod accounts are instant and free of processing charges."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I run bots if my FXnod wallet balance is $0?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! You can always test all 22 Auto Hub bots on your Deriv Virtual Demo account for free, even with a $0 FXnod wallet balance. You only need wallet funds when purchasing premium commercial tool passes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my wallet information secure on my phone?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. If you enable the built-in App Lock on the FXnod Mobile App, no one can access your wallet or transfer funds without your Face ID, Fingerprint, or 4-digit security PIN."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="article-page">
+
+  <!-- Top Reading Progress Indicator -->
+  <div class="reading-progress-bar" id="reading-progress"></div>
+
+  <!-- ======================================================================
+       HEADER & NAVIGATION
+       ====================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <div style="display: flex; align-items: center;">
+        <a href="../index.html" class="brand-logo" aria-label="Trade Insight Home">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <span>Trade Insight</span>
+        </a>
+
+        <nav class="nav-links" aria-label="Main Navigation">
+          <a href="../index.html" class="nav-link">All Guides</a>
+          <a href="automated-trading-on-deriv.html" class="nav-link">Deriv Guides</a>
+          <a href="how-to-choose-a-trading-bot.html" class="nav-link">Trading Bots</a>
+          <a href="../index.html#category-fxnod" class="nav-link">FXnod Guides</a>
+        </nav>
+      </div>
+
+      <div class="header-right">
+        <!-- Direct FXnod Referral Header Button -->
+        <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.45rem 1.1rem; font-size: 0.82rem;" title="Explore FXnod Platform">
+          <span>Explore FXnod</span>
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+
+        <div class="header-search">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+          <input type="text" placeholder="Search wallet guides..." aria-label="Search articles">
+        </div>
+
+        <button class="profile-avatar" title="User Profile" aria-label="User Profile">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       BREADCRUMB & HERO HEADER
+       ====================================================================== -->
+  <main class="article-page-wrapper">
+    <div class="container">
+      
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item"><a href="../index.html#category-fxnod">FXnod Guides</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item current" aria-current="page">FXnod Internal Wallet Guide</li>
+        </ol>
+      </nav>
+
+      <!-- Article Header -->
+      <header class="article-header">
+        <div class="article-meta-badges">
+          <span class="badge" style="background: rgba(240, 58, 39, 0.95); color: #fff;">FXnod Guides</span>
+          <span class="badge badge-accent">Platform Billing &amp; Wallet</span>
+          <span class="article-reading-time">7 min read • Updated Oct 2026</span>
+        </div>
+
+        <h1 class="article-title">
+          Managing the FXnod Internal Wallet: Deposits, Transfers &amp; Subscriptions
+        </h1>
+
+        <p class="article-lead">
+          When getting started with automated trading, understanding how platform balances work is essential. Learn how FXnod separates your Deriv trading capital from your software subscription wallet—enabling instant tool checkouts, peer transfers, and coupon discounts with zero confusion.
+        </p>
+
+        <div class="article-author-bar">
+          <div class="author-profile-chip">
+            <div class="author-chip-avatar">TI</div>
+            <span class="author-chip-name">Trade Insight Editorial</span>
+          </div>
+          <div class="author-meta-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+            <span>Published Oct 2026</span>
+          </div>
+          <div class="author-meta-item author-meta-verified">
+            <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+            <span>Verified Platform Architecture</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Featured Hero Image -->
+      <div class="article-featured-image-wrap">
+        <img 
+          src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80" 
+          alt="User managing their FXnod internal wallet balance and activating bot subscriptions" 
+          class="article-featured-image"
+          loading="eager"
+        >
+        <div class="image-caption">
+          Figure 1: FXnod separates your broker trading capital on Deriv from your software subscription wallet for total transparency and control.
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           TWO-COLUMN EDITORIAL LAYOUT
+           ====================================================================== -->
+      <div class="article-layout">
+        
+        <!-- LEFT STICKY SIDEBAR -->
+        <aside class="article-sidebar">
+          <div class="sidebar-widget toc-widget">
+            <div class="widget-title">
+              <span>Quick Navigation</span>
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path></svg>
+            </div>
+            <ul class="toc-list">
+              <li class="toc-item active"><a href="#wallet-vs-deriv">FXnod Wallet vs. Deriv Account</a></li>
+              <li class="toc-item"><a href="#why-internal-wallet">Why Use an Internal Wallet?</a></li>
+              <li class="toc-item"><a href="#funding-steps">How to Fund Your Wallet</a></li>
+              <li class="toc-item"><a href="#peer-transfers">Peer-to-Peer Balance Transfers</a></li>
+              <li class="toc-item"><a href="#unlocking-tools">Unlocking Active Tools &amp; Bot Plans</a></li>
+              <li class="toc-item"><a href="#order-receipts">Viewing Order History &amp; Receipts</a></li>
+              <li class="toc-item"><a href="#faq">Frequently Asked Questions</a></li>
+              <li class="toc-item"><a href="#final-thoughts">Final Thoughts &amp; Next Steps</a></li>
+            </ul>
+          </div>
+
+          <!-- Official Partner Quick Box -->
+          <div class="sidebar-card">
+            <h4>Transparent Billing</h4>
+            <p>Your trading money stays on Deriv. Use the FXnod wallet strictly for platform passes and tool upgrades.</p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; text-align: center; justify-content: center;">
+              Launch FXnod Free &rarr;
+            </a>
+          </div>
+
+          <!-- Companion Guides Box -->
+          <div class="sidebar-card" style="margin-top: 1.5rem; background: #ffffff;">
+            <h4>Companion Guides</h4>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; line-height: 1.6;">
+              <li style="margin-bottom: 0.75rem;"><a href="what-is-fxnod-complete-beginners-guide.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; What is FXnod? Beginner's Guide</a></li>
+              <li style="margin-bottom: 0.75rem;"><a href="how-to-connect-deriv-account-to-fxnod.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; Connect Deriv to FXnod Guide</a></li>
+              <li style="margin-bottom: 0.75rem;"><a href="is-fxnod-safe-legitimate-security-review.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; Is FXnod Safe and Legitimate?</a></li>
+              <li><a href="test-fxnod-bots-demo-virtual-account-guide.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; Test Bots on Demo Account</a></li>
+            </ul>
+          </div>
+        </aside>
+
+        <!-- RIGHT MAIN EDITORIAL CONTENT -->
+        <article class="article-content">
+
+          <p>
+            When getting started with an all-in-one automated trading platform like FXnod, understanding how payments and balances work is essential.
+          </p>
+
+          <p>
+            Traders often ask: <em>"Does my trading money go into FXnod, or does it stay in Deriv? How do I pay for premium tools and bot subscriptions?"</em>
+          </p>
+
+          <p>
+            The answer is simple and completely transparent. FXnod keeps your <strong>trading capital</strong> and your <strong>software subscription balance</strong> completely separate. Your trading money stays 100% safe inside your Deriv account, while FXnod features a dedicated <strong>Internal Wallet</strong> designed specifically for managing platform access, unlocking premium bot tools, and handling balance transfers.
+          </p>
+
+          <p>
+            In this beginner-friendly guide, you will learn how the FXnod Internal Wallet works, how to fund it smoothly, and how to use your balance to activate tools with zero confusion. If you are new to the platform, begin with our comprehensive overview: <strong><a href="what-is-fxnod-complete-beginners-guide.html" style="color: #2563eb; font-weight: 600;">What is FXnod? Complete Beginner’s Guide</a></strong>.
+          </p>
+
+          <!-- ==================================================================
+               SECTION 1: THE BIG DIFFERENCE: WALLET VS DERIV ACCOUNT
+               ================================================================== -->
+          <h2 id="wallet-vs-deriv">The Big Difference: FXnod Wallet vs. Deriv Trading Account</h2>
+
+          <p>
+            To give you 100% peace of mind, let’s make this vital distinction right away:
+          </p>
+
+          <div class="diagram-box">
+┌──────────────────────────────────────┐     ┌──────────────────────────────────────┐
+│       YOUR DERIV ACCOUNT BALANCE     │     │       YOUR FXNOD INTERNAL WALLET     │
+├──────────────────────────────────────┤     ├──────────────────────────────────────┤
+│ • Where your real trading funds live │     │ • Used ONLY for platform tools       │
+│ • Where bot profits are collected    │     │ • Pays for bot subscriptions         │
+│ • Managed 100% by Deriv's cashier    │     │ • Applies discounts &amp; coupons        │
+│ • Deposits &amp; withdrawals via your bank│     │ • Separate from your trading funds   │
+└──────────────────────────────────────┘     └──────────────────────────────────────┘
+          </div>
+
+          <p>
+            Here is what each balance does:
+          </p>
+
+          <ul style="line-height: 1.7; margin-bottom: 1.5rem;">
+            <li><strong>Your Deriv Account:</strong> This is your personal broker wallet. When your bots win a trade, the profit lands directly here. FXnod never has permission to withdraw or hold this money. For full security details, see our review: <strong><a href="is-fxnod-safe-legitimate-security-review.html" style="color: #2563eb; font-weight: 600;">Is FXnod Safe and Legitimate? Security &amp; Fund Protection Review</a></strong>.</li>
+            <li><strong>Your FXnod Wallet:</strong> This is your software subscription hub. You use it exclusively to unlock premium tools, purchase subscription plans (1-month, 3-month, lifetime), or transfer balance between platform members.</li>
+          </ul>
+
+          <div class="analogy-card">
+            <h4>
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+              Zero Blurring of Capital
+            </h4>
+            <p>
+              Your trading capital is never co-mingled with software fees. Even if your FXnod wallet balance reaches $0.00, your Deriv balance remains 100% untouched and secure in your regulated broker account.
+            </p>
+          </div>
+
+          <!-- Partner Box -->
+          <div class="fxnod-partner-box">
+            <span class="fxnod-badge">Free Demo Access</span>
+            <h3>Test Without Any Wallet Funding</h3>
+            <p>
+              You don't need to fund your FXnod wallet to try out the platform. You can test all 22 Auto Hub bots completely free on your Deriv Virtual Demo account ($10,000 balance).
+            </p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="fxnod-cta-btn">
+              <span>Open Free FXnod Account</span>
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 2: WHY FXNOD USES AN INTERNAL WALLET SYSTEM
+               ================================================================== -->
+          <h2 id="why-internal-wallet">Why FXnod Uses an Internal Wallet System</h2>
+
+          <p>
+            Instead of requiring you to enter credit card details every single time you want to unlock a bot tool or renew an access pass, the FXnod Internal Wallet gives you:
+          </p>
+
+          <div class="feature-card-grid">
+            <div class="feature-card">
+              <h4>1. Instant Checkout</h4>
+              <p>Activate new bot tools and tier plans in one click without waiting for traditional banking clearance or international card delays.</p>
+            </div>
+
+            <div class="feature-card">
+              <h4>2. Promotional Coupon Integration</h4>
+              <p>Apply official discount codes seamlessly during checkout with automated price recalculation.</p>
+            </div>
+
+            <div class="feature-card">
+              <h4>3. Itemized Order History</h4>
+              <p>Every single transaction generates an immutable digital receipt with complete order reference IDs for your records.</p>
+            </div>
+
+            <div class="feature-card">
+              <h4>4. Zero Hidden Fees</h4>
+              <p>What you see on the plan pricing screen is exactly what is deducted from your wallet balance. No surprise card surcharges.</p>
+            </div>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 3: HOW TO FUND YOUR FXNOD WALLET
+               ================================================================== -->
+          <h2 id="funding-steps">How to Fund Your FXnod Wallet (Step-by-Step)</h2>
+
+          <p>
+            Adding funds to your FXnod wallet is fast, safe, and straightforward:
+          </p>
+
+          <div class="workflow-steps-list">
+            
+            <div class="workflow-step-card">
+              <div class="workflow-num">1</div>
+              <div class="workflow-content">
+                <h4>Navigate to the Wallet Tab</h4>
+                <p>
+                  Log in to your FXnod dashboard on your computer or open the mobile app. From the primary navigation bar or side menu, click or tap on <strong>Wallet</strong>.
+                </p>
+              </div>
+            </div>
+
+            <div class="workflow-step-card">
+              <div class="workflow-num">2</div>
+              <div class="workflow-content">
+                <h4>Review Your Current Available Balance</h4>
+                <p>
+                  At the top of the wallet screen, you will see your <strong>Available Balance</strong> displayed clearly in USD, along with quick buttons for Deposit and Transfer.
+                </p>
+              </div>
+            </div>
+
+            <div class="workflow-step-card">
+              <div class="workflow-num">3</div>
+              <div class="workflow-content">
+                <h4>Choose Your Deposit Method</h4>
+                <p>
+                  Click on <strong>Deposit / Top Up</strong>. FXnod supports modern, low-fee digital funding options (such as USDT / Crypto networks):
+                </p>
+                <ol>
+                  <li>Select your preferred currency network.</li>
+                  <li>The platform will display a unique deposit address and a scannable QR code.</li>
+                  <li>Send the desired amount from your personal wallet or exchange.</li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="workflow-step-card">
+              <div class="workflow-num">4</div>
+              <div class="workflow-content">
+                <h4>Instant Confirmation &amp; Balance Update</h4>
+                <p>
+                  Once the blockchain network confirms the transaction, your FXnod wallet balance updates automatically. You will receive an immediate confirmation badge on your screen.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ==================================================================
+               SECTION 4: PEER-TO-PEER BALANCE TRANSFERS
+               ================================================================== -->
+          <h2 id="peer-transfers">How to Transfer Balance Between Accounts</h2>
+
+          <p>
+            FXnod includes a convenient <strong>Transfer</strong> feature. This allows users to send internal wallet funds to friends, trading partners, or secondary profiles without third-party processing fees:
+          </p>
+
+          <ol style="line-height: 1.7; margin-bottom: 1.5rem;">
+            <li>In the <strong>Wallet</strong> section, tap the <strong>Transfer</strong> tab.</li>
+            <li>Enter the recipient’s registered <strong>FXnod Email or User ID</strong>.</li>
+            <li>Enter the amount you wish to send in USD.</li>
+            <li>Review the confirmation summary (recipient name, amount, fee: $0.00).</li>
+            <li>Tap <strong>Send Transfer</strong>. The recipient receives the funds instantly in their FXnod wallet!</li>
+          </ol>
+
+          <!-- ==================================================================
+               SECTION 5: UNLOCKING ACTIVE TOOLS & BOT PLANS
+               ================================================================== -->
+          <h2 id="unlocking-tools">How to Use Your Wallet to Unlock Active Tools &amp; Bot Plans</h2>
+
+          <p>
+            Once your internal wallet has an active balance, purchasing or renewing your trading tools is effortless:
+          </p>
+
+          <div class="comparison-table-wrap">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Subscription Option</th>
+                  <th>Ideal Trader Profile</th>
+                  <th>Key Benefit</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>1 Month Pass</strong></td>
+                  <td>Beginners &amp; short-term testing</td>
+                  <td>Low upfront cost to explore live automation</td>
+                </tr>
+                <tr>
+                  <td><strong>3 Months Pass</strong></td>
+                  <td>Active algorithmic traders</td>
+                  <td>Built-in percentage discount per month</td>
+                </tr>
+                <tr>
+                  <td><strong>6 Months Pass</strong></td>
+                  <td>Consistent strategy runners</td>
+                  <td>Substantial cost savings over single-month renewals</td>
+                </tr>
+                <tr>
+                  <td><strong>Lifetime License</strong></td>
+                  <td>Dedicated quantitative traders</td>
+                  <td>One-time fee with permanent access to all future updates</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 style="font-size: 1.2rem; margin-top: 1.75rem;">15-Minute Quote Price Lock &amp; Coupon Codes</h3>
+          <p>
+            When you select a tool plan:
+          </p>
+          <ul style="line-height: 1.7; margin-bottom: 1.5rem;">
+            <li><strong>Apply Discount Coupons:</strong> If you have an official FXnod promo code, type it into the <strong>Coupon Code</strong> box and tap <strong>Apply</strong> to immediately recalculate your final total.</li>
+            <li><strong>15-Minute Quote Lock:</strong> FXnod automatically locks your discounted price for <strong>15 minutes</strong> with a visible countdown timer, ensuring price stability while you confirm the purchase.</li>
+            <li><strong>Instant Tool Activation:</strong> Tap <strong>Pay with Wallet Balance</strong>. Your subscription activates immediately, and your newly unlocked bot tools appear as <strong>Active</strong> across both web and mobile apps.</li>
+          </ul>
+
+          <!-- ==================================================================
+               SECTION 6: ORDER RECEIPTS & TRANSACTION HISTORY
+               ================================================================== -->
+          <h2 id="order-receipts">How to View Your Transaction &amp; Order Receipts</h2>
+
+          <p>
+            Transparency is central to FXnod. Every payment or transfer generates a permanent digital receipt:
+          </p>
+
+          <ol style="line-height: 1.7; margin-bottom: 1.5rem;">
+            <li>Open your <strong>Wallet</strong> screen.</li>
+            <li>Scroll down to the <strong>Order History &amp; Receipts</strong> section.</li>
+            <li>Review itemized details:
+              <ul>
+                <li>Order Reference ID (unique alphanumeric transaction code)</li>
+                <li>Tool Name and Subscription Tier</li>
+                <li>Exact Date and Timestamp</li>
+                <li>Amount Deducted</li>
+                <li>Payment Status (Completed)</li>
+              </ul>
+            </li>
+          </ol>
+
+          <p>
+            You can tap on any past transaction to inspect or download the itemized receipt for your personal records.
+          </p>
+
+          <!-- ==================================================================
+               SECTION 7: FREQUENTLY ASKED QUESTIONS
+               ================================================================== -->
+          <h2 id="faq">Frequently Asked Questions (FAQ)</h2>
+
+          <div class="faq-list">
+            <div class="faq-item">
+              <h3 class="faq-question">Can I withdraw money from my FXnod Wallet back to my bank?</h3>
+              <div class="faq-answer">
+                <p>
+                  The FXnod internal wallet is designed specifically as a software billing wallet for unlocking platform tools and subscriptions. To manage or withdraw your trading profits, you do so directly through your official Deriv account cashier.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">What happens if my tool subscription expires?</h3>
+              <div class="faq-answer">
+                <p>
+                  If your 1-month or 3-month subscription period ends, the tool status will change to <em>Expired</em>. Your historical trade data and settings are safely preserved. You can simply renew the tool from your wallet balance whenever you wish.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Are there any fees for transferring balance to another FXnod user?</h3>
+              <div class="faq-answer">
+                <p>
+                  No. Internal peer-to-peer balance transfers between FXnod accounts are instant and free of processing charges.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Can I run bots if my FXnod wallet balance is $0?</h3>
+              <div class="faq-answer">
+                <p>
+                  Yes! You can always test all 22 Auto Hub bots on your Deriv Virtual Demo account for free, even with a $0 FXnod wallet balance. You only need wallet funds when purchasing premium commercial tool passes.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Is my wallet information secure on my phone?</h3>
+              <div class="faq-answer">
+                <p>
+                  Yes. If you enable the built-in <strong>App Lock</strong> on the FXnod Mobile App, no one can access your wallet or transfer funds without your Face ID, Fingerprint, or 4-digit security PIN.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 8: FINAL THOUGHTS & CONCLUSION
+               ================================================================== -->
+          <h2 id="final-thoughts">Final Thoughts: Simple, Transparent Platform Management</h2>
+
+          <p>
+            The FXnod Internal Wallet keeps platform subscriptions simple, fast, and completely distinct from your trading funds. With instant deposits, seamless coupon discounts, and 1-click tool activation, you spend less time managing software and more time letting automated bots execute with discipline.
+          </p>
+
+          <p>
+            Ready to explore the full power of FXnod's automated bot suite? <strong><a href="how-to-create-setup-fxnod-account-guide.html" style="color: #2563eb; font-weight: 600;">Create your free FXnod account</a>, check out your Wallet today, and unlock the tools that fit your trading journey!</strong>
+          </p>
+
+          <!-- Affiliate Disclosure Box -->
+          <div class="affiliate-disclosure-box" style="margin-top: 2rem; padding: 1.25rem; background: #f8fafc; border: 1px solid var(--color-border); border-radius: var(--radius-md); font-size: 0.82rem; color: #64748b; line-height: 1.55;">
+            <strong>Affiliate Disclosure:</strong> This educational article contains partner referral links. If you register on FXnod through links on this page, we may earn a referral commission at no additional cost to you. Trading derivatives and synthetic indices involves high risk of capital loss. Always trade responsibly and test strategies using demo environments first.
+          </div>
+
+          <!-- Further Reading Box -->
+          <div class="further-reading-box">
+            <h4>Recommended Related Guides:</h4>
+            <ul>
+              <li><a href="test-fxnod-bots-demo-virtual-account-guide.html">How to Test FXnod Bots on a Virtual (Demo) Account</a></li>
+              <li><a href="how-to-connect-deriv-account-to-fxnod.html">How to Connect Your Deriv Account to FXnod Safely</a></li>
+              <li><a href="is-fxnod-safe-legitimate-security-review.html">Is FXnod Safe and Legitimate? Security &amp; Fund Protection Review</a></li>
+              <li><a href="fxnod-dashboard-complete-walkthrough-guide.html">Exploring the FXnod Dashboard: A Complete Walkthrough</a></li>
+              <li><a href="what-is-fxnod-complete-beginners-guide.html">What is FXnod? The Complete Beginner's Guide</a></li>
+              <li><a href="how-to-create-setup-fxnod-account-guide.html">How to Create and Set Up an FXnod Account in 2026</a></li>
+              <li><a href="automated-vs-manual-trading-deriv-discipline.html">Automated vs. Manual Trading on Deriv</a></li>
+            </ul>
+          </div>
+
+          <!-- Bottom CTA -->
+          <div class="article-footer-cta">
+            <h3>Take Command of Your Algorithmic Trading</h3>
+            <p>Deploy institutional-grade automated bots with transparent billing and zero fund custody risk.</p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">
+              Get Started with FXnod &rarr;
+            </a>
+          </div>
+
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <!-- ======================================================================
+       FOOTER COMPONENT
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="brand-logo">
+            <div class="brand-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+            <span>Trade Insight</span>
+          </a>
+          <p>
+            High-performance technical editorial and tactical research publication. We empower quantitative traders, risk teams, and modern web agencies with actionable market playbooks.
+          </p>
+          <span class="footer-digest-label">Weekly Tech & Trading Digest</span>
+          <form class="footer-mini-form" onsubmit="event.preventDefault(); showToast('Subscribed to Weekly Digest!');">
+            <input type="email" placeholder="Enter your business email" required aria-label="Business Email">
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+
+        <div class="footer-col">
+          <h4>Publication Areas</h4>
+          <ul>
+            <li><a href="../index.html#all">All Editorial Guides</a></li>
+            <li><a href="automated-trading-on-deriv.html">Deriv & Synthetic Indices</a></li>
+            <li><a href="how-to-choose-a-trading-bot.html">Automated Trading Bots</a></li>
+            <li><a href="what-is-automated-trading.html">Risk & Margin Management</a></li>
+            <li><a href="../index.html#seo">SEO & Growth Strategy</a></li>
+            <li><a href="../index.html#infra">Web Tech & Infrastructure</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-col-playbooks">
+          <h4>Popular Playbooks</h4>
+          <ul class="footer-playbooks-list">
+            <li><a href="fxnod-wallet-deposits-transfers-subscriptions-guide.html">Managing the FXnod Wallet</a></li>
+            <li><a href="test-fxnod-bots-demo-virtual-account-guide.html">Test FXnod Bots on Demo Account</a></li>
+            <li><a href="how-to-connect-deriv-account-to-fxnod.html">How to Connect Deriv to FXnod</a></li>
+            <li><a href="is-fxnod-safe-legitimate-security-review.html">Is FXnod Safe & Legit?</a></li>
+            <li><a href="fxnod-dashboard-complete-walkthrough-guide.html">FXnod Dashboard Walkthrough</a></li>
+          </ul>
+
+          <!-- Expandable archive list of remaining playbooks -->
+          <ul class="footer-playbooks-archive" id="footer-playbooks-archive" style="display: none;">
+            <li><a href="automated-vs-manual-trading-deriv-discipline.html">Automated vs Manual Trading</a></li>
+            <li><a href="fxnod-mobile-app-trading-guide.html">FXnod Mobile App Guide</a></li>
+            <li><a href="how-to-create-setup-fxnod-account-guide.html">FXnod Account Setup Guide</a></li>
+            <li><a href="what-is-fxnod-complete-beginners-guide.html">What is FXnod? (Complete Guide)</a></li>
+            <li><a href="what-is-automated-trading.html">What Is Automated Trading?</a></li>
+            <li><a href="automated-trading-on-deriv.html">How to Start on Deriv</a></li>
+            <li><a href="how-to-choose-a-trading-bot.html">How to Choose a Trading Bot</a></li>
+            <li><a href="manage-risk-when-using-a-trading-bot.html">Managing Bot Risk</a></li>
+            <li><a href="why-is-my-trading-bot-not-working.html">Bot Troubleshooting Guide</a></li>
+            <li><a href="can-trading-bots-lose-money.html">Can Bots Lose Money? (Risks)</a></li>
+            <li><a href="what-is-risk-to-reward-ratio.html">Risk-to-Reward Ratio Guide</a></li>
+            <li><a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" data-ref-link>Explore FXnod Platform</a></li>
+            <li><a href="how-to-test-a-trading-bot.html">How to Test a Trading Bot</a></li>
+            <li><a href="how-trading-bots-connect-to-platforms.html">How Bots Connect to Platforms</a></li>
+            <li><a href="why-trading-bots-make-losing-trades.html">Why Bots Make Losing Trades</a></li>
+            <li><a href="manual-vs-automated-trading.html">Manual vs Automated Trading</a></li>
+            <li><a href="what-to-check-before-connecting-a-trading-bot.html">Pre-Connection Checks (Security)</a></li>
+            <li><a href="trading-bot-faqs.html">Trading Bot FAQs (15 Answers)</a></li>
+            <li><a href="how-to-start-learning-trading.html">How to Start Learning Trading</a></li>
+            <li><a href="how-to-read-candlestick-charts.html">How to Read Candlesticks</a></li>
+            <li><a href="how-to-identify-support-and-resistance.html">Support & Resistance Levels</a></li>
+            <li><a href="how-to-keep-a-trading-journal.html">How to Keep a Trading Journal</a></li>
+            <li><a href="how-to-control-emotions-while-trading.html">Controlling Trading Emotions</a></li>
+            <li><a href="forex-vs-synthetic-indices.html">Forex vs Synthetic Indices</a></li>
+            <li><a href="how-to-evaluate-a-trading-strategy.html">How to Evaluate a Strategy</a></li>
+            <li><a href="why-market-prices-go-up-and-down.html">Why Market Prices Move</a></li>
+            <li><a href="how-economic-news-affects-trading.html">Economic News & Trading</a></li>
+            <li><a href="best-trading-timeframe-for-beginners.html">Best Trading Timeframes</a></li>
+            <li><a href="what-is-a-breakout-in-trading.html">What Is a Breakout in Trading?</a></li>
+            <li><a href="how-moving-averages-work-in-trading.html">How Moving Averages Work</a></li>
+            <li><a href="what-is-rsi-indicator-in-trading.html">What Is the RSI Indicator?</a></li>
+            <li><a href="what-is-spread-in-trading.html">What Is Spread in Trading?</a></li>
+            <li><a href="how-to-calculate-position-size.html">Position Sizing Guide</a></li>
+            <li><a href="what-is-drawdown-in-trading.html">What Is Drawdown in Trading?</a></li>
+            <li><a href="is-high-win-rate-enough-to-be-profitable.html">Is a High Win Rate Enough?</a></li>
+          </ul>
+
+          <button type="button" class="footer-toggle-btn" id="footer-playbooks-toggle" aria-expanded="false">
+            <span>+ View All 39 Playbooks</span>
+          </button>
+        </div>
+
+        <div class="footer-col">
+          <h4>Compliance & Legal</h4>
+          <ul>
+            <li><a href="../index.html#editorial">Editorial Independence</a></li>
+            <li><a href="../index.html#risk-notice">Risk Disclosure Notice</a></li>
+            <li><a href="../index.html#terms">Terms of Service</a></li>
+            <li><a href="../index.html#privacy">Privacy Policy</a></li>
+            <li><a href="../index.html#cookies">Cookie Preferences</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 Trade Insight Editorial. All content is for educational and technical informational purposes only. Trading financial derivatives carries substantial risk.
+        </div>
+        <div>
+          Designed for Agency Quantitative Operations
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+</body>
+</html>
