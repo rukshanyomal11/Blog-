@@ -6,6 +6,28 @@
 
 window.ARTICLES_DATA = [
   {
+    "id": 60,
+    "title": "FXnod FAQ: Everything Traders Ask Before Starting (2026 Guide)",
+    "slug": "blog/fxnod-frequently-asked-questions-faq-guide.html",
+    "category": "fxnod",
+    "badgeText": "FXnod Guides",
+    "badgeColor": "rgba(240, 58, 39, 0.95)",
+    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
+    "excerpt": "Find answers to the most common FXnod questions. Learn about Deriv fund safety, 22 Auto Hub bots, mobile app access, subscriptions, and risk safeguards.",
+    "readTime": "9 min read • Oct 2026"
+  },
+  {
+    "id": 59,
+    "title": "Top 5 Deriv Bot Trading Mistakes & How to Avoid Them (2026)",
+    "slug": "blog/top-deriv-bot-trading-mistakes-how-to-avoid.html",
+    "category": "fxnod",
+    "badgeText": "FXnod Guides",
+    "badgeColor": "rgba(240, 58, 39, 0.95)",
+    "image": "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=1200&q=80",
+    "excerpt": "Avoid the top 5 mistakes Deriv bot traders make. Learn how FXnod safeguards your capital with loss progression sheets, market gating, and automatic profit stops.",
+    "readTime": "8 min read • Oct 2026"
+  },
+  {
     "id": 58,
     "title": "How Much Can You Make with FXnod? Honest Profit Guide (2026)",
     "slug": "blog/how-much-can-you-earn-with-fxnod-profit-guide.html",
