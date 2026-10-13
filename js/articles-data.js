@@ -6,6 +6,17 @@
 
 window.ARTICLES_DATA = [
   {
+    "id": 33,
+    "title": "Getting Started with the FXnod Mobile App: Trade Anywhere, Anytime",
+    "slug": "blog/fxnod-mobile-app-trading-guide.html",
+    "category": "fxnod",
+    "badgeText": "FXnod Guides",
+    "badgeColor": "rgba(240, 58, 39, 0.95)",
+    "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80",
+    "excerpt": "Discover how to trade Deriv bots anywhere using the FXnod Mobile App. Learn about the 22 Auto Hub bots, live run monitor, biometric security, and 1-click setup.",
+    "readTime": "9 min read • Oct 2026"
+  },
+  {
     "id": 32,
     "title": "How to Create and Set Up an FXnod Account in 2026: The Complete Step-by-Step Guide",
     "slug": "blog/how-to-create-setup-fxnod-account-guide.html",

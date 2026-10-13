@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FXnod Mobile App Guide: Trade Deriv Bots on the Go in 2026 | Trade Insight</title>
+  <meta name="description" content="Discover how to trade Deriv bots anywhere using the FXnod Mobile App. Learn about the 22 Auto Hub bots, live run monitor, biometric security, and 1-click setup.">
+  <meta name="keywords" content="FXnod mobile app, mobile Deriv trading, Deriv trading app, automated trading on mobile, FXnod Android iOS, Deriv mobile bot, mobile algorithmic trading">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="FXnod Mobile App Guide: Trade Deriv Bots on the Go in 2026">
+  <meta property="og:description" content="Discover how to trade Deriv bots anywhere using the FXnod Mobile App. Learn about the 22 Auto Hub bots, live run monitor, biometric security, and 1-click setup.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tradeinsight.com/fxnod-mobile-app-trading-guide/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Twitter Meta -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FXnod Mobile App Guide: Trade Deriv Bots on the Go in 2026">
+  <meta name="twitter:description" content="Discover how to trade Deriv bots anywhere using the FXnod Mobile App with 22 ready-made bots and biometric security.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .article-featured-image-wrap {
+      margin: 2rem 0 2.5rem 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      background: #f1f5f9;
+      box-shadow: var(--shadow-md);
+    }
+    .article-featured-image {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      display: block;
+    }
+    .image-caption {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      background: #ffffff;
+      border-top: 1px solid var(--color-border);
+      text-align: center;
+      font-style: italic;
+    }
+    .fxnod-partner-box {
+      background: linear-gradient(135deg, #0b1120 0%, #172554 100%);
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      margin: 2.5rem 0;
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.25);
+    }
+    .fxnod-partner-box::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(240, 58, 39, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .fxnod-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(240, 58, 39, 0.2);
+      border: 1px solid rgba(240, 58, 39, 0.5);
+      color: #fca5a5;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .fxnod-partner-box h3 {
+      color: #ffffff;
+      font-size: 1.45rem;
+      margin-bottom: 0.65rem;
+    }
+    .fxnod-partner-box p {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      margin-bottom: 1.4rem;
+    }
+    .fxnod-cta-btn {
+      background: var(--color-primary);
+      color: #ffffff;
+      font-weight: 700;
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 16px rgba(240, 58, 39, 0.35);
+      transition: all var(--transition-normal);
+      text-decoration: none;
+    }
+    .fxnod-cta-btn:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(240, 58, 39, 0.45);
+      color: #ffffff;
+    }
+    .trust-guarantee-card {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+    .trust-icon-wrap {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #22c55e;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .trust-card-body h4 {
+      color: #166534;
+      font-size: 1.05rem;
+      margin-top: 0;
+      margin-bottom: 0.35rem;
+    }
+    .trust-card-body p {
+      color: #15803d;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+    .architecture-diagram-box {
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      color: #f8fafc;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      overflow-x: auto;
+      line-height: 1.5;
+    }
+    .architecture-diagram-box pre {
+      margin: 0;
+      color: #38bdf8;
+    }
+    .checklist-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      background: #ffffff;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      font-size: 0.92rem;
+    }
+    .checklist-table th, 
+    .checklist-table td {
+      padding: 1rem 1.25rem;
+      text-align: left;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .checklist-table th {
+      background: #f8fafc;
+      font-weight: 700;
+      color: var(--color-text-main);
+    }
+    .checklist-table tr:last-child td {
+      border-bottom: none;
+    }
+    .checklist-table tr:hover td {
+      background: #fafafa;
+    }
+    .workflow-steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+    .workflow-step-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      display: flex;
+      gap: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      transition: border-color var(--transition-fast);
+    }
+    .workflow-step-card:hover {
+      border-color: #3b82f6;
+    }
+    .workflow-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #eff6ff;
+      color: #2563eb;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+      border: 1px solid #bfdbfe;
+    }
+    .workflow-content h4 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+      color: var(--color-text-main);
+    }
+    .workflow-content p {
+      margin-bottom: 0.5rem;
+      font-size: 0.92rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+    .workflow-content ul {
+      margin: 0.5rem 0 0 1.25rem;
+      padding: 0;
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+    }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .faq-question {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--color-text-main);
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+    .faq-answer p {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+  </style>
+
+  <!-- Structured Data (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "FXnod Mobile App Guide: Trade Deriv Bots on the Go in 2026",
+    "description": "Discover how to trade Deriv bots anywhere using the FXnod Mobile App. Learn about the 22 Auto Hub bots, live run monitor, biometric security, and 1-click setup.",
+    "author": {
+      "@type": "Organization",
+      "name": "Trade Insight Editorial"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Trade Insight",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://tradeinsight.com/logo.png"
+      }
+    },
+    "datePublished": "2026-10-13",
+    "dateModified": "2026-10-13",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://tradeinsight.com/fxnod-mobile-app-trading-guide/"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does the FXnod Mobile App consume heavy battery or data?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The app uses lightweight WebSocket streams and optimized Flutter rendering. It uses minimal data and battery compared to graphic-heavy charting platforms."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will my bot stop running if I close the app or receive a phone call?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Server-side active bot runs continue to execute their current lifecycle on the cloud engine according to your pre-set Stop-Loss and Take-Profit rules. When you open the app again, it re-syncs instantly with the live run status."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the mobile app safe if my phone is lost or stolen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Thanks to the built-in Biometric App Lock, no one can open the app without your face, fingerprint, or PIN. Furthermore, because FXnod cannot withdraw funds from Deriv, your capital remains completely secure."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I deposit or withdraw money through the mobile app?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "All deposit and withdrawal transactions are handled directly through Deriv's official cashier portal for maximum security. FXnod never touches your banking or payment credentials."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the mobile app free to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! You can download the FXnod Mobile App and run all 22 Auto Hub bots on your Deriv Demo/Virtual account completely free of charge."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Top Reading Progress Indicator -->
+  <div class="reading-progress-bar" id="reading-progress"></div>
+
+  <!-- ======================================================================
+       HEADER & NAVIGATION
+       ====================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <div style="display: flex; align-items: center;">
+        <a href="../index.html" class="brand-logo" aria-label="Trade Insight Home">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <span>Trade Insight</span>
+        </a>
+
+        <nav class="nav-links" aria-label="Main Navigation">
+          <a href="../index.html" class="nav-link">All Guides</a>
+          <a href="automated-trading-on-deriv.html" class="nav-link">Deriv Guides</a>
+          <a href="how-to-choose-a-trading-bot.html" class="nav-link">Trading Bots</a>
+          <a href="../index.html#category-fxnod" class="nav-link">FXnod Guides</a>
+        </nav>
+      </div>
+
+      <div class="header-right">
+        <!-- Direct FXnod Referral Header Button -->
+        <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.45rem 1.1rem; font-size: 0.82rem;" title="Explore FXnod Platform">
+          <span>Explore FXnod</span>
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+
+        <div class="header-search">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+          <input type="text" placeholder="Search mobile bot guides, setups..." aria-label="Search articles">
+        </div>
+
+        <button class="profile-avatar" title="User Profile" aria-label="User Profile">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       BREADCRUMB & HERO HEADER
+       ====================================================================== -->
+  <main class="article-page-wrapper">
+    <div class="container">
+      
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item"><a href="../index.html#category-fxnod">FXnod Guides</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item current" aria-current="page">FXnod Mobile App Guide</li>
+        </ol>
+      </nav>
+
+      <!-- Article Header -->
+      <header class="article-header">
+        <div class="article-meta-badges">
+          <span class="badge" style="background: rgba(240, 58, 39, 0.95); color: #fff;">FXnod Guides</span>
+          <span class="badge badge-accent">Mobile Trading</span>
+          <span class="article-reading-time">9 min read • Updated Oct 2026</span>
+        </div>
+
+        <h1 class="article-title">
+          Getting Started with the FXnod Mobile App: Trade Anywhere, Anytime
+        </h1>
+
+        <p class="article-lead">
+          For years, automated algorithmic trading on Deriv forced traders to stay glued to desktop desks. The FXnod Mobile App brings the entire 22-bot Auto Hub ecosystem, live tick streaming, and biometric risk controls directly into the palm of your hand.
+        </p>
+
+        <div class="article-author-bar">
+          <div class="author-profile-chip">
+            <div class="author-chip-avatar">TI</div>
+            <span class="author-chip-name">Trade Insight Editorial</span>
+          </div>
+          <div class="author-meta-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+            <span>Published Oct 2026</span>
+          </div>
+          <div class="author-meta-item author-meta-verified">
+            <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+            <span>Mobile App Verified</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Featured Hero Image -->
+      <div class="article-featured-image-wrap">
+        <img 
+          src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80" 
+          alt="Hands holding a smartphone running the FXnod Mobile App with live Deriv bot trading monitor" 
+          class="article-featured-image"
+          loading="eager"
+        >
+        <div class="image-caption">
+          Deploy and monitor 22 automated Deriv trading bots from your smartphone with native biometric security and zero cloud VPS requirements.
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           TWO-COLUMN ARTICLE LAYOUT
+           ====================================================================== -->
+      <div class="article-layout">
+
+        <!-- LEFT STICKY SIDEBAR -->
+        <aside class="article-sidebar">
+          <!-- Table of Contents -->
+          <div class="sidebar-widget">
+            <div class="widget-title">
+              <span>Mobile Guide Index</span>
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path></svg>
+            </div>
+            <ul class="toc-list">
+              <li class="toc-item active"><a href="#why-mobile-trading">Why Mobile Automated Trading?</a></li>
+              <li class="toc-item"><a href="#key-features">Key Features Inside the App</a></li>
+              <li class="toc-item"><a href="#step-by-step-setup">Step-by-Step App Setup</a></li>
+              <li class="toc-item"><a href="#web-vs-mobile">Web vs Mobile Comparison</a></li>
+              <li class="toc-item"><a href="#best-practices">Mobile Best Practices</a></li>
+              <li class="toc-item"><a href="#faq">Frequently Asked Questions</a></li>
+              <li class="toc-item"><a href="#final-thoughts">Final Thoughts & CTA</a></li>
+            </ul>
+          </div>
+
+          <!-- Official Partner Quick Box -->
+          <div class="sidebar-card">
+            <h4>Trade Anywhere, 24/7</h4>
+            <p>Deploy ready-made Deriv synthetic bots directly from your Android or iOS smartphone with 1-click execution.</p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; text-align: center; justify-content: center;">
+              Launch FXnod Free &rarr;
+            </a>
+          </div>
+
+          <!-- Related Reading Card -->
+          <div class="sidebar-card" style="margin-top: 1.5rem; background: #ffffff;">
+            <h4>Companion Guides</h4>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; line-height: 1.6;">
+              <li style="margin-bottom: 0.75rem;"><a href="what-is-fxnod-complete-beginners-guide.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; What is FXnod? Beginner's Guide</a></li>
+              <li style="margin-bottom: 0.75rem;"><a href="how-to-create-setup-fxnod-account-guide.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; How to Create an Account</a></li>
+              <li><a href="automated-trading-on-deriv.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; Deriv Automated Trading Guide</a></li>
+            </ul>
+          </div>
+        </aside>
+
+        <!-- RIGHT MAIN EDITORIAL CONTENT -->
+        <article class="article-content">
+
+          <p>
+            For years, automated algorithmic trading on Deriv forced traders to stay glued to their desktop desks. If you wanted to run a bot, test a strategy, or stop an active run, you had to keep your PC powered on, sit through noisy fans, or pay monthly fees for complicated cloud VPS servers.
+          </p>
+
+          <p>
+            <strong>The FXnod Mobile App has changed the game completely.</strong>
+          </p>
+
+          <p>
+            Built on high-performance native Flutter architecture, the FXnod Mobile App brings the entire 22-bot Auto Hub ecosystem, real-time tick monitoring, and advanced risk controls directly into the palm of your hand. Whether you are commuting, relaxing at home, or on the go, you have full institutional-grade control over your Deriv trading bots from your smartphone.
+          </p>
+
+          <p>
+            In this guide, you’ll discover how the FXnod Mobile App works, explore its standout features, and learn step-by-step how to set up, monitor, and manage your mobile trading bots with <strong>100% security and confidence</strong>.
+          </p>
+
+          <!-- ==================================================================
+               SECTION 1: WHY MOBILE AUTOMATED TRADING
+               ================================================================== -->
+          <h2 id="why-mobile-trading">Why Mobile Automated Trading Is the Future</h2>
+
+          <p>
+            Manual mobile trading often leads to disastrous mistakes: accidental fat-finger clicks, slow order placement, and emotional panic during fast market swings.
+          </p>
+
+          <p>
+            The FXnod Mobile App eliminates these issues by replacing stressful manual finger-tapping with <strong>disciplined, automated execution</strong>:
+          </p>
+
+          <ul>
+            <li><strong>No VPS Required:</strong> Launch bots directly from your phone without paying for expensive third-party remote desktop setups.</li>
+            <li><strong>Instant 1-Click Bot Deployment:</strong> Pick from 22 pre-configured bots across Matches/Differs, Even/Odd, Over/Under, and Rise/Fall.</li>
+            <li><strong>Biometric Device Security:</strong> Secure your active trading sessions with Face ID, Fingerprint, or a 4-digit PIN lock.</li>
+            <li><strong>Live Visual Gauges:</strong> Monitor real-time profit targets, stop-loss cushions, and shadow entries on a sleek mobile-optimized interface.</li>
+            <li><strong>Seamless Cloud Synchronization:</strong> Start a bot on your laptop and monitor or stop it from your phone in real time.</li>
+          </ul>
+
+          <!-- Trust & Security Box -->
+          <div class="trust-guarantee-card">
+            <div class="trust-icon-wrap">
+              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+            </div>
+            <div class="trust-card-body">
+              <h4>100% Non-Custodial Capital Security</h4>
+              <p>The FXnod Mobile App connects to your Deriv account strictly via scoped API tokens (Read & Trade only). FXnod never has permission to withdraw or transfer your money. Your capital stays safely guarded inside your official Deriv account at all times.</p>
+            </div>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 2: KEY FEATURES
+               ================================================================== -->
+          <h2 id="key-features">Key Features Inside the FXnod Mobile App</h2>
+
+          <p>
+            The mobile application is not a stripped-down companion; it is a full-featured trading cockpit optimized for fluid touch interactions.
+          </p>
+
+          <h3>1. The Mobile Auto Hub (22 Ready-Made Bots)</h3>
+          <p>
+            Swipe effortlessly through four distinct bot families designed for every market condition:
+          </p>
+          <ul>
+            <li><strong>Matches / Differs:</strong> High-frequency digit variance bots with automated probability presets.</li>
+            <li><strong>Even / Odd:</strong> Digit parity strategies engineered for rapid 1-tick entries.</li>
+            <li><strong>Over / Under:</strong> Probability-skewed strategies with tight barrier parameters.</li>
+            <li><strong>Rise / Fall:</strong> Directional momentum bots filtered strictly to supported Volatility Indices (<code>1HZ10V</code> through <code>R_100</code>).</li>
+          </ul>
+
+          <h3>2. Live Run Monitor (Real-Time Tick Streaming)</h3>
+          <p>
+            The moment you launch a bot, the app transitions into the <strong>Live Run Monitor</strong>:
+          </p>
+          <ul>
+            <li><strong>P&L Progress Ring:</strong> A dynamic color-changing visual meter tracking your distance to your Take-Profit goal.</li>
+            <li><strong>Stop-Loss Cushion Meter:</strong> Real-time feedback showing how close your current drawdown is to your safety boundary.</li>
+            <li><strong>Tick-by-Tick Entry Stream:</strong> An auditable, transparent live feed of contract IDs, entry ticks, exit ticks, and payouts.</li>
+            <li><strong>Emergency Force Stop:</strong> An instant, prominent red button to kill all active bot executions immediately if unexpected market volatility occurs.</li>
+          </ul>
+
+          <h3>3. Integrated Loss Progression Sheet</h3>
+          <p>
+            Never guess your risk. Before starting any bot run, tap <strong>"View Loss Run"</strong> to open an interactive modal bottom sheet. It breaks down every potential Martingale step:
+          </p>
+          <ul>
+            <li>Exact stake per consecutive loss.</li>
+            <li>Total cumulative drawdown at each step.</li>
+            <li>Maximum losing streak your selected plan will survive.</li>
+            <li>Confirmation of the <strong>Refused Stake</strong> safeguard (the engine stops trading automatically before exceeding your Stop Loss).</li>
+          </ul>
+
+          <h3>4. Native App Lock & Privacy Shield</h3>
+          <p>
+            Keep your active trading safe from curious eyes or accidental taps. The app features native biometric integration:
+          </p>
+          <ul>
+            <li>Biometric unlock via Face ID or Fingerprint sensor.</li>
+            <li>Fallback 4-digit PIN code.</li>
+            <li>Automatic screen privacy blur when switching between phone apps.</li>
+          </ul>
+
+          <!-- FXnod Partner Highlight Box -->
+          <div class="fxnod-partner-box">
+            <span class="fxnod-badge">Official Mobile Release</span>
+            <h3>Experience Institutional Mobile Automation</h3>
+            <p>
+              Download the official FXnod Mobile App or access the web dashboard. Connect your free Deriv Demo account and test all 22 Auto Hub bots risk-free with virtual capital.
+            </p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="fxnod-cta-btn">
+              <span>Create Free Account & Download App</span>
+              <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 3: STEP-BY-STEP SETUP
+               ================================================================== -->
+          <h2 id="step-by-step-setup">Step-by-Step: How to Install and Set Up the FXnod Mobile App</h2>
+
+          <p>
+            Setting up the mobile app takes less than three minutes:
+          </p>
+
+          <!-- ASCII Setup Architecture Flow -->
+          <div class="architecture-diagram-box">
+<pre>
+[ Download & Install FXnod App ]
+               │
+               ▼
+[ Log In with Your FXnod Credentials ]
+               │
+               ▼
+[ Link Deriv Account via API Token or OAuth ]
+               │
+               ▼
+[ Enable Biometric App Lock ]
+               │
+               ▼
+[ Launch Your First Demo Bot Run ]
+</pre>
+          </div>
+
+          <div class="workflow-steps-list">
+            <!-- Step 1 -->
+            <div class="workflow-step-card">
+              <div class="workflow-num">1</div>
+              <div class="workflow-content">
+                <h4>Download & Install the Official Application</h4>
+                <p>
+                  Download the official FXnod Mobile App from the verified download link on the official FXnod portal or mobile app repository. Install the APK or app package onto your Android or iOS device with standard permissions.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="workflow-step-card">
+              <div class="workflow-num">2</div>
+              <div class="workflow-content">
+                <h4>Sign In to Your FXnod Account</h4>
+                <p>
+                  Open the app and log in with your verified FXnod email and password. If you haven't created your profile yet, follow our detailed <a href="how-to-create-setup-fxnod-account-guide.html" style="color: #2563eb; font-weight: 600;">FXnod Account Registration Guide</a> to unlock your credentials in under two minutes.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="workflow-step-card">
+              <div class="workflow-num">3</div>
+              <div class="workflow-content">
+                <h4>Link Your Deriv Account Safely</h4>
+                <p>
+                  Connect your Deriv portfolio safely using standard encrypted API token communication:
+                </p>
+                <ul>
+                  <li>Open the side Drawer menu and tap <strong>Deriv Connection</strong>.</li>
+                  <li>Tap <strong>Connect Account</strong>.</li>
+                  <li>Paste your Deriv API token (generated with <strong>Read</strong> and <strong>Trade</strong> permissions only).</li>
+                  <li>Tap <strong>Authorize</strong> to establish the encrypted handshake.</li>
+                  <li>Your live Deriv connection status, balance, and account type (Demo or Real) will appear immediately on the dashboard.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="workflow-step-card">
+              <div class="workflow-num">4</div>
+              <div class="workflow-content">
+                <h4>Enable Biometric App Lock & Safeguards</h4>
+                <p>
+                  Never trade without active device authentication:
+                </p>
+                <ul>
+                  <li>Navigate to <strong>Settings > Security</strong>.</li>
+                  <li>Toggle on <strong>App Lock</strong>.</li>
+                  <li>Scan your fingerprint or face to register your biometric authentication.</li>
+                  <li>Set an optional 4-digit PIN fallback for seamless emergency access.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="workflow-step-card">
+              <div class="workflow-num">5</div>
+              <div class="workflow-content">
+                <h4>Test Your First Bot on Virtual Demo Balance</h4>
+                <p>
+                  Always validate strategies in demo mode before risking live funds:
+                </p>
+                <ul>
+                  <li>Tap on the <strong>Auto Hub</strong> tab from the bottom navigation bar.</li>
+                  <li>Select an entry contract such as <strong>Even / Odd</strong> or <strong>Matches / Differs</strong>.</li>
+                  <li>Choose the beginner-friendly <strong>$20 Plan</strong> preset.</li>
+                  <li>Tap <strong>"How It Works"</strong> to read the bilingual entry pace and winning rules.</li>
+                  <li>Tap <strong>"Start Bot"</strong> and watch the Live Run Monitor handle trade execution automatically!</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 4: WEB VS MOBILE COMPARISON
+               ================================================================== -->
+          <h2 id="web-vs-mobile">Web vs. Mobile: How Do They Compare?</h2>
+
+          <p>
+            Both FXnod platforms share the same high-speed cloud infrastructure. Here is a quick breakdown to help you choose the ideal setup for your daily workflow:
+          </p>
+
+          <table class="checklist-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>FXnod Web Dashboard</th>
+                <th>FXnod Mobile App</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Ready-Made Bots (Auto Hub)</strong></td>
+                <td>22 Bots</td>
+                <td>22 Bots</td>
+              </tr>
+              <tr>
+                <td><strong>Deriv Account Connectivity</strong></td>
+                <td>Full OAuth & API Token</td>
+                <td>Full OAuth & API Token</td>
+              </tr>
+              <tr>
+                <td><strong>Real-Time Live Monitor</strong></td>
+                <td>Detailed Grid View</td>
+                <td>Sleek Touch-Optimized Cards</td>
+              </tr>
+              <tr>
+                <td><strong>Loss Progression Analysis</strong></td>
+                <td>Full Modal Table</td>
+                <td>Interactive Bottom Sheet</td>
+              </tr>
+              <tr>
+                <td><strong>Biometric Security</strong></td>
+                <td>Password Only</td>
+                <td>Face ID / Fingerprint / PIN</td>
+              </tr>
+              <tr>
+                <td><strong>Convenience & Portability</strong></td>
+                <td>Ideal for deep analytical reviews</td>
+                <td>Trade & monitor anywhere 24/7</td>
+              </tr>
+              <tr>
+                <td><strong>Emergency Force Stop</strong></td>
+                <td>1-Click Button</td>
+                <td>1-Tap Dedicated Button</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- ==================================================================
+               SECTION 5: BEST PRACTICES
+               ================================================================== -->
+          <h2 id="best-practices">Best Practices for Mobile Bot Trading</h2>
+
+          <p>
+            To keep your mobile trading smooth, safe, and consistent, adhere to these professional operational guidelines:
+          </p>
+
+          <ol style="margin-left: 1.25rem; line-height: 1.7; font-size: 0.95rem; color: var(--color-text-main);">
+            <li style="margin-bottom: 0.75rem;">
+              <strong>Keep Mobile Data Stable:</strong> Ensure you have a reliable 4G/5G or Wi-Fi connection. While server-side trades process independently on cloud engines, real-time live monitoring relies on uninterrupted WebSocket telemetry.
+            </li>
+            <li style="margin-bottom: 0.75rem;">
+              <strong>Never Disable App Lock:</strong> Always keep your fingerprint or PIN lock turned on so active sessions cannot be accidentally disrupted or touched inside your pocket.
+            </li>
+            <li style="margin-bottom: 0.75rem;">
+              <strong>Always Check the Account Badge:</strong> Look at the top badge before starting any bot to confirm whether you are on <strong>Virtual USD (Demo)</strong> or <strong>Real USD</strong>.
+            </li>
+            <li style="margin-bottom: 0.75rem;">
+              <strong>Use Contract Take-Profit:</strong> Enable contract-level profit targets (<code>contractTakeProfit</code>) to exit positions early and bank profits automatically.
+            </li>
+            <li style="margin-bottom: 0.75rem;">
+              <strong>Set Realistic Daily Targets:</strong> Let the bot achieve its target (e.g., $1 to $5 daily on smaller accounts), then close the app. Consistency beats overtrading every time.
+            </li>
+          </ol>
+
+          <!-- ==================================================================
+               SECTION 6: FREQUENTLY ASKED QUESTIONS
+               ================================================================== -->
+          <h2 id="faq">Frequently Asked Questions (FAQ)</h2>
+
+          <div class="faq-list">
+            <div class="faq-item">
+              <h3 class="faq-question">Does the FXnod Mobile App consume heavy battery or data?</h3>
+              <div class="faq-answer">
+                <p>No. The app uses lightweight WebSocket streams and optimized Flutter rendering. It uses minimal data and battery compared to graphic-heavy charting platforms.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Will my bot stop running if I close the app or receive a phone call?</h3>
+              <div class="faq-answer">
+                <p>Server-side active bot runs continue to execute their current lifecycle on the cloud engine according to your pre-set Stop-Loss and Take-Profit rules. When you open the app again, it re-syncs instantly with the live run status.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Is the mobile app safe if my phone is lost or stolen?</h3>
+              <div class="faq-answer">
+                <p>Yes. Thanks to the built-in Biometric App Lock, no one can open the app without your face, fingerprint, or PIN. Furthermore, because FXnod cannot withdraw funds from Deriv, your money remains completely secure in your Deriv wallet.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Can I deposit or withdraw money through the mobile app?</h3>
+              <div class="faq-answer">
+                <p>All deposit and withdrawal transactions are handled directly through Deriv’s official cashier portal for maximum security. FXnod never touches your banking or payment credentials.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Is the mobile app free to use?</h3>
+              <div class="faq-answer">
+                <p>Yes! You can download the FXnod Mobile App and run all 22 Auto Hub bots on your Deriv Demo/Virtual account completely free of charge.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 7: FINAL THOUGHTS & CONCLUSION
+               ================================================================== -->
+          <h2 id="final-thoughts">Final Thoughts: Complete Trading Control in Your Pocket</h2>
+
+          <p>
+            Trading synthetic indices no longer requires being chained to an office desk. With the <strong>FXnod Mobile App</strong>, you get the speed of algorithmic automation, the transparency of deep mathematical risk analysis, and the freedom of mobile convenience.
+          </p>
+
+          <p>
+            Ready to trade smarter, faster, and without emotional friction? <strong>Download the FXnod Mobile App today, link your free Demo account, and start automating your trading on the go!</strong>
+          </p>
+
+          <!-- Affiliate Disclosure Box -->
+          <div class="affiliate-disclosure-box" style="margin-top: 2rem; padding: 1.25rem; background: #f8fafc; border: 1px solid var(--color-border); border-radius: var(--radius-md); font-size: 0.82rem; color: #64748b; line-height: 1.55;">
+            <strong>Affiliate Disclosure:</strong> This educational article contains partner referral links. If you register on FXnod through links on this page, we may earn a referral commission at no additional cost to you. Trading derivatives and synthetic indices involves high risk of capital loss. Always trade responsibly and test strategies using demo environments first.
+          </div>
+
+          <!-- Further Reading Box -->
+          <div class="further-reading-box">
+            <h4>Recommended Related Guides:</h4>
+            <ul>
+              <li><a href="what-is-fxnod-complete-beginners-guide.html">What is FXnod? The Complete Beginner's Guide</a></li>
+              <li><a href="how-to-create-setup-fxnod-account-guide.html">How to Create and Set Up an FXnod Account in 2026</a></li>
+              <li><a href="automated-trading-on-deriv.html">How to Start Automated Trading on Deriv</a></li>
+              <li><a href="how-to-choose-a-trading-bot.html">How to Choose the Right Trading Bot: 7 Things to Check</a></li>
+              <li><a href="manage-risk-when-using-a-trading-bot.html">How to Manage Risk When Using a Trading Bot</a></li>
+            </ul>
+          </div>
+
+          <!-- Bottom CTA -->
+          <div class="article-footer-cta">
+            <h3>Ready to Automate Your Deriv Trading on Mobile?</h3>
+            <p>Deploy 22 battle-tested algorithmic bots directly from your phone with biometric security and real-time live monitoring.</p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">
+              Get Started with FXnod &rarr;
+            </a>
+          </div>
+
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <!-- ======================================================================
+       FOOTER COMPONENT
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="brand-logo">
+            <div class="brand-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+            <span>Trade Insight</span>
+          </a>
+          <p>
+            High-performance technical editorial and tactical research publication. We empower quantitative traders, risk teams, and modern web agencies with actionable market playbooks.
+          </p>
+          <span class="footer-digest-label">Weekly Tech & Trading Digest</span>
+          <form class="footer-mini-form" onsubmit="event.preventDefault(); showToast('Subscribed to Weekly Digest!');">
+            <input type="email" placeholder="Enter your business email" required aria-label="Business Email">
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+
+        <div class="footer-col">
+          <h4>Publication Areas</h4>
+          <ul>
+            <li><a href="../index.html#all">All Editorial Guides</a></li>
+            <li><a href="automated-trading-on-deriv.html">Deriv & Synthetic Indices</a></li>
+            <li><a href="how-to-choose-a-trading-bot.html">Automated Trading Bots</a></li>
+            <li><a href="what-is-automated-trading.html">Risk & Margin Management</a></li>
+            <li><a href="../index.html#seo">SEO & Growth Strategy</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-col-playbooks">
+          <h4>Popular Playbooks</h4>
+          <ul class="footer-playbooks-list">
+            <li><a href="fxnod-mobile-app-trading-guide.html">FXnod Mobile App Guide</a></li>
+            <li><a href="how-to-create-setup-fxnod-account-guide.html">FXnod Account Setup Guide</a></li>
+            <li><a href="what-is-fxnod-complete-beginners-guide.html">What is FXnod? (Complete Guide)</a></li>
+            <li><a href="what-is-automated-trading.html">What Is Automated Trading?</a></li>
+            <li><a href="automated-trading-on-deriv.html">How to Start on Deriv</a></li>
+          </ul>
+
+          <!-- Expandable archive list of remaining playbooks -->
+          <ul class="footer-playbooks-archive" id="footer-playbooks-archive" style="display: none;">
+            <li><a href="how-to-choose-a-trading-bot.html">How to Choose a Trading Bot</a></li>
+            <li><a href="manage-risk-when-using-a-trading-bot.html">Managing Bot Risk</a></li>
+            <li><a href="why-is-my-trading-bot-not-working.html">Bot Troubleshooting Guide</a></li>
+            <li><a href="can-trading-bots-lose-money.html">Can Bots Lose Money? (Risks)</a></li>
+            <li><a href="what-is-risk-to-reward-ratio.html">Risk-to-Reward Ratio Guide</a></li>
+            <li><a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" data-ref-link>Explore FXnod Platform</a></li>
+            <li><a href="how-to-test-a-trading-bot.html">How to Test a Trading Bot</a></li>
+            <li><a href="how-trading-bots-connect-to-platforms.html">How Bots Connect to Platforms</a></li>
+            <li><a href="why-trading-bots-make-losing-trades.html">Why Bots Make Losing Trades</a></li>
+            <li><a href="manual-vs-automated-trading.html">Manual vs Automated Trading</a></li>
+            <li><a href="what-to-check-before-connecting-a-trading-bot.html">Pre-Connection Checks (Security)</a></li>
+            <li><a href="trading-bot-faqs.html">Trading Bot FAQs (15 Answers)</a></li>
+            <li><a href="how-to-start-learning-trading.html">How to Start Learning Trading</a></li>
+            <li><a href="how-to-read-candlestick-charts.html">How to Read Candlesticks</a></li>
+            <li><a href="how-to-identify-support-and-resistance.html">Support & Resistance Levels</a></li>
+            <li><a href="how-to-keep-a-trading-journal.html">How to Keep a Trading Journal</a></li>
+            <li><a href="how-to-control-emotions-while-trading.html">Controlling Trading Emotions</a></li>
+            <li><a href="forex-vs-synthetic-indices.html">Forex vs Synthetic Indices</a></li>
+            <li><a href="how-to-evaluate-a-trading-strategy.html">How to Evaluate a Strategy</a></li>
+            <li><a href="why-market-prices-go-up-and-down.html">Why Market Prices Move</a></li>
+            <li><a href="how-economic-news-affects-trading.html">Economic News & Trading</a></li>
+            <li><a href="best-trading-timeframe-for-beginners.html">Best Trading Timeframes</a></li>
+            <li><a href="what-is-a-breakout-in-trading.html">What Is a Breakout in Trading?</a></li>
+            <li><a href="how-moving-averages-work-in-trading.html">How Moving Averages Work</a></li>
+            <li><a href="what-is-rsi-indicator-in-trading.html">What Is the RSI Indicator?</a></li>
+            <li><a href="what-is-spread-in-trading.html">What Is Spread in Trading?</a></li>
+            <li><a href="how-to-calculate-position-size.html">Position Sizing Guide</a></li>
+            <li><a href="what-is-drawdown-in-trading.html">What Is Drawdown in Trading?</a></li>
+            <li><a href="is-high-win-rate-enough-to-be-profitable.html">Is a High Win Rate Enough?</a></li>
+          </ul>
+
+          <button type="button" class="footer-toggle-btn" id="footer-playbooks-toggle" aria-expanded="false">
+            <span>+ View All 33 Playbooks</span>
+          </button>
+        </div>
+
+        <div class="footer-col">
+          <h4>Compliance & Legal</h4>
+          <ul>
+            <li><a href="../index.html#editorial">Editorial Independence</a></li>
+            <li><a href="../index.html#risk-notice">Risk Disclosure Notice</a></li>
+            <li><a href="../index.html#terms">Terms of Service</a></li>
+            <li><a href="../index.html#privacy">Privacy Policy</a></li>
+            <li><a href="../index.html#cookies">Cookie Preferences</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 Trade Insight Editorial. All content is for educational and technical informational purposes only. Trading financial derivatives carries substantial risk.
+        </div>
+        <div>
+          Designed for Agency Quantitative Operations
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+</body>
+</html>
