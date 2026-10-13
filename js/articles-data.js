@@ -6,6 +6,17 @@
 
 window.ARTICLES_DATA = [
   {
+    "id": 35,
+    "title": "Exploring the FXnod Dashboard: A Complete Walkthrough",
+    "slug": "blog/fxnod-dashboard-complete-walkthrough-guide.html",
+    "category": "fxnod",
+    "badgeText": "FXnod Guides",
+    "badgeColor": "rgba(240, 58, 39, 0.95)",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+    "excerpt": "Master the FXnod dashboard with this complete walkthrough. Learn how to navigate the 22-bot Auto Hub, live run monitor, Deriv connection, and risk settings.",
+    "readTime": "9 min read • Oct 2026"
+  },
+  {
     "id": 34,
     "title": "Automated Trading vs. Manual Trading on Deriv: Why Bots Win on Discipline",
     "slug": "blog/automated-vs-manual-trading-deriv-discipline.html",
