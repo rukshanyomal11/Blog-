@@ -6,6 +6,17 @@
 
 window.ARTICLES_DATA = [
   {
+    "id": 34,
+    "title": "Automated Trading vs. Manual Trading on Deriv: Why Bots Win on Discipline",
+    "slug": "blog/automated-vs-manual-trading-deriv-discipline.html",
+    "category": "fxnod",
+    "badgeText": "FXnod Guides",
+    "badgeColor": "rgba(240, 58, 39, 0.95)",
+    "image": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80",
+    "excerpt": "Compare automated vs manual trading on Deriv. Learn how FXnod bots eliminate emotional revenge trading, execute faster, and enforce strict risk management.",
+    "readTime": "8 min read • Oct 2026"
+  },
+  {
     "id": 33,
     "title": "Getting Started with the FXnod Mobile App: Trade Anywhere, Anytime",
     "slug": "blog/fxnod-mobile-app-trading-guide.html",
