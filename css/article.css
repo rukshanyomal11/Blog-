@@ -17,36 +17,84 @@
 }
 
 /* --------------------------------------------------------------------------
-   2. BREADCRUMBS
+   2. BREADCRUMBS MASTER SUITE (.breadcrumb-nav, .breadcrumb-list, .breadcrumbs, .breadcrumb)
    -------------------------------------------------------------------------- */
-.breadcrumbs {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.8rem;
+.breadcrumb-nav,
+.breadcrumbs,
+.breadcrumb {
+  display: block;
+  width: 100%;
+  margin-top: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb-list {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 0.45rem !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 0.82rem !important;
+  color: var(--color-text-muted) !important;
+  line-height: 1.5 !important;
+}
+
+.breadcrumb-item {
+  display: inline-flex !important;
+  align-items: center !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 0.82rem !important;
   color: var(--color-text-muted);
-  margin-top: 1.75rem;
-  margin-bottom: 1.25rem;
-  flex-wrap: wrap;
 }
 
-.breadcrumbs a {
-  color: var(--color-text-muted);
+.breadcrumb-item a,
+.breadcrumbs a,
+.breadcrumb a {
+  color: var(--color-text-muted) !important;
+  text-decoration: none !important;
+  transition: color 0.15s ease;
 }
 
-.breadcrumbs a:hover {
-  color: var(--color-primary);
+.breadcrumb-item a:hover,
+.breadcrumbs a:hover,
+.breadcrumb a:hover {
+  color: var(--color-primary) !important;
+  text-decoration: underline !important;
 }
 
+.breadcrumb-separator,
 .breadcrumbs .separator {
-  color: #cbd5e1;
-  font-size: 0.75rem;
+  display: inline-flex !important;
+  align-items: center !important;
+  color: #94a3b8 !important;
+  font-size: 0.75rem !important;
+  list-style: none !important;
+  user-select: none !important;
+  margin: 0 0.15rem !important;
+  padding: 0 !important;
 }
 
-.breadcrumbs .current {
-  color: var(--color-text-main);
-  font-weight: 500;
-  max-width: 320px;
+/* If no explicit separator element exists, inject slash between items */
+.breadcrumb-list:not(:has(.breadcrumb-separator)) .breadcrumb-item + .breadcrumb-item::before {
+  content: "/" !important;
+  display: inline-block !important;
+  margin-right: 0.45rem !important;
+  color: #94a3b8 !important;
+  font-size: 0.75rem !important;
+}
+
+.breadcrumb-item.active,
+.breadcrumb-item.current,
+.breadcrumbs .current,
+.breadcrumb span:last-child {
+  color: var(--color-text-main) !important;
+  font-weight: 600 !important;
+  max-width: 420px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
