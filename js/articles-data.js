@@ -6,6 +6,50 @@
 
 window.ARTICLES_DATA = [
   {
+    "id": 51,
+    "title": "How to Read the FXnod Loss Progression Sheet (Risk Guide 2026)",
+    "slug": "blog/how-to-read-fxnod-loss-progression-sheet-guide.html",
+    "category": "fxnod",
+    "badgeText": "FXnod Guides",
+    "badgeColor": "rgba(240, 58, 39, 0.95)",
+    "image": "https://images.unsplash.com/photo-1642543492481-44e81e3914a7?auto=format&fit=crop&w=1200&q=80",
+    "excerpt": "Learn how to read the FXnod Loss Progression Sheet. Understand consecutive losses survived, the refused stake safeguard, and calculate your worst-case trading scenario.",
+    "readTime": "8 min read • Oct 2026"
+  },
+  {
+    "id": 50,
+    "title": "The Ultimate Guide to Safe Martingale on Deriv (2026 Guide)",
+    "slug": "blog/ultimate-guide-to-safe-martingale-deriv.html",
+    "category": "fxnod",
+    "badgeText": "FXnod Guides",
+    "badgeColor": "rgba(240, 58, 39, 0.95)",
+    "image": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80",
+    "excerpt": "Learn how to use the Martingale strategy safely on Deriv without blowing your account. Discover pre-calibrated ladders, refused stake safeguards, and risk rules.",
+    "readTime": "9 min read • Oct 2026"
+  },
+  {
+    "id": 49,
+    "title": "FXnod Live Run Monitor Guide: Real-Time Stats & Controls (2026)",
+    "slug": "blog/fxnod-live-run-monitor-stats-controls-guide.html",
+    "category": "fxnod",
+    "badgeText": "FXnod Guides",
+    "badgeColor": "rgba(240, 58, 39, 0.95)",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+    "excerpt": "Master the FXnod Live Run Monitor. Track real-time P&L, win rates, stop-loss cushions, and use the 1-click Emergency Force Stop to protect your trading capital.",
+    "readTime": "8 min read • Oct 2026"
+  },
+  {
+    "id": 48,
+    "title": "Fixed Plan vs Own Amount Bots on FXnod: Which Fits You? (2026)",
+    "slug": "blog/fixed-plan-vs-own-amount-trading-bots-fxnod.html",
+    "category": "fxnod",
+    "badgeText": "FXnod Guides",
+    "badgeColor": "rgba(240, 58, 39, 0.95)",
+    "image": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80",
+    "excerpt": "Compare Fixed Plan bots ($20, $50, $100) vs Own Amount custom bots on FXnod. Discover which automated trading model fits your risk profile and account size.",
+    "readTime": "7 min read • Oct 2026"
+  },
+  {
     "id": 47,
     "title": "What is FXnod Shadow Lane? Phantom Trading on Deriv Explained (2026)",
     "slug": "blog/fxnod-shadow-lane-phantom-trading-guide.html",

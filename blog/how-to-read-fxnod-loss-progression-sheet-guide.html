@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Read the FXnod Loss Progression Sheet (Risk Guide 2026) | Trade Insight</title>
+  <meta name="description" content="Learn how to read the FXnod Loss Progression Sheet. Understand consecutive losses survived, the refused stake safeguard, and calculate your worst-case trading scenario.">
+  <meta name="keywords" content="loss progression sheet, losing streak calculator, Deriv risk management, FXnod loss progression, calculate consecutive losses trading, Deriv bot stop loss, safe trading stake ladder">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="How to Read the FXnod Loss Progression Sheet (Risk Guide 2026)">
+  <meta property="og:description" content="Learn how to read the FXnod Loss Progression Sheet. Understand consecutive losses survived, the refused stake safeguard, and calculate your worst-case trading scenario.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tradeinsight.com/how-to-read-fxnod-loss-progression-sheet-guide/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1642543492481-44e81e3914a7?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Twitter Meta -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Read the FXnod Loss Progression Sheet (Risk Guide 2026)">
+  <meta name="twitter:description" content="Never trade blind. Discover how FXnod's interactive Loss Progression Sheet simulates worst-case streaks, enforces refused stakes, and sizes your Deriv capital.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1642543492481-44e81e3914a7?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .article-featured-image-wrap {
+      margin: 2rem 0 2.5rem 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      background: #f1f5f9;
+      box-shadow: var(--shadow-md);
+    }
+    .article-featured-image {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      display: block;
+    }
+    .image-caption {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      background: #ffffff;
+      border-top: 1px solid var(--color-border);
+      text-align: center;
+      font-style: italic;
+    }
+    .fxnod-partner-box {
+      background: linear-gradient(135deg, #0b1120 0%, #172554 100%);
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      margin: 2.5rem 0;
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.25);
+    }
+    .fxnod-partner-box::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(240, 58, 39, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .fxnod-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(240, 58, 39, 0.2);
+      border: 1px solid rgba(240, 58, 39, 0.5);
+      color: #fca5a5;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .fxnod-partner-box h3 {
+      color: #ffffff;
+      font-size: 1.45rem;
+      margin-bottom: 0.65rem;
+    }
+    .fxnod-partner-box p {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      margin-bottom: 1.4rem;
+    }
+    .fxnod-cta-btn {
+      background: var(--color-primary);
+      color: #ffffff;
+      font-weight: 700;
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 16px rgba(240, 58, 39, 0.35);
+      transition: all var(--transition-normal);
+      text-decoration: none;
+    }
+    .fxnod-cta-btn:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(240, 58, 39, 0.45);
+      color: #ffffff;
+    }
+    .diagram-box {
+      background: #0f172a;
+      color: #38bdf8;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 1.75rem;
+      border-radius: var(--radius-md);
+      overflow-x: auto;
+      margin: 2rem 0;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      border: 1px solid #1e293b;
+      box-shadow: var(--shadow-md);
+    }
+    .table-container {
+      overflow-x: auto;
+      margin: 2rem 0;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-sm);
+    }
+    .table-custom {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+    .table-custom th {
+      background: #f8fafc;
+      padding: 1rem 1.25rem;
+      font-weight: 700;
+      color: var(--color-text-main);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .table-custom td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+    }
+    .table-custom tr:last-child td {
+      border-bottom: none;
+    }
+    .table-custom tr:hover td {
+      background: #f8fafc;
+    }
+    .features-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin: 2rem 0;
+    }
+    .feature-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .feature-card h4 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .feature-card p {
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+    .workflow-steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+    .workflow-step-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      display: flex;
+      gap: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      transition: border-color var(--transition-fast);
+    }
+    .workflow-step-card:hover {
+      border-color: #3b82f6;
+    }
+    .workflow-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #eff6ff;
+      color: #2563eb;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+      border: 1px solid #bfdbfe;
+    }
+    .workflow-content h4 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+      color: var(--color-text-main);
+    }
+    .workflow-content p {
+      margin-bottom: 0.5rem;
+      font-size: 0.92rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+    .rules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin: 2rem 0;
+    }
+    .rule-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .rule-card h4 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+      color: var(--color-text-main);
+    }
+    .rule-card p {
+      color: var(--color-text-muted);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .faq-question {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--color-text-main);
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+    .faq-answer p {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+  </style>
+
+  <!-- Structured Data (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Read the FXnod Loss Progression Sheet (Risk Guide 2026)",
+    "description": "Learn how to read the FXnod Loss Progression Sheet. Understand consecutive losses survived, the refused stake safeguard, and calculate your worst-case trading scenario.",
+    "author": {
+      "@type": "Organization",
+      "name": "Trade Insight Editorial"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Trade Insight",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://tradeinsight.com/assets/logo.png"
+      }
+    },
+    "datePublished": "2026-10-13",
+    "dateModified": "2026-10-13",
+    "image": "https://images.unsplash.com/photo-1642543492481-44e81e3914a7?auto=format&fit=crop&w=1200&q=80",
+    "mainEntityOfPage": "https://tradeinsight.com/how-to-read-fxnod-loss-progression-sheet-guide/"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does the Loss Progression Sheet show what will definitely happen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The sheet illustrates your worst-case scenario (an unbroken losing streak). In real trading, most trades win, and every winning trade resets the sequence back to Step 1. The sheet simply shows you your safety boundaries."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does 'Refused Stake' mean?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Refused Stake is an automated safety rule. It means the engine calculated that placing the next planned trade would violate your pre-set Stop-Loss ceiling. To protect your capital, the bot refuses the trade and halts the session safely."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I see the Loss Progression Sheet for custom 'Own Amount' bots?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! When you configure a custom starting stake and stop-loss on an Own Amount bot, FXnod dynamically calculates and updates the Loss Progression table to reflect your custom numbers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the Loss Progression Sheet available on the mobile app?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! The FXnod Mobile App features an interactive modal bottom sheet that opens instantly when you tap 'View Loss Run →' on any bot card."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What should I do if a bot hits its Stop-Loss limit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Accept the result and take a break. The Stop-Loss protected the rest of your balance. Review your journal, wait for calm market conditions, and resume trading during your next planned session."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="article-page">
+
+  <!-- Top Reading Progress Indicator -->
+  <div class="reading-progress-bar" id="reading-progress"></div>
+
+  <!-- ======================================================================
+       HEADER & NAVIGATION
+       ====================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <div style="display: flex; align-items: center;">
+        <a href="../index.html" class="brand-logo" aria-label="Trade Insight Home">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <span>Trade Insight</span>
+        </a>
+
+        <nav class="nav-links" aria-label="Main Navigation">
+          <a href="../index.html" class="nav-link">All Guides</a>
+          <a href="automated-trading-on-deriv.html" class="nav-link">Deriv Guides</a>
+          <a href="how-to-choose-a-trading-bot.html" class="nav-link">Trading Bots</a>
+          <a href="../index.html#category-fxnod" class="nav-link">FXnod Guides</a>
+        </nav>
+      </div>
+
+      <div class="header-right">
+        <!-- Direct FXnod Referral Header Button -->
+        <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.45rem 1.1rem; font-size: 0.82rem;" title="Explore FXnod Platform">
+          <span>Explore FXnod</span>
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+
+        <div class="header-search">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+          <input type="text" placeholder="Search risk sheets..." aria-label="Search articles">
+        </div>
+
+        <button class="profile-avatar" title="User Profile" aria-label="User Profile">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       BREADCRUMB & HERO HEADER
+       ====================================================================== -->
+  <main class="article-page-wrapper">
+    <div class="container">
+      
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item"><a href="../index.html#category-fxnod">FXnod Guides</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item current" aria-current="page">Loss Progression Sheet Guide</li>
+        </ol>
+      </nav>
+
+      <!-- Article Header -->
+      <header class="article-header">
+        <div class="article-meta-badges">
+          <span class="badge" style="background: rgba(240, 58, 39, 0.95); color: #fff;">FXnod Guides</span>
+          <span class="badge badge-accent">Risk Transparency</span>
+          <span class="article-reading-time">8 min read • Updated Oct 2026</span>
+        </div>
+
+        <h1 class="article-title">
+          How to Read the FXnod Loss Progression Sheet: Know Your Worst-Case Scenario
+        </h1>
+
+        <p class="article-lead">
+          Stop guessing your streak resilience. Discover how the FXnod Loss Progression Sheet calculates exact consecutive loss ladders, enforces refused stake safeguards, and sizes your bankroll with 100% confidence.
+        </p>
+
+        <div class="article-author-bar">
+          <div class="author-profile-chip">
+            <div class="author-chip-avatar">TI</div>
+            <span class="author-chip-name">Trade Insight Editorial</span>
+          </div>
+          <span class="author-bar-divider">•</span>
+          <span class="article-verified-badge">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+            Verified Architecture Guide
+          </span>
+        </div>
+      </header>
+
+      <!-- Featured Hero Image -->
+      <div class="article-featured-image-wrap">
+        <img 
+          src="https://images.unsplash.com/photo-1642543492481-44e81e3914a7?auto=format&fit=crop&w=1200&q=80" 
+          alt="FXnod Loss Progression Sheet showing step-by-step consecutive loss ladders and refused stake safeguard" 
+          class="article-featured-image"
+          loading="eager"
+        >
+        <div class="image-caption">
+          Figure 1: The FXnod Loss Progression Sheet delivers 100% upfront mathematical clarity, mapping consecutive loss ladders and safety ceilings before risking real capital.
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           TWO-COLUMN EDITORIAL LAYOUT
+           ====================================================================== -->
+      <div class="article-layout">
+        
+        <!-- LEFT STICKY SIDEBAR -->
+        <aside class="article-sidebar">
+          <div class="sidebar-widget toc-widget">
+            <div class="widget-title">
+              <span>Quick Navigation</span>
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path></svg>
+            </div>
+            <ul class="toc-list">
+              <li class="toc-item active"><a href="#what-is-sheet">What Is the Sheet?</a></li>
+              <li class="toc-item"><a href="#four-key-elements">The 4 Key Elements Explained</a></li>
+              <li class="toc-item"><a href="#three-x-rule">The "3x Buffer Rule"</a></li>
+              <li class="toc-item"><a href="#step-by-step">How to Open the Sheet</a></li>
+              <li class="toc-item"><a href="#streak-endurance">Comparing Plan Endurance</a></li>
+              <li class="toc-item"><a href="#fatal-mistakes">3 Fatal Mistakes You Avoid</a></li>
+              <li class="toc-item"><a href="#faq">Frequently Asked Questions</a></li>
+              <li class="toc-item"><a href="#final-thoughts">Final Thoughts &amp; Next Steps</a></li>
+            </ul>
+          </div>
+
+          <!-- Official Partner Quick Box -->
+          <div class="sidebar-card">
+            <h4>Inspect Risk Sheets Free</h4>
+            <p>Review interactive Loss Progression Sheets across 22 bots with $10,000 virtual balance on your free FXnod Demo account.</p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; text-align: center; justify-content: center;">
+              Launch FXnod Free &rarr;
+            </a>
+          </div>
+
+          <!-- Companion Guides Box -->
+          <div class="sidebar-card" style="margin-top: 1.5rem; background: #ffffff;">
+            <h4>Companion Guides</h4>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; line-height: 1.6;">
+              <li style="margin-bottom: 0.75rem;"><a href="ultimate-guide-to-safe-martingale-deriv.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; Safe Martingale on Deriv</a></li>
+              <li style="margin-bottom: 0.75rem;"><a href="fixed-plan-vs-own-amount-trading-bots-fxnod.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; Fixed Plan vs Own Amount Bots</a></li>
+              <li style="margin-bottom: 0.75rem;"><a href="inside-fxnod-autohub-bots-guide.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; Inside FXnod Auto Hub (22 Bots)</a></li>
+              <li style="margin-bottom: 0.75rem;"><a href="test-fxnod-bots-demo-virtual-account-guide.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; Test Bots on Demo Account</a></li>
+              <li><a href="what-is-fxnod-complete-beginners-guide.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; What is FXnod? Beginner's Guide</a></li>
+            </ul>
+          </div>
+        </aside>
+
+        <!-- RIGHT MAIN EDITORIAL CONTENT -->
+        <article class="article-content">
+
+          <p>
+            Ask most retail traders what their worst-case scenario is before they start a trading bot, and they usually have no idea.
+          </p>
+
+          <p>
+            They might know their starting stake is $1.00, but they cannot tell you:
+          </p>
+
+          <ul style="line-height: 1.7; margin-bottom: 1.5rem;">
+            <li><em>What will my stake be after 3 consecutive losses?</em></li>
+            <li><em>How much total money will be down if 4 trades fail in a row?</em></li>
+            <li><em>Exactly how many consecutive losses can my account survive before stopping?</em></li>
+          </ul>
+
+          <p>
+            Trading without knowing these numbers is like driving a car at full speed in the fog without headlights. When a normal market drawdown happens, panic sets in, emotions take over, and accounts get wiped out.
+          </p>
+
+          <p style="font-size: 1.15rem; font-weight: 700; color: var(--color-text-main);">
+            FXnod solves this with the built-in Loss Progression Sheet.
+          </p>
+
+          <p>
+            Accessible on every bot card via the <strong>"View Loss Run &rarr;"</strong> button, this interactive tool calculates the exact mathematical sequence of stakes, cumulative losses, and safety limits before you risk a single dollar. If you are new to the platform, start by exploring <strong><a href="test-fxnod-bots-demo-virtual-account-guide.html" style="color: #2563eb; font-weight: 600;">how to test FXnod bots on a virtual demo account</a></strong>.
+          </p>
+
+          <!-- ==================================================================
+               SECTION 1: WHAT IS THE SHEET
+               ================================================================== -->
+          <h2 id="what-is-sheet">What Is the Loss Progression Sheet?</h2>
+
+          <p>
+            The <strong>Loss Progression Sheet</strong> is an interactive modal table that simulates what happens during a worst-case consecutive losing streak.
+          </p>
+
+          <p>
+            Instead of hiding the math inside a mysterious black box, FXnod lays out the cold, hard numbers for your selected plan:
+          </p>
+
+          <div class="diagram-box">
+┌──────┬────────────┬─────────────────┬──────────────────────────────┐
+│ Step │ Trade Stake│ Cumulative Loss │ Status / Protection          │
+├──────┼────────────┼─────────────────┼──────────────────────────────┤
+│ #1   │ $1.00      │ -$1.00          │ Active Ladder                │
+│ #2   │ $2.17      │ -$3.17          │ Active Ladder                │
+│ #3   │ $4.71      │ -$7.88          │ Active Ladder                │
+│ #4   │ $10.22     │ -$18.10         │ Survives Safely!             │
+│ #5   │ $22.18     │ Exceeds $20 SL  │ 🛑 REFUSED STAKE (Bot Halts) │
+└──────┴────────────┴─────────────────┴──────────────────────────────┘
+          </div>
+
+          <p>
+            By reviewing this table before clicking "Start", you know your exact worst-case outcome in advance. There are zero surprises. Learn about all available bot models in our guide: <strong><a href="inside-fxnod-autohub-bots-guide.html" style="color: #2563eb; font-weight: 600;">Inside FXnod Auto Hub: 22 Ready-Made Bots</a></strong>.
+          </p>
+
+          <!-- Partner Box -->
+          <div class="fxnod-partner-box">
+            <span class="fxnod-badge">100% Upfront Transparency</span>
+            <h3>Inspect Your Safety Cushion First</h3>
+            <p>
+              Know your maximum consecutive losses and stop-loss limits before placing a single live trade.
+            </p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="fxnod-cta-btn">
+              <span>Open Free FXnod Account</span>
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 2: 4 KEY ELEMENTS
+               ================================================================== -->
+          <h2 id="four-key-elements">The 4 Key Elements of the Sheet Explained</h2>
+
+          <p>
+            When you tap <strong>"View Loss Run &rarr;"</strong> on any bot in the Auto Hub, the sheet presents four transparent data points:
+          </p>
+
+          <div class="features-card-grid">
+            
+            <div class="feature-card">
+              <h4>🔢 1. Step (Loss Count)</h4>
+              <p>
+                Indicates the trade number in an unbroken losing streak (#1, #2, #3, #4...). Remember that in live trading, any winning trade immediately resets this counter back to Step 1. The sheet specifically models the <em>worst-case streak</em>.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <h4>💵 2. Stake (Trade Size)</h4>
+              <p>
+                Shows the exact dollar amount that the bot will place on this specific trade. Notice how the stake scales based on the plan’s calibrated recovery multiplier (e.g., $1.00 &rarr; $2.17 &rarr; $4.71).
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <h4>📉 3. Cumulative Loss</h4>
+              <p>
+                Shows the total amount lost across the entire streak up to that point. For example, by Step 3, your total session drawdown is -$7.88.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <h4>🛡️ 4. The Refused Stake</h4>
+              <p>
+                Look at Step #5 in the table above: total lost so far is -$18.10. If the bot placed the next planned stake of $22.18, a loss would push drawdown to -$40.28—violating your $20 Stop-Loss. <strong>FXnod's engine automatically refuses to place the trade!</strong> The bot halts safely, locking in your remaining balance. Learn more: <strong><a href="ultimate-guide-to-safe-martingale-deriv.html" style="color: #2563eb; font-weight: 600;">The Ultimate Guide to Safe Martingale</a></strong>.
+              </p>
+            </div>
+
+          </div>
+
+          <!-- ==================================================================
+               SECTION 3: THE 3X RULE
+               ================================================================== -->
+          <h2 id="three-x-rule">How to Use the Sheet to Size Your Account (The "3x Rule")</h2>
+
+          <p>
+            One of the most practical uses of the Loss Progression Sheet is determining <strong>how much money you should deposit in your Deriv account.</strong>
+          </p>
+
+          <p>
+            Many beginners make the mistake of depositing only $20 and running a $20 plan. If a rare losing streak hits, their account balance is completely drained.
+          </p>
+
+          <h3>The Professional "3x Buffer Rule":</h3>
+          <p>
+            Professional algorithmic traders always maintain an account balance that is at least <strong>three times (3x) the plan’s stop-loss ceiling</strong>:
+          </p>
+
+          <div class="table-container">
+            <table class="table-custom">
+              <thead>
+                <tr>
+                  <th>Bot Plan Selected</th>
+                  <th>Pre-Set Stop-Loss</th>
+                  <th>Recommended Deriv Balance</th>
+                  <th>Remaining Buffer on Stop-Loss Hit</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>$20 Plan</strong></td>
+                  <td>$20.00</td>
+                  <td><strong>$60.00+</strong></td>
+                  <td><span style="color: #10b981; font-weight: 700;">$40.00 Safely Preserved (67%)</span></td>
+                </tr>
+                <tr>
+                  <td><strong>$50 Plan</strong></td>
+                  <td>$50.00</td>
+                  <td><strong>$150.00+</strong></td>
+                  <td><span style="color: #10b981; font-weight: 700;">$100.00 Safely Preserved (67%)</span></td>
+                </tr>
+                <tr>
+                  <td><strong>$100 Plan</strong></td>
+                  <td>$100.00</td>
+                  <td><strong>$300.00+</strong></td>
+                  <td><span style="color: #10b981; font-weight: 700;">$200.00 Safely Preserved (67%)</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>
+            By following this simple rule, even if a challenging market run triggers your Stop-Loss, <strong>you still retain two-thirds of your capital.</strong> You live to trade another day without stress or panic!
+          </p>
+
+          <!-- ==================================================================
+               SECTION 4: STEP-BY-STEP WORKFLOW
+               ================================================================== -->
+          <h2 id="step-by-step">Step-by-Step: How to Open and Inspect the Sheet in FXnod</h2>
+
+          <p>
+            Reviewing the Loss Progression Sheet takes less than five seconds. Follow these steps:
+          </p>
+
+          <div class="workflow-steps-list">
+            
+            <div class="workflow-step-card">
+              <div class="workflow-num">1</div>
+              <div class="workflow-content">
+                <h4>Open Any Bot Setup Screen in Auto Hub</h4>
+                <p>
+                  In your FXnod dashboard or Mobile App, navigate to the Auto Hub catalog, select any bot (e.g., an <em>Even / Odd</em> or <em>Differs</em> bot), and tap <strong>"Set Up"</strong>.
+                </p>
+              </div>
+            </div>
+
+            <div class="workflow-step-card">
+              <div class="workflow-num">2</div>
+              <div class="workflow-content">
+                <h4>Choose Your Risk Plan</h4>
+                <p>
+                  Select your preferred risk tier ($20 Plan, $50 Plan, or $100 Plan).
+                </p>
+              </div>
+            </div>
+
+            <div class="workflow-step-card">
+              <div class="workflow-num">3</div>
+              <div class="workflow-content">
+                <h4>Tap "View Loss Run &rarr;"</h4>
+                <p>
+                  Directly below the plan selection cards, tap the link labeled <strong>"View Loss Run &rarr;"</strong> (or the <strong>"Risk &amp; Loss Run"</strong> button).
+                </p>
+              </div>
+            </div>
+
+            <div class="workflow-step-card">
+              <div class="workflow-num">4</div>
+              <div class="workflow-content">
+                <h4>Review Consecutive Losses Survived</h4>
+                <p>
+                  A sleek bottom sheet modal opens. Review the consecutive losses survived, verify the Refused Stake threshold, and launch your bot with 100% confidence!
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ==================================================================
+               SECTION 5: COMPARING STREAK ENDURANCE
+               ================================================================== -->
+          <h2 id="streak-endurance">Comparing Streak Endurance Across Auto Hub Plans</h2>
+
+          <p>
+            How do different plans compare in terms of streak endurance? Look at this overview:
+          </p>
+
+          <ul style="line-height: 1.8; margin-bottom: 2rem;">
+            <li><strong>$20 Plan (Conservative Entry):</strong> Typically absorbs <strong>4 consecutive losses</strong>, halting safely at Step 5 via the Refused Stake rule. Ideal for quick sessions and smaller balances.</li>
+            <li><strong>$50 Plan (Standard Everyday):</strong> Typically absorbs <strong>5 consecutive losses</strong>, providing an extra layer of statistical cushion for trending synthetic markets.</li>
+            <li><strong>$100 Plan (Deep Buffer):</strong> Typically absorbs <strong>6 consecutive losses</strong>, engineered for larger accounts seeking sustained run times through high-volatility market cycles. Compare plans in depth: <strong><a href="fixed-plan-vs-own-amount-trading-bots-fxnod.html" style="color: #2563eb; font-weight: 600;">Fixed Plan vs Own Amount Bots</a></strong>.</li>
+          </ul>
+
+          <!-- ==================================================================
+               SECTION 6: 3 FATAL MISTAKES AVOIDED
+               ================================================================== -->
+          <h2 id="fatal-mistakes">3 Fatal Mistakes the Loss Progression Sheet Helps You Avoid</h2>
+
+          <p>
+            By consulting this sheet before every session, you permanently avoid these classic trading traps:
+          </p>
+
+          <div class="rules-grid">
+            
+            <div class="rule-card">
+              <h4>1. Trading Blindly on Oversized Stakes</h4>
+              <p>You will never accidentally launch a bot with a starting stake too large for your balance, eliminating accidental over-leveraging.</p>
+            </div>
+
+            <div class="rule-card">
+              <h4>2. Shock from Sudden Drawdowns</h4>
+              <p>Because you already saw the cumulative drawdown numbers in advance, you won't panic when a normal 2-loss or 3-loss recovery sequence occurs.</p>
+            </div>
+
+            <div class="rule-card">
+              <h4>3. Gambling on Never-Ending Ladders</h4>
+              <p>You have visual mathematical proof that the bot will refuse oversized orders rather than doubling your stake into oblivion.</p>
+            </div>
+
+          </div>
+
+          <!-- ==================================================================
+               SECTION 7: FREQUENTLY ASKED QUESTIONS
+               ================================================================== -->
+          <h2 id="faq">Frequently Asked Questions (FAQ)</h2>
+
+          <div class="faq-list">
+            
+            <div class="faq-item">
+              <h3 class="faq-question">Does the Loss Progression Sheet show what will definitely happen?</h3>
+              <div class="faq-answer">
+                <p>
+                  <strong>No.</strong> The sheet illustrates your <strong>worst-case scenario</strong> (an unbroken losing streak). In real trading, most trades win, and every winning trade resets the sequence back to Step 1. The sheet simply shows you your safety boundaries.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">What does "Refused Stake" mean?</h3>
+              <div class="faq-answer">
+                <p>
+                  "Refused Stake" is an automated safety rule. It means the engine calculated that placing the next planned trade would violate your pre-set Stop-Loss ceiling. To protect your capital, the bot refuses the trade and halts the session safely.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Can I see the Loss Progression Sheet for custom "Own Amount" bots?</h3>
+              <div class="faq-answer">
+                <p>
+                  Yes! When you configure a custom starting stake and stop-loss on an Own Amount bot, FXnod dynamically calculates and updates the Loss Progression table to reflect your custom numbers.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Is the Loss Progression Sheet available on the mobile app?</h3>
+              <div class="faq-answer">
+                <p>
+                  Yes! The FXnod Mobile App features an interactive modal bottom sheet that opens instantly when you tap "View Loss Run &rarr;" on any bot card. Learn more: <strong><a href="fxnod-mobile-app-trading-guide.html" style="color: #2563eb; font-weight: 600;">FXnod Mobile App Guide</a></strong>.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">What should I do if a bot hits its Stop-Loss limit?</h3>
+              <div class="faq-answer">
+                <p>
+                  Accept the result and take a break. The Stop-Loss protected the rest of your balance. Review your journal, wait for calm market conditions, and resume trading during your next planned session.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ==================================================================
+               SECTION 8: FINAL THOUGHTS & CONCLUSION
+               ================================================================== -->
+          <h2 id="final-thoughts">Final Thoughts: Trade with Eyes Wide Open</h2>
+
+          <p>
+            Professional trading is not about hoping you will never lose; it is about <strong>knowing exactly what happens when you do.</strong>
+          </p>
+
+          <p>
+            With the <strong>FXnod Loss Progression Sheet</strong>, you replace anxiety and guesswork with mathematical certainty. You know your stakes, you know your cushions, and you know your safety limits before risking a single cent.
+          </p>
+
+          <p>
+            <strong><a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" style="color: #2563eb; font-weight: 600;">Open the FXnod Auto Hub, tap 'View Loss Run' on your favorite bot today</a>, and experience true risk transparency!</strong>
+          </p>
+
+          <!-- Affiliate Disclosure Box -->
+          <div class="affiliate-disclosure-box" style="margin-top: 2rem; padding: 1.25rem; background: #f8fafc; border: 1px solid var(--color-border); border-radius: var(--radius-md); font-size: 0.82rem; color: #64748b; line-height: 1.55;">
+            <strong>Affiliate Disclosure:</strong> This educational article contains partner referral links. If you register on FXnod through links on this page, we may earn a referral commission at no additional cost to you. Trading financial derivatives and synthetic indices carries substantial risk of capital loss. Always trade responsibly and test strategies using demo environments first.
+          </div>
+
+          <!-- Further Reading Box -->
+          <div class="further-reading-box">
+            <h4>Recommended Related Guides:</h4>
+            <ul>
+              <li><a href="ultimate-guide-to-safe-martingale-deriv.html">The Ultimate Guide to Safe Martingale on Deriv: Avoid Account Blowouts</a></li>
+              <li><a href="fixed-plan-vs-own-amount-trading-bots-fxnod.html">Fixed Plan vs Own Amount Bots: Which Model Fits Your Risk Profile?</a></li>
+              <li><a href="fxnod-live-run-monitor-stats-controls-guide.html">How to Use the FXnod Live Run Monitor: Real-Time Stats &amp; Controls</a></li>
+              <li><a href="inside-fxnod-autohub-bots-guide.html">Inside FXnod Auto Hub: The No-Code Trading Bot Suite with 22 Ready-Made Bots</a></li>
+              <li><a href="test-fxnod-bots-demo-virtual-account-guide.html">How to Test FXnod Bots on a Virtual (Demo) Account</a></li>
+              <li><a href="what-is-fxnod-complete-beginners-guide.html">What is FXnod? The Complete Beginner's Guide</a></li>
+            </ul>
+          </div>
+
+          <!-- Bottom CTA -->
+          <div class="article-footer-cta">
+            <h3>Trade with Mathematical Certainty</h3>
+            <p>Know your exact worst-case outcome before launching any automated bot on Deriv.</p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">
+              Get Started with FXnod &rarr;
+            </a>
+          </div>
+
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <!-- ======================================================================
+       FOOTER COMPONENT
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="brand-logo">
+            <div class="brand-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+            <span>Trade Insight</span>
+          </a>
+          <p>
+            High-performance technical editorial and tactical research publication. We empower quantitative traders, risk teams, and modern web agencies with actionable market playbooks.
+          </p>
+          <span class="footer-digest-label">Weekly Tech & Trading Digest</span>
+          <form class="footer-mini-form" onsubmit="event.preventDefault(); showToast('Subscribed to Weekly Digest!');">
+            <input type="email" placeholder="Enter your business email" required aria-label="Business Email">
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+
+        <div class="footer-col">
+          <h4>Publication Areas</h4>
+          <ul>
+            <li><a href="../index.html#all">All Editorial Guides</a></li>
+            <li><a href="automated-trading-on-deriv.html">Deriv & Synthetic Indices</a></li>
+            <li><a href="how-to-choose-a-trading-bot.html">Automated Trading Bots</a></li>
+            <li><a href="what-is-automated-trading.html">Risk & Margin Management</a></li>
+            <li><a href="../index.html#seo">SEO & Growth Strategy</a></li>
+            <li><a href="../index.html#infra">Web Tech & Infrastructure</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-col-playbooks">
+          <h4>Popular Playbooks</h4>
+          <ul class="footer-playbooks-list">
+            <li><a href="how-to-read-fxnod-loss-progression-sheet-guide.html">Loss Progression Sheet Guide</a></li>
+            <li><a href="ultimate-guide-to-safe-martingale-deriv.html">Safe Martingale Guide</a></li>
+            <li><a href="fxnod-live-run-monitor-stats-controls-guide.html">FXnod Live Run Monitor Guide</a></li>
+            <li><a href="fixed-plan-vs-own-amount-trading-bots-fxnod.html">Fixed Plan vs Own Amount Bots</a></li>
+            <li><a href="fxnod-shadow-lane-phantom-trading-guide.html">FXnod Shadow Lane Guide</a></li>
+          </ul>
+
+          <!-- Expandable archive list of remaining playbooks -->
+          <ul class="footer-playbooks-archive" id="footer-playbooks-archive" style="display: none;">
+            <li><a href="rise-fall-trading-bots-volatility-indices-guide.html">Rise / Fall Bots on Volatility Indices</a></li>
+            <li><a href="over-under-trading-bots-strategy-guide-fxnod.html">Over / Under Trading Bots Strategy</a></li>
+            <li><a href="even-odd-trading-bots-strategy-guide-fxnod.html">Even / Odd Trading Bots Strategy</a></li>
+            <li><a href="matches-differs-bots-strategy-guide-fxnod.html">Matches &amp; Differs Bots Strategy</a></li>
+            <li><a href="inside-fxnod-autohub-bots-guide.html">Inside FXnod Auto Hub</a></li>
+            <li><a href="manage-multiple-deriv-accounts-fxnod-guide.html">Manage Multiple Deriv Accounts</a></li>
+            <li><a href="how-to-fix-deriv-session-expired-reconnect-fxnod.html">Fix Deriv Session Expired</a></li>
+            <li><a href="fxnod-wallet-deposits-transfers-subscriptions-guide.html">Managing the FXnod Wallet</a></li>
+            <li><a href="test-fxnod-bots-demo-virtual-account-guide.html">Test FXnod Bots on Demo Account</a></li>
+            <li><a href="how-to-connect-deriv-account-to-fxnod.html">How to Connect Deriv to FXnod</a></li>
+            <li><a href="is-fxnod-safe-legitimate-security-review.html">Is FXnod Safe & Legit?</a></li>
+            <li><a href="fxnod-dashboard-complete-walkthrough-guide.html">FXnod Dashboard Walkthrough</a></li>
+            <li><a href="automated-vs-manual-trading-deriv-discipline.html">Automated vs Manual Trading</a></li>
+            <li><a href="fxnod-mobile-app-trading-guide.html">FXnod Mobile App Guide</a></li>
+            <li><a href="how-to-create-setup-fxnod-account-guide.html">FXnod Account Setup Guide</a></li>
+            <li><a href="what-is-fxnod-complete-beginners-guide.html">What is FXnod? (Complete Guide)</a></li>
+            <li><a href="what-is-automated-trading.html">What Is Automated Trading?</a></li>
+            <li><a href="automated-trading-on-deriv.html">How to Start on Deriv</a></li>
+            <li><a href="how-to-choose-a-trading-bot.html">How to Choose a Trading Bot</a></li>
+            <li><a href="manage-risk-when-using-a-trading-bot.html">Managing Bot Risk</a></li>
+            <li><a href="why-is-my-trading-bot-not-working.html">Bot Troubleshooting Guide</a></li>
+            <li><a href="can-trading-bots-lose-money.html">Can Bots Lose Money? (Risks)</a></li>
+            <li><a href="what-is-risk-to-reward-ratio.html">Risk-to-Reward Ratio Guide</a></li>
+            <li><a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" data-ref-link>Explore FXnod Platform</a></li>
+            <li><a href="how-to-test-a-trading-bot.html">How to Test a Trading Bot</a></li>
+            <li><a href="how-trading-bots-connect-to-platforms.html">How Bots Connect to Platforms</a></li>
+            <li><a href="why-trading-bots-make-losing-trades.html">Why Bots Make Losing Trades</a></li>
+            <li><a href="manual-vs-automated-trading.html">Manual vs Automated Trading</a></li>
+            <li><a href="what-to-check-before-connecting-a-trading-bot.html">Pre-Connection Checks (Security)</a></li>
+            <li><a href="trading-bot-faqs.html">Trading Bot FAQs (15 Answers)</a></li>
+            <li><a href="how-to-start-learning-trading.html">How to Start Learning Trading</a></li>
+            <li><a href="how-to-read-candlestick-charts.html">How to Read Candlesticks</a></li>
+            <li><a href="how-to-identify-support-and-resistance.html">Support & Resistance Levels</a></li>
+            <li><a href="how-to-keep-a-trading-journal.html">How to Keep a Trading Journal</a></li>
+            <li><a href="how-to-control-emotions-while-trading.html">Controlling Trading Emotions</a></li>
+            <li><a href="forex-vs-synthetic-indices.html">Forex vs Synthetic Indices</a></li>
+            <li><a href="how-to-evaluate-a-trading-strategy.html">How to Evaluate a Strategy</a></li>
+            <li><a href="why-market-prices-go-up-and-down.html">Why Market Prices Move</a></li>
+            <li><a href="how-economic-news-affects-trading.html">Economic News & Trading</a></li>
+            <li><a href="best-trading-timeframe-for-beginners.html">Best Trading Timeframes</a></li>
+            <li><a href="what-is-a-breakout-in-trading.html">What Is a Breakout in Trading?</a></li>
+            <li><a href="how-moving-averages-work-in-trading.html">How Moving Averages Work</a></li>
+            <li><a href="what-is-rsi-indicator-in-trading.html">What Is the RSI Indicator?</a></li>
+            <li><a href="what-is-spread-in-trading.html">What Is Spread in Trading?</a></li>
+            <li><a href="how-to-calculate-position-size.html">Position Sizing Guide</a></li>
+            <li><a href="what-is-drawdown-in-trading.html">What Is Drawdown in Trading?</a></li>
+            <li><a href="is-high-win-rate-enough-to-be-profitable.html">Is a High Win Rate Enough?</a></li>
+          </ul>
+
+          <button type="button" class="footer-toggle-btn" id="footer-playbooks-toggle" aria-expanded="false">
+            <span>+ View All 51 Playbooks</span>
+          </button>
+        </div>
+
+        <div class="footer-col">
+          <h4>Compliance & Legal</h4>
+          <ul>
+            <li><a href="../index.html#editorial">Editorial Independence</a></li>
+            <li><a href="../index.html#risk-notice">Risk Disclosure Notice</a></li>
+            <li><a href="../index.html#terms">Terms of Service</a></li>
+            <li><a href="../index.html#privacy">Privacy Policy</a></li>
+            <li><a href="../index.html#cookies">Cookie Preferences</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 Trade Insight Editorial. All content is for educational and technical informational purposes only. Trading financial derivatives carries substantial risk.
+        </div>
+        <div>
+          Designed for Agency Quantitative Operations
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+</body>
+</html>

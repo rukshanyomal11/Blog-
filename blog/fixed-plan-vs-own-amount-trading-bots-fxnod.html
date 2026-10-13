@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fixed Plan vs Own Amount Bots on FXnod: Which Fits You? (2026) | Trade Insight</title>
+  <meta name="description" content="Compare Fixed Plan bots ($20, $50, $100) vs Own Amount custom bots on FXnod. Discover which automated trading model fits your risk profile and account size.">
+  <meta name="keywords" content="fixed plan trading bots, custom stake trading bot, FXnod bot models, Deriv bot presets, FXnod fixed plans, Deriv staking modes, Gentle Step vs Martingale">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="Fixed Plan vs Own Amount Bots on FXnod: Which Fits You? (2026)">
+  <meta property="og:description" content="Compare Fixed Plan bots ($20, $50, $100) vs Own Amount custom bots on FXnod. Discover which automated trading model fits your risk profile and account size.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tradeinsight.com/fixed-plan-vs-own-amount-trading-bots-fxnod/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Twitter Meta -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Fixed Plan vs Own Amount Bots on FXnod: Which Fits You? (2026)">
+  <meta name="twitter:description" content="Pre-engineered plans vs flexible custom parameters: choose the exact bot risk model that suits your trading psychology and bankroll.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .article-featured-image-wrap {
+      margin: 2rem 0 2.5rem 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      background: #f1f5f9;
+      box-shadow: var(--shadow-md);
+    }
+    .article-featured-image {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      display: block;
+    }
+    .image-caption {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      background: #ffffff;
+      border-top: 1px solid var(--color-border);
+      text-align: center;
+      font-style: italic;
+    }
+    .fxnod-partner-box {
+      background: linear-gradient(135deg, #0b1120 0%, #172554 100%);
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      margin: 2.5rem 0;
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.25);
+    }
+    .fxnod-partner-box::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(240, 58, 39, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .fxnod-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(240, 58, 39, 0.2);
+      border: 1px solid rgba(240, 58, 39, 0.5);
+      color: #fca5a5;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .fxnod-partner-box h3 {
+      color: #ffffff;
+      font-size: 1.45rem;
+      margin-bottom: 0.65rem;
+    }
+    .fxnod-partner-box p {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      margin-bottom: 1.4rem;
+    }
+    .fxnod-cta-btn {
+      background: var(--color-primary);
+      color: #ffffff;
+      font-weight: 700;
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 16px rgba(240, 58, 39, 0.35);
+      transition: all var(--transition-normal);
+      text-decoration: none;
+    }
+    .fxnod-cta-btn:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(240, 58, 39, 0.45);
+      color: #ffffff;
+    }
+    .diagram-box {
+      background: #0f172a;
+      color: #38bdf8;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 1.75rem;
+      border-radius: var(--radius-md);
+      overflow-x: auto;
+      margin: 2rem 0;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      border: 1px solid #1e293b;
+      box-shadow: var(--shadow-md);
+    }
+    .table-container {
+      overflow-x: auto;
+      margin: 2rem 0;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-sm);
+    }
+    .table-custom {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+    .table-custom th {
+      background: #f8fafc;
+      padding: 1rem 1.25rem;
+      font-weight: 700;
+      color: var(--color-text-main);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .table-custom td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+    }
+    .table-custom tr:last-child td {
+      border-bottom: none;
+    }
+    .table-custom tr:hover td {
+      background: #f8fafc;
+    }
+    .features-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin: 2rem 0;
+    }
+    .feature-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .feature-card h4 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .feature-card p {
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+    .decision-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .decision-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .decision-card.preset {
+      border-top: 4px solid #3b82f6;
+    }
+    .decision-card.custom {
+      border-top: 4px solid #10b981;
+    }
+    .decision-card h3 {
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+      font-size: 1.25rem;
+    }
+    .decision-card ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+    .decision-card li {
+      padding: 0.5rem 0;
+      font-size: 0.92rem;
+      color: var(--color-text-muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      line-height: 1.55;
+    }
+    .workflow-steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+    .workflow-step-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      display: flex;
+      gap: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      transition: border-color var(--transition-fast);
+    }
+    .workflow-step-card:hover {
+      border-color: #3b82f6;
+    }
+    .workflow-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #eff6ff;
+      color: #2563eb;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+      border: 1px solid #bfdbfe;
+    }
+    .workflow-content h4 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+      color: var(--color-text-main);
+    }
+    .workflow-content p {
+      margin-bottom: 0.5rem;
+      font-size: 0.92rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .faq-question {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--color-text-main);
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+    .faq-answer p {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+  </style>
+
+  <!-- Structured Data (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Fixed Plan vs Own Amount Bots on FXnod: Which Fits You? (2026)",
+    "description": "Compare Fixed Plan bots ($20, $50, $100) vs Own Amount custom bots on FXnod. Discover which automated trading model fits your risk profile and account size.",
+    "author": {
+      "@type": "Organization",
+      "name": "Trade Insight Editorial"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Trade Insight",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://tradeinsight.com/assets/logo.png"
+      }
+    },
+    "datePublished": "2026-10-13",
+    "dateModified": "2026-10-13",
+    "image": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80",
+    "mainEntityOfPage": "https://tradeinsight.com/fixed-plan-vs-own-amount-trading-bots-fxnod/"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can a Fixed Plan bot lose more than its stated plan name?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. A $20 Plan bot has a strict $20 Stop-Loss ceiling enforced by FXnod’s Refused Stake rule. The engine will automatically halt trading before any trade can push your session loss beyond $20."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the minimum stake for an Own Amount bot?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "On Deriv synthetic indices, the minimum allowable contract stake is typically $0.35 to $0.50 depending on the market and currency."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I switch between Fixed Plans and Own Amount bots anytime?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! You have full access to all 22 bots in the Auto Hub under your profile. You can run a Fixed Plan today and an Own Amount bot tomorrow."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which model is safer for small accounts ($10 to $20)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For very small accounts under $20, an Own Amount Bot configured with Same Stake (Flat) at $0.50 is the safest option, as it avoids any recovery multipliers that could stress a small balance."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do Fixed Plan bots work on the FXnod Mobile App?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! Both Fixed Plan bots and Own Amount bots are fully available on the FXnod Mobile App for Android and iOS."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="article-page">
+
+  <!-- Top Reading Progress Indicator -->
+  <div class="reading-progress-bar" id="reading-progress"></div>
+
+  <!-- ======================================================================
+       HEADER & NAVIGATION
+       ====================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <div style="display: flex; align-items: center;">
+        <a href="../index.html" class="brand-logo" aria-label="Trade Insight Home">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <span>Trade Insight</span>
+        </a>
+
+        <nav class="nav-links" aria-label="Main Navigation">
+          <a href="../index.html" class="nav-link">All Guides</a>
+          <a href="automated-trading-on-deriv.html" class="nav-link">Deriv Guides</a>
+          <a href="how-to-choose-a-trading-bot.html" class="nav-link">Trading Bots</a>
+          <a href="../index.html#category-fxnod" class="nav-link">FXnod Guides</a>
+        </nav>
+      </div>
+
+      <div class="header-right">
+        <!-- Direct FXnod Referral Header Button -->
+        <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.45rem 1.1rem; font-size: 0.82rem;" title="Explore FXnod Platform">
+          <span>Explore FXnod</span>
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+
+        <div class="header-search">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+          <input type="text" placeholder="Search bot models..." aria-label="Search articles">
+        </div>
+
+        <button class="profile-avatar" title="User Profile" aria-label="User Profile">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       BREADCRUMB & HERO HEADER
+       ====================================================================== -->
+  <main class="article-page-wrapper">
+    <div class="container">
+      
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item"><a href="../index.html#category-fxnod">FXnod Guides</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item current" aria-current="page">Fixed Plan vs Own Amount Bots</li>
+        </ol>
+      </nav>
+
+      <!-- Article Header -->
+      <header class="article-header">
+        <div class="article-meta-badges">
+          <span class="badge" style="background: rgba(240, 58, 39, 0.95); color: #fff;">FXnod Guides</span>
+          <span class="badge badge-accent">Risk Architecture</span>
+          <span class="article-reading-time">7 min read • Updated Oct 2026</span>
+        </div>
+
+        <h1 class="article-title">
+          Fixed Plan Bots vs. Own Amount Bots: Which Model Fits Your Risk Profile?
+        </h1>
+
+        <p class="article-lead">
+          Pre-calibrated ladders or complete staking freedom? Discover how FXnod's 19 Fixed Plan bots and 3 Own Amount custom bots operate, and choose the exact model that matches your capital.
+        </p>
+
+        <div class="article-author-bar">
+          <div class="author-profile-chip">
+            <div class="author-chip-avatar">TI</div>
+            <span class="author-chip-name">Trade Insight Editorial</span>
+          </div>
+          <span class="author-bar-divider">•</span>
+          <span class="article-verified-badge">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+            Verified Architecture Guide
+          </span>
+        </div>
+      </header>
+
+      <!-- Featured Hero Image -->
+      <div class="article-featured-image-wrap">
+        <img 
+          src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80" 
+          alt="Comparison between FXnod Fixed Plan bot cards and Own Amount custom configuration panel" 
+          class="article-featured-image"
+          loading="eager"
+        >
+        <div class="image-caption">
+          Figure 1: Choosing between pre-calibrated Fixed Plans ($20, $50, $100) and customizable Own Amount bots inside FXnod Auto Hub.
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           TWO-COLUMN EDITORIAL LAYOUT
+           ====================================================================== -->
+      <div class="article-layout">
+        
+        <!-- LEFT STICKY SIDEBAR -->
+        <aside class="article-sidebar">
+          <div class="sidebar-widget toc-widget">
+            <div class="widget-title">
+              <span>Quick Navigation</span>
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path></svg>
+            </div>
+            <ul class="toc-list">
+              <li class="toc-item active"><a href="#model-a-fixed-plans">Model A: Fixed Plan Bots</a></li>
+              <li class="toc-item"><a href="#model-b-own-amount">Model B: Own Amount Bots</a></li>
+              <li class="toc-item"><a href="#head-to-head">Head-to-Head Comparison</a></li>
+              <li class="toc-item"><a href="#decision-guide">Which Should You Choose?</a></li>
+              <li class="toc-item"><a href="#demo-testing">How to Try Both on Demo</a></li>
+              <li class="toc-item"><a href="#faq">Frequently Asked Questions</a></li>
+              <li class="toc-item"><a href="#final-thoughts">Final Thoughts &amp; Next Steps</a></li>
+            </ul>
+          </div>
+
+          <!-- Official Partner Quick Box -->
+          <div class="sidebar-card">
+            <h4>Test Both Models Free</h4>
+            <p>Deploy Fixed Plans or custom Own Amount bots with $10,000 virtual balance on your free FXnod Demo account.</p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; text-align: center; justify-content: center;">
+              Launch FXnod Free &rarr;
+            </a>
+          </div>
+
+          <!-- Companion Guides Box -->
+          <div class="sidebar-card" style="margin-top: 1.5rem; background: #ffffff;">
+            <h4>Companion Guides</h4>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; line-height: 1.6;">
+              <li style="margin-bottom: 0.75rem;"><a href="inside-fxnod-autohub-bots-guide.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; Inside FXnod Auto Hub (22 Bots)</a></li>
+              <li style="margin-bottom: 0.75rem;"><a href="fxnod-shadow-lane-phantom-trading-guide.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; What is the Shadow Lane?</a></li>
+              <li style="margin-bottom: 0.75rem;"><a href="test-fxnod-bots-demo-virtual-account-guide.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; Test Bots on Demo Account</a></li>
+              <li style="margin-bottom: 0.75rem;"><a href="even-odd-trading-bots-strategy-guide-fxnod.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; Even / Odd Trading Bots Guide</a></li>
+              <li><a href="what-is-fxnod-complete-beginners-guide.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; What is FXnod? Beginner's Guide</a></li>
+            </ul>
+          </div>
+        </aside>
+
+        <!-- RIGHT MAIN EDITORIAL CONTENT -->
+        <article class="article-content">
+
+          <p>
+            When setting up an automated trading bot on Deriv, one critical question dictates your entire experience:
+          </p>
+
+          <p style="font-size: 1.15rem; font-weight: 700; color: var(--color-text-main);">
+            How should your bot size its trades and manage risk?
+          </p>
+
+          <p>
+            If your stakes are too high for your account balance, a normal losing streak can cause stressful drawdowns. On the other hand, if your parameters are overly complicated, you might spend hours second-guessing numbers instead of letting disciplined algorithms do the work.
+          </p>
+
+          <p>
+            Inside the <strong><a href="inside-fxnod-autohub-bots-guide.html" style="color: #2563eb; font-weight: 600;">FXnod Auto Hub</a></strong>, you have access to 22 ready-made bots built on two distinct operational models:
+          </p>
+
+          <ol style="line-height: 1.7; margin-bottom: 2rem;">
+            <li><strong>Fixed Plan Bots (19 Pre-Engineered Bots):</strong> Ready-to-run bots calibrated with battle-tested ladders ($20, $50, and $100 plans).</li>
+            <li><strong>Own Amount Bots (3 Flexible Custom Bots):</strong> Customizable bots that allow you to set your own exact starting stake, profit target, and staking style.</li>
+          </ol>
+
+          <p>
+            In this comprehensive comparison, we break down both models, evaluate their pros and cons, and help you choose the exact bot setup that matches your capital and trading goals.
+          </p>
+
+          <!-- ==================================================================
+               SECTION 1: MODEL A - FIXED PLANS
+               ================================================================== -->
+          <h2 id="model-a-fixed-plans">Model A: Fixed Plan Bots (1-Click Simplicity &amp; Discipline)</h2>
+
+          <div class="diagram-box">
+┌────────────────────────────────────────────────────────┐
+│                   FIXED PLAN BOTS                      │
+├────────────────────────────────────────────────────────┤
+│ • 19 Ready-Made Bots in the Auto Hub                   │
+│ • Pre-calibrated plans ($20 Plan, $50 Plan, $100 Plan) │
+│ • 1-Click Launch with zero guessing                   │
+│ • Built-in recovery multipliers &amp; Stop-Loss hard stops │
+│ • Ideal for beginners &amp; busy traders                   │
+└────────────────────────────────────────────────────────┘
+          </div>
+
+          <h3>How Fixed Plans Work</h3>
+          <p>
+            With a Fixed Plan bot, experienced algorithmic developers have already calculated the optimal balance between starting stake, recovery multiplier, and stop-loss limits. You don't need to perform any calculations yourself:
+          </p>
+
+          <div class="features-card-grid">
+            <div class="feature-card">
+              <h4>🎯 $20 Plan</h4>
+              <p>Starts with a low $1.00 stake. The recovery ladder is carefully balanced to absorb market variance while strictly honoring a $20 stop-loss ceiling.<br>
+              <strong>Recommended Balance:</strong> $30 to $50<br>
+              <strong>Target Profit:</strong> $1 to $3 per session</p>
+            </div>
+
+            <div class="feature-card">
+              <h4>🛡️ $50 Plan</h4>
+              <p>Provides a wider cushion for everyday trading sessions, tolerating longer recovery sequences before hitting limits.<br>
+              <strong>Recommended Balance:</strong> $75 to $100<br>
+              <strong>Target Profit:</strong> $3 to $5 per session</p>
+            </div>
+
+            <div class="feature-card">
+              <h4>💎 $100 Plan</h4>
+              <p>Designed for larger accounts seeking sustained run times and deep streak resilience across volatile synthetic indices.<br>
+              <strong>Recommended Balance:</strong> $150 to $200+<br>
+              <strong>Target Profit:</strong> $5 to $10 per session</p>
+            </div>
+          </div>
+
+          <h3>The Big Advantage of Fixed Plans</h3>
+          <p>
+            <strong>Zero Decision Fatigue.</strong> You simply choose a plan, review the transparent <em>Loss Progression Sheet</em> to confirm your safety cushion, and hit Start. The bot enforces ironclad risk boundaries without human emotional interference.
+          </p>
+
+          <!-- Partner Box -->
+          <div class="fxnod-partner-box">
+            <span class="fxnod-badge">Automated Risk Calibration</span>
+            <h3>Launch Ready-Made Bots on FXnod</h3>
+            <p>
+              Experience 1-click execution with pre-tested risk ladders on live synthetic indices. Open your free account in seconds.
+            </p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="fxnod-cta-btn">
+              <span>Open Free FXnod Account</span>
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 2: MODEL B - OWN AMOUNT BOTS
+               ================================================================== -->
+          <h2 id="model-b-own-amount">Model B: Own Amount Bots (Total Customization &amp; Control)</h2>
+
+          <div class="diagram-box">
+┌────────────────────────────────────────────────────────┐
+│                  OWN AMOUNT BOTS                       │
+├────────────────────────────────────────────────────────┤
+│ • 3 Fully Customizable Bots in the Auto Hub            │
+│ • Choose your own Starting Stake ($0.50, $2, $5...)    │
+│ • Custom Stop-Loss and Take-Profit dollar targets      │
+│ • Select your Staking Mode (Flat, Gentle Step, etc.)   │
+│ • Ideal for experienced traders &amp; custom bankrolls     │
+└────────────────────────────────────────────────────────┘
+          </div>
+
+          <h3>How Own Amount Bots Work</h3>
+          <p>
+            Own Amount bots give you the driver’s seat. If you have a unique account size (for example, exactly $12.50 or $500) or prefer a specific money management philosophy, you can customize every single parameter:
+          </p>
+
+          <ol style="line-height: 1.7; margin-bottom: 1.5rem;">
+            <li><strong>Custom Starting Stake:</strong> Enter any valid stake (e.g., $0.50 for micro-testing, or $5.00 for larger accounts).</li>
+            <li><strong>Custom Stop Loss &amp; Take Profit:</strong> Set exact dollar thresholds tailored to your personal daily goals.</li>
+            <li><strong>Choice of Staking Modes:</strong>
+              <ul style="margin-top: 0.5rem; line-height: 1.6;">
+                <li><strong>Same Stake (Flat):</strong> Every trade uses the identical dollar amount. The safest way to trade, completely eliminating streak compounding.</li>
+                <li><strong>Gentle Step:</strong> Adds one starting stake on a loss and removes one on a win. Recovers drawdowns gradually without exponential stake growth.</li>
+                <li><strong>Martingale:</strong> Multiplies the stake after a loss to recover the streak in a single win, strictly bounded by your Stop-Loss ceiling.</li>
+                <li><strong>Reverse Martingale:</strong> Multiplies stakes during winning streaks and resets after a loss to capitalize on hot runs.</li>
+              </ul>
+            </li>
+          </ol>
+
+          <h3>The Big Advantage of Own Amount Bots</h3>
+          <p>
+            <strong>Total Flexibility.</strong> You can fine-tune your parameters to match your exact trading style, whether you prefer ultra-conservative flat stakes or customized recovery steps.
+          </p>
+
+          <!-- ==================================================================
+               SECTION 3: HEAD-TO-HEAD COMPARISON
+               ================================================================== -->
+          <h2 id="head-to-head">Head-to-Head Comparison: Fixed Plans vs. Own Amount</h2>
+
+          <p>
+            Here is how both models stack up side-by-side across key operational dimensions:
+          </p>
+
+          <div class="table-container">
+            <table class="table-custom">
+              <thead>
+                <tr>
+                  <th>Feature / Criteria</th>
+                  <th>Fixed Plan Bots (19 Bots)</th>
+                  <th>Own Amount Bots (3 Bots)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Setup Speed</strong></td>
+                  <td>10 Seconds (1-Click selection)</td>
+                  <td>30–60 Seconds (Custom inputs)</td>
+                </tr>
+                <tr>
+                  <td><strong>Stake Sizing</strong></td>
+                  <td>Pre-calibrated ($1.00 starting stake)</td>
+                  <td>100% Custom ($0.50, $2, $10...)</td>
+                </tr>
+                <tr>
+                  <td><strong>Stop-Loss Sizing</strong></td>
+                  <td>Fixed ($20, $50, $100 ladders)</td>
+                  <td>Custom exact dollar ceiling</td>
+                </tr>
+                <tr>
+                  <td><strong>Staking Mode</strong></td>
+                  <td>Pre-tested recovery ladders</td>
+                  <td>Choose Flat, Gentle Step, Martingale</td>
+                </tr>
+                <tr>
+                  <td><strong>Loss Progression Sheet</strong></td>
+                  <td>Instant upfront table</td>
+                  <td>Dynamically calculated</td>
+                </tr>
+                <tr>
+                  <td><strong>Best For</strong></td>
+                  <td>Beginners &amp; traders seeking simplicity</td>
+                  <td>Experienced traders &amp; unique bankrolls</td>
+                </tr>
+                <tr>
+                  <td><strong>Risk of User Setup Error</strong></td>
+                  <td><span style="color: #10b981; font-weight: 700;">Zero</span> (Engine prevents invalid inputs)</td>
+                  <td><span style="color: #f59e0b; font-weight: 700;">Low</span> (Requires understanding your numbers)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 4: DECISION GUIDE
+               ================================================================== -->
+          <h2 id="decision-guide">A Simple Decision Guide: Which Should You Choose?</h2>
+
+          <p>
+            Not sure which model to pick today? Use this quick checklist:
+          </p>
+
+          <div class="decision-grid">
+            <div class="decision-card preset">
+              <h3 style="color: #2563eb;">Choose a Fixed Plan Bot if:</h3>
+              <ul>
+                <li><span>✅</span> You are new to automated Deriv trading.</li>
+                <li><span>✅</span> You have an account balance between $30 and $200.</li>
+                <li><span>✅</span> You want a battle-tested setup without worrying about math.</li>
+                <li><span>✅</span> You want the speed of 1-click execution on mobile or web.</li>
+              </ul>
+            </div>
+
+            <div class="decision-card custom">
+              <h3 style="color: #059669;">Choose an Own Amount Bot if:</h3>
+              <ul>
+                <li><span>✅</span> You want to trade with micro-stakes (like $0.50) on a very small account.</li>
+                <li><span>✅</span> You have an account balance larger than $500 and want custom limits.</li>
+                <li><span>✅</span> You prefer low-risk staking methods like Same Stake (Flat) or Gentle Step.</li>
+                <li><span>✅</span> You have a specific daily target you calculated for your trading journal.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 5: DEMO TESTING
+               ================================================================== -->
+          <h2 id="demo-testing">How to Try Both Models Safely on Demo</h2>
+
+          <p>
+            You don’t have to choose permanently. FXnod gives you unrestricted access to both models on your <strong>Virtual USD Demo</strong> account:
+          </p>
+
+          <div class="workflow-steps-list">
+            
+            <div class="workflow-step-card">
+              <div class="workflow-num">1</div>
+              <div class="workflow-content">
+                <h4>Morning Test: Run a Fixed Plan Bot</h4>
+                <p>
+                  Open the Auto Hub, select an <em>Even / Odd</em> bot on the <strong>$20 Plan</strong>, and watch how the pre-calibrated ladder executes across normal market ticks.
+                </p>
+              </div>
+            </div>
+
+            <div class="workflow-step-card">
+              <div class="workflow-num">2</div>
+              <div class="workflow-content">
+                <h4>Afternoon Test: Run an Own Amount Bot</h4>
+                <p>
+                  Switch to an <em>Own Amount</em> bot, configure a <strong>Gentle Step</strong> staking mode with a $0.50 starting stake, and compare the drawdowns and recovery curves.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <p>
+            By comparing both models risk-free with virtual funds, you will quickly discover which style feels most comfortable for your personal trading psychology. Learn more about virtual practice: <strong><a href="test-fxnod-bots-demo-virtual-account-guide.html" style="color: #2563eb; font-weight: 600;">Testing Bots on Demo</a></strong>.
+          </p>
+
+          <!-- ==================================================================
+               SECTION 6: FREQUENTLY ASKED QUESTIONS
+               ================================================================== -->
+          <h2 id="faq">Frequently Asked Questions (FAQ)</h2>
+
+          <div class="faq-list">
+            <div class="faq-item">
+              <h3 class="faq-question">Can a Fixed Plan bot lose more than its stated plan name?</h3>
+              <div class="faq-answer">
+                <p>
+                  <strong>No.</strong> A $20 Plan bot has a strict $20 Stop-Loss ceiling enforced by FXnod’s <strong>Refused Stake</strong> rule. The engine will automatically halt trading before any trade can push your session loss beyond $20.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">What is the minimum stake for an Own Amount bot?</h3>
+              <div class="faq-answer">
+                <p>
+                  On Deriv synthetic indices, the minimum allowable contract stake is typically $0.35 to $0.50 depending on the market and currency.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Can I switch between Fixed Plans and Own Amount bots anytime?</h3>
+              <div class="faq-answer">
+                <p>
+                  Yes! You have full access to all 22 bots in the Auto Hub under your profile. You can run a Fixed Plan today and an Own Amount bot tomorrow.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Which model is safer for small accounts ($10 to $20)?</h3>
+              <div class="faq-answer">
+                <p>
+                  For very small accounts under $20, an <strong>Own Amount Bot</strong> configured with <strong>Same Stake (Flat)</strong> at $0.50 is the safest option, as it avoids any recovery multipliers that could stress a small balance.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Do Fixed Plan bots work on the FXnod Mobile App?</h3>
+              <div class="faq-answer">
+                <p>
+                  Yes! Both Fixed Plan bots and Own Amount bots are fully available on the FXnod Mobile App for Android and iOS.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 7: FINAL THOUGHTS & CONCLUSION
+               ================================================================== -->
+          <h2 id="final-thoughts">Final Thoughts: The Right Bot for Your Journey</h2>
+
+          <p>
+            The best trading bot is not the one with the biggest numbers—it is the one that gives you peace of mind, fits your balance comfortably, and executes with robotic discipline.
+          </p>
+
+          <p>
+            Whether you prefer the pre-tested 1-click simplicity of <strong>Fixed Plans</strong> or the complete freedom of <strong>Own Amount Bots</strong>, FXnod provides institutional-grade risk management for both styles.
+          </p>
+
+          <p>
+            <strong><a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" style="color: #2563eb; font-weight: 600;">Explore both models on your free FXnod Demo account today</a> and find your perfect automated setup!</strong>
+          </p>
+
+          <!-- Affiliate Disclosure Box -->
+          <div class="affiliate-disclosure-box" style="margin-top: 2rem; padding: 1.25rem; background: #f8fafc; border: 1px solid var(--color-border); border-radius: var(--radius-md); font-size: 0.82rem; color: #64748b; line-height: 1.55;">
+            <strong>Affiliate Disclosure:</strong> This educational article contains partner referral links. If you register on FXnod through links on this page, we may earn a referral commission at no additional cost to you. Trading financial derivatives and synthetic indices carries substantial risk of capital loss. Always trade responsibly and test strategies using demo environments first.
+          </div>
+
+          <!-- Further Reading Box -->
+          <div class="further-reading-box">
+            <h4>Recommended Related Guides:</h4>
+            <ul>
+              <li><a href="fxnod-live-run-monitor-stats-controls-guide.html">How to Use the FXnod Live Run Monitor: Real-Time Metrics &amp; Controls</a></li>
+              <li><a href="fxnod-shadow-lane-phantom-trading-guide.html">What is FXnod Shadow Lane? Phantom Trading on Deriv Explained</a></li>
+              <li><a href="inside-fxnod-autohub-bots-guide.html">Inside FXnod Auto Hub: The No-Code Trading Bot Suite with 22 Ready-Made Bots</a></li>
+              <li><a href="rise-fall-trading-bots-volatility-indices-guide.html">Rise / Fall Bots on Volatility Indices: Navigating Trends</a></li>
+              <li><a href="matches-differs-bots-strategy-guide-fxnod.html">Mastering Matches / Differs Bots on FXnod: 90%+ Win Rates</a></li>
+              <li><a href="even-odd-trading-bots-strategy-guide-fxnod.html">Even / Odd Trading Bots Explained: How to Build Consistent Daily Returns</a></li>
+              <li><a href="test-fxnod-bots-demo-virtual-account-guide.html">How to Test FXnod Bots on a Virtual (Demo) Account</a></li>
+              <li><a href="what-is-fxnod-complete-beginners-guide.html">What is FXnod? The Complete Beginner's Guide</a></li>
+            </ul>
+          </div>
+
+          <!-- Bottom CTA -->
+          <div class="article-footer-cta">
+            <h3>Find Your Perfect Automated Strategy</h3>
+            <p>Deploy battle-tested Fixed Plans or configure custom stakes with automated stop-loss protection on Deriv.</p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">
+              Get Started with FXnod &rarr;
+            </a>
+          </div>
+
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <!-- ======================================================================
+       FOOTER COMPONENT
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="brand-logo">
+            <div class="brand-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+            <span>Trade Insight</span>
+          </a>
+          <p>
+            High-performance technical editorial and tactical research publication. We empower quantitative traders, risk teams, and modern web agencies with actionable market playbooks.
+          </p>
+          <span class="footer-digest-label">Weekly Tech & Trading Digest</span>
+          <form class="footer-mini-form" onsubmit="event.preventDefault(); showToast('Subscribed to Weekly Digest!');">
+            <input type="email" placeholder="Enter your business email" required aria-label="Business Email">
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+
+        <div class="footer-col">
+          <h4>Publication Areas</h4>
+          <ul>
+            <li><a href="../index.html#all">All Editorial Guides</a></li>
+            <li><a href="automated-trading-on-deriv.html">Deriv & Synthetic Indices</a></li>
+            <li><a href="how-to-choose-a-trading-bot.html">Automated Trading Bots</a></li>
+            <li><a href="what-is-automated-trading.html">Risk & Margin Management</a></li>
+            <li><a href="../index.html#seo">SEO & Growth Strategy</a></li>
+            <li><a href="../index.html#infra">Web Tech & Infrastructure</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-col-playbooks">
+          <h4>Popular Playbooks</h4>
+          <ul class="footer-playbooks-list">
+            <li><a href="fxnod-live-run-monitor-stats-controls-guide.html">FXnod Live Run Monitor Guide</a></li>
+            <li><a href="fixed-plan-vs-own-amount-trading-bots-fxnod.html">Fixed Plan vs Own Amount Bots</a></li>
+            <li><a href="fxnod-shadow-lane-phantom-trading-guide.html">FXnod Shadow Lane Guide</a></li>
+            <li><a href="rise-fall-trading-bots-volatility-indices-guide.html">Rise / Fall Bots on Volatility Indices</a></li>
+            <li><a href="over-under-trading-bots-strategy-guide-fxnod.html">Over / Under Trading Bots Strategy</a></li>
+          </ul>
+
+          <!-- Expandable archive list of remaining playbooks -->
+          <ul class="footer-playbooks-archive" id="footer-playbooks-archive" style="display: none;">
+            <li><a href="even-odd-trading-bots-strategy-guide-fxnod.html">Even / Odd Trading Bots Strategy</a></li>
+            <li><a href="matches-differs-bots-strategy-guide-fxnod.html">Matches &amp; Differs Bots Strategy</a></li>
+            <li><a href="inside-fxnod-autohub-bots-guide.html">Inside FXnod Auto Hub</a></li>
+            <li><a href="manage-multiple-deriv-accounts-fxnod-guide.html">Manage Multiple Deriv Accounts</a></li>
+            <li><a href="how-to-fix-deriv-session-expired-reconnect-fxnod.html">Fix Deriv Session Expired</a></li>
+            <li><a href="fxnod-wallet-deposits-transfers-subscriptions-guide.html">Managing the FXnod Wallet</a></li>
+            <li><a href="test-fxnod-bots-demo-virtual-account-guide.html">Test FXnod Bots on Demo Account</a></li>
+            <li><a href="how-to-connect-deriv-account-to-fxnod.html">How to Connect Deriv to FXnod</a></li>
+            <li><a href="is-fxnod-safe-legitimate-security-review.html">Is FXnod Safe & Legit?</a></li>
+            <li><a href="fxnod-dashboard-complete-walkthrough-guide.html">FXnod Dashboard Walkthrough</a></li>
+            <li><a href="automated-vs-manual-trading-deriv-discipline.html">Automated vs Manual Trading</a></li>
+            <li><a href="fxnod-mobile-app-trading-guide.html">FXnod Mobile App Guide</a></li>
+            <li><a href="how-to-create-setup-fxnod-account-guide.html">FXnod Account Setup Guide</a></li>
+            <li><a href="what-is-fxnod-complete-beginners-guide.html">What is FXnod? (Complete Guide)</a></li>
+            <li><a href="what-is-automated-trading.html">What Is Automated Trading?</a></li>
+            <li><a href="automated-trading-on-deriv.html">How to Start on Deriv</a></li>
+            <li><a href="how-to-choose-a-trading-bot.html">How to Choose a Trading Bot</a></li>
+            <li><a href="manage-risk-when-using-a-trading-bot.html">Managing Bot Risk</a></li>
+            <li><a href="why-is-my-trading-bot-not-working.html">Bot Troubleshooting Guide</a></li>
+            <li><a href="can-trading-bots-lose-money.html">Can Bots Lose Money? (Risks)</a></li>
+            <li><a href="what-is-risk-to-reward-ratio.html">Risk-to-Reward Ratio Guide</a></li>
+            <li><a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" data-ref-link>Explore FXnod Platform</a></li>
+            <li><a href="how-to-test-a-trading-bot.html">How to Test a Trading Bot</a></li>
+            <li><a href="how-trading-bots-connect-to-platforms.html">How Bots Connect to Platforms</a></li>
+            <li><a href="why-trading-bots-make-losing-trades.html">Why Bots Make Losing Trades</a></li>
+            <li><a href="manual-vs-automated-trading.html">Manual vs Automated Trading</a></li>
+            <li><a href="what-to-check-before-connecting-a-trading-bot.html">Pre-Connection Checks (Security)</a></li>
+            <li><a href="trading-bot-faqs.html">Trading Bot FAQs (15 Answers)</a></li>
+            <li><a href="how-to-start-learning-trading.html">How to Start Learning Trading</a></li>
+            <li><a href="how-to-read-candlestick-charts.html">How to Read Candlesticks</a></li>
+            <li><a href="how-to-identify-support-and-resistance.html">Support & Resistance Levels</a></li>
+            <li><a href="how-to-keep-a-trading-journal.html">How to Keep a Trading Journal</a></li>
+            <li><a href="how-to-control-emotions-while-trading.html">Controlling Trading Emotions</a></li>
+            <li><a href="forex-vs-synthetic-indices.html">Forex vs Synthetic Indices</a></li>
+            <li><a href="how-to-evaluate-a-trading-strategy.html">How to Evaluate a Strategy</a></li>
+            <li><a href="why-market-prices-go-up-and-down.html">Why Market Prices Move</a></li>
+            <li><a href="how-economic-news-affects-trading.html">Economic News & Trading</a></li>
+            <li><a href="best-trading-timeframe-for-beginners.html">Best Trading Timeframes</a></li>
+            <li><a href="what-is-a-breakout-in-trading.html">What Is a Breakout in Trading?</a></li>
+            <li><a href="how-moving-averages-work-in-trading.html">How Moving Averages Work</a></li>
+            <li><a href="what-is-rsi-indicator-in-trading.html">What Is the RSI Indicator?</a></li>
+            <li><a href="what-is-spread-in-trading.html">What Is Spread in Trading?</a></li>
+            <li><a href="how-to-calculate-position-size.html">Position Sizing Guide</a></li>
+            <li><a href="what-is-drawdown-in-trading.html">What Is Drawdown in Trading?</a></li>
+            <li><a href="is-high-win-rate-enough-to-be-profitable.html">Is a High Win Rate Enough?</a></li>
+          </ul>
+
+          <button type="button" class="footer-toggle-btn" id="footer-playbooks-toggle" aria-expanded="false">
+            <span>+ View All 49 Playbooks</span>
+          </button>
+        </div>
+
+        <div class="footer-col">
+          <h4>Compliance & Legal</h4>
+          <ul>
+            <li><a href="../index.html#editorial">Editorial Independence</a></li>
+            <li><a href="../index.html#risk-notice">Risk Disclosure Notice</a></li>
+            <li><a href="../index.html#terms">Terms of Service</a></li>
+            <li><a href="../index.html#privacy">Privacy Policy</a></li>
+            <li><a href="../index.html#cookies">Cookie Preferences</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 Trade Insight Editorial. All content is for educational and technical informational purposes only. Trading financial derivatives carries substantial risk.
+        </div>
+        <div>
+          Designed for Agency Quantitative Operations
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+</body>
+</html>
