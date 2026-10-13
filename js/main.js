@@ -7,7 +7,11 @@
    GLOBAL CONFIGURATION (Central Base Settings)
    -------------------------------------------------------------------------- */
 window.SITE_CONFIG = {
-  referralLink: "https://fxnod.com/auth/register?ref=J306O7OW"
+  // Primary Referral Link (FXnod Platform & Auto Hub Bots)
+  referralLink: "https://fxnod.com/auth/register?ref=J306O7OW",
+
+  // Secondary Referral Link (e.g. Deriv Broker Affiliate / Alternate Promotion)
+  referralLink2: "https://fxnod.com/auth/register?ref=J306O7OW"
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -25,27 +29,71 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* --------------------------------------------------------------------------
-   0. Central Referral Link Manager
+   0. Central Referral Link Manager (Multi-Partner & Data-Ref Routing)
    -------------------------------------------------------------------------- */
 function initReferralLinks() {
-  const refUrl = window.SITE_CONFIG.referralLink;
-  if (!refUrl) return;
+  const cfg = window.SITE_CONFIG;
+  if (!cfg) return;
 
-  // Automatically update all referral links across the entire site
-  const referralSelectors = [
-    'a[data-ref-link]',
-    'a.ref-link',
-    'a.fxnod-ref-link',
-    'a.sidebar-cta-btn',
-    'a.fxnod-cta-btn',
-    'a[href*="fxnod.com/auth/register"]'
-  ];
+  // 1. Primary Referral Link (FXnod Platform)
+  const primaryUrl = cfg.referralLink;
+  if (primaryUrl) {
+    const primarySelectors = [
+      'a[data-ref="1"]',
+      'a[data-ref="primary"]',
+      'a[data-ref="fxnod"]',
+      'a[data-ref-link]',
+      'a.ref-link',
+      'a.fxnod-ref-link',
+      'a.sidebar-cta-btn',
+      'a.fxnod-cta-btn',
+      '.article-footer-cta a.btn',
+      'header .header-right a.btn-primary',
+      'aside .action-box a.btn-primary',
+      'a[href*="fxnod.com/auth/register"]'
+    ];
 
-  const refLinks = document.querySelectorAll(referralSelectors.join(', '));
-  refLinks.forEach(link => {
-    link.href = refUrl;
-    if (!link.getAttribute('target')) link.setAttribute('target', '_blank');
-    if (!link.getAttribute('rel')) link.setAttribute('rel', 'noopener noreferrer');
+    const primaryLinks = document.querySelectorAll(primarySelectors.join(', '));
+    primaryLinks.forEach(link => {
+      const refAttr = link.getAttribute('data-ref');
+      if (refAttr === '2' || refAttr === 'secondary' || refAttr === 'deriv') {
+        return;
+      }
+      link.href = primaryUrl;
+      if (!link.getAttribute('target')) link.setAttribute('target', '_blank');
+      if (!link.getAttribute('rel')) link.setAttribute('rel', 'noopener noreferrer');
+    });
+  }
+
+  // 2. Secondary Referral Link (Deriv Broker / Partner 2)
+  const secondaryUrl = cfg.referralLink2;
+  if (secondaryUrl) {
+    const secondarySelectors = [
+      'a[data-ref="2"]',
+      'a[data-ref="secondary"]',
+      'a[data-ref="deriv"]',
+      'a[data-ref-deriv]',
+      'a.deriv-ref-link'
+    ];
+
+    const secondaryLinks = document.querySelectorAll(secondarySelectors.join(', '));
+    secondaryLinks.forEach(link => {
+      link.href = secondaryUrl;
+      if (!link.getAttribute('target')) link.setAttribute('target', '_blank');
+      if (!link.getAttribute('rel')) link.setAttribute('rel', 'noopener noreferrer');
+    });
+  }
+
+  // 3. Global Click Delegation Fallback (Instant Routing Guard)
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[data-ref], a.fxnod-cta-btn, .article-footer-cta a.btn');
+    if (!link) return;
+    const refAttr = link.getAttribute('data-ref');
+    const isSecondary = refAttr === '2' || refAttr === 'secondary' || refAttr === 'deriv';
+    const targetUrl = isSecondary ? cfg.referralLink2 : cfg.referralLink;
+    if (targetUrl && (link.getAttribute('href') === '#' || !link.href || link.href.endsWith('#'))) {
+      link.href = targetUrl;
+    }
   });
 }
 
@@ -57,6 +105,8 @@ function initFooterPlaybooksToggle() {
   const archiveList = document.getElementById('footer-playbooks-archive');
   if (!toggleBtn || !archiveList) return;
 
+  const defaultHtml = toggleBtn.innerHTML;
+
   toggleBtn.addEventListener('click', () => {
     const isHidden = archiveList.style.display === 'none';
     if (isHidden) {
@@ -67,7 +117,7 @@ function initFooterPlaybooksToggle() {
       toggleBtn.setAttribute('aria-expanded', 'true');
     } else {
       archiveList.style.display = 'none';
-      toggleBtn.innerHTML = '<span>+ View All 30 Playbooks</span>';
+      toggleBtn.innerHTML = defaultHtml;
       toggleBtn.setAttribute('aria-expanded', 'false');
     }
   });
