@@ -177,7 +177,21 @@ function updateArticlesView() {
 
   // Filter articles
   const matchingArticles = allArticles.filter(art => {
-    const matchesFilter = (activeFilter === 'all' || art.category.toLowerCase().includes(activeFilter));
+    let matchesFilter = false;
+    const cat = (art.category || '').toLowerCase();
+
+    if (activeFilter === 'all') {
+      matchesFilter = true;
+    } else if (activeFilter === 'deriv' || activeFilter === 'category-deriv') {
+      // All 30 Deriv & Quantitative Trading Foundation Guides (Articles 1 to 30)
+      matchesFilter = (cat !== 'fxnod');
+    } else if (activeFilter === 'fxnod' || activeFilter === 'category-fxnod') {
+      // All 30 FXnod Bot & Auto Hub Guides (Articles 31 to 60)
+      matchesFilter = (cat === 'fxnod');
+    } else {
+      matchesFilter = cat.includes(activeFilter);
+    }
+
     const matchesSearch = (!searchTerm ||
       art.title.toLowerCase().includes(searchTerm) ||
       art.excerpt.toLowerCase().includes(searchTerm) ||
@@ -225,18 +239,117 @@ function updateArticlesView() {
   }
 }
 
+/* --------------------------------------------------------------------------
+   Category Filter & Header Navigation Synchronizer
+   -------------------------------------------------------------------------- */
+function applyCategoryFilter(filterName, scrollIntoView = false) {
+  const filterTabs = document.querySelectorAll('.filter-tab');
+  const navLinks = document.querySelectorAll('.nav-links .nav-link');
+  
+  const normFilter = (filterName || 'all')
+    .replace('#', '')
+    .replace('category-', '')
+    .toLowerCase()
+    .trim();
+
+  // 1. Sync filter tabs
+  let matchedTab = null;
+  filterTabs.forEach(tab => {
+    const tabFilter = tab.getAttribute('data-filter')?.toLowerCase();
+    if (tabFilter === normFilter || (normFilter === '' && tabFilter === 'all')) {
+      tab.classList.add('active');
+      matchedTab = tab;
+    } else {
+      tab.classList.remove('active');
+    }
+  });
+
+  if (!matchedTab && filterTabs.length) {
+    const defaultTab = document.querySelector('.filter-tab[data-filter="all"]');
+    if (defaultTab) defaultTab.classList.add('active');
+  }
+
+  // 2. Sync header navigation links
+  navLinks.forEach(link => {
+    const href = link.getAttribute('href')?.toLowerCase() || '';
+    if (
+      (normFilter === 'all' && (href === 'index.html' || href === '/' || href.includes('#all'))) ||
+      (normFilter === 'deriv' && href.includes('deriv')) ||
+      (normFilter === 'fxnod' && href.includes('fxnod'))
+    ) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
+
+  // 3. Reset pagination limit and render
+  currentVisibleLimit = BATCH_SIZE;
+  updateArticlesView();
+
+  // 4. Smooth scroll to recent analyses if requested
+  if (scrollIntoView) {
+    const targetSection = document.getElementById('recent-analyses') || document.querySelector('.articles-grid');
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+}
+
 function initCategoryFilters() {
   const filterTabs = document.querySelectorAll('.filter-tab');
-  if (!filterTabs.length) return;
+  const navLinks = document.querySelectorAll('.nav-links .nav-link');
 
+  // Handle in-page filter tab clicks
   filterTabs.forEach(tab => {
     tab.addEventListener('click', () => {
-      filterTabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      currentVisibleLimit = BATCH_SIZE;
-      updateArticlesView();
+      const filter = tab.getAttribute('data-filter') || 'all';
+      applyCategoryFilter(filter, false);
+      if (filter === 'all') {
+        history.replaceState(null, '', window.location.pathname);
+      } else {
+        history.replaceState(null, '', `#category-${filter}`);
+      }
     });
   });
+
+  // Handle header nav links (All Guides, Deriv Guides, FXnod Guides)
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href') || '';
+      const isInternal = href.startsWith('#') || href === 'index.html' || href === './';
+      if (isInternal && document.querySelector('.articles-grid')) {
+        e.preventDefault();
+        let targetFilter = 'all';
+        if (href.includes('deriv')) targetFilter = 'deriv';
+        else if (href.includes('fxnod')) targetFilter = 'fxnod';
+
+        applyCategoryFilter(targetFilter, true);
+        if (targetFilter === 'all') {
+          history.replaceState(null, '', window.location.pathname);
+        } else {
+          history.replaceState(null, '', `#category-${targetFilter}`);
+        }
+      }
+    });
+  });
+
+  // Handle deep-link hashes on load or on hashchange
+  const handleHash = () => {
+    const hash = window.location.hash.toLowerCase();
+    if (hash) {
+      if (hash.includes('deriv')) {
+        applyCategoryFilter('deriv', false);
+      } else if (hash.includes('fxnod')) {
+        applyCategoryFilter('fxnod', false);
+      } else if (hash.includes('all')) {
+        applyCategoryFilter('all', false);
+      }
+    }
+  };
+
+  handleHash();
+  window.addEventListener('hashchange', handleHash);
 }
 
 function initSearch() {
