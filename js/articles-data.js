@@ -6,6 +6,17 @@
 
 window.ARTICLES_DATA = [
   {
+    "id": 36,
+    "title": "Is FXnod Safe and Legitimate? API Security & Fund Protection Explained",
+    "slug": "blog/is-fxnod-safe-legitimate-security-review.html",
+    "category": "fxnod",
+    "badgeText": "FXnod Guides",
+    "badgeColor": "rgba(240, 58, 39, 0.95)",
+    "image": "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
+    "excerpt": "Is FXnod safe and legitimate? Discover how FXnod protects your Deriv account with non-custodial API tokens, bank-grade encryption, and strict risk safeguards.",
+    "readTime": "8 min read • Oct 2026"
+  },
+  {
     "id": 35,
     "title": "Exploring the FXnod Dashboard: A Complete Walkthrough",
     "slug": "blog/fxnod-dashboard-complete-walkthrough-guide.html",
