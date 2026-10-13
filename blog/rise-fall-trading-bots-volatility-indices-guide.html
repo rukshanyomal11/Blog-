@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rise / Fall Bots on Deriv Volatility Indices: Trend Guide (2026) | Trade Insight</title>
+  <meta name="description" content="Master Rise / Fall trading bots on Deriv Volatility Indices with FXnod. Learn about directional momentum, market filtering, risk ladders, and 1-click setup.">
+  <meta name="keywords" content="Rise Fall bot Deriv, volatility index bot, FXnod rise fall strategy, Deriv rise fall trading, automated trend trading Deriv, Deriv synthetic index bots, volatility 100 trading bot">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="Rise / Fall Bots on Deriv Volatility Indices: Trend Guide (2026)">
+  <meta property="og:description" content="Master Rise / Fall trading bots on Deriv Volatility Indices with FXnod. Learn about directional momentum, strict market filtering, risk ladders, and 1-click setup.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tradeinsight.com/rise-fall-trading-bots-volatility-indices-guide/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1535320903710-d993d3d77d29?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Twitter Meta -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rise / Fall Bots on Deriv Volatility Indices: Trend Guide (2026)">
+  <meta name="twitter:description" content="Navigate trends on Volatility 10 to 100 with automated Rise / Fall bots. Discover how FXnod pairs directional speed with verified market filtering.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1535320903710-d993d3d77d29?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .article-featured-image-wrap {
+      margin: 2rem 0 2.5rem 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      background: #f1f5f9;
+      box-shadow: var(--shadow-md);
+    }
+    .article-featured-image {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      display: block;
+    }
+    .image-caption {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      background: #ffffff;
+      border-top: 1px solid var(--color-border);
+      text-align: center;
+      font-style: italic;
+    }
+    .fxnod-partner-box {
+      background: linear-gradient(135deg, #0b1120 0%, #172554 100%);
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      margin: 2.5rem 0;
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.25);
+    }
+    .fxnod-partner-box::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(240, 58, 39, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .fxnod-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(240, 58, 39, 0.2);
+      border: 1px solid rgba(240, 58, 39, 0.5);
+      color: #fca5a5;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .fxnod-partner-box h3 {
+      color: #ffffff;
+      font-size: 1.45rem;
+      margin-bottom: 0.65rem;
+    }
+    .fxnod-partner-box p {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      margin-bottom: 1.4rem;
+    }
+    .fxnod-cta-btn {
+      background: var(--color-primary);
+      color: #ffffff;
+      font-weight: 700;
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 16px rgba(240, 58, 39, 0.35);
+      transition: all var(--transition-normal);
+      text-decoration: none;
+    }
+    .fxnod-cta-btn:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(240, 58, 39, 0.45);
+      color: #ffffff;
+    }
+    .diagram-box {
+      background: #0f172a;
+      color: #38bdf8;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 1.75rem;
+      border-radius: var(--radius-md);
+      overflow-x: auto;
+      margin: 2rem 0;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      border: 1px solid #1e293b;
+      box-shadow: var(--shadow-md);
+    }
+    .filter-notice-card {
+      background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+      border: 1px solid #bbf7d0;
+      border-left: 4px solid #16a34a;
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      margin: 2rem 0;
+    }
+    .filter-notice-card h4 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      color: #166534;
+      font-size: 1.15rem;
+    }
+    .filter-notice-card p {
+      color: #14532d;
+      font-size: 0.92rem;
+      line-height: 1.65;
+      margin-bottom: 0.75rem;
+    }
+    .filter-notice-card code {
+      background: #dcfce7;
+      color: #15803d;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88rem;
+    }
+    .features-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin: 2rem 0;
+    }
+    .feature-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .feature-card h4 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .feature-card p {
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+    .workflow-steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+    .workflow-step-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      display: flex;
+      gap: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      transition: border-color var(--transition-fast);
+    }
+    .workflow-step-card:hover {
+      border-color: #3b82f6;
+    }
+    .workflow-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #eff6ff;
+      color: #2563eb;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+      border: 1px solid #bfdbfe;
+    }
+    .workflow-content h4 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+      color: var(--color-text-main);
+    }
+    .workflow-content p {
+      margin-bottom: 0.5rem;
+      font-size: 0.92rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin: 2rem 0;
+    }
+    .tip-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .tip-card h4 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+      color: var(--color-text-main);
+    }
+    .tip-card p {
+      color: var(--color-text-muted);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .faq-question {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--color-text-main);
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+    .faq-answer p {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+  </style>
+
+  <!-- Structured Data (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Rise / Fall Bots on Deriv Volatility Indices: Trend Guide (2026)",
+    "description": "Master Rise / Fall trading bots on Deriv Volatility Indices with FXnod. Learn about directional momentum, market filtering, risk ladders, and 1-click setup.",
+    "author": {
+      "@type": "Organization",
+      "name": "Trade Insight Editorial"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Trade Insight",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://tradeinsight.com/assets/logo.png"
+      }
+    },
+    "datePublished": "2026-10-13",
+    "dateModified": "2026-10-13",
+    "image": "https://images.unsplash.com/photo-1535320903710-d993d3d77d29?auto=format&fit=crop&w=1200&q=80",
+    "mainEntityOfPage": "https://tradeinsight.com/rise-fall-trading-bots-volatility-indices-guide/"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the win rate of a Rise / Fall bot?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Because directional price movement has an equal 50/50 probability, win rates typically hover around 50% to 55%. With disciplined recovery ladders and automated profit-taking, bots can generate consistent net profit over time."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I trade Rise / Fall on Crash / Boom markets?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. FXnod intentionally filters out Crash and Boom indices for Rise / Fall bots because unexpected market crashes can violate directional momentum rules. The platform restricts trading to continuous Volatility Indices for maximum safety."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the payout for Rise / Fall contracts on Deriv?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Deriv typically pays around 95% on winning Rise / Fall contracts (e.g., a $1.00 winning trade returns $1.95)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I run Rise / Fall bots on my smartphone?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! The FXnod Mobile App provides full access to all Rise / Fall bots with live progress meters, tick streams, and 1-tap emergency force-stop controls."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between 1-tick and 5-tick contracts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "1-tick contracts settle on the very next second (ideal for rapid micro-scalping), while 5-tick contracts give the price five seconds to develop a directional trend wave before settlement."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="article-page">
+
+  <!-- Top Reading Progress Indicator -->
+  <div class="reading-progress-bar" id="reading-progress"></div>
+
+  <!-- ======================================================================
+       HEADER & NAVIGATION
+       ====================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <div style="display: flex; align-items: center;">
+        <a href="../index.html" class="brand-logo" aria-label="Trade Insight Home">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <span>Trade Insight</span>
+        </a>
+
+        <nav class="nav-links" aria-label="Main Navigation">
+          <a href="../index.html" class="nav-link">All Guides</a>
+          <a href="automated-trading-on-deriv.html" class="nav-link">Deriv Guides</a>
+          <a href="how-to-choose-a-trading-bot.html" class="nav-link">Trading Bots</a>
+          <a href="../index.html#category-fxnod" class="nav-link">FXnod Guides</a>
+        </nav>
+      </div>
+
+      <div class="header-right">
+        <!-- Direct FXnod Referral Header Button -->
+        <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.45rem 1.1rem; font-size: 0.82rem;" title="Explore FXnod Platform">
+          <span>Explore FXnod</span>
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+
+        <div class="header-search">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+          <input type="text" placeholder="Search trend guides..." aria-label="Search articles">
+        </div>
+
+        <button class="profile-avatar" title="User Profile" aria-label="User Profile">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       BREADCRUMB & HERO HEADER
+       ====================================================================== -->
+  <main class="article-page-wrapper">
+    <div class="container">
+      
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item"><a href="../index.html#category-fxnod">FXnod Guides</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item current" aria-current="page">Rise / Fall Bots</li>
+        </ol>
+      </nav>
+
+      <!-- Article Header -->
+      <header class="article-header">
+        <div class="article-meta-badges">
+          <span class="badge" style="background: rgba(240, 58, 39, 0.95); color: #fff;">FXnod Guides</span>
+          <span class="badge badge-accent">Directional Momentum</span>
+          <span class="article-reading-time">7 min read • Updated Oct 2026</span>
+        </div>
+
+        <h1 class="article-title">
+          Rise / Fall Bots on Volatility Indices: Navigating Trends with Volatility 10 to 100
+        </h1>
+
+        <p class="article-lead">
+          While digit contracts focus purely on terminal decimal numbers, Rise / Fall contracts capture pure directional price movement. Discover how FXnod automates trend waves across Deriv Volatility Indices with verified market filtering and automated profit locks.
+        </p>
+
+        <div class="article-author-bar">
+          <div class="author-profile-chip">
+            <div class="author-chip-avatar">TI</div>
+            <span class="author-chip-name">Trade Insight Editorial</span>
+          </div>
+          <span class="author-bar-divider">•</span>
+          <span class="article-verified-badge">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+            Verified Strategy Guide
+          </span>
+        </div>
+      </header>
+
+      <!-- Featured Hero Image -->
+      <div class="article-featured-image-wrap">
+        <img 
+          src="https://images.unsplash.com/photo-1535320903710-d993d3d77d29?auto=format&fit=crop&w=1200&q=80" 
+          alt="FXnod Rise Fall trading bot interface showing directional trend momentum on Volatility 100 Index" 
+          class="article-featured-image"
+          loading="eager"
+        >
+        <div class="image-caption">
+          Figure 1: Rise / Fall bots execute precision entries on Deriv Volatility Indices 10 through 100 with strict market filtering.
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           TWO-COLUMN EDITORIAL LAYOUT
+           ====================================================================== -->
+      <div class="article-layout">
+        
+        <!-- LEFT STICKY SIDEBAR -->
+        <aside class="article-sidebar">
+          <div class="sidebar-widget toc-widget">
+            <div class="widget-title">
+              <span>Quick Navigation</span>
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path></svg>
+            </div>
+            <ul class="toc-list">
+              <li class="toc-item active"><a href="#directional-basics">How Rise / Fall Contracts Work</a></li>
+              <li class="toc-item"><a href="#market-filtering">Why FXnod Filters Markets</a></li>
+              <li class="toc-item"><a href="#fxnod-rise-fall">Rise / Fall Bots in Auto Hub</a></li>
+              <li class="toc-item"><a href="#step-by-step">Step-by-Step: Run Your Bot</a></li>
+              <li class="toc-item"><a href="#pro-tips">4 Pro Tips for Directional Trading</a></li>
+              <li class="toc-item"><a href="#faq">Frequently Asked Questions</a></li>
+              <li class="toc-item"><a href="#final-thoughts">Final Thoughts &amp; Next Steps</a></li>
+            </ul>
+          </div>
+
+          <!-- Official Partner Quick Box -->
+          <div class="sidebar-card">
+            <h4>Trade Directional Bots</h4>
+            <p>Deploy Rise / Fall momentum algorithms across Volatility Indices 10 to 100 with automated recovery ladders.</p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; text-align: center; justify-content: center;">
+              Launch FXnod Free &rarr;
+            </a>
+          </div>
+
+          <!-- Companion Guides Box -->
+          <div class="sidebar-card" style="margin-top: 1.5rem; background: #ffffff;">
+            <h4>Companion Guides</h4>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; line-height: 1.6;">
+              <li style="margin-bottom: 0.75rem;"><a href="inside-fxnod-autohub-bots-guide.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; Inside FXnod Auto Hub (22 Bots)</a></li>
+              <li style="margin-bottom: 0.75rem;"><a href="even-odd-trading-bots-strategy-guide-fxnod.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; Even / Odd Trading Bots Guide</a></li>
+              <li style="margin-bottom: 0.75rem;"><a href="over-under-trading-bots-strategy-guide-fxnod.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; Over / Under Trading Strategies</a></li>
+              <li style="margin-bottom: 0.75rem;"><a href="test-fxnod-bots-demo-virtual-account-guide.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; Test Bots on Demo Account</a></li>
+              <li><a href="what-is-fxnod-complete-beginners-guide.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; What is FXnod? Beginner's Guide</a></li>
+            </ul>
+          </div>
+        </aside>
+
+        <!-- RIGHT MAIN EDITORIAL CONTENT -->
+        <article class="article-content">
+
+          <p>
+            While digit contracts like Even/Odd or Differs focus purely on the last decimal digit of a price, many traders prefer traditional market movement: <strong>is the price going up, or is it going down?</strong>
+          </p>
+
+          <p>
+            On Deriv, <strong>Rise / Fall contracts</strong> represent the purest form of directional trading. You simply predict whether the market price will finish <strong>higher (Rise)</strong> or <strong>lower (Fall)</strong> than your entry point after a set number of ticks.
+          </p>
+
+          <p>
+            Combined with Deriv’s legendary <strong>Volatility Indices</strong>—which simulate real-world financial market movements 24/7 without being affected by economic news or bank holidays—Rise / Fall trading offers consistent, round-the-clock action with balanced payouts of around <strong>95% per win.</strong>
+          </p>
+
+          <p>
+            However, trying to catch fast-moving 1-tick or 5-tick trends manually with sweaty fingers often leads to delayed clicks and frustrating entries.
+          </p>
+
+          <p>
+            <strong>FXnod solves this with automated Rise / Fall bots engineered for precision execution.</strong> If you are new to the platform, check our starter guide: <strong><a href="what-is-fxnod-complete-beginners-guide.html" style="color: #2563eb; font-weight: 600;">What is FXnod? Complete Beginner's Guide</a></strong>.
+          </p>
+
+          <!-- ==================================================================
+               SECTION 1: HOW RISE / FALL WORKS
+               ================================================================== -->
+          <h2 id="directional-basics">How Rise / Fall Contracts Work (The Directional Basics)</h2>
+
+          <p>
+            Unlike traditional forex trading, where you have to calculate pip values, spreads, and leverage, a Rise / Fall contract on Deriv is refreshingly simple:
+          </p>
+
+          <div class="diagram-box">
+┌──────────────────────────────────────┐     ┌──────────────────────────────────────┐
+│            RISE CONTRACT             │     │            FALL CONTRACT             │
+├──────────────────────────────────────┤     ├──────────────────────────────────────┤
+│ • You predict price will finish      │     │ • You predict price will finish      │
+│   HIGHER than your entry tick        │     │   LOWER than your entry tick         │
+│ • Win condition: Exit Price > Entry  │     │ • Win condition: Exit Price < Entry  │
+│ • Payout: ~95% profit on win         │     │ • Payout: ~95% profit on win         │
+└──────────────────────────────────────┘     └──────────────────────────────────────┘
+          </div>
+
+          <p>
+            You can choose your contract execution speed:
+          </p>
+
+          <ul style="line-height: 1.7; margin-bottom: 1.5rem;">
+            <li><strong>1-Tick Speed:</strong> Super-fast execution where the outcome settles on the very next second. Ideal for rapid micro-scalping.</li>
+            <li><strong>5-Tick Momentum:</strong> Gives the market five ticks to develop a mini-trend wave before contract settlement. (Compare this with digit parity in our guide: <strong><a href="even-odd-trading-bots-strategy-guide-fxnod.html" style="color: #2563eb; font-weight: 600;">Even / Odd Trading Bots Explained</a></strong>).</li>
+          </ul>
+
+          <p>
+            Because Rise and Fall have an equal natural probability, a winning $1.00 trade returns roughly <strong>$1.95</strong> ($0.95 in clean profit).
+          </p>
+
+          <!-- Partner Box -->
+          <div class="fxnod-partner-box">
+            <span class="fxnod-badge">Directional Automation Suite</span>
+            <h3>Run Rise / Fall Bots on FXnod</h3>
+            <p>
+              Capture synthetic market trends with automated execution, verified market filtering, and upfront risk transparency.
+            </p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="fxnod-cta-btn">
+              <span>Open Free FXnod Account</span>
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 2: MARKET FILTERING
+               ================================================================== -->
+          <h2 id="market-filtering">Why FXnod Strictly Filters Rise / Fall Markets</h2>
+
+          <p>
+            Not all synthetic indices on Deriv behave the same way. Some markets (like <em>Crash / Boom</em> or <em>Jump Indices</em>) experience sudden unnatural price spikes that can disrupt standard momentum algorithms.
+          </p>
+
+          <p>
+            To protect your capital, <strong>FXnod includes built-in market filtering.</strong>
+          </p>
+
+          <div class="filter-notice-card">
+            <h4>Verified Derived Volatility Indices Supported:</h4>
+            <p>
+              <code>Volatility 10 (1s)</code>, <code>Volatility 25 (1s)</code>, <code>Volatility 50 (1s)</code>, <code>Volatility 75 (1s)</code>, <code>Volatility 100 (1s)</code><br>
+              <code>Volatility 10</code>, <code>Volatility 25</code>, <code>Volatility 50</code>, <code>Volatility 75</code>, <code>Volatility 100</code>
+            </p>
+            <p style="margin-bottom: 0; font-size: 0.88rem; color: #166534;">
+              Unsupported jump indices and crash/boom markets are automatically blocked from the Rise / Fall cockpit to preserve strategy integrity.
+            </p>
+          </div>
+
+          <h3>Why This Strict Filtering Protects You:</h3>
+
+          <ul style="line-height: 1.7; margin-bottom: 1.5rem;">
+            <li><strong>Smooth Price Flow:</strong> Continuous synthetic volatility without artificial gaps or price spikes.</li>
+            <li><strong>Instant Fills:</strong> Fast, uninterrupted tick execution dispatched seamlessly via the Deriv API bridge.</li>
+            <li><strong>Zero Accidental Orders:</strong> The engine automatically blocks unsupported markets, ensuring your bot only trades where liquidity is optimal.</li>
+          </ul>
+
+          <!-- ==================================================================
+               SECTION 3: EXPLORING RISE / FALL BOTS
+               ================================================================== -->
+          <h2 id="fxnod-rise-fall">Exploring Rise / Fall Bots in the FXnod Auto Hub</h2>
+
+          <p>
+            Inside the <strong>Auto Hub</strong>, the <strong>Rise / Fall</strong> tab features bots calibrated for directional market momentum. (To see all 22 ready-made bots, check our full breakdown: <strong><a href="inside-fxnod-autohub-bots-guide.html" style="color: #2563eb; font-weight: 600;">Inside FXnod Auto Hub</a></strong>).
+          </p>
+
+          <div class="features-card-grid">
+            
+            <div class="feature-card">
+              <h4>🎯 Pre-Configured Fixed Plans</h4>
+              <p>
+                Choose plans engineered specifically for your account capital:
+              </p>
+              <ul style="margin: 0.5rem 0 0 1.25rem; font-size: 0.88rem; color: #64748b; line-height: 1.6;">
+                <li><strong>$20 Plan:</strong> Starts with a low $1.00 stake. Balanced recovery multipliers ensure you don’t over-leverage during choppy sideways runs.</li>
+                <li><strong>$50 Plan:</strong> Provides a deeper safety cushion for everyday sessions targeting $3 to $5 daily gains.</li>
+                <li><strong>$100 Plan:</strong> Designed for larger accounts seeking sustained run times across trending volatility cycles.</li>
+              </ul>
+            </div>
+
+            <div class="feature-card">
+              <h4>🎯 Contract Take-Profit Feature</h4>
+              <p>
+                FXnod’s Rise / Fall bots include a smart feature: <strong>Contract Take-Profit</strong>. When active, the platform automatically closes out positions or locks in gains the instant milestone target thresholds are achieved, banking profits before momentum reverses.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <h4>📊 Upfront Loss Progression Sheet</h4>
+              <p>
+                Before launching any Rise / Fall bot, tap <strong>"View Loss Run"</strong>:
+              </p>
+              <ul style="margin: 0.5rem 0 0 1.25rem; font-size: 0.88rem; color: #64748b; line-height: 1.6;">
+                <li>See the exact stake for every potential consecutive loss step.</li>
+                <li>Verify how many consecutive losses your selected plan will absorb.</li>
+                <li>Check your <strong>Refused Stake threshold</strong> before risking real capital.</li>
+              </ul>
+            </div>
+
+          </div>
+
+          <!-- ==================================================================
+               SECTION 4: STEP-BY-STEP WORKFLOW
+               ================================================================== -->
+          <h2 id="step-by-step">Step-by-Step: How to Run a Rise / Fall Bot on FXnod</h2>
+
+          <p>
+            Launching your first Rise / Fall bot takes less than 20 seconds. Follow these steps:
+          </p>
+
+          <div class="workflow-steps-list">
+            
+            <div class="workflow-step-card">
+              <div class="workflow-num">1</div>
+              <div class="workflow-content">
+                <h4>Open Auto Hub &amp; Select Rise / Fall</h4>
+                <p>
+                  In the FXnod dashboard or Mobile App, navigate to the <strong>Auto Hub</strong> and tap the <strong>Rise / Fall</strong> tab.
+                </p>
+              </div>
+            </div>
+
+            <div class="workflow-step-card">
+              <div class="workflow-num">2</div>
+              <div class="workflow-content">
+                <h4>Select a Bot &amp; Pick Your Plan</h4>
+                <p>
+                  Click <strong>"Set Up"</strong> on your preferred bot card. Select your plan (e.g., the beginner-friendly <strong>$20 Plan</strong>). Read the "How It Works" card detailing entry speed and momentum rules.
+                </p>
+              </div>
+            </div>
+
+            <div class="workflow-step-card">
+              <div class="workflow-num">3</div>
+              <div class="workflow-content">
+                <h4>Choose Your Volatility Index</h4>
+                <p>
+                  Select your preferred market (e.g., <em>Volatility 100 (1s)</em> or <em>Volatility 75</em>). FXnod automatically displays only verified, compatible indices.
+                </p>
+              </div>
+            </div>
+
+            <div class="workflow-step-card">
+              <div class="workflow-num">4</div>
+              <div class="workflow-content">
+                <h4>Click "Start Bot" &amp; Track Live</h4>
+                <p>
+                  Tap <strong>"View Loss Run"</strong> to inspect your safety cushion, then tap <strong>"Start Bot"</strong>. The circular progress ring tracks your session profit in real time. Once reached, the bot shuts down automatically, locking in your gains!
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ==================================================================
+               SECTION 5: 4 PRO TIPS FOR DIRECTIONAL TRADING
+               ================================================================== -->
+          <h2 id="pro-tips">4 Pro Tips for Directional Bot Trading</h2>
+
+          <p>
+            To achieve consistent results when running Rise / Fall bots, follow these professional guidelines:
+          </p>
+
+          <div class="tips-grid">
+            <div class="tip-card">
+              <h4>1. Match Volatility to Your Style</h4>
+              <p><em>Volatility 10 &amp; 25</em> provide gentle price waves. <em>Volatility 75 &amp; 100</em> offer faster, more energetic swings. Beginners often start with lower volatility indices.</p>
+            </div>
+
+            <div class="tip-card">
+              <h4>2. Target 1% to 3% Daily Account Growth</h4>
+              <p>Automated bots are built for steady compounding, not overnight jackpots. Set a modest daily target, hit it, and close the app.</p>
+            </div>
+
+            <div class="tip-card">
+              <h4>3. Always Test in Demo Mode First</h4>
+              <p>Run at least 25 to 30 simulated bot sessions on your free <strong>Virtual USD Demo</strong> account. Learn more: <strong><a href="test-fxnod-bots-demo-virtual-account-guide.html" style="color: #2563eb; font-weight: 600;">Testing Bots on Demo</a></strong>.</p>
+            </div>
+
+            <div class="tip-card">
+              <h4>4. Use Emergency Force Stop When Needed</h4>
+              <p>If you ever wish to pause your session early, simply tap the prominent red <strong>Force Stop</strong> button on the Live Run Monitor.</p>
+            </div>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 6: FREQUENTLY ASKED QUESTIONS
+               ================================================================== -->
+          <h2 id="faq">Frequently Asked Questions (FAQ)</h2>
+
+          <div class="faq-list">
+            <div class="faq-item">
+              <h3 class="faq-question">What is the win rate of a Rise / Fall bot?</h3>
+              <div class="faq-answer">
+                <p>
+                  Because directional price movement has an equal 50/50 probability, win rates typically hover around 50% to 55%. With disciplined recovery ladders and automated profit-taking, bots can generate consistent net profit over time.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Can I trade Rise / Fall on Crash / Boom markets?</h3>
+              <div class="faq-answer">
+                <p>
+                  No. FXnod intentionally filters out Crash and Boom indices for Rise / Fall bots because unexpected market crashes can violate directional momentum rules. The platform restricts trading to continuous Volatility Indices for maximum safety.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">What is the payout for Rise / Fall contracts on Deriv?</h3>
+              <div class="faq-answer">
+                <p>
+                  Deriv typically pays around 95% on winning Rise / Fall contracts (e.g., a $1.00 winning trade returns $1.95).
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Can I run Rise / Fall bots on my smartphone?</h3>
+              <div class="faq-answer">
+                <p>
+                  Yes! The FXnod Mobile App provides full access to all Rise / Fall bots with live progress meters, tick streams, and 1-tap emergency force-stop controls.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">What is the difference between 1-tick and 5-tick contracts?</h3>
+              <div class="faq-answer">
+                <p>
+                  1-tick contracts settle on the very next second (ideal for rapid micro-scalping), while 5-tick contracts give the price five seconds to develop a directional trend wave before settlement.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 7: FINAL THOUGHTS & CONCLUSION
+               ================================================================== -->
+          <h2 id="final-thoughts">Final Thoughts: Ride the Trend with Total Discipline</h2>
+
+          <p>
+            Trading directional market trends on Deriv Volatility Indices doesn't require emotional guessing or rapid finger-tapping. By leveraging <strong>FXnod Auto Hub</strong>, you combine the natural movement of synthetic trends with automated execution, strict market filtering, and upfront risk transparency.
+          </p>
+
+          <p>
+            Ready to automate your directional trading?
+          </p>
+
+          <p>
+            <strong><a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" style="color: #2563eb; font-weight: 600;">Launch a Rise / Fall bot on your free FXnod Demo account today</a> and experience disciplined trading firsthand!</strong>
+          </p>
+
+          <!-- Affiliate Disclosure Box -->
+          <div class="affiliate-disclosure-box" style="margin-top: 2rem; padding: 1.25rem; background: #f8fafc; border: 1px solid var(--color-border); border-radius: var(--radius-md); font-size: 0.82rem; color: #64748b; line-height: 1.55;">
+            <strong>Affiliate Disclosure:</strong> This educational article contains partner referral links. If you register on FXnod through links on this page, we may earn a referral commission at no additional cost to you. Trading derivatives and synthetic indices involves high risk of capital loss. Always trade responsibly and test strategies using demo environments first.
+          </div>
+
+          <!-- Further Reading Box -->
+          <div class="further-reading-box">
+            <h4>Recommended Related Guides:</h4>
+            <ul>
+              <li><a href="fxnod-shadow-lane-phantom-trading-guide.html">What is FXnod Shadow Lane? Phantom Trading on Deriv Explained</a></li>
+              <li><a href="over-under-trading-bots-strategy-guide-fxnod.html">Over / Under Trading Strategies: High-Probability Setups</a></li>
+              <li><a href="even-odd-trading-bots-strategy-guide-fxnod.html">Even / Odd Trading Bots Explained: How to Build Consistent Daily Returns</a></li>
+              <li><a href="matches-differs-bots-strategy-guide-fxnod.html">Mastering Matches / Differs Bots on FXnod: 90%+ Win Rates</a></li>
+              <li><a href="inside-fxnod-autohub-bots-guide.html">Inside FXnod Auto Hub: The No-Code Trading Bot Suite with 22 Ready-Made Bots</a></li>
+              <li><a href="test-fxnod-bots-demo-virtual-account-guide.html">How to Test FXnod Bots on a Virtual (Demo) Account</a></li>
+              <li><a href="what-is-fxnod-complete-beginners-guide.html">What is FXnod? The Complete Beginner's Guide</a></li>
+            </ul>
+          </div>
+
+          <!-- Bottom CTA -->
+          <div class="article-footer-cta">
+            <h3>Automate Synthetic Trend Momentum Today</h3>
+            <p>Deploy battle-tested Rise / Fall algorithms across Volatility Indices 10 to 100 with automated risk management.</p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">
+              Get Started with FXnod &rarr;
+            </a>
+          </div>
+
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <!-- ======================================================================
+       FOOTER COMPONENT
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="brand-logo">
+            <div class="brand-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+            <span>Trade Insight</span>
+          </a>
+          <p>
+            High-performance technical editorial and tactical research publication. We empower quantitative traders, risk teams, and modern web agencies with actionable market playbooks.
+          </p>
+          <span class="footer-digest-label">Weekly Tech & Trading Digest</span>
+          <form class="footer-mini-form" onsubmit="event.preventDefault(); showToast('Subscribed to Weekly Digest!');">
+            <input type="email" placeholder="Enter your business email" required aria-label="Business Email">
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+
+        <div class="footer-col">
+          <h4>Publication Areas</h4>
+          <ul>
+            <li><a href="../index.html#all">All Editorial Guides</a></li>
+            <li><a href="automated-trading-on-deriv.html">Deriv & Synthetic Indices</a></li>
+            <li><a href="how-to-choose-a-trading-bot.html">Automated Trading Bots</a></li>
+            <li><a href="what-is-automated-trading.html">Risk & Margin Management</a></li>
+            <li><a href="../index.html#seo">SEO & Growth Strategy</a></li>
+            <li><a href="../index.html#infra">Web Tech & Infrastructure</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-col-playbooks">
+          <h4>Popular Playbooks</h4>
+          <ul class="footer-playbooks-list">
+            <li><a href="fxnod-shadow-lane-phantom-trading-guide.html">FXnod Shadow Lane Guide</a></li>
+            <li><a href="rise-fall-trading-bots-volatility-indices-guide.html">Rise / Fall Bots on Volatility Indices</a></li>
+            <li><a href="over-under-trading-bots-strategy-guide-fxnod.html">Over / Under Trading Bots Strategy</a></li>
+            <li><a href="even-odd-trading-bots-strategy-guide-fxnod.html">Even / Odd Trading Bots Strategy</a></li>
+            <li><a href="matches-differs-bots-strategy-guide-fxnod.html">Matches &amp; Differs Bots Strategy</a></li>
+          </ul>
+
+          <!-- Expandable archive list of remaining playbooks -->
+          <ul class="footer-playbooks-archive" id="footer-playbooks-archive" style="display: none;">
+            <li><a href="inside-fxnod-autohub-bots-guide.html">Inside FXnod Auto Hub</a></li>
+            <li><a href="manage-multiple-deriv-accounts-fxnod-guide.html">Manage Multiple Deriv Accounts</a></li>
+            <li><a href="how-to-fix-deriv-session-expired-reconnect-fxnod.html">Fix Deriv Session Expired</a></li>
+            <li><a href="fxnod-wallet-deposits-transfers-subscriptions-guide.html">Managing the FXnod Wallet</a></li>
+            <li><a href="test-fxnod-bots-demo-virtual-account-guide.html">Test FXnod Bots on Demo Account</a></li>
+            <li><a href="how-to-connect-deriv-account-to-fxnod.html">How to Connect Deriv to FXnod</a></li>
+            <li><a href="is-fxnod-safe-legitimate-security-review.html">Is FXnod Safe & Legit?</a></li>
+            <li><a href="fxnod-dashboard-complete-walkthrough-guide.html">FXnod Dashboard Walkthrough</a></li>
+            <li><a href="automated-vs-manual-trading-deriv-discipline.html">Automated vs Manual Trading</a></li>
+            <li><a href="fxnod-mobile-app-trading-guide.html">FXnod Mobile App Guide</a></li>
+            <li><a href="how-to-create-setup-fxnod-account-guide.html">FXnod Account Setup Guide</a></li>
+            <li><a href="what-is-fxnod-complete-beginners-guide.html">What is FXnod? (Complete Guide)</a></li>
+            <li><a href="what-is-automated-trading.html">What Is Automated Trading?</a></li>
+            <li><a href="automated-trading-on-deriv.html">How to Start on Deriv</a></li>
+            <li><a href="how-to-choose-a-trading-bot.html">How to Choose a Trading Bot</a></li>
+            <li><a href="manage-risk-when-using-a-trading-bot.html">Managing Bot Risk</a></li>
+            <li><a href="why-is-my-trading-bot-not-working.html">Bot Troubleshooting Guide</a></li>
+            <li><a href="can-trading-bots-lose-money.html">Can Bots Lose Money? (Risks)</a></li>
+            <li><a href="what-is-risk-to-reward-ratio.html">Risk-to-Reward Ratio Guide</a></li>
+            <li><a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" data-ref-link>Explore FXnod Platform</a></li>
+            <li><a href="how-to-test-a-trading-bot.html">How to Test a Trading Bot</a></li>
+            <li><a href="how-trading-bots-connect-to-platforms.html">How Bots Connect to Platforms</a></li>
+            <li><a href="why-trading-bots-make-losing-trades.html">Why Bots Make Losing Trades</a></li>
+            <li><a href="manual-vs-automated-trading.html">Manual vs Automated Trading</a></li>
+            <li><a href="what-to-check-before-connecting-a-trading-bot.html">Pre-Connection Checks (Security)</a></li>
+            <li><a href="trading-bot-faqs.html">Trading Bot FAQs (15 Answers)</a></li>
+            <li><a href="how-to-start-learning-trading.html">How to Start Learning Trading</a></li>
+            <li><a href="how-to-read-candlestick-charts.html">How to Read Candlesticks</a></li>
+            <li><a href="how-to-identify-support-and-resistance.html">Support & Resistance Levels</a></li>
+            <li><a href="how-to-keep-a-trading-journal.html">How to Keep a Trading Journal</a></li>
+            <li><a href="how-to-control-emotions-while-trading.html">Controlling Trading Emotions</a></li>
+            <li><a href="forex-vs-synthetic-indices.html">Forex vs Synthetic Indices</a></li>
+            <li><a href="how-to-evaluate-a-trading-strategy.html">How to Evaluate a Strategy</a></li>
+            <li><a href="why-market-prices-go-up-and-down.html">Why Market Prices Move</a></li>
+            <li><a href="how-economic-news-affects-trading.html">Economic News & Trading</a></li>
+            <li><a href="best-trading-timeframe-for-beginners.html">Best Trading Timeframes</a></li>
+            <li><a href="what-is-a-breakout-in-trading.html">What Is a Breakout in Trading?</a></li>
+            <li><a href="how-moving-averages-work-in-trading.html">How Moving Averages Work</a></li>
+            <li><a href="what-is-rsi-indicator-in-trading.html">What Is the RSI Indicator?</a></li>
+            <li><a href="what-is-spread-in-trading.html">What Is Spread in Trading?</a></li>
+            <li><a href="how-to-calculate-position-size.html">Position Sizing Guide</a></li>
+            <li><a href="what-is-drawdown-in-trading.html">What Is Drawdown in Trading?</a></li>
+            <li><a href="is-high-win-rate-enough-to-be-profitable.html">Is a High Win Rate Enough?</a></li>
+          </ul>
+
+          <button type="button" class="footer-toggle-btn" id="footer-playbooks-toggle" aria-expanded="false">
+            <span>+ View All 47 Playbooks</span>
+          </button>
+        </div>
+
+        <div class="footer-col">
+          <h4>Compliance & Legal</h4>
+          <ul>
+            <li><a href="../index.html#editorial">Editorial Independence</a></li>
+            <li><a href="../index.html#risk-notice">Risk Disclosure Notice</a></li>
+            <li><a href="../index.html#terms">Terms of Service</a></li>
+            <li><a href="../index.html#privacy">Privacy Policy</a></li>
+            <li><a href="../index.html#cookies">Cookie Preferences</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 Trade Insight Editorial. All content is for educational and technical informational purposes only. Trading financial derivatives carries substantial risk.
+        </div>
+        <div>
+          Designed for Agency Quantitative Operations
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+</body>
+</html>

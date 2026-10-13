@@ -6,6 +6,39 @@
 
 window.ARTICLES_DATA = [
   {
+    "id": 47,
+    "title": "What is FXnod Shadow Lane? Phantom Trading on Deriv Explained (2026)",
+    "slug": "blog/fxnod-shadow-lane-phantom-trading-guide.html",
+    "category": "fxnod",
+    "badgeText": "FXnod Guides",
+    "badgeColor": "rgba(240, 58, 39, 0.95)",
+    "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
+    "excerpt": "Discover FXnod Shadow Lane: how phantom trading filters out losing streaks using virtual tick scouting, reducing drawdown and protecting real trading capital.",
+    "readTime": "8 min read • Oct 2026"
+  },
+  {
+    "id": 46,
+    "title": "Rise / Fall Bots on Volatility Indices: Navigating Trends with Volatility 10 to 100",
+    "slug": "blog/rise-fall-trading-bots-volatility-indices-guide.html",
+    "category": "fxnod",
+    "badgeText": "FXnod Guides",
+    "badgeColor": "rgba(240, 58, 39, 0.95)",
+    "image": "https://images.unsplash.com/photo-1535320903710-d993d3d77d29?auto=format&fit=crop&w=1200&q=80",
+    "excerpt": "Master Rise / Fall trading bots on Deriv Volatility Indices with FXnod. Learn about directional momentum, market filtering, risk ladders, and 1-click setup.",
+    "readTime": "7 min read • Oct 2026"
+  },
+  {
+    "id": 45,
+    "title": "Over / Under Trading Strategies: High-Probability Setups on Synthetic Indices",
+    "slug": "blog/over-under-trading-bots-strategy-guide-fxnod.html",
+    "category": "fxnod",
+    "badgeText": "FXnod Guides",
+    "badgeColor": "rgba(240, 58, 39, 0.95)",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+    "excerpt": "Master Over / Under digit trading on Deriv with FXnod. Learn how 80% win-rate setups work, how to manage barrier risk, and how to launch bots in 1 click.",
+    "readTime": "7 min read • Oct 2026"
+  },
+  {
     "id": 44,
     "title": "Even / Odd Trading Bots Explained: How to Build Consistent Daily Returns",
     "slug": "blog/even-odd-trading-bots-strategy-guide-fxnod.html",

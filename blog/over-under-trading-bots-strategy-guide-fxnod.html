@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Over / Under Trading Bots on Deriv: High-Probability Setups (2026) | Trade Insight</title>
+  <meta name="description" content="Master Over / Under digit trading on Deriv with FXnod. Learn how 80% win-rate setups work, how to manage barrier risk, and how to launch bots in 1 click.">
+  <meta name="keywords" content="Over Under bot strategy, Deriv synthetic index bot, FXnod over under, Deriv digit over under, high probability trading bot, automated digit trading, Deriv barrier trading">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="Over / Under Trading Bots on Deriv: High-Probability Setups (2026)">
+  <meta property="og:description" content="Master Over / Under digit trading on Deriv with FXnod. Learn how 80% win-rate setups work, how to manage barrier risk, and how to launch bots in 1 click.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tradeinsight.com/over-under-trading-bots-strategy-guide-fxnod/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Twitter Meta -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Over / Under Trading Bots on Deriv: High-Probability Setups (2026)">
+  <meta name="twitter:description" content="Skew trading probabilities in your favor with Over / Under digit bots. Discover how FXnod protects 80% win-rate setups with automated recovery ladders.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .article-featured-image-wrap {
+      margin: 2rem 0 2.5rem 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      background: #f1f5f9;
+      box-shadow: var(--shadow-md);
+    }
+    .article-featured-image {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      display: block;
+    }
+    .image-caption {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      background: #ffffff;
+      border-top: 1px solid var(--color-border);
+      text-align: center;
+      font-style: italic;
+    }
+    .fxnod-partner-box {
+      background: linear-gradient(135deg, #0b1120 0%, #172554 100%);
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      margin: 2.5rem 0;
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.25);
+    }
+    .fxnod-partner-box::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(240, 58, 39, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .fxnod-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(240, 58, 39, 0.2);
+      border: 1px solid rgba(240, 58, 39, 0.5);
+      color: #fca5a5;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .fxnod-partner-box h3 {
+      color: #ffffff;
+      font-size: 1.45rem;
+      margin-bottom: 0.65rem;
+    }
+    .fxnod-partner-box p {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      margin-bottom: 1.4rem;
+    }
+    .fxnod-cta-btn {
+      background: var(--color-primary);
+      color: #ffffff;
+      font-weight: 700;
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 16px rgba(240, 58, 39, 0.35);
+      transition: all var(--transition-normal);
+      text-decoration: none;
+    }
+    .fxnod-cta-btn:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(240, 58, 39, 0.45);
+      color: #ffffff;
+    }
+    .diagram-box {
+      background: #0f172a;
+      color: #38bdf8;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 1.75rem;
+      border-radius: var(--radius-md);
+      overflow-x: auto;
+      margin: 2rem 0;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      border: 1px solid #1e293b;
+      box-shadow: var(--shadow-md);
+    }
+    .barrier-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin: 2rem 0;
+    }
+    .barrier-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .barrier-card h4 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.15rem;
+    }
+    .barrier-card p {
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+    .features-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin: 2rem 0;
+    }
+    .feature-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .feature-card h4 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .feature-card p {
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+    .workflow-steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+    .workflow-step-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      display: flex;
+      gap: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      transition: border-color var(--transition-fast);
+    }
+    .workflow-step-card:hover {
+      border-color: #3b82f6;
+    }
+    .workflow-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #eff6ff;
+      color: #2563eb;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+      border: 1px solid #bfdbfe;
+    }
+    .workflow-content h4 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+      color: var(--color-text-main);
+    }
+    .workflow-content p {
+      margin-bottom: 0.5rem;
+      font-size: 0.92rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+    .rules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin: 2rem 0;
+    }
+    .rule-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .rule-card h4 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+      color: var(--color-text-main);
+    }
+    .rule-card p {
+      color: var(--color-text-muted);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .faq-question {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--color-text-main);
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+    .faq-answer p {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+  </style>
+
+  <!-- Structured Data (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Over / Under Trading Bots on Deriv: High-Probability Setups (2026)",
+    "description": "Master Over / Under digit trading on Deriv with FXnod. Learn how 80% win-rate setups work, how to manage barrier risk, and how to launch bots in 1 click.",
+    "author": {
+      "@type": "Organization",
+      "name": "Trade Insight Editorial"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Trade Insight",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://tradeinsight.com/assets/logo.png"
+      }
+    },
+    "datePublished": "2026-10-13",
+    "dateModified": "2026-10-13",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+    "mainEntityOfPage": "https://tradeinsight.com/over-under-trading-bots-strategy-guide-fxnod/"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Which is safer: Under 8 or Under 7?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Under 8 offers a higher win probability (80% vs 70%), meaning trades win more frequently. However, Under 7 offers slightly higher payouts per win. Both are pre-calibrated in the Auto Hub for optimal balance."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can an Over / Under bot lose multiple trades in a row?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "While rare on an 80% win-probability setup, consecutive losses are mathematically possible in any financial market. This is why FXnod enforces strict Stop-Loss boundaries and transparent Loss Progression sheets before you trade."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the payout on an Over / Under trade?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Depending on the barrier digit, payouts typically range between 20% and 150%. For high-probability setups like Under 8, payouts hover around 20% to 23% per winning contract."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I run Over / Under bots on my smartphone?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! The FXnod Mobile App provides full access to all Over / Under bots with live progress meters and instant 1-tap emergency stop controls."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between Over / Under and Even / Odd?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Even / Odd splits probabilities 50/50 with higher payouts (~95%), while Over / Under allows you to skew probabilities in your favor (up to 80% win rates) with smaller, steady payouts."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="article-page">
+
+  <!-- Top Reading Progress Indicator -->
+  <div class="reading-progress-bar" id="reading-progress"></div>
+
+  <!-- ======================================================================
+       HEADER & NAVIGATION
+       ====================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <div style="display: flex; align-items: center;">
+        <a href="../index.html" class="brand-logo" aria-label="Trade Insight Home">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <span>Trade Insight</span>
+        </a>
+
+        <nav class="nav-links" aria-label="Main Navigation">
+          <a href="../index.html" class="nav-link">All Guides</a>
+          <a href="automated-trading-on-deriv.html" class="nav-link">Deriv Guides</a>
+          <a href="how-to-choose-a-trading-bot.html" class="nav-link">Trading Bots</a>
+          <a href="../index.html#category-fxnod" class="nav-link">FXnod Guides</a>
+        </nav>
+      </div>
+
+      <div class="header-right">
+        <!-- Direct FXnod Referral Header Button -->
+        <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.45rem 1.1rem; font-size: 0.82rem;" title="Explore FXnod Platform">
+          <span>Explore FXnod</span>
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+
+        <div class="header-search">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+          <input type="text" placeholder="Search barrier guides..." aria-label="Search articles">
+        </div>
+
+        <button class="profile-avatar" title="User Profile" aria-label="User Profile">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       BREADCRUMB & HERO HEADER
+       ====================================================================== -->
+  <main class="article-page-wrapper">
+    <div class="container">
+      
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item"><a href="../index.html#category-fxnod">FXnod Guides</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item current" aria-current="page">Over / Under Bots</li>
+        </ol>
+      </nav>
+
+      <!-- Article Header -->
+      <header class="article-header">
+        <div class="article-meta-badges">
+          <span class="badge" style="background: rgba(240, 58, 39, 0.95); color: #fff;">FXnod Guides</span>
+          <span class="badge badge-accent">Barrier Probability</span>
+          <span class="article-reading-time">7 min read • Updated Oct 2026</span>
+        </div>
+
+        <h1 class="article-title">
+          Over / Under Trading Strategies: High-Probability Setups on Synthetic Indices
+        </h1>
+
+        <p class="article-lead">
+          By selecting conservative digit thresholds like Under 8 or Over 1, traders can build setups boasting up to 80% statistical win rates. Discover how FXnod automates barrier contracts with controlled recovery ladders and ironclad risk protection.
+        </p>
+
+        <div class="article-author-bar">
+          <div class="author-profile-chip">
+            <div class="author-chip-avatar">TI</div>
+            <span class="author-chip-name">Trade Insight Editorial</span>
+          </div>
+          <span class="author-bar-divider">•</span>
+          <span class="article-verified-badge">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+            Verified Strategy Guide
+          </span>
+        </div>
+      </header>
+
+      <!-- Featured Hero Image -->
+      <div class="article-featured-image-wrap">
+        <img 
+          src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" 
+          alt="FXnod Over Under trading bot interface displaying barrier digit probability meters" 
+          class="article-featured-image"
+          loading="eager"
+        >
+        <div class="image-caption">
+          Figure 1: High-probability setups like Under 8 win on 8 out of 10 digits, delivering consistent gains when paired with automated loss caps.
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           TWO-COLUMN EDITORIAL LAYOUT
+           ====================================================================== -->
+      <div class="article-layout">
+        
+        <!-- LEFT STICKY SIDEBAR -->
+        <aside class="article-sidebar">
+          <div class="sidebar-widget toc-widget">
+            <div class="widget-title">
+              <span>Quick Navigation</span>
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path></svg>
+            </div>
+            <ul class="toc-list">
+              <li class="toc-item active"><a href="#how-it-works">How Over / Under Trading Works</a></li>
+              <li class="toc-item"><a href="#risk-reward-reality">Risk-to-Reward Reality</a></li>
+              <li class="toc-item"><a href="#fxnod-over-under">Over / Under Bots in Auto Hub</a></li>
+              <li class="toc-item"><a href="#step-by-step">Step-by-Step: Run Your Bot</a></li>
+              <li class="toc-item"><a href="#golden-rules">4 Golden Rules for Consistency</a></li>
+              <li class="toc-item"><a href="#faq">Frequently Asked Questions</a></li>
+              <li class="toc-item"><a href="#final-thoughts">Final Thoughts &amp; Next Steps</a></li>
+            </ul>
+          </div>
+
+          <!-- Official Partner Quick Box -->
+          <div class="sidebar-card">
+            <h4>Trade 80% Win-Rate Bots</h4>
+            <p>Deploy barrier-skewed Over / Under bots on Deriv synthetic indices with automated stop-loss protection.</p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; text-align: center; justify-content: center;">
+              Launch FXnod Free &rarr;
+            </a>
+          </div>
+
+          <!-- Companion Guides Box -->
+          <div class="sidebar-card" style="margin-top: 1.5rem; background: #ffffff;">
+            <h4>Companion Guides</h4>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; line-height: 1.6;">
+              <li style="margin-bottom: 0.75rem;"><a href="inside-fxnod-autohub-bots-guide.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; Inside FXnod Auto Hub (22 Bots)</a></li>
+              <li style="margin-bottom: 0.75rem;"><a href="even-odd-trading-bots-strategy-guide-fxnod.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; Even / Odd Trading Bots Guide</a></li>
+              <li style="margin-bottom: 0.75rem;"><a href="matches-differs-bots-strategy-guide-fxnod.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; Matches &amp; Differs Bots Strategy</a></li>
+              <li style="margin-bottom: 0.75rem;"><a href="test-fxnod-bots-demo-virtual-account-guide.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; Test Bots on Demo Account</a></li>
+              <li><a href="what-is-fxnod-complete-beginners-guide.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">&bull; What is FXnod? Beginner's Guide</a></li>
+            </ul>
+          </div>
+        </aside>
+
+        <!-- RIGHT MAIN EDITORIAL CONTENT -->
+        <article class="article-content">
+
+          <p>
+            In synthetic trading, finding strategies where the mathematical odds are stacked heavily in your favor is every trader's dream.
+          </p>
+
+          <p>
+            While predicting market trends can sometimes feel unpredictable, <strong>Over / Under Digit Trading</strong> on Deriv offers a refreshing alternative. Instead of trying to guess whether a market will explode upwards or crash downwards over minutes, you simply predict whether the final digit of the next tick will land <strong>above or below a chosen barrier number.</strong>
+          </p>
+
+          <p>
+            By choosing conservative barriers—such as <em>Under 8</em> or <em>Over 1</em>—you can build setups that win up to <strong>80% of the time</strong>.
+          </p>
+
+          <p>
+            However, trading high-probability setups manually without a structured recovery plan can be dangerous if a rare losing cluster catches you unprepared.
+          </p>
+
+          <p>
+            <strong>FXnod turns Over / Under trading into a disciplined, automated process.</strong> If you are exploring FXnod for the first time, check our foundational primer: <strong><a href="what-is-fxnod-complete-beginners-guide.html" style="color: #2563eb; font-weight: 600;">What is FXnod? Complete Beginner's Guide</a></strong>.
+          </p>
+
+          <!-- ==================================================================
+               SECTION 1: HOW OVER / UNDER WORKS
+               ================================================================== -->
+          <h2 id="how-it-works">How Over / Under Digit Trading Works (The Simple Math)</h2>
+
+          <p>
+            Every single second on Deriv Volatility Indices, the price ticks. The Over / Under contract evaluates only the <strong>very last digit</strong> of that tick, which is always a number between <strong>0 and 9</strong>:
+          </p>
+
+          <div class="diagram-box">
+┌──────────────────────────────────────┐     ┌──────────────────────────────────────┐
+│           "UNDER 8" SETUP            │     │            "OVER 1" SETUP            │
+├──────────────────────────────────────┤     ├──────────────────────────────────────┤
+│ • Winning Digits: 0, 1, 2, 3, 4, 5, 6, 7│  │ • Winning Digits: 2, 3, 4, 5, 6, 7, 8, 9│
+│ • Total Winning Outcomes: 8 out of 10│     │ • Total Winning Outcomes: 8 out of 10│
+│ • Win Probability: 80%               │     │ • Win Probability: 80%               │
+│ • Losing Digits: 8 and 9             │     │ • Losing Digits: 0 and 1             │
+└──────────────────────────────────────┘     └──────────────────────────────────────┘
+          </div>
+
+          <p>
+            Here is how different barrier contracts distribute probability:
+          </p>
+
+          <ul style="line-height: 1.7; margin-bottom: 1.5rem;">
+            <li><strong>Under 7 Contract:</strong> Wins whenever the final digit is 0, 1, 2, 3, 4, 5, or 6 (70% win probability).</li>
+            <li><strong>Under 8 Contract:</strong> Wins whenever the final digit is 0, 1, 2, 3, 4, 5, 6, or 7 (80% win probability).</li>
+            <li><strong>Over 1 Contract:</strong> Wins whenever the final digit is 2, 3, 4, 5, 6, 7, 8, or 9 (80% win probability).</li>
+          </ul>
+
+          <p>
+            Because 8 out of every 10 digits are winners in an <em>Under 8</em> or <em>Over 1</em> trade, winning streaks occur naturally and frequently.
+          </p>
+
+          <!-- Partner Box -->
+          <div class="fxnod-partner-box">
+            <span class="fxnod-badge">Barrier Automation Suite</span>
+            <h3>Run Over / Under Bots on FXnod</h3>
+            <p>
+              Capitalize on 80% win-rate setups backed by automated recovery multipliers and strict loss progression ceilings.
+            </p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="fxnod-cta-btn">
+              <span>Open Free FXnod Account</span>
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 2: RISK-REWARD REALITY
+               ================================================================== -->
+          <h2 id="risk-reward-reality">The Risk-to-Reward Reality: Why Discipline Is Essential</h2>
+
+          <p>
+            Whenever probability tilts heavily in your favor, the payout structure adjusts accordingly:
+          </p>
+
+          <div class="barrier-grid">
+            <div class="barrier-card" style="border-left: 4px solid #10b981;">
+              <h4 style="color: #047857;">80% Win Probability</h4>
+              <p>In an Under 8 contract, the payout is typically around <strong>20% to 23%</strong> per win (a $1.00 stake returns roughly $1.20 to $1.23).</p>
+            </div>
+
+            <div class="barrier-card" style="border-left: 4px solid #f59e0b;">
+              <h4 style="color: #b45309;">Steady Accumulation</h4>
+              <p>Each winning trade adds a steady, modest gain to your balance. Winning runs of 10 to 15 trades are very common.</p>
+            </div>
+
+            <div class="barrier-card" style="border-left: 4px solid #ef4444;">
+              <h4 style="color: #b91c1c;">The Drawdown Challenge</h4>
+              <p>If a losing tick strikes (e.g. an 8 or 9 on Under 8), that single loss takes several winning trades to recover safely.</p>
+            </div>
+          </div>
+
+          <p>
+            If a manual trader experiences two losses in close succession and panics by doubling their stake without an automated plan, they risk giving back all their session profits. (Compare this with 90%+ digit differs mechanics in our guide: <strong><a href="matches-differs-bots-strategy-guide-fxnod.html" style="color: #2563eb; font-weight: 600;">Mastering Matches &amp; Differs Bots</a></strong>).
+          </p>
+
+          <h3>How FXnod Solves This Dilemma:</h3>
+
+          <p>
+            FXnod eliminates panic and guessing through <strong>pre-engineered mathematical ladders</strong>:
+          </p>
+
+          <ul style="line-height: 1.7; margin-bottom: 1.5rem;">
+            <li><strong>Controlled Stake Scaling:</strong> The bot never over-multiplies stakes during a loss.</li>
+            <li><strong>Upfront Loss Cushioning:</strong> You can review the exact number of consecutive losses your plan can survive before starting.</li>
+            <li><strong>The Refused Stake Protection:</strong> The engine will automatically halt trading if the next stake would exceed your pre-set Stop-Loss ceiling.</li>
+          </ul>
+
+          <!-- ==================================================================
+               SECTION 3: OVER / UNDER BOTS IN AUTO HUB
+               ================================================================== -->
+          <h2 id="fxnod-over-under">Over / Under Bots in the FXnod Auto Hub</h2>
+
+          <p>
+            Inside the <strong>Auto Hub</strong>, the <strong>Over / Under</strong> family features bots built to capitalize on barrier edges without emotional interference. (Read our complete guide to all 22 bots: <strong><a href="inside-fxnod-autohub-bots-guide.html" style="color: #2563eb; font-weight: 600;">Inside FXnod Auto Hub</a></strong>).
+          </p>
+
+          <div class="features-card-grid">
+            
+            <div class="feature-card">
+              <h4>🎯 Pre-Calibrated Fixed Plans</h4>
+              <p>
+                Choose plans engineered specifically for your account capital:
+              </p>
+              <ul style="margin: 0.5rem 0 0 1.25rem; font-size: 0.88rem; color: #64748b; line-height: 1.6;">
+                <li><strong>$20 Plan:</strong> Starts with a low $1.00 stake. Built with balanced recovery multipliers calibrated for smaller account balances ($30 to $50).</li>
+                <li><strong>$50 Plan:</strong> Provides a deeper safety cushion for everyday trading sessions targeting $3 to $5 daily gains.</li>
+                <li><strong>$100 Plan:</strong> Engineered for maximum streak resilience on larger balances.</li>
+              </ul>
+            </div>
+
+            <div class="feature-card">
+              <h4>📊 Upfront Loss Progression Sheet</h4>
+              <p>
+                Before you launch any Over / Under bot, tap <strong>"View Loss Run"</strong>:
+              </p>
+              <ul style="margin: 0.5rem 0 0 1.25rem; font-size: 0.88rem; color: #64748b; line-height: 1.6;">
+                <li>See the exact stake for every potential consecutive loss.</li>
+                <li>Verify cumulative drawdown at each step.</li>
+                <li>Confirm your <strong>Refused Stake limit</strong> before placing live orders.</li>
+              </ul>
+            </div>
+
+            <div class="feature-card">
+              <h4>⚖️ Custom Staking Styles (Own Amount)</h4>
+              <p>
+                For traders who prefer custom parameters, FXnod allows choosing between:
+              </p>
+              <ul style="margin: 0.5rem 0 0 1.25rem; font-size: 0.88rem; color: #64748b; line-height: 1.6;">
+                <li><strong>Same Stake (Flat):</strong> Fixed stake on every single trade. The lowest-risk way to capitalize on 80% probability runs.</li>
+                <li><strong>Gentle Step:</strong> Adds one starting stake on a loss and subtracts one on a win. Recovers drawdowns gently.</li>
+                <li><strong>Martingale:</strong> Recovers losses in a single win, strictly bounded by the Stop-Loss ceiling.</li>
+              </ul>
+            </div>
+
+          </div>
+
+          <!-- ==================================================================
+               SECTION 4: STEP-BY-STEP WORKFLOW
+               ================================================================== -->
+          <h2 id="step-by-step">Step-by-Step: How to Run an Over / Under Bot on FXnod</h2>
+
+          <p>
+            Setting up your bot takes less than 20 seconds. Follow these steps:
+          </p>
+
+          <div class="workflow-steps-list">
+            
+            <div class="workflow-step-card">
+              <div class="workflow-num">1</div>
+              <div class="workflow-content">
+                <h4>Open Auto Hub &amp; Select Over / Under</h4>
+                <p>
+                  In the FXnod dashboard or Mobile App, navigate to the <strong>Auto Hub</strong> and tap the <strong>Over / Under</strong> tab.
+                </p>
+              </div>
+            </div>
+
+            <div class="workflow-step-card">
+              <div class="workflow-num">2</div>
+              <div class="workflow-content">
+                <h4>Select a Bot &amp; Pick Your Plan</h4>
+                <p>
+                  Click <strong>"Set Up"</strong> on your preferred bot card. Select your plan (e.g., the beginner-friendly <strong>$20 Plan</strong>). Read the "How It Works" guide showing the exact barrier rules.
+                </p>
+              </div>
+            </div>
+
+            <div class="workflow-step-card">
+              <div class="workflow-num">3</div>
+              <div class="workflow-content">
+                <h4>Review the Loss Progression Sheet</h4>
+                <p>
+                  Tap <strong>"View Loss Run"</strong> to inspect your safety cushion and confirm your maximum loss threshold.
+                </p>
+              </div>
+            </div>
+
+            <div class="workflow-step-card">
+              <div class="workflow-num">4</div>
+              <div class="workflow-content">
+                <h4>Click "Start Bot" &amp; Track Live</h4>
+                <p>
+                  Tap <strong>"Start Bot"</strong>. The circular progress meter tracks your distance to your target profit. Once reached, the bot shuts down automatically, banking your gains!
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ==================================================================
+               SECTION 5: 4 GOLDEN RULES FOR CONSISTENCY
+               ================================================================== -->
+          <h2 id="golden-rules">4 Golden Rules for Consistent Over / Under Trading</h2>
+
+          <p>
+            To maximize your results with Over / Under bots, adhere to these professional trading rules:
+          </p>
+
+          <div class="rules-grid">
+            <div class="rule-card">
+              <h4>1. Take Quick Profits and Walk Away</h4>
+              <p>Over / Under bots excel at fast, high-probability micro-scalps. Target $2 to $5 on small accounts, then stop the session.</p>
+            </div>
+
+            <div class="rule-card">
+              <h4>2. Don't Run Bots Indefinitely</h4>
+              <p>Markets cycle through clusters. Running a bot for hours without stopping increases the statistical likelihood of encountering a rare unfavorable streak.</p>
+            </div>
+
+            <div class="rule-card">
+              <h4>3. Always Practice in Demo First</h4>
+              <p>Test your bot on your free <strong>Virtual USD Demo</strong> account for at least 25 to 30 cycles. Learn more: <strong><a href="test-fxnod-bots-demo-virtual-account-guide.html" style="color: #2563eb; font-weight: 600;">Testing Bots on Demo</a></strong>.</p>
+            </div>
+
+            <div class="rule-card">
+              <h4>4. Give Your Account Breathing Room</h4>
+              <p>Always maintain an account balance that is at least double or triple the bot's pre-set stop loss to avoid margin pressure.</p>
+            </div>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 6: FREQUENTLY ASKED QUESTIONS
+               ================================================================== -->
+          <h2 id="faq">Frequently Asked Questions (FAQ)</h2>
+
+          <div class="faq-list">
+            <div class="faq-item">
+              <h3 class="faq-question">Which is safer: Under 8 or Under 7?</h3>
+              <div class="faq-answer">
+                <p>
+                  <em>Under 8</em> offers a higher win probability (80% vs 70%), meaning trades win more frequently. However, <em>Under 7</em> offers slightly higher payouts per win. Both are pre-calibrated in the Auto Hub for optimal balance.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Can an Over / Under bot lose multiple trades in a row?</h3>
+              <div class="faq-answer">
+                <p>
+                  While rare on an 80% win-probability setup, consecutive losses are mathematically possible in any financial market. This is why FXnod enforces strict Stop-Loss boundaries and transparent Loss Progression sheets before you trade.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">What is the payout on an Over / Under trade?</h3>
+              <div class="faq-answer">
+                <p>
+                  Depending on the barrier digit, payouts typically range between 20% and 150%. For high-probability setups like Under 8, payouts hover around 20% to 23% per winning contract.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">Can I run Over / Under bots on my smartphone?</h3>
+              <div class="faq-answer">
+                <p>
+                  Yes! The FXnod Mobile App provides full access to all Over / Under bots with live progress meters and instant 1-tap emergency stop controls.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-question">What is the difference between Over / Under and Even / Odd?</h3>
+              <div class="faq-answer">
+                <p>
+                  Even / Odd splits probabilities 50/50 with higher payouts (~95%), while Over / Under allows you to skew probabilities in your favor (up to 80% win rates) with smaller, steady payouts. Read our dedicated guide: <strong><a href="even-odd-trading-bots-strategy-guide-fxnod.html" style="color: #2563eb; font-weight: 600;">Even / Odd Trading Bots Explained</a></strong>.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================================================================
+               SECTION 7: FINAL THOUGHTS & CONCLUSION
+               ================================================================== -->
+          <h2 id="final-thoughts">Final Thoughts: The High-Probability Advantage</h2>
+
+          <p>
+            Over / Under digit trading on Deriv provides one of the strongest statistical edges available to retail traders. But probability without automated risk discipline is still vulnerable to human emotion.
+          </p>
+
+          <p>
+            With <strong>FXnod Auto Hub</strong>, you get the high-probability advantage of Over / Under contracts combined with automated stop-losses, transparent recovery ladders, and 1-click execution.
+          </p>
+
+          <p>
+            <strong><a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" style="color: #2563eb; font-weight: 600;">Launch an Over / Under bot on your free FXnod Demo account today</a> and experience high-probability trading with total peace of mind!</strong>
+          </p>
+
+          <!-- Affiliate Disclosure Box -->
+          <div class="affiliate-disclosure-box" style="margin-top: 2rem; padding: 1.25rem; background: #f8fafc; border: 1px solid var(--color-border); border-radius: var(--radius-md); font-size: 0.82rem; color: #64748b; line-height: 1.55;">
+            <strong>Affiliate Disclosure:</strong> This educational article contains partner referral links. If you register on FXnod through links on this page, we may earn a referral commission at no additional cost to you. Trading derivatives and synthetic indices involves high risk of capital loss. Always trade responsibly and test strategies using demo environments first.
+          </div>
+
+          <!-- Further Reading Box -->
+          <div class="further-reading-box">
+            <h4>Recommended Related Guides:</h4>
+            <ul>
+              <li><a href="rise-fall-trading-bots-volatility-indices-guide.html">Rise / Fall Bots on Volatility Indices: Navigating Trends</a></li>
+              <li><a href="even-odd-trading-bots-strategy-guide-fxnod.html">Even / Odd Trading Bots Explained: How to Build Consistent Daily Returns</a></li>
+              <li><a href="matches-differs-bots-strategy-guide-fxnod.html">Mastering Matches / Differs Bots on FXnod: 90%+ Win Rates</a></li>
+              <li><a href="inside-fxnod-autohub-bots-guide.html">Inside FXnod Auto Hub: The No-Code Trading Bot Suite with 22 Ready-Made Bots</a></li>
+              <li><a href="test-fxnod-bots-demo-virtual-account-guide.html">How to Test FXnod Bots on a Virtual (Demo) Account</a></li>
+              <li><a href="manage-multiple-deriv-accounts-fxnod-guide.html">How to Manage Multiple Deriv Accounts on FXnod</a></li>
+              <li><a href="what-is-fxnod-complete-beginners-guide.html">What is FXnod? The Complete Beginner's Guide</a></li>
+            </ul>
+          </div>
+
+          <!-- Bottom CTA -->
+          <div class="article-footer-cta">
+            <h3>Automate High-Probability Barrier Setups</h3>
+            <p>Deploy battle-tested Under 8 and Over 1 algorithms with built-in loss progression ceilings on Deriv.</p>
+            <a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">
+              Get Started with FXnod &rarr;
+            </a>
+          </div>
+
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <!-- ======================================================================
+       FOOTER COMPONENT
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="brand-logo">
+            <div class="brand-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+            <span>Trade Insight</span>
+          </a>
+          <p>
+            High-performance technical editorial and tactical research publication. We empower quantitative traders, risk teams, and modern web agencies with actionable market playbooks.
+          </p>
+          <span class="footer-digest-label">Weekly Tech & Trading Digest</span>
+          <form class="footer-mini-form" onsubmit="event.preventDefault(); showToast('Subscribed to Weekly Digest!');">
+            <input type="email" placeholder="Enter your business email" required aria-label="Business Email">
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+
+        <div class="footer-col">
+          <h4>Publication Areas</h4>
+          <ul>
+            <li><a href="../index.html#all">All Editorial Guides</a></li>
+            <li><a href="automated-trading-on-deriv.html">Deriv & Synthetic Indices</a></li>
+            <li><a href="how-to-choose-a-trading-bot.html">Automated Trading Bots</a></li>
+            <li><a href="what-is-automated-trading.html">Risk & Margin Management</a></li>
+            <li><a href="../index.html#seo">SEO & Growth Strategy</a></li>
+            <li><a href="../index.html#infra">Web Tech & Infrastructure</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-col-playbooks">
+          <h4>Popular Playbooks</h4>
+          <ul class="footer-playbooks-list">
+            <li><a href="rise-fall-trading-bots-volatility-indices-guide.html">Rise / Fall Bots on Volatility Indices</a></li>
+            <li><a href="over-under-trading-bots-strategy-guide-fxnod.html">Over / Under Trading Bots Strategy</a></li>
+            <li><a href="even-odd-trading-bots-strategy-guide-fxnod.html">Even / Odd Trading Bots Strategy</a></li>
+            <li><a href="matches-differs-bots-strategy-guide-fxnod.html">Matches &amp; Differs Bots Strategy</a></li>
+            <li><a href="inside-fxnod-autohub-bots-guide.html">Inside FXnod Auto Hub</a></li>
+          </ul>
+
+          <!-- Expandable archive list of remaining playbooks -->
+          <ul class="footer-playbooks-archive" id="footer-playbooks-archive" style="display: none;">
+            <li><a href="manage-multiple-deriv-accounts-fxnod-guide.html">Manage Multiple Deriv Accounts</a></li>
+            <li><a href="how-to-fix-deriv-session-expired-reconnect-fxnod.html">Fix Deriv Session Expired</a></li>
+            <li><a href="fxnod-wallet-deposits-transfers-subscriptions-guide.html">Managing the FXnod Wallet</a></li>
+            <li><a href="test-fxnod-bots-demo-virtual-account-guide.html">Test FXnod Bots on Demo Account</a></li>
+            <li><a href="how-to-connect-deriv-account-to-fxnod.html">How to Connect Deriv to FXnod</a></li>
+            <li><a href="is-fxnod-safe-legitimate-security-review.html">Is FXnod Safe & Legit?</a></li>
+            <li><a href="fxnod-dashboard-complete-walkthrough-guide.html">FXnod Dashboard Walkthrough</a></li>
+            <li><a href="automated-vs-manual-trading-deriv-discipline.html">Automated vs Manual Trading</a></li>
+            <li><a href="fxnod-mobile-app-trading-guide.html">FXnod Mobile App Guide</a></li>
+            <li><a href="how-to-create-setup-fxnod-account-guide.html">FXnod Account Setup Guide</a></li>
+            <li><a href="what-is-fxnod-complete-beginners-guide.html">What is FXnod? (Complete Guide)</a></li>
+            <li><a href="what-is-automated-trading.html">What Is Automated Trading?</a></li>
+            <li><a href="automated-trading-on-deriv.html">How to Start on Deriv</a></li>
+            <li><a href="how-to-choose-a-trading-bot.html">How to Choose a Trading Bot</a></li>
+            <li><a href="manage-risk-when-using-a-trading-bot.html">Managing Bot Risk</a></li>
+            <li><a href="why-is-my-trading-bot-not-working.html">Bot Troubleshooting Guide</a></li>
+            <li><a href="can-trading-bots-lose-money.html">Can Bots Lose Money? (Risks)</a></li>
+            <li><a href="what-is-risk-to-reward-ratio.html">Risk-to-Reward Ratio Guide</a></li>
+            <li><a href="https://fxnod.com/auth/register?ref=J306O7OW" target="_blank" rel="noopener noreferrer" data-ref-link>Explore FXnod Platform</a></li>
+            <li><a href="how-to-test-a-trading-bot.html">How to Test a Trading Bot</a></li>
+            <li><a href="how-trading-bots-connect-to-platforms.html">How Bots Connect to Platforms</a></li>
+            <li><a href="why-trading-bots-make-losing-trades.html">Why Bots Make Losing Trades</a></li>
+            <li><a href="manual-vs-automated-trading.html">Manual vs Automated Trading</a></li>
+            <li><a href="what-to-check-before-connecting-a-trading-bot.html">Pre-Connection Checks (Security)</a></li>
+            <li><a href="trading-bot-faqs.html">Trading Bot FAQs (15 Answers)</a></li>
+            <li><a href="how-to-start-learning-trading.html">How to Start Learning Trading</a></li>
+            <li><a href="how-to-read-candlestick-charts.html">How to Read Candlesticks</a></li>
+            <li><a href="how-to-identify-support-and-resistance.html">Support & Resistance Levels</a></li>
+            <li><a href="how-to-keep-a-trading-journal.html">How to Keep a Trading Journal</a></li>
+            <li><a href="how-to-control-emotions-while-trading.html">Controlling Trading Emotions</a></li>
+            <li><a href="forex-vs-synthetic-indices.html">Forex vs Synthetic Indices</a></li>
+            <li><a href="how-to-evaluate-a-trading-strategy.html">How to Evaluate a Strategy</a></li>
+            <li><a href="why-market-prices-go-up-and-down.html">Why Market Prices Move</a></li>
+            <li><a href="how-economic-news-affects-trading.html">Economic News & Trading</a></li>
+            <li><a href="best-trading-timeframe-for-beginners.html">Best Trading Timeframes</a></li>
+            <li><a href="what-is-a-breakout-in-trading.html">What Is a Breakout in Trading?</a></li>
+            <li><a href="how-moving-averages-work-in-trading.html">How Moving Averages Work</a></li>
+            <li><a href="what-is-rsi-indicator-in-trading.html">What Is the RSI Indicator?</a></li>
+            <li><a href="what-is-spread-in-trading.html">What Is Spread in Trading?</a></li>
+            <li><a href="how-to-calculate-position-size.html">Position Sizing Guide</a></li>
+            <li><a href="what-is-drawdown-in-trading.html">What Is Drawdown in Trading?</a></li>
+            <li><a href="is-high-win-rate-enough-to-be-profitable.html">Is a High Win Rate Enough?</a></li>
+          </ul>
+
+          <button type="button" class="footer-toggle-btn" id="footer-playbooks-toggle" aria-expanded="false">
+            <span>+ View All 46 Playbooks</span>
+          </button>
+        </div>
+
+        <div class="footer-col">
+          <h4>Compliance & Legal</h4>
+          <ul>
+            <li><a href="../index.html#editorial">Editorial Independence</a></li>
+            <li><a href="../index.html#risk-notice">Risk Disclosure Notice</a></li>
+            <li><a href="../index.html#terms">Terms of Service</a></li>
+            <li><a href="../index.html#privacy">Privacy Policy</a></li>
+            <li><a href="../index.html#cookies">Cookie Preferences</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 Trade Insight Editorial. All content is for educational and technical informational purposes only. Trading financial derivatives carries substantial risk.
+        </div>
+        <div>
+          Designed for Agency Quantitative Operations
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+</body>
+</html>
