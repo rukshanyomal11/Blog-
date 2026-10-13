@@ -6,6 +6,50 @@
 
 window.ARTICLES_DATA = [
   {
+    "id": 58,
+    "title": "How Much Can You Make with FXnod? Honest Profit Guide (2026)",
+    "slug": "blog/how-much-can-you-earn-with-fxnod-profit-guide.html",
+    "category": "fxnod",
+    "badgeText": "FXnod Guides",
+    "badgeColor": "rgba(240, 58, 39, 0.95)",
+    "image": "https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?auto=format&fit=crop&w=1200&q=80",
+    "excerpt": "Discover realistic profit expectations with FXnod. Learn the 1% to 3% daily target rule, real-world earning scenarios, and how disciplined compounding beats greed.",
+    "readTime": "8 min read • Oct 2026"
+  },
+  {
+    "id": 57,
+    "title": "How FXnod Delivers Cloud-Sync Updates & New Bots (2026 Guide)",
+    "slug": "blog/how-fxnod-delivers-cloud-sync-updates-bots.html",
+    "category": "fxnod",
+    "badgeText": "FXnod Guides",
+    "badgeColor": "rgba(240, 58, 39, 0.95)",
+    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
+    "excerpt": "Discover how FXnod delivers continuous cloud-sync updates and new Deriv trading bots. Zero manual downloads, automated updates, and seamless lifetime access.",
+    "readTime": "7 min read • Oct 2026"
+  },
+  {
+    "id": 56,
+    "title": "How to Apply Coupon Codes on FXnod: Checkout Guide (2026)",
+    "slug": "blog/how-to-apply-coupon-codes-fxnod.html",
+    "category": "fxnod",
+    "badgeText": "FXnod Guides",
+    "badgeColor": "rgba(240, 58, 39, 0.95)",
+    "image": "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=1200&q=80",
+    "excerpt": "Learn how to apply coupon codes and check out on FXnod. Step-by-step guide to saving on bot subscriptions with 15-minute quote locks and wallet checkout.",
+    "readTime": "7 min read • Oct 2026"
+  },
+  {
+    "id": 55,
+    "title": "FXnod Pricing Plans Explained: Monthly vs Lifetime (2026 Guide)",
+    "slug": "blog/fxnod-pricing-plans-subscription-tiers-guide.html",
+    "category": "fxnod",
+    "badgeText": "FXnod Guides",
+    "badgeColor": "rgba(240, 58, 39, 0.95)",
+    "image": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80",
+    "excerpt": "Compare FXnod pricing plans: 1-Month, 3-Month, 6-Month, and Lifetime Access. Discover the best value subscription tier for automated Deriv trading bots.",
+    "readTime": "8 min read • Oct 2026"
+  },
+  {
     "id": 54,
     "title": "Understanding FXnod Active Tools: How to Unlock & Manage (2026)",
     "slug": "blog/understanding-fxnod-active-tools-guide.html",
