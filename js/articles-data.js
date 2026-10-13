@@ -6,6 +6,17 @@
 
 window.ARTICLES_DATA = [
   {
+    "id": 31,
+    "title": "What is FXnod? The Complete Beginner’s Guide to Automated Deriv Trading",
+    "slug": "blog/what-is-fxnod-complete-beginners-guide.html",
+    "category": "fxnod",
+    "badgeText": "FXnod Guides",
+    "badgeColor": "rgba(240, 58, 39, 0.95)",
+    "image": "https://images.unsplash.com/photo-1642543492481-44e81e3914a7?auto=format&fit=crop&w=1200&q=80",
+    "excerpt": "Discover what FXnod is and how it automates Deriv trading. Learn about Auto Hub bots, Deriv API connection, risk controls, and how to start safely today.",
+    "readTime": "10 min read • Oct 2026"
+  },
+  {
     "id": 1,
     "title": "How to Start Automated Trading on Deriv: A Beginner’s Guide",
     "slug": "blog/automated-trading-on-deriv.html",
